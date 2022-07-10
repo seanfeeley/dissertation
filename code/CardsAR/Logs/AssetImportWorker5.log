@@ -1,0 +1,395 @@
+Unity Editor version:    2021.3.6f1 (7da38d85baf6)
+Branch:                  2021.3/staging
+Build type:              Release
+Batch mode:              YES
+macOS version:           Version 12.4 (Build 21F79)
+Darwin version:          21.5.0
+Architecture:            x86_64
+Running under Rosetta:   NO
+Available memory:        16384 MB
+Using pre-set license
+Pro License: YES
+
+COMMAND LINE ARGUMENTS:
+/Applications/Unity/Hub/Editor/2021.3.6f1/Unity.app/Contents/MacOS/Unity
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker5
+-projectPath
+/Users/seanfeeley/Masters/Dissertation/code/CardsAR
+-logFile
+Logs/AssetImportWorker5.log
+-srvPort
+50945
+Successfully changed project path to: /Users/seanfeeley/Masters/Dissertation/code/CardsAR
+/Users/seanfeeley/Masters/Dissertation/code/CardsAR
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Refreshing native plugins compatible for Editor in 201.84 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2021.3.6f1 (7da38d85baf6)
+[Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/2021.3.6f1/Unity.app/Contents/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path /Users/seanfeeley/Masters/Dissertation/code/CardsAR/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Color LCD preferred device: AMD Radeon Pro 5300M (high power)
+Metal devices available: 2
+0: AMD Radeon Pro 5300M (high power)
+1: Intel(R) UHD Graphics 630 (low power)
+Using device AMD Radeon Pro 5300M (high power)
+Initializing Metal device caps: AMD Radeon Pro 5300M
+Initialize mono
+Mono path[0] = '/Applications/Unity/Hub/Editor/2021.3.6f1/Unity.app/Contents/Managed'
+Mono path[1] = '/Applications/Unity/Hub/Editor/2021.3.6f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit-macos'
+Mono config path = '/Applications/Unity/Hub/Editor/2021.3.6f1/Unity.app/Contents/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56948
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /Applications/Unity/Hub/Editor/2021.3.6f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Register platform support module: /Applications/Unity/Hub/Editor/2021.3.6f1/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Register platform support module: /Applications/Unity/Hub/Editor/2021.3.6f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll
+Registered in 0.001114 seconds.
+[usbmuxd] Start listen thread
+[usbmuxd] Listen thread started
+[usbmuxd] Send listen message
+[usbmuxd] Attached: 3 00008101-001E7C6826E8001E
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 125.22 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.917 seconds
+Domain Reload Profiling:
+	ReloadAssembly (918ms)
+		BeginReloadAssembly (68ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (716ms)
+			LoadAssemblies (67ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (229ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (42ms)
+			SetupLoadedEditorAssemblies (366ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (90ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (125ms)
+				BeforeProcessingInitializeOnLoad (2ms)
+				ProcessInitializeOnLoadAttributes (100ms)
+				ProcessInitializeOnLoadMethodAttributes (49ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.007527 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image /Users/seanfeeley/Masters/Dissertation/code/CardsAR/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image /Users/seanfeeley/Masters/Dissertation/code/CardsAR/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 116.85 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Package Manager log level set to [2]
+#Niantic.ARDK.Internals.StartupSystems#: Could not load an ArdkAuthConfig, please add one in a Resources/ARDK/ directory. For more information, visit the niantic.dev/docs/authentication.html site.
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs:37)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+Niantic.ARDK.Utilities.Logging.UnityARLogHandler:Error (string) (at Assets/ARDK/Utilities/Logging/LogHandler/UnityARLogHandler.cs:41)
+Niantic.ARDK.Utilities.Logging.ARLog:_Error (string) (at Assets/ARDK/Utilities/Logging/ARLog.cs:198)
+Niantic.ARDK.Internals.StartupSystems:SetAuthenticationParameters () (at Assets/ARDK/Internals/StartupSystems.cs:124)
+Niantic.ARDK.Internals.StartupSystems:ManualStartup () (at Assets/ARDK/Internals/StartupSystems.cs:90)
+Niantic.ARDK.Internals.StartupSystems:EditorStartup () (at Assets/ARDK/Internals/StartupSystems.cs:48)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes () (at /Users/bokken/buildslave/unity/build/Editor/Mono/EditorAssemblies.cs:147)
+
+(Filename: Assets/ARDK/Utilities/Logging/LogHandler/UnityARLogHandler.cs Line: 41)
+
+#Niantic.ARDK.Internals.StartupSystems#: No API Key was found. Add it to an ArdkAuthConfig asset. For more information, visit the niantic.dev/docs/authentication.html site.
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs:37)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+Niantic.ARDK.Utilities.Logging.UnityARLogHandler:Error (string) (at Assets/ARDK/Utilities/Logging/LogHandler/UnityARLogHandler.cs:41)
+Niantic.ARDK.Utilities.Logging.ARLog:_Error (string) (at Assets/ARDK/Utilities/Logging/ARLog.cs:198)
+Niantic.ARDK.Internals.StartupSystems:SetAuthenticationParameters () (at Assets/ARDK/Internals/StartupSystems.cs:155)
+Niantic.ARDK.Internals.StartupSystems:ManualStartup () (at Assets/ARDK/Internals/StartupSystems.cs:90)
+Niantic.ARDK.Internals.StartupSystems:EditorStartup () (at Assets/ARDK/Internals/StartupSystems.cs:48)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes () (at /Users/bokken/buildslave/unity/build/Editor/Mono/EditorAssemblies.cs:147)
+
+(Filename: Assets/ARDK/Utilities/Logging/LogHandler/UnityARLogHandler.cs Line: 41)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  1.848 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1850ms)
+		BeginReloadAssembly (248ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (9ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (137ms)
+		EndReloadAssembly (1454ms)
+			LoadAssemblies (92ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (443ms)
+			ReleaseScriptCaches (5ms)
+			RebuildScriptCaches (87ms)
+			SetupLoadedEditorAssemblies (768ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (28ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (117ms)
+				BeforeProcessingInitializeOnLoad (114ms)
+				ProcessInitializeOnLoadAttributes (396ms)
+				ProcessInitializeOnLoadMethodAttributes (112ms)
+				AfterProcessingInitializeOnLoad (1ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (4ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launching external process: /Applications/Unity/Hub/Editor/2021.3.6f1/Unity.app/Contents/Tools/UnityShaderCompiler
+Launched and connected shader compiler UnityShaderCompiler after 0.07 seconds
+Refreshing native plugins compatible for Editor in 1.11 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5247 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 75 unused Assets / (196.4 KB). Loaded Objects now: 5686.
+Memory consumption went from 329.8 MB to 329.7 MB.
+Total: 4.992174 ms (FindLiveObjects: 0.440722 ms CreateObjectMapping: 0.360294 ms MarkObjects: 3.967104 ms  DeleteObjects: 0.223056 ms)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 0 unused Assets / (124.0 KB). Loaded Objects now: 5686.
+Memory consumption went from 329.6 MB to 329.5 MB.
+Total: 3.810706 ms (FindLiveObjects: 0.285531 ms CreateObjectMapping: 0.261685 ms MarkObjects: 3.251416 ms  DeleteObjects: 0.011320 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 20824.282523 seconds.
+  path: Assets/ARDK/Extensions/Meshing/Materials/MeshInvisible.mat
+  artifactKey: Guid(4d00d51d9ad64916abef2551d151e0ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ARDK/Extensions/Meshing/Materials/MeshInvisible.mat using Guid(4d00d51d9ad64916abef2551d151e0ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ebebc7c7106c9a5e7ed67e62418e3876') in 0.366341 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.299429 seconds.
+  path: Assets/Manomotion/Fonts/montserrat/Montserrat-LightItalic.otf
+  artifactKey: Guid(17f12e8e29882104ca2cd32891c661ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Manomotion/Fonts/montserrat/Montserrat-LightItalic.otf using Guid(17f12e8e29882104ca2cd32891c661ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd529106dbed8b7b15d55602ce57bc2a5') in 2.033888 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000076 seconds.
+  path: Assets/Manomotion/Fonts/montserrat/Montserrat-ExtraLightItalic.otf
+  artifactKey: Guid(7dd989af317b6af47908abdb979af9d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Manomotion/Fonts/montserrat/Montserrat-ExtraLightItalic.otf using Guid(7dd989af317b6af47908abdb979af9d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '096a1aba8863245c868834161a278c28') in 0.021457 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000075 seconds.
+  path: Assets/Manomotion/Fonts/montserrat/Montserrat-Light.otf
+  artifactKey: Guid(084bf6705c16ef84dae020bfba804fac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Manomotion/Fonts/montserrat/Montserrat-Light.otf using Guid(084bf6705c16ef84dae020bfba804fac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9047c47de7e81a49e064c85315a9e91a') in 0.021374 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000062 seconds.
+  path: Assets/Manomotion/Fonts/montserrat/Montserrat-SemiBold.otf
+  artifactKey: Guid(999ade809b0527844941d305c2719b78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Manomotion/Fonts/montserrat/Montserrat-SemiBold.otf using Guid(999ade809b0527844941d305c2719b78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3b50f415ac0b2de3620b15feb85dd20b') in 0.019402 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000088 seconds.
+  path: Assets/Manomotion/Fonts/montserrat/Montserrat-ThinItalic.otf
+  artifactKey: Guid(c7f6eb9208ed2fe4f90f470c4ee3dc8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Manomotion/Fonts/montserrat/Montserrat-ThinItalic.otf using Guid(c7f6eb9208ed2fe4f90f470c4ee3dc8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b5d4a9fc5505568a6f5334321a5ac401') in 0.019245 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.466094 seconds.
+  path: Assets/Manomotion/Fonts/montserrat/Montserrat-BoldItalic.otf
+  artifactKey: Guid(8f3a88e3e0e35c4419e9556db357edbe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Manomotion/Fonts/montserrat/Montserrat-BoldItalic.otf using Guid(8f3a88e3e0e35c4419e9556db357edbe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '78299f06bbea6fe32777393140f6390e') in 0.021253 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.007873 seconds.
+  path: Assets/Manomotion/Fonts/montserrat/Montserrat-Bold.otf
+  artifactKey: Guid(2938d754028135142943f8a39cbfc0d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Manomotion/Fonts/montserrat/Montserrat-Bold.otf using Guid(2938d754028135142943f8a39cbfc0d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '64c22fe06dbe5c9251c81b7c26e8bda7') in 0.021715 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.021422 seconds.
+  path: Assets/Manomotion/Fonts/Ignis/Ignis et Glacies Sharp.ttf
+  artifactKey: Guid(cc91cc89e7ff74cdd8e662d1783c96fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Manomotion/Fonts/Ignis/Ignis et Glacies Sharp.ttf using Guid(cc91cc89e7ff74cdd8e662d1783c96fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '17a88a73f46742f2a34eb4cfd3364d56') in 0.842324 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000100 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Electronic Highway Sign SDF.asset
+  artifactKey: Guid(dc36b3fdc14f47ebb36fd484a67e268a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Electronic Highway Sign SDF.asset using Guid(dc36b3fdc14f47ebb36fd484a67e268a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff29992b12be2318bb6b27f5118b7a8a') in 0.150369 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000116 seconds.
+  path: Assets/Manomotion/Fonts/montserrat/MontserratAlternates-SemiBoldItalic.otf
+  artifactKey: Guid(0a9c9d7dd2e88844db61b67b5d414617) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Manomotion/Fonts/montserrat/MontserratAlternates-SemiBoldItalic.otf using Guid(0a9c9d7dd2e88844db61b67b5d414617) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '878b2cc8b4595506db183b7f04bdb6f7') in 0.021145 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000079 seconds.
+  path: Assets/Manomotion/Fonts/montserrat/MontserratAlternates-ExtraBold.otf
+  artifactKey: Guid(9bc47136bd580cd46b50d913902a8c74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Manomotion/Fonts/montserrat/MontserratAlternates-ExtraBold.otf using Guid(9bc47136bd580cd46b50d913902a8c74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8fc835f5991a17429aa367e4b4d3f8d6') in 0.019823 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000080 seconds.
+  path: Assets/Manomotion/Fonts/montserrat/MontserratAlternates-SemiBold.otf
+  artifactKey: Guid(b1b0018a4750fba44bd4b43236860c9a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Manomotion/Fonts/montserrat/MontserratAlternates-SemiBold.otf using Guid(b1b0018a4750fba44bd4b43236860c9a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f6138d199ee9aba755978ea48b83f380') in 0.022932 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000073 seconds.
+  path: Assets/Manomotion/Fonts/montserrat/MontserratAlternates-ExtraBoldItalic.otf
+  artifactKey: Guid(99fe4e71ad41bf54398d47b25975febf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Manomotion/Fonts/montserrat/MontserratAlternates-ExtraBoldItalic.otf using Guid(99fe4e71ad41bf54398d47b25975febf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f63a60a202762a314a649b446337af7') in 0.020109 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000106 seconds.
+  path: Assets/Manomotion/Fonts/montserrat/MontserratAlternates-MediumItalic.otf
+  artifactKey: Guid(327004d383ca9334f8b110d8308bb006) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Manomotion/Fonts/montserrat/MontserratAlternates-MediumItalic.otf using Guid(327004d383ca9334f8b110d8308bb006) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd454f9b9c2840a6e4bb0b747c97eaaa2') in 0.020963 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000071 seconds.
+  path: Assets/Manomotion/Fonts/montserrat/MontserratAlternates-ThinItalic.otf
+  artifactKey: Guid(77f2a85122658db44bf877ac9feb3365) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Manomotion/Fonts/montserrat/MontserratAlternates-ThinItalic.otf using Guid(77f2a85122658db44bf877ac9feb3365) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8e6979692dbac9da616ea0b6ffd0f5c7') in 0.021017 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000082 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Anton SDF - Sunny Days.mat
+  artifactKey: Guid(6522f30e342599e4e9dd4cc2cc03c830) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Anton SDF - Sunny Days.mat using Guid(6522f30e342599e4e9dd4cc2cc03c830) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '188040df934d1cbc2313d5b46042492a') in 0.318801 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000090 seconds.
+  path: Assets/Manomotion/Fonts/sofiapro/Fonts/Sofia Pro Bold.ttf
+  artifactKey: Guid(8c745acc403576d4baa7245d57d9b3e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Manomotion/Fonts/sofiapro/Fonts/Sofia Pro Bold.ttf using Guid(8c745acc403576d4baa7245d57d9b3e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '326f2f43a6cf089439c6564f6414e716') in 0.032353 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000056 seconds.
+  path: Assets/ManoMotion ARFoundation/Examples/Inetraction/Materials/Blue_MAT.mat
+  artifactKey: Guid(715c9849a0c7d874394224f6e4bbed90) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ManoMotion ARFoundation/Examples/Inetraction/Materials/Blue_MAT.mat using Guid(715c9849a0c7d874394224f6e4bbed90) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ec2cf3db95cebbe40fc861775c0d5d1e') in 0.067620 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000089 seconds.
+  path: Assets/Manomotion/Fonts/montserrat/MontserratAlternates-BoldItalic.otf
+  artifactKey: Guid(4ae4f109361d57a4d82681f852c1dc67) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Manomotion/Fonts/montserrat/MontserratAlternates-BoldItalic.otf using Guid(4ae4f109361d57a4d82681f852c1dc67) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '02719cf395f63d5019e75a86bfd8e446') in 0.019286 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000095 seconds.
+  path: Assets/Manomotion/Fonts/montserrat/MontserratAlternates-Light.otf
+  artifactKey: Guid(501a818ea079bfe4e9d95ade8be3ba80) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Manomotion/Fonts/montserrat/MontserratAlternates-Light.otf using Guid(501a818ea079bfe4e9d95ade8be3ba80) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6484819e46cfb500fd13fd77fedacebe') in 0.018672 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000111 seconds.
+  path: Assets/Manomotion/Fonts/montserrat/MontserratAlternates-ExtraLight.otf
+  artifactKey: Guid(ac8545a1d3aea794e9329b8ba84dac3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Manomotion/Fonts/montserrat/MontserratAlternates-ExtraLight.otf using Guid(ac8545a1d3aea794e9329b8ba84dac3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fd41f9516e448c32d6b6146f1ee4c48c') in 0.018670 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000064 seconds.
+  path: Assets/Manomotion/Materials/FingerInfoYellow.mat
+  artifactKey: Guid(e417d5c281187994d821cd158f93ba71) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Manomotion/Materials/FingerInfoYellow.mat using Guid(e417d5c281187994d821cd158f93ba71) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '934546f5576e1c25a82f813df4cb0a2b') in 0.011055 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000082 seconds.
+  path: Assets/Manomotion/Fonts/montserrat/MontserratAlternates-Black.otf
+  artifactKey: Guid(921127f36e4eb13418c059f5daf2bd7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Manomotion/Fonts/montserrat/MontserratAlternates-Black.otf using Guid(921127f36e4eb13418c059f5daf2bd7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c5f78529371005f61c602460ee151900') in 0.020070 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000102 seconds.
+  path: Assets/Manomotion/Fonts/montserrat/MontserratAlternates-Bold.otf
+  artifactKey: Guid(f7faf13192c48494fb736796ac9563b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Manomotion/Fonts/montserrat/MontserratAlternates-Bold.otf using Guid(f7faf13192c48494fb736796ac9563b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '185753ec67fa15a4b35d7eb88a7db01f') in 0.018547 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000079 seconds.
+  path: Assets/Manomotion/Fonts/montserrat/MontserratAlternates-ExtraLightItalic.otf
+  artifactKey: Guid(f687308a201d03046bddc1bde6c9a77e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Manomotion/Fonts/montserrat/MontserratAlternates-ExtraLightItalic.otf using Guid(f687308a201d03046bddc1bde6c9a77e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '36681046b10182a3bea1d4f4601ef822') in 0.019611 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+E: 22-07-10 16:21:32 [7948]dangling 'PAIR' socket created at src/zsys.c:492
+E: 22-07-10 16:21:32 [7948]dangling 'PAIR' socket created at src/zsys.c:493
+Assertion failed: (rc == 0 || zmq_errno () == ETERM), function zsock_set_sndtimeo, file ./src/zsock_option.inc, line 3283.
+Obtained 8 stack frames.
+Thread 0x700009e77000 may have been prematurely finalized
+#0  0x007ff801ae500e in __pthread_kill
+Thread 0x700009e77000 may have been prematurely finalized
+#1  0x007ff801a66d24 in abort
+Thread 0x700009e77000 may have been prematurely finalized
+#2  0x007ff801a660cb in err
+Thread 0x700009e77000 may have been prematurely finalized
+#3  0x000001670c0a23 in std::__1::basic_string<wchar_t, std::__1::char_traits<wchar_t>, std::__1::allocator<wchar_t> > fmt::v6::internal::vformat<wchar_t>(fmt::v6::basic_string_view<wchar_t>, fmt::v6::basic_format_args<fmt::v6::basic_format_context<std::__1::back_insert_iterator<fmt::v6::internal::buffer<wchar_t> >, wchar_t> >)
+Thread 0x700009e77000 may have been prematurely finalized
+#4  0x0000016690d355 in zsock_set_sndtimeo
+Thread 0x700009e77000 may have been prematurely finalized
+#5  0x000001668ee478 in zactor_new
+Thread 0x700009e77000 may have been prematurely finalized
+#6  0x007ff801b1b4e1 in _pthread_start
+Thread 0x700009e77000 may have been prematurely finalized
+#7  0x007ff801b16f6b in thread_start
+Assertion failed: (rc == 0 || zmq_errno () == ETERM), function zsock_set_sndtimeo, file ./src/zsock_option.inc, line 3283.
