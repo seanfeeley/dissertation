@@ -3,16 +3,19 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - BlueGoal
+  - RedGoal
+  - TablePlacer
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Tabletop
   - Water
   - UI
-  - 
-  - 
+  - ARDK_MockWorld
+  - Floor
   - 
   - 
   - 

@@ -1,0 +1,55 @@
+﻿<Properties StartupConfiguration="{00BE2B06-77C0-05A0-1DB0-2EA5BDC676F1}|">
+  <MonoDevelop.Ide.ItemProperties.ARDK PreferredExecutionTarget="0e40a1af-355e-4f26-b884-66db559993c5" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Cursor.cs">
+    <Files>
+      <File FileName="Assets/EnvironmentManager.cs" Line="43" Column="13" />
+      <File FileName="Assets/Scripts/Cursor.cs" Line="31" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="CardsAR" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Niantic" expanded="True">
+                <Node name="ARDK" expanded="True">
+                  <Node name="Extensions" expanded="True">
+                    <Node name="Planefinding" expanded="True" />
+                  </Node>
+                  <Node name="Networking" expanded="True">
+                    <Node name="HLAPI" expanded="True">
+                      <Node name="Object" expanded="True">
+                        <Node name="Unity" expanded="True" />
+                      </Node>
+                    </Node>
+                  </Node>
+                  <Node name="VirtualStudio" expanded="True">
+                    <Node name="AR" expanded="True">
+                      <Node name="SceneComponents" expanded="True" />
+                    </Node>
+                  </Node>
+                </Node>
+                <Node name="ARDKExamples" expanded="True">
+                  <Node name="Common" expanded="True">
+                    <Node name="Helpers" expanded="True">
+                      <Node name="AR" expanded="True" />
+                    </Node>
+                  </Node>
+                  <Node name="PlaneAnchors" expanded="True" />
+                </Node>
+              </Node>
+              <Node name="Scripts" expanded="True">
+                <Node name="Cursor.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

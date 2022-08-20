@@ -1,0 +1,424 @@
+Unity Editor version:    2021.3.6f1 (7da38d85baf6)
+Branch:                  2021.3/staging
+Build type:              Release
+Batch mode:              YES
+macOS version:           Version 12.4 (Build 21F79)
+Darwin version:          21.5.0
+Architecture:            x86_64
+Running under Rosetta:   NO
+Available memory:        16384 MB
+Using pre-set license
+Pro License: YES
+
+COMMAND LINE ARGUMENTS:
+/Applications/Unity/Hub/Editor/2021.3.6f1/Unity.app/Contents/MacOS/Unity
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker5
+-projectPath
+/Users/seanfeeley/Masters/Dissertation/code/CardsAR
+-logFile
+Logs/AssetImportWorker5.log
+-srvPort
+56891
+Successfully changed project path to: /Users/seanfeeley/Masters/Dissertation/code/CardsAR
+/Users/seanfeeley/Masters/Dissertation/code/CardsAR
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Refreshing native plugins compatible for Editor in 173.27 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2021.3.6f1 (7da38d85baf6)
+[Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/2021.3.6f1/Unity.app/Contents/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path /Users/seanfeeley/Masters/Dissertation/code/CardsAR/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Color LCD preferred device: AMD Radeon Pro 5300M (high power)
+Metal devices available: 2
+0: AMD Radeon Pro 5300M (high power)
+1: Intel(R) UHD Graphics 630 (low power)
+Using device AMD Radeon Pro 5300M (high power)
+Initializing Metal device caps: AMD Radeon Pro 5300M
+Initialize mono
+Mono path[0] = '/Applications/Unity/Hub/Editor/2021.3.6f1/Unity.app/Contents/Managed'
+Mono path[1] = '/Applications/Unity/Hub/Editor/2021.3.6f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit-macos'
+Mono config path = '/Applications/Unity/Hub/Editor/2021.3.6f1/Unity.app/Contents/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56411
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /Applications/Unity/Hub/Editor/2021.3.6f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Register platform support module: /Applications/Unity/Hub/Editor/2021.3.6f1/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Register platform support module: /Applications/Unity/Hub/Editor/2021.3.6f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll
+Registered in 0.002184 seconds.
+[usbmuxd] Start listen thread
+[usbmuxd] Listen thread started
+[usbmuxd] Send listen message
+[usbmuxd] Attached: 14 00008101-001E7C6826E8001E
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 141.42 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.061 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1061ms)
+		BeginReloadAssembly (80ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (792ms)
+			LoadAssemblies (80ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (187ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (50ms)
+			SetupLoadedEditorAssemblies (485ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (125ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (141ms)
+				BeforeProcessingInitializeOnLoad (2ms)
+				ProcessInitializeOnLoadAttributes (146ms)
+				ProcessInitializeOnLoadMethodAttributes (69ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.003642 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image /Users/seanfeeley/Masters/Dissertation/code/CardsAR/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image /Users/seanfeeley/Masters/Dissertation/code/CardsAR/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 1.57 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+Package Manager log level set to [2]
+- Completed reload, in  2.384 seconds
+Domain Reload Profiling:
+	ReloadAssembly (2386ms)
+		BeginReloadAssembly (261ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (10ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (139ms)
+		EndReloadAssembly (1938ms)
+			LoadAssemblies (95ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (433ms)
+			ReleaseScriptCaches (6ms)
+			RebuildScriptCaches (99ms)
+			SetupLoadedEditorAssemblies (1200ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (40ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (125ms)
+				ProcessInitializeOnLoadAttributes (409ms)
+				ProcessInitializeOnLoadMethodAttributes (621ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launching external process: /Applications/Unity/Hub/Editor/2021.3.6f1/Unity.app/Contents/Tools/UnityShaderCompiler
+Launched and connected shader compiler UnityShaderCompiler after 0.15 seconds
+Refreshing native plugins compatible for Editor in 1.12 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4174 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 64 unused Assets / (159.6 KB). Loaded Objects now: 4601.
+Memory consumption went from 261.2 MB to 261.1 MB.
+Total: 5.099335 ms (FindLiveObjects: 0.354898 ms CreateObjectMapping: 0.321625 ms MarkObjects: 4.132761 ms  DeleteObjects: 0.288828 ms)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 0 unused Assets / (30.3 KB). Loaded Objects now: 4601.
+Memory consumption went from 261.0 MB to 260.9 MB.
+Total: 4.703275 ms (FindLiveObjects: 0.454334 ms CreateObjectMapping: 0.372966 ms MarkObjects: 3.859089 ms  DeleteObjects: 0.015767 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 202223.881181 seconds.
+  path: Assets/Niantic/ARDKExamples/Pong/Prefabs/ConnectedIndicatorImage.prefab
+  artifactKey: Guid(7dc902ee5027649ecbc543afc4230504) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Niantic/ARDKExamples/Pong/Prefabs/ConnectedIndicatorImage.prefab using Guid(7dc902ee5027649ecbc543afc4230504) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd907ab7b08e8249ad7eec8d671d025d2') in 0.223029 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000519 seconds.
+  path: Assets/Niantic/ARDKExamples/Common/Prefabs/CubeBlue.prefab
+  artifactKey: Guid(a5a90e4ee8f7647c4a0f2f394f2fda71) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Niantic/ARDKExamples/Common/Prefabs/CubeBlue.prefab using Guid(a5a90e4ee8f7647c4a0f2f394f2fda71) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '85b65b5f406d0488a5d8c2de6c480d4a') in 0.304283 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.014671 seconds.
+  path: Assets/Niantic/LightshipHUBMockEnviroments/ExteriorScene.prefab
+  artifactKey: Guid(6fb6005636b7a4b909e017cc98a36de6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Niantic/LightshipHUBMockEnviroments/ExteriorScene.prefab using Guid(6fb6005636b7a4b909e017cc98a36de6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4b6633c6f60d8a4740d98afe1a58338d') in 2.363481 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000208 seconds.
+  path: Assets/Unity Store/Playing Cards/Motion/m01@m01_trump_throw02.fbx
+  artifactKey: Guid(de0f9ccfe9bb6e941b912c3562be7325) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity Store/Playing Cards/Motion/m01@m01_trump_throw02.fbx using Guid(de0f9ccfe9bb6e941b912c3562be7325) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6ba1820da8a67057fcc89a5df308b83a') in 0.131518 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000100 seconds.
+  path: Assets/Unity Store/Playing Cards/Motion/f01@f01_trump_throw_02.fbx
+  artifactKey: Guid(29359d2af0864564988ea1268cf6a2de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity Store/Playing Cards/Motion/f01@f01_trump_throw_02.fbx using Guid(29359d2af0864564988ea1268cf6a2de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7afa766cd890de7cf9d6e9ed34f2e454') in 0.018346 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000077 seconds.
+  path: Assets/Unity Store/Playing Cards/Resource/Model/LittleDeck_00.fbx
+  artifactKey: Guid(2cc4dde4d2f01d3418f181dce0fc9925) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity Store/Playing Cards/Resource/Model/LittleDeck_00.fbx using Guid(2cc4dde4d2f01d3418f181dce0fc9925) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '25bf620972b41668868027aad97dd721') in 0.106081 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000083 seconds.
+  path: Assets/Unity Store/Playing Cards/Motion/f01@f01_trump_throw_01.fbx
+  artifactKey: Guid(40f38bec2e177b24bb40c65aaec85bfb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity Store/Playing Cards/Motion/f01@f01_trump_throw_01.fbx using Guid(40f38bec2e177b24bb40c65aaec85bfb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bd1d129665a97ecaea79818c6778e365') in 0.016724 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000132 seconds.
+  path: Assets/Niantic/ARDKExamples/ContextAwareness/Meshing/MeshLoader.prefab
+  artifactKey: Guid(dfb2a6adcae7042cab34590cd4290185) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Niantic/ARDKExamples/ContextAwareness/Meshing/MeshLoader.prefab using Guid(dfb2a6adcae7042cab34590cd4290185) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dc0c5f765d099491436ad2c3f972c4ee') in 0.005636 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000101 seconds.
+  path: Assets/Niantic/ARDKExamples/Common/Prefabs/MsgText.prefab
+  artifactKey: Guid(b9adea07271a24844898c7b8c863217a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Niantic/ARDKExamples/Common/Prefabs/MsgText.prefab using Guid(b9adea07271a24844898c7b8c863217a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e0e1f7a679362b8c04a1129818a487d') in 0.010192 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000103 seconds.
+  path: Assets/Niantic/LightshipHUB/Runtime/Prefabs/MaskedObjectsHolder.prefab
+  artifactKey: Guid(d67a8ea3dfe644766ab9ae7c6f99bb33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Niantic/LightshipHUB/Runtime/Prefabs/MaskedObjectsHolder.prefab using Guid(d67a8ea3dfe644766ab9ae7c6f99bb33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'adb860d7a1c72d7ef3e67db5b904f6bd') in 0.076066 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000057 seconds.
+  path: Assets/Unity Store/Playing Cards/Motion/f01@f01_trump_throw_ntr.fbx
+  artifactKey: Guid(5ac68da89a5e0204aaac406fef0125c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity Store/Playing Cards/Motion/f01@f01_trump_throw_ntr.fbx using Guid(5ac68da89a5e0204aaac406fef0125c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5ff0540a3cd1af6c1282f894036d84e9') in 0.020869 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000112 seconds.
+  path: Assets/Unity Store/Playing Cards/Resource/Model/ManyDeck_00.fbx
+  artifactKey: Guid(94a16f52c70b67741b43efbbbc10a872) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity Store/Playing Cards/Resource/Model/ManyDeck_00.fbx using Guid(94a16f52c70b67741b43efbbbc10a872) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bb4fc69c1103f54911787b9eb986adaa') in 0.027847 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000073 seconds.
+  path: Assets/Unity Store/Playing Cards/Motion/f01@f01_trump_ntr.fbx
+  artifactKey: Guid(e579599735d42774cbbb5e40bf422aa7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity Store/Playing Cards/Motion/f01@f01_trump_ntr.fbx using Guid(e579599735d42774cbbb5e40bf422aa7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '22852fb523e95bd368c3d1bd123b12e8') in 0.026018 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000087 seconds.
+  path: Assets/Unity Store/Playing Cards/Motion/m01@m01_trump_ntr.fbx
+  artifactKey: Guid(f47c18244e93bf14f87c9937afe911f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity Store/Playing Cards/Motion/m01@m01_trump_ntr.fbx using Guid(f47c18244e93bf14f87c9937afe911f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1678b854243a42afe9bfed73a32f70df') in 0.023421 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000061 seconds.
+  path: Assets/Niantic/ARDKExamples/Common/Logging/LogEntry.prefab
+  artifactKey: Guid(728f0293d5062462bbdb3c51cdba5d35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Niantic/ARDKExamples/Common/Logging/LogEntry.prefab using Guid(728f0293d5062462bbdb3c51cdba5d35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '49487ebd8aa5c58cfa82b4c9f0647483') in 0.005630 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.423029 seconds.
+  path: Assets/Unity Store/Playing Cards/Resource/Prefab/BackColor_Red/Red_PlayingCards_Spade07_00.prefab
+  artifactKey: Guid(30adbc24963e2c64ba5d5c8b258864dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity Store/Playing Cards/Resource/Prefab/BackColor_Red/Red_PlayingCards_Spade07_00.prefab using Guid(30adbc24963e2c64ba5d5c8b258864dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6c09635e28a616e63730f492d4cc164d') in 0.018036 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000065 seconds.
+  path: Assets/Unity Store/Playing Cards/Resource/Prefab/BackColor_Red/Red_PlayingCards_Spade13_00.prefab
+  artifactKey: Guid(73f9fbaa0ed147a4598cfb2bbe05f2f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity Store/Playing Cards/Resource/Prefab/BackColor_Red/Red_PlayingCards_Spade13_00.prefab using Guid(73f9fbaa0ed147a4598cfb2bbe05f2f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5080b93e77e55827a6d57d643e0f9351') in 0.017934 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000112 seconds.
+  path: Assets/Niantic/ARDKExamples/Common/Helpers/Networking/SyncStatusDisplay.prefab
+  artifactKey: Guid(def2b0297918e4d19b2f3fc8592159d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Niantic/ARDKExamples/Common/Helpers/Networking/SyncStatusDisplay.prefab using Guid(def2b0297918e4d19b2f3fc8592159d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2ef25caff16a4c3e575305ef189b9886') in 0.011850 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003637 seconds.
+Begin MonoManager ReloadAssembly
+[10:10:38.015642 +01:00] [---I---] [actor.cpp] [thread 2686228] Actor already shutdown.
+[10:10:38.015769 +01:00] [---I---] [actor.cpp] [thread 2686228] Actor already shutdown.
+Symbol file LoadedFromMemory doesn't match image /Users/seanfeeley/Masters/Dissertation/code/CardsAR/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image /Users/seanfeeley/Masters/Dissertation/code/CardsAR/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 1.03 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+#Niantic.ARDK.Internals.StartupSystems#: Could not load an ArdkAuthConfig, please add one in a Resources/ARDK/ directory. For more information, visit the niantic.dev/docs/authentication.html site.
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs:37)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+Niantic.ARDK.Utilities.Logging.UnityARLogHandler:Error (string) (at Assets/Niantic/ARDK/Utilities/Logging/LogHandler/UnityARLogHandler.cs:41)
+Niantic.ARDK.Utilities.Logging.ARLog:_Error (string) (at Assets/Niantic/ARDK/Utilities/Logging/ARLog.cs:198)
+Niantic.ARDK.Internals.StartupSystems:SetAuthenticationParameters () (at Assets/Niantic/ARDK/Internals/StartupSystems.cs:124)
+Niantic.ARDK.Internals.StartupSystems:ManualStartup () (at Assets/Niantic/ARDK/Internals/StartupSystems.cs:90)
+Niantic.ARDK.Internals.StartupSystems:EditorStartup () (at Assets/Niantic/ARDK/Internals/StartupSystems.cs:48)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes () (at /Users/bokken/buildslave/unity/build/Editor/Mono/EditorAssemblies.cs:147)
+
+(Filename: Assets/Niantic/ARDK/Utilities/Logging/LogHandler/UnityARLogHandler.cs Line: 41)
+
+#Niantic.ARDK.Internals.StartupSystems#: No API Key was found. Add it to an ArdkAuthConfig asset. For more information, visit the niantic.dev/docs/authentication.html site.
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs:37)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+Niantic.ARDK.Utilities.Logging.UnityARLogHandler:Error (string) (at Assets/Niantic/ARDK/Utilities/Logging/LogHandler/UnityARLogHandler.cs:41)
+Niantic.ARDK.Utilities.Logging.ARLog:_Error (string) (at Assets/Niantic/ARDK/Utilities/Logging/ARLog.cs:198)
+Niantic.ARDK.Internals.StartupSystems:SetAuthenticationParameters () (at Assets/Niantic/ARDK/Internals/StartupSystems.cs:155)
+Niantic.ARDK.Internals.StartupSystems:ManualStartup () (at Assets/Niantic/ARDK/Internals/StartupSystems.cs:90)
+Niantic.ARDK.Internals.StartupSystems:EditorStartup () (at Assets/Niantic/ARDK/Internals/StartupSystems.cs:48)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes () (at /Users/bokken/buildslave/unity/build/Editor/Mono/EditorAssemblies.cs:147)
+
+(Filename: Assets/Niantic/ARDK/Utilities/Logging/LogHandler/UnityARLogHandler.cs Line: 41)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  1.330 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1331ms)
+		BeginReloadAssembly (151ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (7ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (65ms)
+		EndReloadAssembly (1058ms)
+			LoadAssemblies (76ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (357ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (62ms)
+			SetupLoadedEditorAssemblies (480ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (39ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (69ms)
+				ProcessInitializeOnLoadAttributes (265ms)
+				ProcessInitializeOnLoadMethodAttributes (103ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 3.43 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4150 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 59 unused Assets / (138.5 KB). Loaded Objects now: 4646.
+Memory consumption went from 308.4 MB to 308.3 MB.
+Total: 4.658552 ms (FindLiveObjects: 0.359591 ms CreateObjectMapping: 0.307545 ms MarkObjects: 3.823908 ms  DeleteObjects: 0.166349 ms)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 0 unused Assets / (29.6 KB). Loaded Objects now: 4646.
+Memory consumption went from 308.1 MB to 308.1 MB.
+Total: 4.017624 ms (FindLiveObjects: 0.329439 ms CreateObjectMapping: 0.248714 ms MarkObjects: 3.424276 ms  DeleteObjects: 0.014480 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+E: 22-08-20 10:11:13 [40411]dangling 'PAIR' socket created at src/zsys.c:492
+E: 22-08-20 10:11:13 [40411]dangling 'PAIR' socket created at src/zsys.c:493
+Assertion failed: (rc == 0 || zmq_errno () == ETERM), function zsock_set_sndtimeo, file ./src/zsock_option.inc, line 3283.
+Obtained 8 stack frames.
+Thread 0x700002540000 may have been prematurely finalized
+#0  0x007ff81d65f00e in __pthread_kill
+Thread 0x700002540000 may have been prematurely finalized
+Assertion failed: (rc == 0 || zmq_errno () == ETERM), function zsock_set_sndtimeo, file ./src/zsock_option.inc, line 3283.
+#1  0x007ff81d5e0d24 in abort
+Thread 0x700002540000 may have been prematurely finalized
+#2  0x007ff81d5e00cb in err
+Thread 0x700002540000 may have been prematurely finalized
+#3  0x0000015886ea23 in std::__1::basic_string<wchar_t, std::__1::char_traits<wchar_t>, std::__1::allocator<wchar_t> > fmt::v6::internal::vformat<wchar_t>(fmt::v6::basic_string_view<wchar_t>, fmt::v6::basic_format_args<fmt::v6::basic_format_context<std::__1::back_insert_iterator<fmt::v6::internal::buffer<wchar_t> >, wchar_t> >)
+Thread 0x700002540000 may have been prematurely finalized
+#4  0x000001580bb355 in zsock_set_sndtimeo
+Thread 0x700002540000 may have been prematurely finalized
+#5  0x0000015809c478 in zactor_new
+Thread 0x700002540000 may have been prematurely finalized
+#6  0x007ff81d6954e1 in _pthread_start
+Thread 0x700002540000 may have been prematurely finalized
+#7  0x007ff81d690f6b in thread_start
+Obtained 29 stack frames.
+#0  0x007ff81d65f00e in __pthread_kill
+#1  0x007ff81d5e0d24 in abort
+#2  0x007ff81d5e00cb in err
+#3  0x0000015886ea23 in std::__1::basic_string<wchar_t, std::__1::char_traits<wchar_t>, std::__1::allocator<wchar_t> > fmt::v6::internal::vformat<wchar_t>(fmt::v6::basic_string_view<wchar_t>, fmt::v6::basic_format_args<fmt::v6::basic_format_context<std::__1::back_insert_iterator<fmt::v6::internal::buffer<wchar_t> >, wchar_t> >)
+#4  0x000001580bb355 in zsock_set_sndtimeo
+#5  0x0000015809c4e6 in zactor_destroy
+#6  0x000001580074bd in _ROR_GET_RESOURCE_MANAGER
+#7  0x000001579641e6 in _NARSystemBase_Set_didAddTelemetryCallback
+#8  0x00000157963ea7 in _NARSystemBase_Set_didAddTelemetryCallback
+#9  0x007ff81d58dde4 in __cxa_finalize_ranges
+#10 0x007ff81d58dbfe in exit
