@@ -3,3 +3,5 @@ code/CardsAR/Library
 code/CardsAR/Build
 .DS_Store
 words/.DS_Store
+*log.txt
+*.log
