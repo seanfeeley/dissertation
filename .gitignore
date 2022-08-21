@@ -5,3 +5,5 @@ code/CardsAR/Build
 words/.DS_Store
 *log.txt
 *.log
+*.log
+*.txt
