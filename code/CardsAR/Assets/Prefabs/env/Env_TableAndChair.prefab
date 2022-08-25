@@ -376,7 +376,7 @@ GameObject:
   - component: {fileID: 6863366404026895983}
   - component: {fileID: 6863366404026895980}
   m_Layer: 0
-  m_Name: table_and_chair
+  m_Name: Env_TableAndChair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

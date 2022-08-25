@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3529122475239645808}
   m_Layer: 0
-  m_Name: TablePlacer
+  m_Name: Env_TablePlacer
   m_TagString: TablePlacer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

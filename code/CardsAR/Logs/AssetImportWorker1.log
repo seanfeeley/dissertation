@@ -22,7 +22,7 @@ AssetImportWorker1
 -logFile
 Logs/AssetImportWorker1.log
 -srvPort
-49483
+56548
 Successfully changed project path to: /Users/seanfeeley/Masters/Dissertation/code/CardsAR
 /Users/seanfeeley/Masters/Dissertation/code/CardsAR
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -54,7 +54,7 @@ Successfully changed project path to: /Users/seanfeeley/Masters/Dissertation/cod
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 156.45 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 155.98 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.6f1 (7da38d85baf6)
 [Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/2021.3.6f1/Unity.app/Contents/Resources/UnitySubsystems
@@ -70,105 +70,105 @@ Initialize mono
 Mono path[0] = '/Applications/Unity/Hub/Editor/2021.3.6f1/Unity.app/Contents/Managed'
 Mono path[1] = '/Applications/Unity/Hub/Editor/2021.3.6f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit-macos'
 Mono config path = '/Applications/Unity/Hub/Editor/2021.3.6f1/Unity.app/Contents/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56360
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56305
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: /Applications/Unity/Hub/Editor/2021.3.6f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
 Register platform support module: /Applications/Unity/Hub/Editor/2021.3.6f1/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
 Register platform support module: /Applications/Unity/Hub/Editor/2021.3.6f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll
-Registered in 0.001983 seconds.
+Registered in 0.006862 seconds.
 [usbmuxd] Start listen thread
 [usbmuxd] Listen thread started
 [usbmuxd] Send listen message
 Native extension for iOS target not found
 Native extension for Android target not found
 Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 120.12 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 121.43 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.962 seconds
+- Completed reload, in  0.996 seconds
 Domain Reload Profiling:
-	ReloadAssembly (962ms)
-		BeginReloadAssembly (78ms)
+	ReloadAssembly (996ms)
+		BeginReloadAssembly (122ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (711ms)
-			LoadAssemblies (78ms)
+		EndReloadAssembly (718ms)
+			LoadAssemblies (126ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (172ms)
+			SetupTypeCache (179ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (44ms)
-			SetupLoadedEditorAssemblies (430ms)
+			RebuildScriptCaches (50ms)
+			SetupLoadedEditorAssemblies (415ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (121ms)
+				InitializePlatformSupportModulesInManaged (112ms)
 				SetLoadedEditorAssemblies (1ms)
-				RefreshPlugins (120ms)
-				BeforeProcessingInitializeOnLoad (1ms)
-				ProcessInitializeOnLoadAttributes (125ms)
-				ProcessInitializeOnLoadMethodAttributes (61ms)
+				RefreshPlugins (121ms)
+				BeforeProcessingInitializeOnLoad (2ms)
+				ProcessInitializeOnLoadAttributes (121ms)
+				ProcessInitializeOnLoadMethodAttributes (58ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.003168 seconds.
+Registered in 0.002965 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image /Users/seanfeeley/Masters/Dissertation/code/CardsAR/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll
 Symbol file LoadedFromMemory doesn't match image /Users/seanfeeley/Masters/Dissertation/code/CardsAR/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll
 Native extension for iOS target not found
 Native extension for Android target not found
 Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 0.84 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 1.13 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
 Package Manager log level set to [2]
-- Completed reload, in  2.025 seconds
+- Completed reload, in  2.481 seconds
 Domain Reload Profiling:
-	ReloadAssembly (2026ms)
-		BeginReloadAssembly (237ms)
+	ReloadAssembly (2482ms)
+		BeginReloadAssembly (233ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (7ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (135ms)
-		EndReloadAssembly (1636ms)
-			LoadAssemblies (142ms)
+			CreateAndSetChildDomain (136ms)
+		EndReloadAssembly (2091ms)
+			LoadAssemblies (125ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (318ms)
+			SetupTypeCache (392ms)
 			ReleaseScriptCaches (5ms)
-			RebuildScriptCaches (73ms)
-			SetupLoadedEditorAssemblies (1041ms)
+			RebuildScriptCaches (91ms)
+			SetupLoadedEditorAssemblies (1405ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (29ms)
+				InitializePlatformSupportModulesInManaged (32ms)
 				SetLoadedEditorAssemblies (1ms)
 				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (97ms)
+				BeforeProcessingInitializeOnLoad (100ms)
 				ProcessInitializeOnLoadAttributes (327ms)
-				ProcessInitializeOnLoadMethodAttributes (585ms)
-				AfterProcessingInitializeOnLoad (2ms)
+				ProcessInitializeOnLoadMethodAttributes (941ms)
+				AfterProcessingInitializeOnLoad (1ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (6ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Launching external process: /Applications/Unity/Hub/Editor/2021.3.6f1/Unity.app/Contents/Tools/UnityShaderCompiler
 Launched and connected shader compiler UnityShaderCompiler after 0.08 seconds
-Refreshing native plugins compatible for Editor in 1.04 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 1.13 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4174 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 64 unused Assets / (159.7 KB). Loaded Objects now: 4601.
-Memory consumption went from 261.2 MB to 261.0 MB.
-Total: 4.522957 ms (FindLiveObjects: 0.352264 ms CreateObjectMapping: 0.310190 ms MarkObjects: 3.594766 ms  DeleteObjects: 0.264296 ms)
+Unloading 4176 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 64 unused Assets / (159.7 KB). Loaded Objects now: 4603.
+Memory consumption went from 261.5 MB to 261.4 MB.
+Total: 4.638913 ms (FindLiveObjects: 0.378668 ms CreateObjectMapping: 0.323053 ms MarkObjects: 3.675851 ms  DeleteObjects: 0.260248 ms)
 
 Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 0 unused Assets / (138.9 KB). Loaded Objects now: 4601.
-Memory consumption went from 261.0 MB to 260.9 MB.
-Total: 38.867559 ms (FindLiveObjects: 0.463244 ms CreateObjectMapping: 0.432580 ms MarkObjects: 37.953686 ms  DeleteObjects: 0.016952 ms)
+Unloading 0 unused Assets / (43.8 KB). Loaded Objects now: 4603.
+Memory consumption went from 261.3 MB to 261.2 MB.
+Total: 4.206749 ms (FindLiveObjects: 0.374798 ms CreateObjectMapping: 0.329097 ms MarkObjects: 3.486557 ms  DeleteObjects: 0.015297 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -182,247 +182,546 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 2915.381447 seconds.
-  path: Assets/Unity Store/Playing Cards/Resource/Materials/CasinoItem/Table_Rectangle.mat
-  artifactKey: Guid(10cbb4e4e0ffb0343aa9b506a2c55936) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Unity Store/Playing Cards/Resource/Materials/CasinoItem/Table_Rectangle.mat using Guid(10cbb4e4e0ffb0343aa9b506a2c55936) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ed7ed26e67e648d49886ecfb9b23d522') in 1.114757 seconds 
+  Time since last request: 85482.601994 seconds.
+  path: Assets/Unity Store/Playing Cards/Resource/Textures/RiffleShuffle_First_00_nml.tif
+  artifactKey: Guid(ed85a839c9e4dbe4a8167286b4f3e4cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity Store/Playing Cards/Resource/Textures/RiffleShuffle_First_00_nml.tif using Guid(ed85a839c9e4dbe4a8167286b4f3e4cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1c4cf3aefa73e1441f98cc91a84514a9') in 0.822264 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000066 seconds.
-  path: Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Black/Black_RifleShuffle_Second_00.mat
-  artifactKey: Guid(1960358a5488f6e478540206720c8517) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Black/Black_RifleShuffle_Second_00.mat using Guid(1960358a5488f6e478540206720c8517) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e4935e514bab4591cbc8c1a547b3387d') in 0.111069 seconds 
+  Time since last request: 0.868015 seconds.
+  path: Assets/Unity Store/Wooden Floor Pack/Textures/Wooden Floor3/Wooden Floor3_4K_Albedo.tga
+  artifactKey: Guid(da92a2728ea126944b4cf518d141d499) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity Store/Wooden Floor Pack/Textures/Wooden Floor3/Wooden Floor3_4K_Albedo.tga using Guid(da92a2728ea126944b4cf518d141d499) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9c02370f8f8aa3c8f5442a08b87fe69d') in 0.942715 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000075 seconds.
-  path: Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Black/Black_PlayingCards_Spade13_00.mat
-  artifactKey: Guid(2ca0fe2bbbfb6c045a1e2569cbcf63d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Black/Black_PlayingCards_Spade13_00.mat using Guid(2ca0fe2bbbfb6c045a1e2569cbcf63d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '037439a35ebae14a7ee305233a0af056') in 0.021415 seconds 
+  Time since last request: 0.000103 seconds.
+  path: Assets/Unity Store/Playing Cards/Resource/Textures/DeckBlack_col.tif
+  artifactKey: Guid(3e57ce50e2e854741bcb61fd60ab0b06) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity Store/Playing Cards/Resource/Textures/DeckBlack_col.tif using Guid(3e57ce50e2e854741bcb61fd60ab0b06) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f039cf41d5926c52926578d46492a023') in 0.031947 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000068 seconds.
+  path: Assets/Unity Store/Wooden Floor Pack/Textures/Wooden Floor4/Wooden Floor4_4K_Albedo.tga
+  artifactKey: Guid(2e6def63d1fafb343bf48225c300ba1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity Store/Wooden Floor Pack/Textures/Wooden Floor4/Wooden Floor4_4K_Albedo.tga using Guid(2e6def63d1fafb343bf48225c300ba1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f394034097ade48ef5165e34bb518ef9') in 0.083741 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000089 seconds.
+  path: Assets/Unity Store/Playing Cards/Resource/Textures/PlayingCards_LineUp_BackColor_Black_col.tif
+  artifactKey: Guid(601b9d940422e2340a90fed3f5d06161) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity Store/Playing Cards/Resource/Textures/PlayingCards_LineUp_BackColor_Black_col.tif using Guid(601b9d940422e2340a90fed3f5d06161) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c0f26dd8a5115e1a049cff30ef68d0b') in 0.037909 seconds 
 ========================================================================
 Received Import Request.
   Time since last request: 0.000077 seconds.
-  path: Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Black/Black_PlayingCards_Club11_00.mat
-  artifactKey: Guid(66aa42f6dc60c394daa740aca9ef26ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Black/Black_PlayingCards_Club11_00.mat using Guid(66aa42f6dc60c394daa740aca9ef26ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '79d49f681218f9db0486a7625c6f8b5e') in 0.020643 seconds 
+  path: Assets/Unity Store/Playing Cards/Resource/Textures/RiffleShuffle_Second_Black_00_col.tif
+  artifactKey: Guid(3455461b38fc0cb4e9ad3fdcfd76aa31) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity Store/Playing Cards/Resource/Textures/RiffleShuffle_Second_Black_00_col.tif using Guid(3455461b38fc0cb4e9ad3fdcfd76aa31) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '14d7bf0ca8ab34e615c1b2951bcb453f') in 0.024001 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000083 seconds.
-  path: Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Black/Black_PlayingCards_Spade11_00.mat
-  artifactKey: Guid(4fda78aa9a04e7c43aa9aa2d3a52792d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Black/Black_PlayingCards_Spade11_00.mat using Guid(4fda78aa9a04e7c43aa9aa2d3a52792d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff7c4a2f33814f6e8b3f37a3bcf06022') in 0.015689 seconds 
+  Time since last request: 0.000079 seconds.
+  path: Assets/Unity Store/Playing Cards/Image/PlayingCards/BackColor_Black.png
+  artifactKey: Guid(35b1aa564e0affa44b391cd24c36727c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity Store/Playing Cards/Image/PlayingCards/BackColor_Black.png using Guid(35b1aa564e0affa44b391cd24c36727c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eda7c66e01c42076173eb49ba84a6733') in 0.132882 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000076 seconds.
-  path: Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Black/Black_PlayingCards_Diamond02_00.mat
-  artifactKey: Guid(6e80e3603cc8a2a478ef6a0ec1f8b0c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Black/Black_PlayingCards_Diamond02_00.mat using Guid(6e80e3603cc8a2a478ef6a0ec1f8b0c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0899e27f9fae387d98676704e205175c') in 0.020344 seconds 
+  Time since last request: 171.712935 seconds.
+  path: Assets/Niantic/LightshipHUB/Runtime/Textures/Models/BALLOON_DiffuseColor_v001.jpg
+  artifactKey: Guid(c9d4f2522ea2b4747bb28fd5cb9c373c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Niantic/LightshipHUB/Runtime/Textures/Models/BALLOON_DiffuseColor_v001.jpg using Guid(c9d4f2522ea2b4747bb28fd5cb9c373c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4922326b0f6a3adf522734a30bd6e162') in 0.922551 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000401 seconds.
-  path: Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Black/Black_RifleShuffle_First_00.mat
-  artifactKey: Guid(00b1a07dfbce864468b2ae23bc46562f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Black/Black_RifleShuffle_First_00.mat using Guid(00b1a07dfbce864468b2ae23bc46562f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1d264214af28d3dc20dc44a08c4102b5') in 0.027690 seconds 
+  Time since last request: 2.531011 seconds.
+  path: Assets/Unity Store/Playing Cards/Resource/Textures/Table_Rectangle_mtl.tif
+  artifactKey: Guid(2fc300fe53896314b874395b30f77142) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity Store/Playing Cards/Resource/Textures/Table_Rectangle_mtl.tif using Guid(2fc300fe53896314b874395b30f77142) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '79341a84626db268a51a430b14a5a2a1') in 0.018727 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.007176 seconds.
-  path: Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Black/Black_PlayingCards_Joker_10.mat
-  artifactKey: Guid(453d7935a9ab63841b5f16cc9e5ee786) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Black/Black_PlayingCards_Joker_10.mat using Guid(453d7935a9ab63841b5f16cc9e5ee786) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ceecbbd9ab3cf1ed14a29470f23689a6') in 0.016016 seconds 
+  Time since last request: 0.000062 seconds.
+  path: Assets/Unity Store/Playing Cards/Resource/Textures/Table_Rectangle_nml.tif
+  artifactKey: Guid(5ebc6c2a2affa0043b6996609b0f32a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity Store/Playing Cards/Resource/Textures/Table_Rectangle_nml.tif using Guid(5ebc6c2a2affa0043b6996609b0f32a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f8a1f00a6ad2e724e4539c2b1a001da8') in 0.027438 seconds 
 ========================================================================
-Received Import Request.
-  Time since last request: 0.001261 seconds.
-  path: Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Blue/Blue_PlayingCards_Blank_00.mat
-  artifactKey: Guid(ff3b506d72452344fb8a4a36e3628f1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Blue/Blue_PlayingCards_Blank_00.mat using Guid(ff3b506d72452344fb8a4a36e3628f1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '81e25defe12474c1cccc645e6f503531') in 0.017711 seconds 
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003494 seconds.
+Begin MonoManager ReloadAssembly
+[21:52:19.966220 +01:00] [---I---] [actor.cpp] [thread 831994] Actor already shutdown.
+[21:52:19.966388 +01:00] [---I---] [actor.cpp] [thread 831994] Actor already shutdown.
+Symbol file LoadedFromMemory doesn't match image /Users/seanfeeley/Masters/Dissertation/code/CardsAR/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image /Users/seanfeeley/Masters/Dissertation/code/CardsAR/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 1.42 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+#Niantic.ARDK.Internals.StartupSystems#: Could not load an ArdkAuthConfig, please add one in a Resources/ARDK/ directory. For more information, visit the niantic.dev/docs/authentication.html site.
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs:37)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+Niantic.ARDK.Utilities.Logging.UnityARLogHandler:Error (string) (at Assets/Niantic/ARDK/Utilities/Logging/LogHandler/UnityARLogHandler.cs:41)
+Niantic.ARDK.Utilities.Logging.ARLog:_Error (string) (at Assets/Niantic/ARDK/Utilities/Logging/ARLog.cs:198)
+Niantic.ARDK.Internals.StartupSystems:SetAuthenticationParameters () (at Assets/Niantic/ARDK/Internals/StartupSystems.cs:124)
+Niantic.ARDK.Internals.StartupSystems:ManualStartup () (at Assets/Niantic/ARDK/Internals/StartupSystems.cs:90)
+Niantic.ARDK.Internals.StartupSystems:EditorStartup () (at Assets/Niantic/ARDK/Internals/StartupSystems.cs:48)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes () (at /Users/bokken/buildslave/unity/build/Editor/Mono/EditorAssemblies.cs:147)
+
+(Filename: Assets/Niantic/ARDK/Utilities/Logging/LogHandler/UnityARLogHandler.cs Line: 41)
+
+#Niantic.ARDK.Internals.StartupSystems#: No API Key was found. Add it to an ArdkAuthConfig asset. For more information, visit the niantic.dev/docs/authentication.html site.
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs:37)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+Niantic.ARDK.Utilities.Logging.UnityARLogHandler:Error (string) (at Assets/Niantic/ARDK/Utilities/Logging/LogHandler/UnityARLogHandler.cs:41)
+Niantic.ARDK.Utilities.Logging.ARLog:_Error (string) (at Assets/Niantic/ARDK/Utilities/Logging/ARLog.cs:198)
+Niantic.ARDK.Internals.StartupSystems:SetAuthenticationParameters () (at Assets/Niantic/ARDK/Internals/StartupSystems.cs:155)
+Niantic.ARDK.Internals.StartupSystems:ManualStartup () (at Assets/Niantic/ARDK/Internals/StartupSystems.cs:90)
+Niantic.ARDK.Internals.StartupSystems:EditorStartup () (at Assets/Niantic/ARDK/Internals/StartupSystems.cs:48)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes () (at /Users/bokken/buildslave/unity/build/Editor/Mono/EditorAssemblies.cs:147)
+
+(Filename: Assets/Niantic/ARDK/Utilities/Logging/LogHandler/UnityARLogHandler.cs Line: 41)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  1.657 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1658ms)
+		BeginReloadAssembly (194ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (10ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (83ms)
+		EndReloadAssembly (1302ms)
+			LoadAssemblies (101ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (450ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (75ms)
+			SetupLoadedEditorAssemblies (587ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (51ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (93ms)
+				ProcessInitializeOnLoadAttributes (338ms)
+				ProcessInitializeOnLoadMethodAttributes (101ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (8ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 3.56 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4152 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 57 unused Assets / (136.4 KB). Loaded Objects now: 4605.
+Memory consumption went from 312.0 MB to 311.8 MB.
+Total: 5.333516 ms (FindLiveObjects: 0.511345 ms CreateObjectMapping: 0.461999 ms MarkObjects: 4.170065 ms  DeleteObjects: 0.188970 ms)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 0 unused Assets / (29.6 KB). Loaded Objects now: 4605.
+Memory consumption went from 311.7 MB to 311.7 MB.
+Total: 4.174690 ms (FindLiveObjects: 0.361148 ms CreateObjectMapping: 0.276967 ms MarkObjects: 3.521645 ms  DeleteObjects: 0.014279 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
-Received Import Request.
-  Time since last request: 0.000128 seconds.
-  path: Assets/Unity Store/Wooden_table_and_chair/FBX/Materials/table_chair_01.mat
-  artifactKey: Guid(658d0a6601bdfc54e9bffb7089fcbe11) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Unity Store/Wooden_table_and_chair/FBX/Materials/table_chair_01.mat using Guid(658d0a6601bdfc54e9bffb7089fcbe11) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '644d68a06b74df7e61786a37fe335760') in 0.078171 seconds 
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003318 seconds.
+Begin MonoManager ReloadAssembly
+[21:57:55.307556 +01:00] [---I---] [actor.cpp] [thread 831994] Actor already shutdown.
+[21:57:55.307590 +01:00] [---I---] [actor.cpp] [thread 831994] Actor already shutdown.
+Symbol file LoadedFromMemory doesn't match image /Users/seanfeeley/Masters/Dissertation/code/CardsAR/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image /Users/seanfeeley/Masters/Dissertation/code/CardsAR/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.95 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+#Niantic.ARDK.Internals.StartupSystems#: Could not load an ArdkAuthConfig, please add one in a Resources/ARDK/ directory. For more information, visit the niantic.dev/docs/authentication.html site.
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs:37)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+Niantic.ARDK.Utilities.Logging.UnityARLogHandler:Error (string) (at Assets/Niantic/ARDK/Utilities/Logging/LogHandler/UnityARLogHandler.cs:41)
+Niantic.ARDK.Utilities.Logging.ARLog:_Error (string) (at Assets/Niantic/ARDK/Utilities/Logging/ARLog.cs:198)
+Niantic.ARDK.Internals.StartupSystems:SetAuthenticationParameters () (at Assets/Niantic/ARDK/Internals/StartupSystems.cs:124)
+Niantic.ARDK.Internals.StartupSystems:ManualStartup () (at Assets/Niantic/ARDK/Internals/StartupSystems.cs:90)
+Niantic.ARDK.Internals.StartupSystems:EditorStartup () (at Assets/Niantic/ARDK/Internals/StartupSystems.cs:48)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes () (at /Users/bokken/buildslave/unity/build/Editor/Mono/EditorAssemblies.cs:147)
+
+(Filename: Assets/Niantic/ARDK/Utilities/Logging/LogHandler/UnityARLogHandler.cs Line: 41)
+
+#Niantic.ARDK.Internals.StartupSystems#: No API Key was found. Add it to an ArdkAuthConfig asset. For more information, visit the niantic.dev/docs/authentication.html site.
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs:37)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+Niantic.ARDK.Utilities.Logging.UnityARLogHandler:Error (string) (at Assets/Niantic/ARDK/Utilities/Logging/LogHandler/UnityARLogHandler.cs:41)
+Niantic.ARDK.Utilities.Logging.ARLog:_Error (string) (at Assets/Niantic/ARDK/Utilities/Logging/ARLog.cs:198)
+Niantic.ARDK.Internals.StartupSystems:SetAuthenticationParameters () (at Assets/Niantic/ARDK/Internals/StartupSystems.cs:155)
+Niantic.ARDK.Internals.StartupSystems:ManualStartup () (at Assets/Niantic/ARDK/Internals/StartupSystems.cs:90)
+Niantic.ARDK.Internals.StartupSystems:EditorStartup () (at Assets/Niantic/ARDK/Internals/StartupSystems.cs:48)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes () (at /Users/bokken/buildslave/unity/build/Editor/Mono/EditorAssemblies.cs:147)
+
+(Filename: Assets/Niantic/ARDK/Utilities/Logging/LogHandler/UnityARLogHandler.cs Line: 41)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  1.296 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1297ms)
+		BeginReloadAssembly (156ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (59ms)
+		EndReloadAssembly (1008ms)
+			LoadAssemblies (88ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (343ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (61ms)
+			SetupLoadedEditorAssemblies (457ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (36ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (72ms)
+				ProcessInitializeOnLoadAttributes (263ms)
+				ProcessInitializeOnLoadMethodAttributes (84ms)
+				AfterProcessingInitializeOnLoad (1ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 2.61 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4153 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 57 unused Assets / (136.4 KB). Loaded Objects now: 4606.
+Memory consumption went from 312.3 MB to 312.2 MB.
+Total: 3.886351 ms (FindLiveObjects: 0.306197 ms CreateObjectMapping: 0.307481 ms MarkObjects: 3.133066 ms  DeleteObjects: 0.139000 ms)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 0 unused Assets / (29.6 KB). Loaded Objects now: 4606.
+Memory consumption went from 312.1 MB to 312.0 MB.
+Total: 3.614263 ms (FindLiveObjects: 0.297956 ms CreateObjectMapping: 0.247151 ms MarkObjects: 3.015762 ms  DeleteObjects: 0.052797 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
-Received Import Request.
-  Time since last request: 0.000083 seconds.
-  path: Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Black/Black_PlayingCards_Club05_00.mat
-  artifactKey: Guid(6cd5951d6b2d0b54196a0e0173d7125c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Black/Black_PlayingCards_Club05_00.mat using Guid(6cd5951d6b2d0b54196a0e0173d7125c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '347359d6159d1b025dc15043a7b2c255') in 0.017530 seconds 
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002988 seconds.
+Begin MonoManager ReloadAssembly
+[22:14:36.747723 +01:00] [---I---] [actor.cpp] [thread 831994] Actor already shutdown.
+[22:14:36.747757 +01:00] [---I---] [actor.cpp] [thread 831994] Actor already shutdown.
+Symbol file LoadedFromMemory doesn't match image /Users/seanfeeley/Masters/Dissertation/code/CardsAR/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image /Users/seanfeeley/Masters/Dissertation/code/CardsAR/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.97 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+#Niantic.ARDK.Internals.StartupSystems#: Could not load an ArdkAuthConfig, please add one in a Resources/ARDK/ directory. For more information, visit the niantic.dev/docs/authentication.html site.
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs:37)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+Niantic.ARDK.Utilities.Logging.UnityARLogHandler:Error (string) (at Assets/Niantic/ARDK/Utilities/Logging/LogHandler/UnityARLogHandler.cs:41)
+Niantic.ARDK.Utilities.Logging.ARLog:_Error (string) (at Assets/Niantic/ARDK/Utilities/Logging/ARLog.cs:198)
+Niantic.ARDK.Internals.StartupSystems:SetAuthenticationParameters () (at Assets/Niantic/ARDK/Internals/StartupSystems.cs:124)
+Niantic.ARDK.Internals.StartupSystems:ManualStartup () (at Assets/Niantic/ARDK/Internals/StartupSystems.cs:90)
+Niantic.ARDK.Internals.StartupSystems:EditorStartup () (at Assets/Niantic/ARDK/Internals/StartupSystems.cs:48)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes () (at /Users/bokken/buildslave/unity/build/Editor/Mono/EditorAssemblies.cs:147)
+
+(Filename: Assets/Niantic/ARDK/Utilities/Logging/LogHandler/UnityARLogHandler.cs Line: 41)
+
+#Niantic.ARDK.Internals.StartupSystems#: No API Key was found. Add it to an ArdkAuthConfig asset. For more information, visit the niantic.dev/docs/authentication.html site.
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs:37)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+Niantic.ARDK.Utilities.Logging.UnityARLogHandler:Error (string) (at Assets/Niantic/ARDK/Utilities/Logging/LogHandler/UnityARLogHandler.cs:41)
+Niantic.ARDK.Utilities.Logging.ARLog:_Error (string) (at Assets/Niantic/ARDK/Utilities/Logging/ARLog.cs:198)
+Niantic.ARDK.Internals.StartupSystems:SetAuthenticationParameters () (at Assets/Niantic/ARDK/Internals/StartupSystems.cs:155)
+Niantic.ARDK.Internals.StartupSystems:ManualStartup () (at Assets/Niantic/ARDK/Internals/StartupSystems.cs:90)
+Niantic.ARDK.Internals.StartupSystems:EditorStartup () (at Assets/Niantic/ARDK/Internals/StartupSystems.cs:48)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes () (at /Users/bokken/buildslave/unity/build/Editor/Mono/EditorAssemblies.cs:147)
+
+(Filename: Assets/Niantic/ARDK/Utilities/Logging/LogHandler/UnityARLogHandler.cs Line: 41)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  1.093 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1094ms)
+		BeginReloadAssembly (118ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (7ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (47ms)
+		EndReloadAssembly (871ms)
+			LoadAssemblies (61ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (298ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (50ms)
+			SetupLoadedEditorAssemblies (399ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (32ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (60ms)
+				ProcessInitializeOnLoadAttributes (231ms)
+				ProcessInitializeOnLoadMethodAttributes (73ms)
+				AfterProcessingInitializeOnLoad (1ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (4ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 2.57 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4153 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 57 unused Assets / (136.5 KB). Loaded Objects now: 4606.
+Memory consumption went from 312.9 MB to 312.7 MB.
+Total: 3.575405 ms (FindLiveObjects: 0.291233 ms CreateObjectMapping: 0.332510 ms MarkObjects: 2.788876 ms  DeleteObjects: 0.162076 ms)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 0 unused Assets / (44.3 KB). Loaded Objects now: 4606.
+Memory consumption went from 312.6 MB to 312.6 MB.
+Total: 2.932297 ms (FindLiveObjects: 0.217308 ms CreateObjectMapping: 0.285801 ms MarkObjects: 2.420547 ms  DeleteObjects: 0.008267 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
-Received Import Request.
-  Time since last request: 0.000108 seconds.
-  path: Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Black/Black_PlayingCards_Diamond01_00.mat
-  artifactKey: Guid(8f1ecfcd164b6bc4f8a10e83ff7c8fb6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Black/Black_PlayingCards_Diamond01_00.mat using Guid(8f1ecfcd164b6bc4f8a10e83ff7c8fb6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3cb700997ada9fe669f79e852e0768bd') in 0.015680 seconds 
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003463 seconds.
+Begin MonoManager ReloadAssembly
+[22:17:03.001785 +01:00] [---I---] [actor.cpp] [thread 831994] Actor already shutdown.
+[22:17:03.001818 +01:00] [---I---] [actor.cpp] [thread 831994] Actor already shutdown.
+Symbol file LoadedFromMemory doesn't match image /Users/seanfeeley/Masters/Dissertation/code/CardsAR/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image /Users/seanfeeley/Masters/Dissertation/code/CardsAR/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.98 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+#Niantic.ARDK.Internals.StartupSystems#: Could not load an ArdkAuthConfig, please add one in a Resources/ARDK/ directory. For more information, visit the niantic.dev/docs/authentication.html site.
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs:37)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+Niantic.ARDK.Utilities.Logging.UnityARLogHandler:Error (string) (at Assets/Niantic/ARDK/Utilities/Logging/LogHandler/UnityARLogHandler.cs:41)
+Niantic.ARDK.Utilities.Logging.ARLog:_Error (string) (at Assets/Niantic/ARDK/Utilities/Logging/ARLog.cs:198)
+Niantic.ARDK.Internals.StartupSystems:SetAuthenticationParameters () (at Assets/Niantic/ARDK/Internals/StartupSystems.cs:124)
+Niantic.ARDK.Internals.StartupSystems:ManualStartup () (at Assets/Niantic/ARDK/Internals/StartupSystems.cs:90)
+Niantic.ARDK.Internals.StartupSystems:EditorStartup () (at Assets/Niantic/ARDK/Internals/StartupSystems.cs:48)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes () (at /Users/bokken/buildslave/unity/build/Editor/Mono/EditorAssemblies.cs:147)
+
+(Filename: Assets/Niantic/ARDK/Utilities/Logging/LogHandler/UnityARLogHandler.cs Line: 41)
+
+#Niantic.ARDK.Internals.StartupSystems#: No API Key was found. Add it to an ArdkAuthConfig asset. For more information, visit the niantic.dev/docs/authentication.html site.
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs:37)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+Niantic.ARDK.Utilities.Logging.UnityARLogHandler:Error (string) (at Assets/Niantic/ARDK/Utilities/Logging/LogHandler/UnityARLogHandler.cs:41)
+Niantic.ARDK.Utilities.Logging.ARLog:_Error (string) (at Assets/Niantic/ARDK/Utilities/Logging/ARLog.cs:198)
+Niantic.ARDK.Internals.StartupSystems:SetAuthenticationParameters () (at Assets/Niantic/ARDK/Internals/StartupSystems.cs:155)
+Niantic.ARDK.Internals.StartupSystems:ManualStartup () (at Assets/Niantic/ARDK/Internals/StartupSystems.cs:90)
+Niantic.ARDK.Internals.StartupSystems:EditorStartup () (at Assets/Niantic/ARDK/Internals/StartupSystems.cs:48)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes () (at /Users/bokken/buildslave/unity/build/Editor/Mono/EditorAssemblies.cs:147)
+
+(Filename: Assets/Niantic/ARDK/Utilities/Logging/LogHandler/UnityARLogHandler.cs Line: 41)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  1.278 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1279ms)
+		BeginReloadAssembly (149ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (7ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (62ms)
+		EndReloadAssembly (1003ms)
+			LoadAssemblies (80ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (344ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (61ms)
+			SetupLoadedEditorAssemblies (450ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (37ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (68ms)
+				ProcessInitializeOnLoadAttributes (260ms)
+				ProcessInitializeOnLoadMethodAttributes (82ms)
+				AfterProcessingInitializeOnLoad (1ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 2.49 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4154 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 57 unused Assets / (136.5 KB). Loaded Objects now: 4607.
+Memory consumption went from 313.2 MB to 313.1 MB.
+Total: 3.303328 ms (FindLiveObjects: 0.296980 ms CreateObjectMapping: 0.262463 ms MarkObjects: 2.625086 ms  DeleteObjects: 0.118108 ms)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 0 unused Assets / (89.3 KB). Loaded Objects now: 4607.
+Memory consumption went from 313.1 MB to 313.0 MB.
+Total: 3.083098 ms (FindLiveObjects: 0.279840 ms CreateObjectMapping: 0.192383 ms MarkObjects: 2.599343 ms  DeleteObjects: 0.011056 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
-Received Import Request.
-  Time since last request: 0.000105 seconds.
-  path: Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Black/Black_PlayingCards_Club06_00.mat
-  artifactKey: Guid(172e62500bd581444a4f9f5dcfd8b2a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Black/Black_PlayingCards_Club06_00.mat using Guid(172e62500bd581444a4f9f5dcfd8b2a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '50876d9ae5f63eef2016404758e98294') in 0.018263 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000108 seconds.
-  path: Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Black/Black_PlayingCards_Diamond07_00.mat
-  artifactKey: Guid(494ce298c283d014d9ca01a0f6e46a80) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Black/Black_PlayingCards_Diamond07_00.mat using Guid(494ce298c283d014d9ca01a0f6e46a80) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '84a1d30a06bfa1677cd3a12cf95641cb') in 0.045275 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000061 seconds.
-  path: Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Black/Black_LineUp_HeartDiamond_00.mat
-  artifactKey: Guid(90c60434babfa39438251d40c1bf7fa3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Black/Black_LineUp_HeartDiamond_00.mat using Guid(90c60434babfa39438251d40c1bf7fa3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '862b9654d47aa0974c4808801fd2f2c2') in 0.038507 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000085 seconds.
-  path: Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Black/Black_PlayingCards_Club03_00.mat
-  artifactKey: Guid(3759337a4461d474e8256e017ae8143a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Black/Black_PlayingCards_Club03_00.mat using Guid(3759337a4461d474e8256e017ae8143a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '595a148262eb982eee0bcf8e3ea332e0') in 0.019118 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000070 seconds.
-  path: Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Black/Black_PlayingCards_Spade06_00.mat
-  artifactKey: Guid(9b3332c6d38206d458abbdf0de6ed5ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Black/Black_PlayingCards_Spade06_00.mat using Guid(9b3332c6d38206d458abbdf0de6ed5ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '44576e4691e51aaeac9d1755a4f789be') in 0.021267 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000154 seconds.
-  path: Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Black/Black_PlayingCards_Heart06_00.mat
-  artifactKey: Guid(3e59ac486d45ff144ae475730678c47d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Black/Black_PlayingCards_Heart06_00.mat using Guid(3e59ac486d45ff144ae475730678c47d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '54794697568bcf6d8faa818e0129b2ce') in 0.019570 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.002341 seconds.
-  path: Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Black/Black_PlayingCards_Diamond08_00.mat
-  artifactKey: Guid(f776919272d416b46a6c09b95cb74d82) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Black/Black_PlayingCards_Diamond08_00.mat using Guid(f776919272d416b46a6c09b95cb74d82) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0f44d4699d23e58265fb9c6b1ccdfadf') in 0.017497 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000560 seconds.
-  path: Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Black/Black_PlayingCards_Club09_00.mat
-  artifactKey: Guid(88301d946054c024f8b2a16402550525) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Black/Black_PlayingCards_Club09_00.mat using Guid(88301d946054c024f8b2a16402550525) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1f82a0146e5fbc29c94d158e8fc4250f') in 0.015854 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.003020 seconds.
-  path: Assets/Unity Store/Wooden Floor Pack/Materials/Wooden Floor.mat
-  artifactKey: Guid(5de9b7ba7a360b7409c89428c77dd241) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Unity Store/Wooden Floor Pack/Materials/Wooden Floor.mat using Guid(5de9b7ba7a360b7409c89428c77dd241) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e0a8af4f313e8283da45f883950bf46e') in 0.584005 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.014964 seconds.
-  path: Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Black/Black_PlayingCards_Diamond10_00.mat
-  artifactKey: Guid(69cda85e793213844be6ae30014f6115) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Black/Black_PlayingCards_Diamond10_00.mat using Guid(69cda85e793213844be6ae30014f6115) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3397a1c79673a259b5494901d7cfaf6a') in 0.016186 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000083 seconds.
-  path: Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Black/Black_PlayingCards_Joker_00.mat
-  artifactKey: Guid(a38661b559fbd3b48a5605f45f5c9661) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Black/Black_PlayingCards_Joker_00.mat using Guid(a38661b559fbd3b48a5605f45f5c9661) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '66f8ce6026768aa79f4e64e7494466cc') in 0.019081 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.005052 seconds.
-  path: Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Black/Black_PlayingCards_Diamond05_00.mat
-  artifactKey: Guid(cc24a1ab16f26484b8d8d187dcc9cfd6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Black/Black_PlayingCards_Diamond05_00.mat using Guid(cc24a1ab16f26484b8d8d187dcc9cfd6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd2d60185e8ade4807e751c9c84c48bc4') in 0.019754 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000066 seconds.
-  path: Assets/Niantic/ARDKExamples/Common/Prefabs/Yeti/Source/Yeti Prop.mat
-  artifactKey: Guid(23dab13d956524ba8ac3f67740aa28a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Niantic/ARDKExamples/Common/Prefabs/Yeti/Source/Yeti Prop.mat using Guid(23dab13d956524ba8ac3f67740aa28a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0674cc971e6f292953f5dfe406871602') in 0.325028 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000086 seconds.
-  path: Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Black/Black_PlayingCards_Heart09_00.mat
-  artifactKey: Guid(f99f0d334e785f34689706bc22acb889) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Black/Black_PlayingCards_Heart09_00.mat using Guid(f99f0d334e785f34689706bc22acb889) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '51b6466d1001f82c0b493c3935b9b023') in 0.017302 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000088 seconds.
-  path: Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Black/Black_PlayingCards_Diamond04_00.mat
-  artifactKey: Guid(0bc3145c2ba58154d8e0f2ea24373d8c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Black/Black_PlayingCards_Diamond04_00.mat using Guid(0bc3145c2ba58154d8e0f2ea24373d8c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '63e20464d07640e11ad2560208434ec6') in 0.019664 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000113 seconds.
-  path: Assets/Unity Store/Playing Cards/Resource/Model/Tower_00.fbx
-  artifactKey: Guid(55a0682385c27a748b41dba2af534c8f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Unity Store/Playing Cards/Resource/Model/Tower_00.fbx using Guid(55a0682385c27a748b41dba2af534c8f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '312a3fb39ce41f840352d548cfece6bc') in 0.229141 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 85.223519 seconds.
-  path: Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Blue/Blue_PlayingCards_Spade10_00.mat
-  artifactKey: Guid(456a5a3731e9f2d489a5ce99cd49dc2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Blue/Blue_PlayingCards_Spade10_00.mat using Guid(456a5a3731e9f2d489a5ce99cd49dc2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f64bc0025b213eb167c37dbb1ff91630') in 0.021351 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000075 seconds.
-  path: Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Blue/Blue_PlayingCards_Spade13_00.mat
-  artifactKey: Guid(842603bf151c9bc489874efa1308126e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Blue/Blue_PlayingCards_Spade13_00.mat using Guid(842603bf151c9bc489874efa1308126e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '17d9df07f3d89a5acfe41dacd3f53bc8') in 0.018454 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000078 seconds.
-  path: Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Blue/Blue_RifleShuffle_Second_00.mat
-  artifactKey: Guid(8eed66978515a5941a55eceeb972f50f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Blue/Blue_RifleShuffle_Second_00.mat using Guid(8eed66978515a5941a55eceeb972f50f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '06d6751307416c240cdbfa8df43d985d') in 0.033548 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000087 seconds.
-  path: Assets/Niantic/LightshipHUB/Runtime/Materials/Models/CAR_Material.mat
-  artifactKey: Guid(3c52ce8c276bc430b914b98487df2049) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Niantic/LightshipHUB/Runtime/Materials/Models/CAR_Material.mat using Guid(3c52ce8c276bc430b914b98487df2049) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2d51b86cf814aae764553a7bcb635e5a') in 0.090540 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000078 seconds.
-  path: Assets/Unity Store/Playing Cards/Resource/Materials/CasinoItem/CasinoChip_Blue.mat
-  artifactKey: Guid(a2db0c3c67993af4aaa820b96620af34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Unity Store/Playing Cards/Resource/Materials/CasinoItem/CasinoChip_Blue.mat using Guid(a2db0c3c67993af4aaa820b96620af34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b26e69a076de2ad0c34301843577e7df') in 0.018255 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000070 seconds.
-  path: Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Blue/Blue_PlayingCards_Spade11_00.mat
-  artifactKey: Guid(5ee99329bc70dff43b9814dce0561ac8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Blue/Blue_PlayingCards_Spade11_00.mat using Guid(5ee99329bc70dff43b9814dce0561ac8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '453720e7a0fa4a3080b41917f71d8716') in 0.015015 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000080 seconds.
-  path: Assets/Unity Store/Playing Cards/Resource/Materials/CasinoItem/CasinoChip_Red.mat
-  artifactKey: Guid(42eb888fb9d1b4d4bb9a7ecff9ff912d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Unity Store/Playing Cards/Resource/Materials/CasinoItem/CasinoChip_Red.mat using Guid(42eb888fb9d1b4d4bb9a7ecff9ff912d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '24780e9aad03f70b8faa6969191c14ad') in 0.018430 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000122 seconds.
-  path: Assets/Unity Store/Playing Cards/Resource/Materials/CasinoItem/CasinoChip_White.mat
-  artifactKey: Guid(1256f155435a60a478e083493edf77ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Unity Store/Playing Cards/Resource/Materials/CasinoItem/CasinoChip_White.mat using Guid(1256f155435a60a478e083493edf77ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'df01d23515b44c8e286a089c51bbb20b') in 0.017577 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000080 seconds.
-  path: Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Blue/Blue_PlayingCards_Spade12_00.mat
-  artifactKey: Guid(79f711ecdacc3e941b0523f5b8a922a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Unity Store/Playing Cards/Resource/Materials/BackColor_Blue/Blue_PlayingCards_Spade12_00.mat using Guid(79f711ecdacc3e941b0523f5b8a922a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ea2f57caf940cfa5479007b011b16927') in 0.019072 seconds 
-Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
-AssetImportWorker is now disconnected from the server
-Process exiting
-E: 22-08-20 11:11:04 [4360]dangling 'PAIR' socket created at src/zsys.c:492
-E: 22-08-20 11:11:04 [4360]dangling 'PAIR' socket created at src/zsys.c:493
-Assertion failed: (rc == 0 || zmq_errno () == ETERM), function zsock_set_sndtimeo, file ./src/zsock_option.inc, line 3283.
-Obtained 8 stack frames.
-Thread 0x70000cfb0000 may have been prematurely finalized
-#0  0x007ff808a1000e in __pthread_kill
-Thread 0x70000cfb0000 may have been prematurely finalized
-#1  0x007ff808991d24 in abort
-Thread 0x70000cfb0000 may have been prematurely finalized
-#2  0x007ff8089910cb in err
-Thread 0x70000cfb0000 may have been prematurely finalized
-#3  0x00000165c60a23 in std::__1::basic_string<wchar_t, std::__1::char_traits<wchar_t>, std::__1::allocator<wchar_t> > fmt::v6::internal::vformat<wchar_t>(fmt::v6::basic_string_view<wchar_t>, fmt::v6::basic_format_args<fmt::v6::basic_format_context<std::__1::back_insert_iterator<fmt::v6::internal::buffer<wchar_t> >, wchar_t> >)
-Thread 0x70000cfb0000 may have been prematurely finalized
-#4  0x000001654ad355 in zsock_set_sndtimeo
-Thread 0x70000cfb0000 may have been prematurely finalized
-#5  0x0000016548e478 in zactor_new
-Thread 0x70000cfb0000 may have been prematurely finalized
-#6  0x007ff808a464e1 in _pthread_start
-Thread 0x70000cfb0000 may have been prematurely finalized
-#7  0x007ff808a41f6b in thread_start
-Assertion failed: (rc == 0 || zmq_errno () == ETERM), function zsock_set_sndtimeo, file ./src/zsock_option.inc, line 3283.
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003556 seconds.
+Begin MonoManager ReloadAssembly
+[22:19:45.635088 +01:00] [---I---] [actor.cpp] [thread 831994] Actor already shutdown.
+[22:19:45.635132 +01:00] [---I---] [actor.cpp] [thread 831994] Actor already shutdown.
+Symbol file LoadedFromMemory doesn't match image /Users/seanfeeley/Masters/Dissertation/code/CardsAR/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image /Users/seanfeeley/Masters/Dissertation/code/CardsAR/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 1.05 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+#Niantic.ARDK.Internals.StartupSystems#: Could not load an ArdkAuthConfig, please add one in a Resources/ARDK/ directory. For more information, visit the niantic.dev/docs/authentication.html site.
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs:37)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+Niantic.ARDK.Utilities.Logging.UnityARLogHandler:Error (string) (at Assets/Niantic/ARDK/Utilities/Logging/LogHandler/UnityARLogHandler.cs:41)
+Niantic.ARDK.Utilities.Logging.ARLog:_Error (string) (at Assets/Niantic/ARDK/Utilities/Logging/ARLog.cs:198)
+Niantic.ARDK.Internals.StartupSystems:SetAuthenticationParameters () (at Assets/Niantic/ARDK/Internals/StartupSystems.cs:124)
+Niantic.ARDK.Internals.StartupSystems:ManualStartup () (at Assets/Niantic/ARDK/Internals/StartupSystems.cs:90)
+Niantic.ARDK.Internals.StartupSystems:EditorStartup () (at Assets/Niantic/ARDK/Internals/StartupSystems.cs:48)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes () (at /Users/bokken/buildslave/unity/build/Editor/Mono/EditorAssemblies.cs:147)
+
+(Filename: Assets/Niantic/ARDK/Utilities/Logging/LogHandler/UnityARLogHandler.cs Line: 41)
+
+#Niantic.ARDK.Internals.StartupSystems#: No API Key was found. Add it to an ArdkAuthConfig asset. For more information, visit the niantic.dev/docs/authentication.html site.
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs:37)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+Niantic.ARDK.Utilities.Logging.UnityARLogHandler:Error (string) (at Assets/Niantic/ARDK/Utilities/Logging/LogHandler/UnityARLogHandler.cs:41)
+Niantic.ARDK.Utilities.Logging.ARLog:_Error (string) (at Assets/Niantic/ARDK/Utilities/Logging/ARLog.cs:198)
+Niantic.ARDK.Internals.StartupSystems:SetAuthenticationParameters () (at Assets/Niantic/ARDK/Internals/StartupSystems.cs:155)
+Niantic.ARDK.Internals.StartupSystems:ManualStartup () (at Assets/Niantic/ARDK/Internals/StartupSystems.cs:90)
+Niantic.ARDK.Internals.StartupSystems:EditorStartup () (at Assets/Niantic/ARDK/Internals/StartupSystems.cs:48)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes () (at /Users/bokken/buildslave/unity/build/Editor/Mono/EditorAssemblies.cs:147)
+
+(Filename: Assets/Niantic/ARDK/Utilities/Logging/LogHandler/UnityARLogHandler.cs Line: 41)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  1.161 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1162ms)
+		BeginReloadAssembly (124ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (7ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (49ms)
+		EndReloadAssembly (924ms)
+			LoadAssemblies (66ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (292ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (49ms)
+			SetupLoadedEditorAssemblies (453ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (33ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (67ms)
+				ProcessInitializeOnLoadAttributes (265ms)
+				ProcessInitializeOnLoadMethodAttributes (84ms)
+				AfterProcessingInitializeOnLoad (1ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (4ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 3.27 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4154 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 57 unused Assets / (136.4 KB). Loaded Objects now: 4607.
+Memory consumption went from 313.5 MB to 313.3 MB.
+Total: 3.390133 ms (FindLiveObjects: 0.324843 ms CreateObjectMapping: 0.320831 ms MarkObjects: 2.619104 ms  DeleteObjects: 0.124661 ms)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 0 unused Assets / (35.3 KB). Loaded Objects now: 4607.
+Memory consumption went from 313.2 MB to 313.2 MB.
+Total: 2.878773 ms (FindLiveObjects: 0.264220 ms CreateObjectMapping: 0.222930 ms MarkObjects: 2.379955 ms  DeleteObjects: 0.011208 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 

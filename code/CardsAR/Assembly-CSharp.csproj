@@ -66,6 +66,7 @@
     <Compile Include="Assets/Niantic/LightshipHUBMockEnviroments/Scripts/MeshMaterial.cs" />
     <Compile Include="Assets/Niantic/LightshipHUB/Runtime/Scripts/MeshPlacementController.cs" />
     <Compile Include="Assets/Niantic/LightshipHUB/Runtime/Scripts/SharedObjectInteraction.cs" />
+    <Compile Include="Assets/PrintOnOff.cs" />
     <Compile Include="Assets/UIController.cs" />
     <Compile Include="Assets/Unity Store/Tim&apos;s Assets/Probs/Ceiling Fan/Scripts/Fan_Rotation.cs" />
     <Compile Include="Assets/Niantic/LightshipHUB/Runtime/Scripts/MessagingManager.cs" />
@@ -86,7 +87,10 @@
     <Compile Include="Assets/Niantic/LightshipHUB/Runtime/Scripts/DepthTextureController.cs" />
     <Compile Include="Assets/Niantic/LightshipHUB/Runtime/Scripts/InteractionController.cs" />
     <Compile Include="Assets/Niantic/LightshipHUB/Runtime/Scripts/PlaneTrackerController.cs" />
+    <Compile Include="Assets/test.cs" />
     <Compile Include="Assets/Niantic/LightshipHUB/Runtime/Scripts/MeshColliderController.cs" />
+    <Compile Include="Assets/GameManager.cs" />
+    <Compile Include="Assets/MenuManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/Niantic/LightshipHUB/Runtime/Shaders/OptimizedObjectMasking.shader" />

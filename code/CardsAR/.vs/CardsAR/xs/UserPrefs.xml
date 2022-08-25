@@ -1,47 +1,21 @@
 ﻿<Properties StartupConfiguration="{00BE2B06-77C0-05A0-1DB0-2EA5BDC676F1}|">
   <MonoDevelop.Ide.ItemProperties.ARDK PreferredExecutionTarget="0e40a1af-355e-4f26-b884-66db559993c5" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Cursor.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/UIElements/PanelEventHandler.cs">
     <Files>
-      <File FileName="Assets/EnvironmentManager.cs" Line="43" Column="13" />
-      <File FileName="Assets/Scripts/Cursor.cs" Line="31" Column="1" />
+      <File FileName="Assets/EnvironmentManager.cs" Line="72" Column="44" />
+      <File FileName="Assets/Scripts/Cursor.cs" Line="34" Column="98" />
+      <File FileName="Assets/test.cs" Line="23" Column="2" />
+      <File FileName="Assets/PrintOnOff.cs" Line="11" Column="30" />
+      <File FileName="Assets/UIController.cs" Line="12" Column="1" />
+      <File FileName="Assets/GameManager.cs" Line="25" Column="36" />
+      <File FileName="Assets/MenuManager.cs" Line="6" Column="41" />
+      <File FileName="Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs" Line="1" Column="1" />
+      <File FileName="Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/UIElements/PanelEventHandler.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="CardsAR" expanded="True">
-            <Node name="Assets" expanded="True">
-              <Node name="Niantic" expanded="True">
-                <Node name="ARDK" expanded="True">
-                  <Node name="Extensions" expanded="True">
-                    <Node name="Planefinding" expanded="True" />
-                  </Node>
-                  <Node name="Networking" expanded="True">
-                    <Node name="HLAPI" expanded="True">
-                      <Node name="Object" expanded="True">
-                        <Node name="Unity" expanded="True" />
-                      </Node>
-                    </Node>
-                  </Node>
-                  <Node name="VirtualStudio" expanded="True">
-                    <Node name="AR" expanded="True">
-                      <Node name="SceneComponents" expanded="True" />
-                    </Node>
-                  </Node>
-                </Node>
-                <Node name="ARDKExamples" expanded="True">
-                  <Node name="Common" expanded="True">
-                    <Node name="Helpers" expanded="True">
-                      <Node name="AR" expanded="True" />
-                    </Node>
-                  </Node>
-                  <Node name="PlaneAnchors" expanded="True" />
-                </Node>
-              </Node>
-              <Node name="Scripts" expanded="True">
-                <Node name="Cursor.cs" selected="True" />
-              </Node>
-            </Node>
-          </Node>
+          <Node name="CardsAR" expanded="True" />
         </State>
       </Pad>
     </Pads>
