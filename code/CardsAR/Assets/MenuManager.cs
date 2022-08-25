@@ -18,9 +18,9 @@ public class MenuManager : MonoBehaviour
 
 
 
-    private void GameStateChanged(GameState obj)
+    private void GameStateChanged(GameState state)
     {
-        throw new NotImplementedException();
+        
     }
 
     // Start is called before the first frame update
