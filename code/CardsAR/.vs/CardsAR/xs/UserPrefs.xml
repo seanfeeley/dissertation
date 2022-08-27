@@ -1,14 +1,12 @@
 ﻿<Properties StartupConfiguration="{00BE2B06-77C0-05A0-1DB0-2EA5BDC676F1}|">
   <MonoDevelop.Ide.ItemProperties.ARDK PreferredExecutionTarget="0e40a1af-355e-4f26-b884-66db559993c5" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/UIElements/PanelEventHandler.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/MenuManager.cs">
     <Files>
       <File FileName="Assets/EnvironmentManager.cs" Line="72" Column="44" />
       <File FileName="Assets/Scripts/Cursor.cs" Line="34" Column="98" />
       <File FileName="Assets/test.cs" Line="23" Column="2" />
-      <File FileName="Assets/PrintOnOff.cs" Line="11" Column="30" />
-      <File FileName="Assets/UIController.cs" Line="12" Column="1" />
       <File FileName="Assets/GameManager.cs" Line="25" Column="36" />
-      <File FileName="Assets/MenuManager.cs" Line="6" Column="41" />
+      <File FileName="Assets/MenuManager.cs" Line="6" Column="33" />
       <File FileName="Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs" Line="1" Column="1" />
       <File FileName="Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/UIElements/PanelEventHandler.cs" Line="1" Column="1" />
     </Files>
