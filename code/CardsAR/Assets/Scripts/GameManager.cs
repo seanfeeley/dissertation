@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        UpdateGameState(GameState.OneHighlighted_NoneHeld);    
+        UpdateGameState(this.State);    
     }
 
 
