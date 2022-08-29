@@ -82,6 +82,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blue_PlayingCards_Joker_00
       objectReference: {fileID: 0}
+    - target: {fileID: 4010635966089052404, guid: 75f188bdf26238344aab0154f762f9ba,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75f188bdf26238344aab0154f762f9ba, type: 3}
 --- !u!1001 &6236388770930185036
@@ -91,6 +96,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2981881294271242776, guid: 82968cc2420664001a8eeaa2605b3d94,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8114972609855561156, guid: 82968cc2420664001a8eeaa2605b3d94,
         type: 3}
       propertyPath: m_RootOrder
