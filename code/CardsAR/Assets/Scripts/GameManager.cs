@@ -20,6 +20,20 @@ public class GameManager : MonoBehaviour
     {
         UpdateGameState(this.State);    
     }
+    public void UpdateGameStateTo_NoneHighlighted_NoneHeld() { this.UpdateGameState(GameState.NoneHighlighted_NoneHeld); }
+    public void UpdateGameStateTo_NoneHighlighted_OneHeld() { this.UpdateGameState(GameState.NoneHighlighted_OneHeld); }
+    public void UpdateGameStateTo_NoneHighlighted_ManyHeld() { this.UpdateGameState(GameState.NoneHighlighted_ManyHeld); }
+    public void UpdateGameStateTo_OneHighlighted_NoneHeld() { this.UpdateGameState(GameState.OneHighlighted_NoneHeld); }
+    public void UpdateGameStateTo_OneHighlighted_OneHeld() { this.UpdateGameState(GameState.OneHighlighted_OneHeld); }
+    public void UpdateGameStateTo_OneHighlighted_ManyHeld() { this.UpdateGameState(GameState.OneHighlighted_ManyHeld); }
+    public void UpdateGameStateTo_ManyHighlighted_NoneHeld() { this.UpdateGameState(GameState.ManyHighlighted_NoneHeld); }
+    public void UpdateGameStateTo_ManyHighlighted_OneHeld() { this.UpdateGameState(GameState.ManyHighlighted_OneHeld); }
+    public void UpdateGameStateTo_ManyHighlighted_ManyHeld() { this.UpdateGameState(GameState.ManyHighlighted_ManyHeld); }
+    public void UpdateGameStateTo_DetectingFloor() { this.UpdateGameState(GameState.DetectingFloor); }
+    public void UpdateGameStateTo_TableMoving() { this.UpdateGameState(GameState.TableMoving); }
+    public void UpdateGameStateTo_SelectingNumber_Split() { this.UpdateGameState(GameState.SelectingNumber_Split); }
+    public void UpdateGameStateTo_SelectingNumber_Deal() { this.UpdateGameState(GameState.SelectingNumber_Deal); }
+
 
 
     public void UpdateGameState(GameState newState){

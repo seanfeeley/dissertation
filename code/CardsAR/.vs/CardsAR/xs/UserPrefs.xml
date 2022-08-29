@@ -1,9 +1,11 @@
 ﻿<Properties StartupConfiguration="{00BE2B06-77C0-05A0-1DB0-2EA5BDC676F1}|">
-  <MonoDevelop.Ide.ItemProperties.ARDK PreferredExecutionTarget="a4aa08c0-a091-4e54-b0d0-f3abcb6c3a83" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/MenuManager.cs">
+  <MonoDevelop.Ide.ItemProperties.ARDK PreferredExecutionTarget="0e40a1af-355e-4f26-b884-66db559993c5" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/EnvironmentManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/GameManager.cs" Line="54" Column="48" />
-      <File FileName="Assets/Scripts/MenuManager.cs" Line="74" Column="27" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="39" Column="1" />
+      <File FileName="Assets/Scripts/MenuManager.cs" Line="35" Column="1" />
+      <File FileName="Assets/Scripts/GameARManager.cs" Line="17" Column="18" />
+      <File FileName="Assets/Scripts/EnvironmentManager.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">

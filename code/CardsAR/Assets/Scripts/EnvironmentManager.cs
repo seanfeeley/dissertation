@@ -57,12 +57,16 @@ public class EnvironmentManager : MonoBehaviour
     {
         this.floorLocked = false;
         RenderSettings.ambientIntensity = 1.0f;
+        gameObject.transform.Find("Room").gameObject.SetActive(false);
+        gameObject.transform.Find("TableAndChairs").gameObject.SetActive(false);
     }
 
     public void LockFloor()
     {
         this.floorLocked = true;
         this.tableLocked = false;
+        gameObject.transform.Find("Room").gameObject.SetActive(false);
+        gameObject.transform.Find("TableAndChairs").gameObject.SetActive(true);
     }
 
     public void LockTable()
@@ -70,5 +74,7 @@ public class EnvironmentManager : MonoBehaviour
         this.tableLocked = true;
 
         RenderSettings.ambientIntensity = 0.0f;
+        gameObject.transform.Find("Room").gameObject.SetActive(true);
+        gameObject.transform.Find("TableAndChairs").gameObject.SetActive(true);
     }
 }

@@ -87,7 +87,6 @@
     <Compile Include="Assets/Niantic/LightshipHUB/Runtime/Scripts/DepthTextureController.cs" />
     <Compile Include="Assets/Niantic/LightshipHUB/Runtime/Scripts/InteractionController.cs" />
     <Compile Include="Assets/Niantic/LightshipHUB/Runtime/Scripts/PlaneTrackerController.cs" />
-    <Compile Include="Assets/test.cs" />
     <Compile Include="Assets/Niantic/LightshipHUB/Runtime/Scripts/MeshColliderController.cs" />
     <Compile Include="Assets/Scripts/GameManager.cs" />
     <Compile Include="Assets/Scripts/MenuManager.cs" />
@@ -136,6 +135,7 @@
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/ObjectSpin.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexZoom.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/SimpleScript.cs" />
+    <Compile Include="Assets/Scripts/GameARManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
