@@ -19,6 +19,9 @@ public class MenuManager : MonoBehaviour
     public GameObject Button_DeckFlip;
     public GameObject Button_CardFlip;
 
+    public GameObject Button_ValueSelectorDeal;
+    public GameObject Button_ValueSelectorSplit;
+
 
     private void Awake()
     {
@@ -123,6 +126,8 @@ public class MenuManager : MonoBehaviour
         this.setButtonVisible(Button_CardMiddle, false);
         this.setButtonVisible(Button_DeckFlip, false);
         this.setButtonVisible(Button_CardFlip, false);
+        this.setButtonVisible(Button_ValueSelectorDeal, false);
+        this.setButtonVisible(Button_ValueSelectorSplit, false);
     }
     private void showAllCardButtons()
     {
@@ -412,10 +417,12 @@ public class MenuManager : MonoBehaviour
     private void refreshButtonsFor_SelectingNumber_Split()
     {
         this.hideAllButtons();
+        this.setButtonVisible(Button_ValueSelectorSplit, true);
     }
     private void refreshButtonsFor_SelectingNumber_Deal()
     {
         this.hideAllButtons();
+        this.setButtonVisible(Button_ValueSelectorDeal, true);
     }
 
     // Start is called before the first frame update

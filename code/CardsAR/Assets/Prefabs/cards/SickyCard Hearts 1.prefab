@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red_PlayingCards_Heart01_00
       objectReference: {fileID: 0}
+    - target: {fileID: 5108530814853527752, guid: 7b9aa311f7e68df46a1b1edc9e63d1b2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8124067586773994203, guid: 7b9aa311f7e68df46a1b1edc9e63d1b2,
         type: 3}
       propertyPath: m_RootOrder
@@ -91,10 +96,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2250283475028250635, guid: 82968cc2420664001a8eeaa2605b3d94,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2981881294271242776, guid: 82968cc2420664001a8eeaa2605b3d94,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8114972609855561156, guid: 82968cc2420664001a8eeaa2605b3d94,
         type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8114972609855561156, guid: 82968cc2420664001a8eeaa2605b3d94,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8114972609855561156, guid: 82968cc2420664001a8eeaa2605b3d94,
         type: 3}
