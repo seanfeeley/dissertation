@@ -6,13 +6,19 @@ using UnityEngine;
 public class StickyCardManager : MonoBehaviour
 {
     public GameObject StickyCard_Below;
-    public bool highlighted;
     public bool selected = false;
     public bool stickySelected = false;
+    public bool highlighted = false;
+    public bool stickyHighlighted = false;
     public bool hiddenToMe = false;
     public bool inHiddenZone = false;
     public bool FaceUp = true;
     private float thickness = 0.002f;
+    private float nonSelectedHeight = 0.01f;
+    private float selectedHeight = 0.03f;
+    public Color outlineColor = Color.cyan;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -25,8 +31,77 @@ public class StickyCardManager : MonoBehaviour
     {
         this.UpdateTransform();
         this.UpdateSelection();
-        
+        this.UpdateHighlighted();
+        this.UpdateOutline();
+        //this.UpdateRenderQueue();
 
+
+    }
+
+    private void UpdateRenderQueue()
+    {
+        Transform cardTransform = gameObject.transform.GetChild(0);
+        Material cardMaterial = cardTransform.GetComponent<Renderer>().material;
+        if (this.selected || this.stickySelected)
+        {
+            cardMaterial.renderQueue = 2449;
+
+        }
+        else if (this.highlighted || this.stickyHighlighted)
+        {
+            cardMaterial.renderQueue = 2449;
+
+        }
+        else
+        {
+            cardMaterial.renderQueue = 2451;
+
+        }
+    }
+
+    private void UpdateOutline()
+    {
+        Transform highlightTransform = gameObject.transform.Find("CardHighlight");
+        Material highlightMaterial = highlightTransform.GetComponent<Renderer>().material;
+        highlightMaterial.SetColor("_OutlineColor", outlineColor);
+        if (this.selected || this.stickySelected)
+        {
+            highlightMaterial.SetFloat("_OutlineWidth", 0.006f);
+            highlightMaterial.SetFloat("_OutlineFactor", 0.001f);
+
+        }
+        else if (this.highlighted || this.stickyHighlighted)
+        {
+            highlightMaterial.SetFloat("_OutlineWidth", 0.002f);
+            highlightMaterial.SetFloat("_OutlineFactor", 0.001f);
+
+        }
+        else
+        {
+            highlightMaterial.SetFloat("_OutlineWidth", 0.0f);
+            highlightMaterial.SetFloat("_OutlineFactor", 0.0f);
+
+        }
+
+    }
+
+    private void UpdateHighlighted()
+    {
+        this.stickyHighlighted = this.IsStickyHightlighted();
+    }
+
+    private bool IsStickyHightlighted()
+    {
+        bool highlightedBelow = ((StickyCard_Below) && StickyCard_Below.GetComponent<StickyCardManager>().IsStickyHightlighted());
+        if (highlightedBelow)
+        {
+            this.highlighted = false;
+            return true;
+        }
+        else
+        {
+            return this.highlighted;
+        }
     }
 
     private void UpdateSelection()
@@ -48,7 +123,7 @@ public class StickyCardManager : MonoBehaviour
         }
         else
         {
-            return selected;
+            return this.selected;
         }
     }
 
@@ -78,14 +153,14 @@ public class StickyCardManager : MonoBehaviour
     private void UpdateSelectedCardPosition()
     {
         gameObject.transform.position = new Vector3(gameObject.transform.position.x,
-                                                    gameObject.transform.parent.gameObject.transform.position.y +.02f,
+                                                    gameObject.transform.parent.gameObject.transform.position.y + selectedHeight,
                                                     gameObject.transform.position.z);
     }
 
     private void UpdateSingleCardPosition()
     {
         gameObject.transform.position = new Vector3(gameObject.transform.position.x,
-                                                    gameObject.transform.parent.gameObject.transform.position.y, 
+                                                    gameObject.transform.parent.gameObject.transform.position.y + nonSelectedHeight, 
                                                     gameObject.transform.position.z);
     }
 
