@@ -85,10 +85,10 @@
     <Compile Include="Assets/Scripts/GameManager.cs" />
     <Compile Include="Assets/Unity Store/GUIPack-Clean&amp;Minimalist/Demo/Scripts/Gradient.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexShakeB.cs" />
-    <Compile Include="Assets/UIController.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/EnvMapAnimator.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets/Unity Store/Ultimate 10 Plus Shaders/Scripts/U10PS_DissolveOverTime.cs" />
+    <Compile Include="Assets/Scripts/Volume.cs" />
     <Compile Include="Assets/Unity Store/OutlineToolkit/Script/Demonstration_NoclipController.cs" />
     <Compile Include="Assets/Unity Store/Ultimate 10 Plus Shaders/Scripts/U10PS_ExampleReview.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/CameraController.cs" />
@@ -103,7 +103,6 @@
     <Compile Include="Assets/Unity Store/GUIPack-Clean&amp;Minimalist/Demo/Scripts/SpriteSwapper.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextInfoDebugTool.cs" />
     <Compile Include="Assets/Niantic/LightshipHUB/Runtime/Scripts/SharedObjectHolder.cs" />
-    <Compile Include="Assets/StickyCardManager.cs" />
     <Compile Include="Assets/Niantic/LightshipHUB/Runtime/Scripts/ObjectMasking.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextEventCheck.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/ShaderPropAnimator.cs" />
@@ -127,8 +126,8 @@
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark03.cs" />
     <Compile Include="Assets/Niantic/LightshipHUB/Runtime/Scripts/PlacementController.cs" />
     <Compile Include="Assets/Unity Store/GUIPack-Clean&amp;Minimalist/Demo/Scripts/Popup.cs" />
-    <Compile Include="Assets/Volume.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_FrameRateCounter.cs" />
+    <Compile Include="Assets/Scripts/CursorCollider.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexJitter.cs" />
     <Compile Include="Assets/Niantic/LightshipHUB/Runtime/Scripts/DepthTextureController.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextEventHandler.cs" />
@@ -137,9 +136,11 @@
     <Compile Include="Assets/Niantic/LightshipHUB/Runtime/Scripts/InteractionController.cs" />
     <Compile Include="Assets/Unity Store/GUIPack-Clean&amp;Minimalist/Demo/Scripts/PopupOpener.cs" />
     <Compile Include="Assets/Unity Store/GUIPack-Clean&amp;Minimalist/Demo/Scripts/CleanButtonConfig.cs" />
+    <Compile Include="Assets/Scripts/PlayerManager.cs" />
     <Compile Include="Assets/Scripts/MenuManager.cs" />
     <Compile Include="Assets/Unity Store/OutlineToolkit/Script/EdgeDetect.cs" />
     <Compile Include="Assets/Niantic/LightshipHUB/Runtime/Scripts/PlaneTrackerController.cs" />
+    <Compile Include="Assets/Scripts/StickyCardManager.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/DropdownSample.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_PhoneNumberValidator.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexColorCycler.cs" />
@@ -147,6 +148,7 @@
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TeleType.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexZoom.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark01.cs" />
+    <Compile Include="Assets/Scripts/UIController.cs" />
     <Compile Include="Assets/Niantic/LightshipHUB/Runtime/Scripts/MeshColliderController.cs" />
   </ItemGroup>
   <ItemGroup>

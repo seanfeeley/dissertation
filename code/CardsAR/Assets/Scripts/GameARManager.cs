@@ -94,5 +94,7 @@ public class GameARManager : MonoBehaviour
     private void StartDetectingFloor()
     {
         Environment.GetComponent<EnvironmentManager>().UnlockFloor();
+
+
     }
 }

@@ -1,16 +1,17 @@
 ﻿<Properties StartupConfiguration="{00BE2B06-77C0-05A0-1DB0-2EA5BDC676F1}|">
-  <MonoDevelop.Ide.ItemProperties.ARDK PreferredExecutionTarget="a4aa08c0-a091-4e54-b0d0-f3abcb6c3a83" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Niantic/ARDK/Utilities/_UpdateLoop.cs">
+  <MonoDevelop.Ide.ItemProperties.ARDK PreferredExecutionTarget="0e40a1af-355e-4f26-b884-66db559993c5" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/StickyCardManager.cs">
     <Files>
-      <File FileName="Assets/StickyCardManager.cs" Line="70" Column="66" />
-      <File FileName="Assets/Materials/NewImageEffectShader.shader" />
-      <File FileName="Assets/Materials/NewSurfaceShader.shader" />
-      <File FileName="Assets/Unity Store/Ultimate 10 Plus Shaders/Scripts/U10PS_MouseRotation.cs" />
-      <File FileName="Assets/Unity Store/QuickOutline/Scripts/Outline.cs" />
-      <File FileName="Assets/Unity Store/OutlineToolkit/Shader/StandardSurfaceOutlined.shader" />
-      <File FileName="Assets/Unity Store/OutlineEffect/VerticesOutline_Always.shader" Line="5" Column="6" />
-      <File FileName="Assets/Unity Store/Playing Cards/Image Effects/Shaders/Reversibl_Draw.shader" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GameARManager.cs" Line="92" Column="6" IsPinned="True" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="40" Column="1" />
+      <File FileName="Assets/Scripts/EnvironmentManager.cs" Line="19" Column="1" />
+      <File FileName="Assets/Scripts/Cursor.cs" Line="1" Column="1" />
+      <File FileName="Assets/Niantic/ARDKExamples/PlaneAnchors/ARCursorRenderer.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/CursorCollider.cs" Line="12" Column="51" />
       <File FileName="Assets/Niantic/ARDK/Utilities/_UpdateLoop.cs" Line="36" Column="1" />
+      <File FileName="Assets/Scripts/PlayerManager.cs" Line="15" Column="30" />
+      <File FileName="Assets/Scripts/MenuManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/StickyCardManager.cs" Line="21" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -19,21 +20,22 @@
             <Node name="Assets" expanded="True">
               <Node name="Niantic" expanded="True">
                 <Node name="ARDK" expanded="True">
-                  <Node name="Utilities" expanded="True">
-                    <Node name="_UpdateLoop.cs" selected="True" />
-                  </Node>
+                  <Node name="Utilities" expanded="True" />
+                </Node>
+                <Node name="ARDKExamples" expanded="True">
+                  <Node name="PlaneAnchors" expanded="True" />
                 </Node>
               </Node>
-              <Node name="Unity Store" expanded="True">
-                <Node name="OutlineEffect" expanded="True" />
-                <Node name="Playing Cards" expanded="True">
-                  <Node name="Image Effects" expanded="True">
-                    <Node name="Shaders" expanded="True" />
-                  </Node>
-                </Node>
+              <Node name="Scripts" expanded="True">
+                <Node name="StickyCardManager.cs" selected="True" />
               </Node>
             </Node>
           </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State>
+          <Value>newState</Value>
         </State>
       </Pad>
     </Pads>
@@ -42,7 +44,8 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/seanfeeley/Masters/Dissertation/code/CardsAR/Assets/StickyCardManager.cs" relfile="Assets/StickyCardManager.cs" line="67" column="1" />
+      <Breakpoint file="/Users/seanfeeley/Masters/Dissertation/code/CardsAR/Assets/Scripts/GameManager.cs" relfile="Assets/Scripts/GameManager.cs" line="40" column="1" />
+      <Breakpoint file="/Users/seanfeeley/Masters/Dissertation/code/CardsAR/Assets/Scripts/PlayerManager.cs" relfile="Assets/Scripts/PlayerManager.cs" line="43" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />

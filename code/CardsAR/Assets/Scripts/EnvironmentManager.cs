@@ -21,6 +21,16 @@ public class EnvironmentManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        this.setTablePlacerVisibility(! this.floorLocked); 
+    }
+
+    void setTablePlacerVisibility(bool visibility)
+    {
+        GameObject[] tablePlacers = GameObject.FindGameObjectsWithTag("TablePlacer");
+        if (tablePlacers.Length == 1)
+        {
+            tablePlacers[0].transform.GetChild(0).gameObject.SetActive(visibility);
+        }
     }
 
     // Update is called once per frame
@@ -59,6 +69,8 @@ public class EnvironmentManager : MonoBehaviour
         RenderSettings.ambientIntensity = 1.0f;
         gameObject.transform.Find("Room").gameObject.SetActive(false);
         gameObject.transform.Find("TableAndChairs").gameObject.SetActive(false);
+         
+       
     }
 
     public void LockFloor()
@@ -67,6 +79,8 @@ public class EnvironmentManager : MonoBehaviour
         this.tableLocked = false;
         gameObject.transform.Find("Room").gameObject.SetActive(false);
         gameObject.transform.Find("TableAndChairs").gameObject.SetActive(true);
+
+
     }
 
     public void LockTable()

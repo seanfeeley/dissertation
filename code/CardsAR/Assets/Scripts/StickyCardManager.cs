@@ -18,7 +18,14 @@ public class StickyCardManager : MonoBehaviour
     private float selectedHeight = 0.03f;
     public Color outlineColor = Color.cyan;
 
-
+    public int StickyStackHeight()
+    {
+        if (StickyCard_Below)
+        {
+            return 1 + StickyCard_Below.GetComponent<StickyCardManager>().StickyStackHeight();
+        }
+        return 1;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -33,9 +40,15 @@ public class StickyCardManager : MonoBehaviour
         this.UpdateSelection();
         this.UpdateHighlighted();
         this.UpdateOutline();
+        this.UpdateHidden();
         //this.UpdateRenderQueue();
 
 
+    }
+
+    private void UpdateHidden()
+    {
+        gameObject.transform.Find("Red_PlayingCards_Hidden_00").gameObject.SetActive(this.hiddenToMe); 
     }
 
     private void UpdateRenderQueue()
@@ -63,23 +76,28 @@ public class StickyCardManager : MonoBehaviour
     {
         Transform highlightTransform = gameObject.transform.Find("CardHighlight");
         Material highlightMaterial = highlightTransform.GetComponent<Renderer>().material;
-        highlightMaterial.SetColor("_OutlineColor", outlineColor);
+        highlightMaterial.SetColor("_Color", outlineColor);
+        highlightMaterial.SetColor("_EmissionColor", outlineColor);
         if (this.selected || this.stickySelected)
         {
-            highlightMaterial.SetFloat("_OutlineWidth", 0.006f);
-            highlightMaterial.SetFloat("_OutlineFactor", 0.001f);
+            highlightTransform.localScale = new Vector3(1.25f, 1.0f, 1.25f);
+
+            //highlightMaterial.SetFloat("_OutlineWidth", 0.006f);
+            //highlightMaterial.SetFloat("_OutlineFactor", 0.001f);
 
         }
         else if (this.highlighted || this.stickyHighlighted)
         {
-            highlightMaterial.SetFloat("_OutlineWidth", 0.002f);
-            highlightMaterial.SetFloat("_OutlineFactor", 0.001f);
+            highlightTransform.localScale = new Vector3(1.1f, 1.0f, 1.1f);
+            //highlightMaterial.SetFloat("_OutlineWidth", 0.002f);
+            //highlightMaterial.SetFloat("_OutlineFactor", 0.001f);
 
         }
         else
         {
-            highlightMaterial.SetFloat("_OutlineWidth", 0.0f);
-            highlightMaterial.SetFloat("_OutlineFactor", 0.0f);
+            highlightTransform.localScale = new Vector3(0.0f, 0.0f, 0.0f);
+            //highlightMaterial.SetFloat("_OutlineWidth", 0.0f);
+            //highlightMaterial.SetFloat("_OutlineFactor", 0.0f);
 
         }
 

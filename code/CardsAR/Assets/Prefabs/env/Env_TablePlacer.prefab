@@ -99,6 +99,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CasinoChip20_Black_00
       objectReference: {fileID: 0}
+    - target: {fileID: 6704058567114982939, guid: a210f3a6cac261c4a802d91d76b886a1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a210f3a6cac261c4a802d91d76b886a1, type: 3}
 --- !u!4 &8145211411611175670 stripped
