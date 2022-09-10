@@ -64,7 +64,7 @@ public class StickyCardManager : MonoBehaviour
         this.UpdateOutline();
         this.UpdateHidden();
         //this.UpdateRenderQueue();
-
+        this.UpdateCardFace();
 
     }
 
@@ -182,6 +182,11 @@ public class StickyCardManager : MonoBehaviour
         }
     }
 
+    internal void Flip()
+    {
+        this.FaceUp = !this.FaceUp;
+    }
+
     private void UpdateSelection()
     {
         this.stickySelected = this.IsStickySelected();
@@ -248,17 +253,16 @@ public class StickyCardManager : MonoBehaviour
         gameObject.transform.position = new Vector3(StickyCard_Below.gameObject.transform.position.x,
                                                     StickyCard_Below.gameObject.transform.position.y + thickness,
                                                      StickyCard_Below.gameObject.transform.position.z);
-        Vector3 EulerRotation = StickyCard_Below.gameObject.transform.rotation.eulerAngles;
 
-        if (FaceUp)
+    }
+    private void UpdateCardFace() {
+        Vector3 CardScale = Vector3.one;
+        if (!FaceUp)
         {
-            EulerRotation.z = 0;
+            CardScale.y = -1;
         }
-        else
-        {
-            EulerRotation.z = 180;
-        }
-        gameObject.transform.rotation = Quaternion.Euler(EulerRotation);
+        GameObject mainCard = gameObject.transform.GetChild(0).gameObject;
+        mainCard.transform.localScale = CardScale;
 
     }
 }

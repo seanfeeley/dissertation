@@ -124,35 +124,141 @@ public class PlayerManager : MonoBehaviour
     }
     public void PickupDropMiddleCard()
     {
+        if (HeldCard)
+        {
+            if (HighlightedCard)
+            {
+
+            }
+            else
+            {
+
+            }
+        }
+        else if (HighlightedCard)
+        {
+
+        }
 
     }
     public void PickupDropBottomCard()
     {
+        if (HeldCard)
+        {
+            if (HighlightedCard)
+            {
 
+            }
+            else
+            {
+
+            }
+        }
+        else if (HighlightedCard)
+        {
+
+        }
     }
     public void PickupDropDeck()
     {
+        if (HeldCard)
+        {
+            if (HighlightedCard)
+            {
 
+            }
+            else
+            {
+
+            }
+        }
+        else if (HighlightedCard)
+        {
+
+        }
     }
     public void FlipCard()
     {
-
+        if (HeldCard)
+        {
+            this.HeldCard.GetComponent<StickyCardManager>().Flip();
+        }
+        else if (HighlightedCard)
+        {
+            this.HighlightedCard.GetComponent<StickyCardManager>().Flip();
+        }
     }
     public void FlipDeck()
     {
+        if (HeldCard)
+        {
+            if (HighlightedCard)
+            {
 
+            }
+            else
+            {
+
+            }
+        }
+        else if (HighlightedCard)
+        {
+
+        }
     }
     public void SplitDeck()
     {
+        if (HeldCard)
+        {
+            if (HighlightedCard)
+            {
 
+            }
+            else
+            {
+
+            }
+        }
+        else if (HighlightedCard)
+        {
+
+        }
     }
     public void DealDeck()
     {
+        if (HeldCard)
+        {
+            if (HighlightedCard)
+            {
 
+            }
+            else
+            {
+
+            }
+        }
+        else if (HighlightedCard)
+        {
+
+        }
     }
     public void ShuffleDeck()
     {
+        if (HeldCard)
+        {
+            if (HighlightedCard)
+            {
 
+            }
+            else
+            {
+
+            }
+        }
+        else if (HighlightedCard)
+        {
+
+        }
     }
 
 
