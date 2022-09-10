@@ -9,7 +9,7 @@ public class CursorCollider : MonoBehaviour
         if (other.gameObject.tag == "SelectableCard")
         {
 
-            PlayerManager.Instance.StartHighlightingCard(other.gameObject);
+            PlayerManager.Instance.StartHighlightingCard(other.gameObject.GetComponent<StickyCardManager>().GetBottomCard());
             
         }
 
@@ -19,7 +19,7 @@ public class CursorCollider : MonoBehaviour
         if (other.gameObject.tag == "SelectableCard")
         {
            
-             PlayerManager.Instance.StopHighlightingcard(other.gameObject);
+             PlayerManager.Instance.StopHighlightingcard(other.gameObject.GetComponent<StickyCardManager>().GetBottomCard());
            
         }
     }

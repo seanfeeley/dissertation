@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class StickyCardManager : MonoBehaviour
 {
-    public GameObject StickyCard_Below;
+
+
+
     public bool selected = false;
     public bool stickySelected = false;
     public bool highlighted = false;
@@ -18,32 +20,89 @@ public class StickyCardManager : MonoBehaviour
     private float selectedHeight = 0.03f;
     public Color outlineColor = Color.cyan;
 
-    public int StickyStackHeight()
+    public GameObject _below; // field
+    public GameObject StickyCard_Below   // property
     {
-        if (StickyCard_Below)
-        {
-            return 1 + StickyCard_Below.GetComponent<StickyCardManager>().StickyStackHeight();
-        }
-        return 1;
+        get { return _below; }   // get method
+        set {
+            if (_below)
+            {
+                _below.GetComponent<StickyCardManager>().StickyCard_Above = null;
+            }
+            if (value != null)
+            {
+                value.GetComponent<StickyCardManager>().StickyCard_Above = gameObject;
+            }
+            _below = value;
+        }  // set method
     }
+
+    public GameObject _above; // field
+    public GameObject StickyCard_Above   // property
+    {
+        get { return _above; }   // get method
+        set { _above = value; }  // set method
+    }
+
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (_below != null)
+        {
+            _below.GetComponent<StickyCardManager>().StickyCard_Above = gameObject;
+        }
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         this.UpdateTransform();
-        this.UpdateSelection();
-        this.UpdateHighlighted();
+        //this.UpdateSelection();
+        //this.UpdateHighlighted();
         this.UpdateOutline();
         this.UpdateHidden();
         //this.UpdateRenderQueue();
 
 
+    }
+
+    public GameObject GetBottomCard()
+    {
+        if (_below)
+        {
+            return _below.GetComponent<StickyCardManager>().GetBottomCard();
+        }
+        else
+        {
+            return gameObject;
+        }
+    }
+
+
+    public int CountAbove()
+    {
+        if (_above)
+        {
+            return 1 + _above.GetComponent<StickyCardManager>().CountAbove();
+        }
+        else
+        {
+            return 1;
+        }
+    }
+
+    public GameObject GetTopCard()
+    {
+        if (_above)
+        {
+            return _above.GetComponent<StickyCardManager>().GetTopCard();
+        }
+        else
+        {
+            return gameObject;
+        }
     }
 
     private void UpdateHidden()
@@ -75,30 +134,31 @@ public class StickyCardManager : MonoBehaviour
     private void UpdateOutline()
     {
         Transform highlightTransform = gameObject.transform.Find("CardHighlight");
+        GameObject card = gameObject.transform.GetChild(0).gameObject;
+        GameObject hiddenCard = gameObject.transform.GetChild(1).gameObject;
         Material highlightMaterial = highlightTransform.GetComponent<Renderer>().material;
         highlightMaterial.SetColor("_Color", outlineColor);
         highlightMaterial.SetColor("_EmissionColor", outlineColor);
         if (this.selected || this.stickySelected)
         {
             highlightTransform.localScale = new Vector3(1.25f, 1.0f, 1.25f);
-
-            //highlightMaterial.SetFloat("_OutlineWidth", 0.006f);
-            //highlightMaterial.SetFloat("_OutlineFactor", 0.001f);
-
+            gameObject.layer = LayerMask.NameToLayer("HighlightedCards");
+            card.layer = LayerMask.NameToLayer("HighlightedCards");
+            hiddenCard.layer = LayerMask.NameToLayer("HighlightedCards");
         }
         else if (this.highlighted || this.stickyHighlighted)
         {
             highlightTransform.localScale = new Vector3(1.1f, 1.0f, 1.1f);
-            //highlightMaterial.SetFloat("_OutlineWidth", 0.002f);
-            //highlightMaterial.SetFloat("_OutlineFactor", 0.001f);
-
+            gameObject.layer = LayerMask.NameToLayer("HighlightedCards");
+            card.layer = LayerMask.NameToLayer("HighlightedCards");
+            hiddenCard.layer = LayerMask.NameToLayer("HighlightedCards");
         }
         else
         {
             highlightTransform.localScale = new Vector3(0.0f, 0.0f, 0.0f);
-            //highlightMaterial.SetFloat("_OutlineWidth", 0.0f);
-            //highlightMaterial.SetFloat("_OutlineFactor", 0.0f);
-
+            gameObject.layer = LayerMask.NameToLayer("StaticCards");
+            card.layer = LayerMask.NameToLayer("StaticCards");
+            hiddenCard.layer = LayerMask.NameToLayer("StaticCards");
         }
 
     }

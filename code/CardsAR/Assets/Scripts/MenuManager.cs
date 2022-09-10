@@ -299,7 +299,7 @@ public class MenuManager : MonoBehaviour
         this.setCardButtonEnabled(Button_DeckSplit, "Icon", true);
         this.setCardButtonEnabled(Button_DeckUp, "Deck Up", true);
         this.setCardButtonEnabled(Button_CardTop, "Top Card Down", true);
-        this.setCardButtonEnabled(Button_CardMiddle, "Middle Up", true);
+        this.setCardButtonEnabled(Button_CardMiddle, "Middle Down", true);
         this.setCardButtonEnabled(Button_DeckFlip, "Icon", true);
         this.setCardButtonEnabled(Button_CardFlip, "Card Flip", true);
     }
