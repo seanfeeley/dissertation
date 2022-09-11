@@ -309,8 +309,42 @@ public class PlayerManager : MonoBehaviour
 
         }
     }
+    public void SpreadDeck()
+    {
+        if (HeldCard)
+        {
+            if (HighlightedCard)
+            {
 
+            }
+            else
+            {
 
+            }
+        }
+        else if (HighlightedCard)
+        {
+
+        }
+    }
+    public void MagneticPickup()
+    {
+        if (HeldCard)
+        {
+            if (HighlightedCard)
+            {
+
+            }
+            else
+            {
+
+            }
+        }
+        else if (HighlightedCard)
+        {
+
+        }
+    }
     // Update is called once per frame
     void Update()
     {
