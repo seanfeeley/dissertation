@@ -6,26 +6,24 @@ public class CursorCollider : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "SelectableCard")
-        {
 
-            PlayerManager.Instance.StartHighlightingCard(other.gameObject.GetComponent<StickyCardManager>().GetBottomCard());
-            
-        }
 
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "SelectableCard")
+        if (other.gameObject.layer == LayerMask.NameToLayer("CardCollider"))
         {
-           
-             PlayerManager.Instance.StopHighlightingcard(other.gameObject.GetComponent<StickyCardManager>().GetBottomCard());
-           
+            other.GetComponent<CursorTracker>().UnderCursor = false;
+
         }
     }
     private void OnTriggerStay(Collider other)
     {
- 
+        if (other.gameObject.layer == LayerMask.NameToLayer("CardCollider"))
+        {
+            other.GetComponent<CursorTracker>().UnderCursor = true;
+
+        }
 
     }
 }

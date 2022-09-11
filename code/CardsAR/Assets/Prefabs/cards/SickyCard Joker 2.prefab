@@ -7,10 +7,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 477817623433157355, guid: 82968cc2420664001a8eeaa2605b3d94,
+        type: 3}
+      propertyPath: playingCard
+      value: 
+      objectReference: {fileID: 5093525313554726041}
+    - target: {fileID: 487866350782253923, guid: 82968cc2420664001a8eeaa2605b3d94,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2250283475028250635, guid: 82968cc2420664001a8eeaa2605b3d94,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2435292795262318463, guid: 82968cc2420664001a8eeaa2605b3d94,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2509680421819926545, guid: 82968cc2420664001a8eeaa2605b3d94,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2981881294271242776, guid: 82968cc2420664001a8eeaa2605b3d94,
         type: 3}
@@ -77,25 +97,92 @@ PrefabInstance:
       propertyPath: m_Name
       value: SickyCard Joker 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8428611877047524987, guid: 82968cc2420664001a8eeaa2605b3d94,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9094155760177031367, guid: 82968cc2420664001a8eeaa2605b3d94,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82968cc2420664001a8eeaa2605b3d94, type: 3}
---- !u!4 &2743314618535399048 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8114972609855561156, guid: 82968cc2420664001a8eeaa2605b3d94,
+--- !u!1 &1905987608438329643 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5548284289151664743, guid: 82968cc2420664001a8eeaa2605b3d94,
     type: 3}
   m_PrefabInstance: {fileID: 6236388770930185036}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6748666551403991176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905987608438329643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 659897807ca1f40b2baa5633bf3c688e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UnderCursor: 0
+--- !u!4 &2482727302799625527 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8428611877047524987, guid: 82968cc2420664001a8eeaa2605b3d94,
+    type: 3}
+  m_PrefabInstance: {fileID: 6236388770930185036}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6639730616323620278 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 768168690062880506, guid: 82968cc2420664001a8eeaa2605b3d94,
+    type: 3}
+  m_PrefabInstance: {fileID: 6236388770930185036}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6953564770174687355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6639730616323620278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 659897807ca1f40b2baa5633bf3c688e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UnderCursor: 0
+--- !u!1 &7552527656894587289 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4486690684941939413, guid: 82968cc2420664001a8eeaa2605b3d94,
+    type: 3}
+  m_PrefabInstance: {fileID: 6236388770930185036}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7803549562667361822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7552527656894587289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 659897807ca1f40b2baa5633bf3c688e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UnderCursor: 0
 --- !u!1001 &8144604209019845741
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 2743314618535399048}
+    m_TransformParent: {fileID: 2482727302799625527}
     m_Modifications:
     - target: {fileID: 140735227553264359, guid: 0b6244f805ccb8c4c8505d9e765e876f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 140735227553264359, guid: 0b6244f805ccb8c4c8505d9e765e876f,
         type: 3}
@@ -115,12 +202,12 @@ PrefabInstance:
     - target: {fileID: 140735227553264359, guid: 0b6244f805ccb8c4c8505d9e765e876f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 140735227553264359, guid: 0b6244f805ccb8c4c8505d9e765e876f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 140735227553264359, guid: 0b6244f805ccb8c4c8505d9e765e876f,
         type: 3}
@@ -135,7 +222,7 @@ PrefabInstance:
     - target: {fileID: 140735227553264359, guid: 0b6244f805ccb8c4c8505d9e765e876f,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 140735227553264359, guid: 0b6244f805ccb8c4c8505d9e765e876f,
         type: 3}
@@ -180,17 +267,3 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8144604209019845741}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7747817296917737858
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5093525313554726041}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  color: 2
-  eraseRenderer: 0

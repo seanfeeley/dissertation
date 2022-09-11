@@ -5,12 +5,12 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 2743314618535399048}
+    m_TransformParent: {fileID: 2482727302799625527}
     m_Modifications:
     - target: {fileID: 140735227553264359, guid: 75f188bdf26238344aab0154f762f9ba,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 140735227553264359, guid: 75f188bdf26238344aab0154f762f9ba,
         type: 3}
@@ -30,12 +30,12 @@ PrefabInstance:
     - target: {fileID: 140735227553264359, guid: 75f188bdf26238344aab0154f762f9ba,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 140735227553264359, guid: 75f188bdf26238344aab0154f762f9ba,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 140735227553264359, guid: 75f188bdf26238344aab0154f762f9ba,
         type: 3}
@@ -50,7 +50,7 @@ PrefabInstance:
     - target: {fileID: 140735227553264359, guid: 75f188bdf26238344aab0154f762f9ba,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 140735227553264359, guid: 75f188bdf26238344aab0154f762f9ba,
         type: 3}
@@ -89,6 +89,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75f188bdf26238344aab0154f762f9ba, type: 3}
+--- !u!1 &4125997857066677801 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4010635966089052404, guid: 75f188bdf26238344aab0154f762f9ba,
+    type: 3}
+  m_PrefabInstance: {fileID: 1074910165504866013}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6236388770930185036
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -96,6 +102,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 477817623433157355, guid: 82968cc2420664001a8eeaa2605b3d94,
+        type: 3}
+      propertyPath: playingCard
+      value: 
+      objectReference: {fileID: 4125997857066677801}
+    - target: {fileID: 487866350782253923, guid: 82968cc2420664001a8eeaa2605b3d94,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2435292795262318463, guid: 82968cc2420664001a8eeaa2605b3d94,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2509680421819926545, guid: 82968cc2420664001a8eeaa2605b3d94,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2981881294271242776, guid: 82968cc2420664001a8eeaa2605b3d94,
         type: 3}
       propertyPath: m_RootOrder
@@ -161,11 +187,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: SickyCard Joker 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8428611877047524987, guid: 82968cc2420664001a8eeaa2605b3d94,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9094155760177031367, guid: 82968cc2420664001a8eeaa2605b3d94,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82968cc2420664001a8eeaa2605b3d94, type: 3}
---- !u!4 &2743314618535399048 stripped
+--- !u!4 &2482727302799625527 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 8114972609855561156, guid: 82968cc2420664001a8eeaa2605b3d94,
+  m_CorrespondingSourceObject: {fileID: 8428611877047524987, guid: 82968cc2420664001a8eeaa2605b3d94,
     type: 3}
   m_PrefabInstance: {fileID: 6236388770930185036}
   m_PrefabAsset: {fileID: 0}

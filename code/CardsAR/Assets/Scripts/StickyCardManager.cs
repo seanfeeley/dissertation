@@ -8,6 +8,7 @@ public class StickyCardManager : MonoBehaviour
 
 
 
+    public bool fan = false;
     public bool selected = false;
     public bool stickySelected = false;
     public bool highlighted = false;
@@ -16,9 +17,16 @@ public class StickyCardManager : MonoBehaviour
     public bool inHiddenZone = false;
     public bool FaceUp = true;
     private float thickness = 0.002f;
-    private float nonSelectedHeight = 0.01f;
+    private float nonSelectedHeight = 0.001f;
     private float selectedHeight = 0.03f;
     public Color outlineColor = Color.cyan;
+
+
+    public GameObject[] cardColliders;
+    public GameObject hiddenCard;
+    public GameObject playingCard;
+    public GameObject highlight;
+
 
     public GameObject _below; // field
     public GameObject StickyCard_Below   // property
@@ -45,14 +53,19 @@ public class StickyCardManager : MonoBehaviour
     }
 
 
+    private StickyCardManager GetStickyCardManager(GameObject card)
+    {
+        return card.GetComponent<StickyCardManager>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         if (_below != null)
         {
-            _below.GetComponent<StickyCardManager>().StickyCard_Above = gameObject;
+            GetStickyCardManager(_below).StickyCard_Above = gameObject;
         }
+
     }
 
     // Update is called once per frame
@@ -60,7 +73,8 @@ public class StickyCardManager : MonoBehaviour
     {
         this.UpdateTransform();
         //this.UpdateSelection();
-        //this.UpdateHighlighted();
+        //this.UpdateStickyHighlighted();
+        this.UpdateHighlightColliders();
         this.UpdateOutline();
         this.UpdateHidden();
         //this.UpdateRenderQueue();
@@ -68,11 +82,29 @@ public class StickyCardManager : MonoBehaviour
 
     }
 
+    private void UpdateHighlightColliders()
+    {
+        bool underCursor = false;
+        foreach (GameObject cardCollider in cardColliders)
+        {
+            underCursor = underCursor || cardCollider.transform.GetComponent<CursorTracker>().UnderCursor;
+        }
+        if (underCursor)
+        {
+            PlayerManager.Instance.AddToHighlightCandidates(gameObject);
+        }
+        else
+        {
+            PlayerManager.Instance.RemoveFromToHighlightCandidates(gameObject);
+
+        }
+    }
+
     public GameObject GetBottomCard()
     {
         if (_below)
         {
-            return _below.GetComponent<StickyCardManager>().GetBottomCard();
+            return GetStickyCardManager(_below).GetBottomCard();
         }
         else
         {
@@ -85,7 +117,7 @@ public class StickyCardManager : MonoBehaviour
     {
         if (_above)
         {
-            return 1 + _above.GetComponent<StickyCardManager>().CountAbove();
+            return 1 + GetStickyCardManager(_above).CountAbove();
         }
         else
         {
@@ -97,7 +129,7 @@ public class StickyCardManager : MonoBehaviour
     {
         if (_above)
         {
-            return _above.GetComponent<StickyCardManager>().GetTopCard();
+            return GetStickyCardManager(_above).GetTopCard();
         }
         else
         {
@@ -107,70 +139,47 @@ public class StickyCardManager : MonoBehaviour
 
     private void UpdateHidden()
     {
-        gameObject.transform.Find("Red_PlayingCards_Hidden_00").gameObject.SetActive(this.hiddenToMe); 
+        hiddenCard.SetActive(this.hiddenToMe); 
     }
 
-    private void UpdateRenderQueue()
-    {
-        Transform cardTransform = gameObject.transform.GetChild(0);
-        Material cardMaterial = cardTransform.GetComponent<Renderer>().material;
-        if (this.selected || this.stickySelected)
-        {
-            cardMaterial.renderQueue = 2449;
-
-        }
-        else if (this.highlighted || this.stickyHighlighted)
-        {
-            cardMaterial.renderQueue = 2449;
-
-        }
-        else
-        {
-            cardMaterial.renderQueue = 2451;
-
-        }
-    }
 
     private void UpdateOutline()
     {
-        Transform highlightTransform = gameObject.transform.Find("CardHighlight");
-        GameObject card = gameObject.transform.GetChild(0).gameObject;
-        GameObject hiddenCard = gameObject.transform.GetChild(1).gameObject;
-        Material highlightMaterial = highlightTransform.GetComponent<Renderer>().material;
+        Material highlightMaterial = highlight.GetComponent<Renderer>().material;
         highlightMaterial.SetColor("_Color", outlineColor);
         highlightMaterial.SetColor("_EmissionColor", outlineColor);
         if (this.selected || this.stickySelected)
         {
-            highlightTransform.localScale = new Vector3(1.25f, 1.0f, 1.25f);
+            highlight.transform.localScale = new Vector3(1.25f, 1.0f, 1.25f);
             gameObject.layer = LayerMask.NameToLayer("HighlightedCards");
-            card.layer = LayerMask.NameToLayer("HighlightedCards");
+            playingCard.layer = LayerMask.NameToLayer("HighlightedCards");
             hiddenCard.layer = LayerMask.NameToLayer("HighlightedCards");
         }
         else if (this.highlighted || this.stickyHighlighted)
         {
-            highlightTransform.localScale = new Vector3(1.1f, 1.0f, 1.1f);
+            highlight.transform.localScale = new Vector3(1.1f, 1.0f, 1.1f);
             gameObject.layer = LayerMask.NameToLayer("HighlightedCards");
-            card.layer = LayerMask.NameToLayer("HighlightedCards");
+            playingCard.layer = LayerMask.NameToLayer("HighlightedCards");
             hiddenCard.layer = LayerMask.NameToLayer("HighlightedCards");
         }
         else
         {
-            highlightTransform.localScale = new Vector3(0.0f, 0.0f, 0.0f);
+            highlight.transform.localScale = new Vector3(0.0f, 0.0f, 0.0f);
             gameObject.layer = LayerMask.NameToLayer("StaticCards");
-            card.layer = LayerMask.NameToLayer("StaticCards");
+            playingCard.layer = LayerMask.NameToLayer("StaticCards");
             hiddenCard.layer = LayerMask.NameToLayer("StaticCards");
         }
 
     }
 
-    private void UpdateHighlighted()
+    private void UpdateStickyHighlighted()
     {
         this.stickyHighlighted = this.IsStickyHightlighted();
     }
 
     private bool IsStickyHightlighted()
     {
-        bool highlightedBelow = ((StickyCard_Below) && StickyCard_Below.GetComponent<StickyCardManager>().IsStickyHightlighted());
+        bool highlightedBelow = ((StickyCard_Below) && GetStickyCardManager(StickyCard_Below).IsStickyHightlighted());
         if (highlightedBelow)
         {
             this.highlighted = false;
@@ -198,7 +207,7 @@ public class StickyCardManager : MonoBehaviour
 
     public bool IsStickySelected()
     {
-        bool selectedBelow = ((StickyCard_Below) && StickyCard_Below.GetComponent<StickyCardManager>().IsStickySelected());
+        bool selectedBelow = ((StickyCard_Below) && GetStickyCardManager(StickyCard_Below).IsStickySelected());
         if (selectedBelow)
         {
             this.selected = false;
@@ -215,7 +224,7 @@ public class StickyCardManager : MonoBehaviour
         
         if (StickyCard_Below)
         {
-            StickyCard_Below.GetComponent<StickyCardManager>().UpdateTransform(); 
+            GetStickyCardManager(StickyCard_Below).UpdateTransform(); 
             this.UpdateStickyPosition();
 
         }
@@ -250,9 +259,9 @@ public class StickyCardManager : MonoBehaviour
     private void UpdateStickyPosition()
     {
         Vector3 before = gameObject.transform.position;
-        gameObject.transform.position = new Vector3(StickyCard_Below.gameObject.transform.position.x,
-                                                    StickyCard_Below.gameObject.transform.position.y + thickness,
-                                                     StickyCard_Below.gameObject.transform.position.z);
+        gameObject.transform.position = new Vector3(StickyCard_Below.transform.position.x,
+                                                    StickyCard_Below.transform.position.y + thickness,
+                                                    StickyCard_Below.transform.position.z);
 
     }
     private void UpdateCardFace() {
@@ -261,8 +270,7 @@ public class StickyCardManager : MonoBehaviour
         {
             CardScale.y = -1;
         }
-        GameObject mainCard = gameObject.transform.GetChild(0).gameObject;
-        mainCard.transform.localScale = CardScale;
+        playingCard.transform.localScale = CardScale;
 
     }
 }

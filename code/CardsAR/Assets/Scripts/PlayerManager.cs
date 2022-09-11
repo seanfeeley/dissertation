@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
@@ -9,6 +10,8 @@ public class PlayerManager : MonoBehaviour
     public GameObject cursor;
 
     public static PlayerManager Instance;
+
+    public List<GameObject> HighlightedCardCandidates;
 
     public GameObject HighlightedCard;
 
@@ -25,7 +28,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (this.HighlightedCard)
         {
-            this.StopHighlightingcard(this.HighlightedCard);
+            this.StopHighlightingCard(this.HighlightedCard);
         }
         if (this.HighlightedCard != card){
             this.HighlightedCard = card;
@@ -34,7 +37,7 @@ public class PlayerManager : MonoBehaviour
 
     }
 
-    internal void StopHighlightingcard(GameObject card)
+    internal void StopHighlightingCard(GameObject card)
     {
         if (this.HighlightedCard == card)
         {
@@ -68,6 +71,51 @@ public class PlayerManager : MonoBehaviour
         }
         return 0;
     }
+
+    internal void AddToHighlightCandidates(GameObject gameObject)
+    {
+        if (!this.HighlightedCardCandidates.Contains(gameObject))
+        {
+            this.HighlightedCardCandidates.Add(gameObject);
+            
+        }
+    }
+
+    internal void RemoveFromToHighlightCandidates(GameObject gameObject)
+    {
+        if (this.HighlightedCardCandidates.Contains(gameObject))
+        {
+            this.HighlightedCardCandidates.Remove(gameObject);
+            
+        }
+    }
+
+    private void updateHighlight()
+    {
+        float closestDistance = float.MaxValue;
+        GameObject closestCard = null;
+        foreach (GameObject card in this.HighlightedCardCandidates)
+        {
+            float distance = Vector3.Distance(cursor.transform.position, card.transform.position);
+            if (distance<closestDistance)
+            {
+                closestDistance = distance;
+                closestCard = card;
+            }
+        }
+        if (closestCard)
+        {
+            this.StartHighlightingCard(closestCard);
+        }
+        else if(this.HighlightedCard)
+        {
+            this.StopHighlightingCard(this.HighlightedCard);
+        }
+
+
+
+    }
+
     private int GetHighlightedCardCount()
     {
 
@@ -185,7 +233,8 @@ public class PlayerManager : MonoBehaviour
         }
         else if (HighlightedCard)
         {
-            this.HighlightedCard.GetComponent<StickyCardManager>().Flip();
+            GameObject topCard = this.HighlightedCard.GetComponent<StickyCardManager>().GetTopCard();
+            topCard.GetComponent<StickyCardManager>().Flip();
         }
     }
     public void FlipDeck()
@@ -267,7 +316,8 @@ public class PlayerManager : MonoBehaviour
     {
         this.UpdateGameState();
         this.MoveHeldCard();
-        
+        this.updateHighlight();
+
     }
 
     private void MoveHeldCard()
