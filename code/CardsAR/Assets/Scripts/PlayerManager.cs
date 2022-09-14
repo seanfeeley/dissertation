@@ -50,17 +50,31 @@ public class PlayerManager : MonoBehaviour
     {
 
         int HeldCardCount = this.GetHeldCardCount();
-            
         int HighlightedCardCount = this.GetHighlightedCardCount();
-        if (HeldCardCount == 0 && HighlightedCardCount == 0) { GameManager.Instance.UpdateGameState(GameState.NoneHighlighted_NoneHeld);}
-        if (HeldCardCount == 1 && HighlightedCardCount == 0) { GameManager.Instance.UpdateGameState(GameState.NoneHighlighted_OneHeld);}
-        if (HeldCardCount >= 2 && HighlightedCardCount == 0) { GameManager.Instance.UpdateGameState(GameState.NoneHighlighted_ManyHeld);}
-        if (HeldCardCount == 0 && HighlightedCardCount == 1) { GameManager.Instance.UpdateGameState(GameState.OneHighlighted_NoneHeld);}
-        if (HeldCardCount == 1 && HighlightedCardCount == 1) { GameManager.Instance.UpdateGameState(GameState.OneHighlighted_OneHeld);}
-        if (HeldCardCount >= 2 && HighlightedCardCount == 1) { GameManager.Instance.UpdateGameState(GameState.OneHighlighted_ManyHeld);}
-        if (HeldCardCount == 0 && HighlightedCardCount >= 2) { GameManager.Instance.UpdateGameState(GameState.ManyHighlighted_NoneHeld);}
-        if (HeldCardCount == 1 && HighlightedCardCount >= 2) { GameManager.Instance.UpdateGameState(GameState.ManyHighlighted_OneHeld);}
-        if (HeldCardCount >= 2 && HighlightedCardCount >= 2) { GameManager.Instance.UpdateGameState(GameState.ManyHighlighted_ManyHeld);}
+        bool SpreadHighlighted = this.IsSpreadHighlighted();
+        if (HeldCardCount == 0 && SpreadHighlighted) { GameManager.Instance.UpdateGameState(GameState.SpreadHighlighted_NoneHeld); }
+        else if (HeldCardCount == 1 && SpreadHighlighted) { GameManager.Instance.UpdateGameState(GameState.SpreadHighlighted_OneHeld); }
+        else if (HeldCardCount >= 2 && SpreadHighlighted) { GameManager.Instance.UpdateGameState(GameState.SpreadHighlighted_ManyHeld); }
+        else if (HeldCardCount == 0 && HighlightedCardCount == 0) { GameManager.Instance.UpdateGameState(GameState.NoneHighlighted_NoneHeld);}
+        else if (HeldCardCount == 1 && HighlightedCardCount == 0) { GameManager.Instance.UpdateGameState(GameState.NoneHighlighted_OneHeld);}
+        else if (HeldCardCount >= 2 && HighlightedCardCount == 0) { GameManager.Instance.UpdateGameState(GameState.NoneHighlighted_ManyHeld);}
+        else if (HeldCardCount == 0 && HighlightedCardCount == 1) { GameManager.Instance.UpdateGameState(GameState.OneHighlighted_NoneHeld);}
+        else if (HeldCardCount == 1 && HighlightedCardCount == 1) { GameManager.Instance.UpdateGameState(GameState.OneHighlighted_OneHeld);}
+        else if (HeldCardCount >= 2 && HighlightedCardCount == 1) { GameManager.Instance.UpdateGameState(GameState.OneHighlighted_ManyHeld); }
+        else if (HeldCardCount == 0 && HighlightedCardCount >= 2) { GameManager.Instance.UpdateGameState(GameState.ManyHighlighted_NoneHeld); }
+        else if (HeldCardCount == 1 && HighlightedCardCount >= 2) { GameManager.Instance.UpdateGameState(GameState.ManyHighlighted_OneHeld); }
+        else if (HeldCardCount >= 2 && HighlightedCardCount >= 2) { GameManager.Instance.UpdateGameState(GameState.ManyHighlighted_ManyHeld); }
+
+
+    }
+
+    private bool IsSpreadHighlighted()
+    {
+        if (HighlightedCard)
+        {
+            return GetStickyCardManager(HighlightedCard).Spread;
+        }
+        return false;
     }
 
     private int GetHeldCardCount()
@@ -139,6 +153,11 @@ public class PlayerManager : MonoBehaviour
         highlightMaterial.SetColor("_Color", playerColor);
     }
 
+    private StickyCardManager GetStickyCardManager(GameObject card)
+    {
+        return card.GetComponent<StickyCardManager>();
+    }
+
 
 
     public void PickupDropCard()
@@ -149,14 +168,17 @@ public class PlayerManager : MonoBehaviour
             if (HighlightedCard)
             {
                 // drop onto another card
-                this.HeldCard.GetComponent<StickyCardManager>().StickyCard_Below = HighlightedCard.GetComponent<StickyCardManager>().GetTopCard();
+                if(GetStickyCardManager(HeldCard))
+                GetStickyCardManager(HeldCard).StickyCard_Below = GetStickyCardManager(HighlightedCard).GetTopCard();
                 this.HeldCard.GetComponent<StickyCardManager>().selected = false;
+                this.HeldCard.GetComponent<StickyCardManager>().cursor = null;
                 this.HeldCard = null;
             }
             else
             {
                 // drop on table
                 this.HeldCard.GetComponent<StickyCardManager>().selected = false;
+                this.HeldCard.GetComponent<StickyCardManager>().cursor = null;
                 this.HeldCard = null;
             }
         }
@@ -165,6 +187,7 @@ public class PlayerManager : MonoBehaviour
             // pickup
             this.HeldCard = HighlightedCard.GetComponent<StickyCardManager>().GetTopCard();
             this.HeldCard.GetComponent<StickyCardManager>().selected = true;
+            this.HeldCard.GetComponent<StickyCardManager>().cursor = cursor;
             this.HeldCard.GetComponent<StickyCardManager>().StickyCard_Below = null;
             
         }

@@ -1,12 +1,16 @@
 ﻿<Properties StartupConfiguration="{00BE2B06-77C0-05A0-1DB0-2EA5BDC676F1}|">
-  <MonoDevelop.Ide.ItemProperties.ARDK PreferredExecutionTarget="0e40a1af-355e-4f26-b884-66db559993c5" />
+  <MonoDevelop.Ide.ItemProperties.ARDK PreferredExecutionTarget="f8a8f039-1a95-4079-82f9-1e695e3ecfe9" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/MenuManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/StickyCardManager.cs" Line="90" Column="1" />
-      <File FileName="Assets/Scripts/PlayerManager.cs" Line="319" Column="14" />
-      <File FileName="Assets/Scripts/CursorCollider.cs" Line="26" Column="10" />
-      <File FileName="Assets/CursorTracker.cs" Line="7" Column="29" />
-      <File FileName="Assets/Scripts/MenuManager.cs" Line="22" Column="38" />
+      <File FileName="Assets/Scripts/StickyCardManager.cs" Line="272" Column="62" />
+      <File FileName="Assets/Scripts/Cursor.cs" Line="8" Column="5" />
+      <File FileName="Assets/Scripts/CursorCollider.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/CursorTracker.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PlayerManager.cs" Line="56" Column="114" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="44" Column="1" />
+      <File FileName="Assets/Scripts/UIController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PrintOnOff.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/MenuManager.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -20,18 +24,13 @@
           </Node>
         </State>
       </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State>
-          <Value>newState</Value>
-        </State>
-      </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/seanfeeley/Masters/Dissertation/code/CardsAR/Assets/Scripts/PlayerManager.cs" relfile="Assets/Scripts/PlayerManager.cs" line="99" column="1" />
+      <Breakpoint file="/Users/seanfeeley/Masters/Dissertation/code/CardsAR/Assets/Scripts/PlayerManager.cs" relfile="Assets/Scripts/PlayerManager.cs" line="113" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />

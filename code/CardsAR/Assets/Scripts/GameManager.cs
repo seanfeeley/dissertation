@@ -29,6 +29,9 @@ public class GameManager : MonoBehaviour
     public void UpdateGameStateTo_ManyHighlighted_NoneHeld() { this.UpdateGameState(GameState.ManyHighlighted_NoneHeld); }
     public void UpdateGameStateTo_ManyHighlighted_OneHeld() { this.UpdateGameState(GameState.ManyHighlighted_OneHeld); }
     public void UpdateGameStateTo_ManyHighlighted_ManyHeld() { this.UpdateGameState(GameState.ManyHighlighted_ManyHeld); }
+    public void UpdateGameStateTo_SpreadHighlighted_NoneHeld() { this.UpdateGameState(GameState.SpreadHighlighted_NoneHeld); }
+    public void UpdateGameStateTo_SpreadHighlighted_OneHeld() { this.UpdateGameState(GameState.SpreadHighlighted_OneHeld); }
+    public void UpdateGameStateTo_SpreadHighlighted_ManyHeld() { this.UpdateGameState(GameState.SpreadHighlighted_ManyHeld); }
     public void UpdateGameStateTo_DetectingFloor() { this.UpdateGameState(GameState.DetectingFloor); }
     public void UpdateGameStateTo_TableMoving() { this.UpdateGameState(GameState.TableMoving); }
     public void UpdateGameStateTo_SelectingNumber_Split() { this.UpdateGameState(GameState.SelectingNumber_Split); }
@@ -41,6 +44,12 @@ public class GameManager : MonoBehaviour
 
         switch (newState)
         {
+            case GameState.SpreadHighlighted_NoneHeld:
+                break;
+            case GameState.SpreadHighlighted_OneHeld:
+                break;
+            case GameState.SpreadHighlighted_ManyHeld:
+                break;
             case GameState.NoneHighlighted_NoneHeld:
                 break;
             case GameState.NoneHighlighted_OneHeld:
@@ -83,12 +92,19 @@ public enum GameState
     NoneHighlighted_NoneHeld,
     NoneHighlighted_OneHeld,
     NoneHighlighted_ManyHeld,
+
     OneHighlighted_NoneHeld,
     OneHighlighted_OneHeld,
     OneHighlighted_ManyHeld,
+
     ManyHighlighted_NoneHeld,
     ManyHighlighted_OneHeld,
     ManyHighlighted_ManyHeld,
+
+    SpreadHighlighted_NoneHeld,
+    SpreadHighlighted_OneHeld,
+    SpreadHighlighted_ManyHeld,
+
 
     DetectingFloor,
     TableMoving,

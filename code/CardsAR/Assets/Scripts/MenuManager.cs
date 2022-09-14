@@ -42,6 +42,15 @@ public class MenuManager : MonoBehaviour
     {
         switch (state)
         {
+            case GameState.SpreadHighlighted_NoneHeld:
+                this.refreshButtonsFor_SpreadHighlighted_NoneHeld();
+                break;
+            case GameState.SpreadHighlighted_OneHeld:
+                this.refreshButtonsFor_SpreadHighlighted_OneHeld();
+                break;
+            case GameState.SpreadHighlighted_ManyHeld:
+                this.refreshButtonsFor_SpreadHighlighted_ManyHeld();
+                break;
             case GameState.NoneHighlighted_NoneHeld:
                 this.refreshButtonsFor_NoneHighlighted_NoneHeld();
                 break;
@@ -86,6 +95,7 @@ public class MenuManager : MonoBehaviour
 
         }
     }
+
 
     private void setCardButtonEnabled(GameObject button, string Child, bool enabled)
     {
@@ -164,19 +174,22 @@ public class MenuManager : MonoBehaviour
         this.setCardButtonEnabled(Button_Spread, "Disabled", true);
         this.setCardButtonEnabled(Button_Magnet, "Disabled", true);
     }
-    private void ResetCardButtonIcons()
+    private void showStaticCardButtonIcons()
     {
-        this.setCardButtonEnabled(Button_CardBottom, "Bottom Up", true);
+        //this.setCardButtonEnabled(Button_CardBottom, "Bottom Up", true);
+        //this.setCardButtonEnabled(Button_DeckUp, "Deck Up", true);
+        //this.setCardButtonEnabled(Button_CardTop, "Card Up", true);
+        //this.setCardButtonEnabled(Button_CardMiddle, "Middle Up", true);
+        //this.setCardButtonEnabled(Button_CardFlip, "Card Flip", true);
+
         this.setCardButtonEnabled(Button_DeckShuffle, "Icon", true);
         this.setCardButtonEnabled(Button_DeckDeal, "Icon", true);
         this.setCardButtonEnabled(Button_DeckSplit, "Icon", true);
-        this.setCardButtonEnabled(Button_DeckUp, "Deck Up", true);
-        this.setCardButtonEnabled(Button_CardTop, "Card Up", true);
-        this.setCardButtonEnabled(Button_CardMiddle, "Middle Up", true);
-        this.setCardButtonEnabled(Button_DeckFlip, "Icon", true);
-        this.setCardButtonEnabled(Button_Spread, "Icon", true);
         this.setCardButtonEnabled(Button_Magnet, "Icon", true);
-        this.setCardButtonEnabled(Button_CardFlip, "Card Flip", true);
+        this.setCardButtonEnabled(Button_DeckFlip, "Icon", true);
+
+
+
     }
 
     private void ResetCardButtons()
@@ -184,6 +197,7 @@ public class MenuManager : MonoBehaviour
         this.hideAllButtons();
         this.showAllCardButtons();
         this.hideAllCardButtonIcons();
+        this.showStaticCardButtonIcons();
         this.disableAllCardButtons();
     }
 
@@ -206,14 +220,11 @@ public class MenuManager : MonoBehaviour
 
 
         this.setCardButtonEnabled(Button_CardBottom, "Bottom Up", true);
-        this.setCardButtonEnabled(Button_DeckShuffle, "Icon", true);
-        this.setCardButtonEnabled(Button_DeckDeal, "Icon", true);
-        this.setCardButtonEnabled(Button_DeckSplit, "Icon", true);
         this.setCardButtonEnabled(Button_DeckUp, "Deck Up", true);
         this.setCardButtonEnabled(Button_CardTop, "Card Up", true);
         this.setCardButtonEnabled(Button_CardMiddle, "Middle Up", true);
-        this.setCardButtonEnabled(Button_DeckFlip, "Icon", true);
         this.setCardButtonEnabled(Button_CardFlip, "Card Flip", true);
+        this.setCardButtonEnabled(Button_Spread, "Spread", true);
 
 
     }
@@ -239,6 +250,7 @@ public class MenuManager : MonoBehaviour
         this.setCardButtonEnabled(Button_CardTop, "Card Down", true);
         this.setCardButtonEnabled(Button_CardMiddle, "Middle Up", true);
         this.setCardButtonEnabled(Button_CardFlip, "Card Flip", true);
+        this.setCardButtonEnabled(Button_Spread, "Spread", true);
 
     }
     private void refreshButtonsFor_NoneHighlighted_ManyHeld()
@@ -263,6 +275,8 @@ public class MenuManager : MonoBehaviour
         this.setCardButtonEnabled(Button_CardTop, "Card Up", true);
         this.setCardButtonEnabled(Button_CardMiddle, "Middle Up", true);
         this.setCardButtonEnabled(Button_CardFlip, "Top Card Flip", true);
+        this.setCardButtonEnabled(Button_Spread, "Spread", true);
+
     }
     private void refreshButtonsFor_OneHighlighted_NoneHeld()
     {
@@ -286,6 +300,8 @@ public class MenuManager : MonoBehaviour
         this.setCardButtonEnabled(Button_CardTop, "Card Up", true);
         this.setCardButtonEnabled(Button_CardMiddle, "Middle Up", true);
         this.setCardButtonEnabled(Button_CardFlip, "Card Flip", true);
+        this.setCardButtonEnabled(Button_Spread, "Spread", true);
+
     }
     private void refreshButtonsFor_OneHighlighted_OneHeld()
     {
@@ -309,6 +325,8 @@ public class MenuManager : MonoBehaviour
         this.setCardButtonEnabled(Button_CardTop, "Top Card Down", true);
         this.setCardButtonEnabled(Button_CardMiddle, "Middle Down", true);
         this.setCardButtonEnabled(Button_CardFlip, "Card Flip", true);
+        this.setCardButtonEnabled(Button_Spread, "Spread", true);
+
     }
     private void refreshButtonsFor_OneHighlighted_ManyHeld()
     {
@@ -332,6 +350,8 @@ public class MenuManager : MonoBehaviour
         this.setCardButtonEnabled(Button_CardTop, "Top Card Down", true);
         this.setCardButtonEnabled(Button_CardMiddle, "Middle Up", true);
         this.setCardButtonEnabled(Button_CardFlip, "Card Flip", true);
+        this.setCardButtonEnabled(Button_Spread, "Spread", true);
+
     }
     private void refreshButtonsFor_ManyHighlighted_NoneHeld()
     {
@@ -355,6 +375,8 @@ public class MenuManager : MonoBehaviour
         this.setCardButtonEnabled(Button_CardTop, "Top Card Up", true);
         this.setCardButtonEnabled(Button_CardMiddle, "Middle Up", true);
         this.setCardButtonEnabled(Button_CardFlip, "Top Card Flip", true);
+        this.setCardButtonEnabled(Button_Spread, "Spread", true);
+
     }
     private void refreshButtonsFor_ManyHighlighted_OneHeld()
     {
@@ -378,6 +400,8 @@ public class MenuManager : MonoBehaviour
         this.setCardButtonEnabled(Button_CardTop, "Top Card Down", true);
         this.setCardButtonEnabled(Button_CardMiddle, "Middle Down", true);
         this.setCardButtonEnabled(Button_CardFlip, "Card Flip", true);
+        this.setCardButtonEnabled(Button_Spread, "Spread", true);
+
     }
     private void refreshButtonsFor_ManyHighlighted_ManyHeld()
     {
@@ -401,7 +425,85 @@ public class MenuManager : MonoBehaviour
         this.setCardButtonEnabled(Button_CardTop, "Top Card Down", true);
         this.setCardButtonEnabled(Button_CardMiddle, "Middle Down", true);
         this.setCardButtonEnabled(Button_CardFlip, "Top Card Flip", true);
+        this.setCardButtonEnabled(Button_Spread, "Spread", true);
+
     }
+
+    private void refreshButtonsFor_SpreadHighlighted_ManyHeld()
+    {
+        this.ResetCardButtons();
+
+        //this.setCardButtonEnabled(Button_CardBottom, "Disabled", false);
+        //this.setCardButtonEnabled(Button_DeckShuffle, "Disabled", false);
+        //this.setCardButtonEnabled(Button_DeckDeal, "Disabled", false);
+        //this.setCardButtonEnabled(Button_DeckSplit, "Disabled", false);
+        //this.setCardButtonEnabled(Button_DeckUp, "Disabled", false);
+        this.setCardButtonEnabled(Button_CardTop, "Disabled", false);
+        //this.setCardButtonEnabled(Button_CardMiddle, "Disabled", false);
+        //this.setCardButtonEnabled(Button_DeckFlip, "Disabled", false);
+        this.setCardButtonEnabled(Button_CardFlip, "Disabled", false);
+        this.setCardButtonEnabled(Button_Spread, "Disabled", false);
+        this.setCardButtonEnabled(Button_Magnet, "Disabled", false);
+
+        this.setCardButtonEnabled(Button_CardBottom, "Bottom Down", true);
+        this.setCardButtonEnabled(Button_DeckUp, "Deck Up", true);
+        this.setCardButtonEnabled(Button_CardTop, "Card Down", true);
+        this.setCardButtonEnabled(Button_CardMiddle, "Middle Down", true);
+        this.setCardButtonEnabled(Button_CardFlip, "Card Flip", true);
+        this.setCardButtonEnabled(Button_Spread, "Stack", true);
+    }
+
+    private void refreshButtonsFor_SpreadHighlighted_OneHeld()
+    {
+        this.ResetCardButtons();
+
+        //this.setCardButtonEnabled(Button_CardBottom, "Disabled", false);
+        //this.setCardButtonEnabled(Button_DeckShuffle, "Disabled", false);
+        //this.setCardButtonEnabled(Button_DeckDeal, "Disabled", false);
+        //this.setCardButtonEnabled(Button_DeckSplit, "Disabled", false);
+        //this.setCardButtonEnabled(Button_DeckUp, "Disabled", false);
+        this.setCardButtonEnabled(Button_CardTop, "Disabled", false);
+        //this.setCardButtonEnabled(Button_CardMiddle, "Disabled", false);
+        //this.setCardButtonEnabled(Button_DeckFlip, "Disabled", false);
+        this.setCardButtonEnabled(Button_CardFlip, "Disabled", false);
+        this.setCardButtonEnabled(Button_Spread, "Disabled", false);
+        this.setCardButtonEnabled(Button_Magnet, "Disabled", false);
+
+        this.setCardButtonEnabled(Button_CardBottom, "Bottom Down", true);
+        this.setCardButtonEnabled(Button_DeckUp, "Deck Up", true);
+        this.setCardButtonEnabled(Button_CardTop, "Card Down", true);
+        this.setCardButtonEnabled(Button_CardMiddle, "Middle Down", true);
+        this.setCardButtonEnabled(Button_CardFlip, "Card Flip", true);
+        this.setCardButtonEnabled(Button_Spread, "Stack", true);
+    }
+
+    private void refreshButtonsFor_SpreadHighlighted_NoneHeld()
+    {
+        this.ResetCardButtons();
+
+        //this.setCardButtonEnabled(Button_CardBottom, "Disabled", false);
+        //this.setCardButtonEnabled(Button_DeckShuffle, "Disabled", false);
+        //this.setCardButtonEnabled(Button_DeckDeal, "Disabled", false);
+        //this.setCardButtonEnabled(Button_DeckSplit, "Disabled", false);
+        //this.setCardButtonEnabled(Button_DeckUp, "Disabled", false);
+        this.setCardButtonEnabled(Button_CardTop, "Disabled", false);
+        //this.setCardButtonEnabled(Button_CardMiddle, "Disabled", false);
+        //this.setCardButtonEnabled(Button_DeckFlip, "Disabled", false);
+        this.setCardButtonEnabled(Button_CardFlip, "Disabled", false);
+        this.setCardButtonEnabled(Button_Spread, "Disabled", false);
+        //this.setCardButtonEnabled(Button_Magnet, "Disabled", false);
+
+        this.setCardButtonEnabled(Button_CardBottom, "Bottom Down", true);
+        this.setCardButtonEnabled(Button_DeckUp, "Deck Up", true);
+        this.setCardButtonEnabled(Button_CardTop, "Card Up", true);
+        this.setCardButtonEnabled(Button_CardMiddle, "Middle Down", true);
+        this.setCardButtonEnabled(Button_CardFlip, "Card Flip", true);
+        this.setCardButtonEnabled(Button_Spread, "Stack", true);
+    }
+
+
+
+
     private void refreshButtonsFor_DetectingFloor()
     {
         this.hideAllButtons();

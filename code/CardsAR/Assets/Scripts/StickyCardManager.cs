@@ -7,8 +7,7 @@ public class StickyCardManager : MonoBehaviour
 {
 
 
-
-    public bool fan = false;
+    public GameObject cursor;
     public bool selected = false;
     public bool stickySelected = false;
     public bool highlighted = false;
@@ -17,16 +16,31 @@ public class StickyCardManager : MonoBehaviour
     public bool inHiddenZone = false;
     public bool FaceUp = true;
     private float thickness = 0.002f;
+    private float spreadWidth = 0.03f;
     private float nonSelectedHeight = 0.001f;
     private float selectedHeight = 0.03f;
     public Color outlineColor = Color.cyan;
 
+    public bool _spread; // field
+    public bool Spread   // property
+    {
+        get
+        {
+            if (_below)
+            {
+                return GetStickyCardManager(_below).Spread;
+            }
+            return _spread;
+        }   // get method
+        set { _spread = value; }  // set method
+    }
 
     public GameObject[] cardColliders;
     public GameObject hiddenCard;
     public GameObject playingCard;
     public GameObject highlight;
 
+ 
 
     public GameObject _below; // field
     public GameObject StickyCard_Below   // property
@@ -224,8 +238,15 @@ public class StickyCardManager : MonoBehaviour
         
         if (StickyCard_Below)
         {
-            GetStickyCardManager(StickyCard_Below).UpdateTransform(); 
-            this.UpdateStickyPosition();
+            GetStickyCardManager(StickyCard_Below).UpdateTransform();
+            if (this.Spread)
+            {
+                this.UpdateSpreadPosition();
+            }
+            else
+            {
+                this.UpdateStickyPosition();
+            }
 
         }
         else if (selected)
@@ -247,6 +268,10 @@ public class StickyCardManager : MonoBehaviour
         gameObject.transform.position = new Vector3(gameObject.transform.position.x,
                                                     gameObject.transform.parent.gameObject.transform.position.y + selectedHeight,
                                                     gameObject.transform.position.z);
+        gameObject.transform.eulerAngles = new Vector3(gameObject.transform.eulerAngles.x,
+                                                       cursor.transform.eulerAngles.y,
+                                                       gameObject.transform.eulerAngles.z);
+
     }
 
     private void UpdateSingleCardPosition()
@@ -262,6 +287,27 @@ public class StickyCardManager : MonoBehaviour
         gameObject.transform.position = new Vector3(StickyCard_Below.transform.position.x,
                                                     StickyCard_Below.transform.position.y + thickness,
                                                     StickyCard_Below.transform.position.z);
+
+
+        gameObject.transform.eulerAngles = new Vector3(StickyCard_Below.transform.eulerAngles.x,
+                                                       StickyCard_Below.transform.eulerAngles.y,
+                                                       0.0f);
+
+
+    }
+    private void UpdateSpreadPosition()
+    {
+        
+        Vector3 before = gameObject.transform.position;
+        float x_shift = Mathf.Cos(Mathf.Deg2Rad *gameObject.transform.eulerAngles.y) * spreadWidth;
+        float z_shift = Mathf.Sin(Mathf.Deg2Rad * gameObject.transform.eulerAngles.y) * spreadWidth;
+        gameObject.transform.position = new Vector3(StickyCard_Below.transform.position.x + x_shift,
+                                                    StickyCard_Below.transform.position.y,
+                                                    StickyCard_Below.transform.position.z - z_shift);
+        gameObject.transform.eulerAngles = new Vector3(StickyCard_Below.transform.eulerAngles.x,
+                                                       StickyCard_Below.transform.eulerAngles.y,
+                                                       -2.0f);
+
 
     }
     private void UpdateCardFace() {

@@ -118,6 +118,7 @@
     <Compile Include="Assets/Unity Store/OutlineToolkit/Script/Demonstration_MeshProcessing.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark02.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TextMeshSpawner.cs" />
+    <Compile Include="Assets/Scripts/CursorTracker.cs" />
     <Compile Include="Assets/TutorialInfo/Scripts/Readme.cs" />
     <Compile Include="Assets/Niantic/LightshipHUB/Runtime/Scripts/VPSCoverageListController.cs" />
     <Compile Include="Assets/Unity Store/GUIPack-Clean&amp;Minimalist/Demo/Scripts/Tooltip.cs" />
@@ -150,7 +151,6 @@
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark01.cs" />
     <Compile Include="Assets/Scripts/UIController.cs" />
     <Compile Include="Assets/Niantic/LightshipHUB/Runtime/Scripts/MeshColliderController.cs" />
-    <Compile Include="Assets/Scripts/CursorTracker.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
