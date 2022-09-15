@@ -162,34 +162,37 @@ public class PlayerManager : MonoBehaviour
 
     public void PickupDropCard()
     {
+
         if (HeldCard)
         {
+            StickyCardManager HeldManager = GetStickyCardManager(HeldCard);
             // drop
             if (HighlightedCard)
             {
-                // drop onto another card
-                if(GetStickyCardManager(HeldCard))
-                GetStickyCardManager(HeldCard).StickyCard_Below = GetStickyCardManager(HighlightedCard).GetTopCard();
-                this.HeldCard.GetComponent<StickyCardManager>().selected = false;
-                this.HeldCard.GetComponent<StickyCardManager>().cursor = null;
-                this.HeldCard = null;
+                HeldManager.DropOnTopOf(HighlightedCard);
             }
             else
             {
-                // drop on table
-                this.HeldCard.GetComponent<StickyCardManager>().selected = false;
-                this.HeldCard.GetComponent<StickyCardManager>().cursor = null;
-                this.HeldCard = null;
+                HeldManager.DropOntoTable();
             }
+            this.HeldCard = null;
         }
         else if (HighlightedCard)
         {
+            StickyCardManager HighlightedManager = GetStickyCardManager(HighlightedCard);
             // pickup
-            this.HeldCard = HighlightedCard.GetComponent<StickyCardManager>().GetTopCard();
-            this.HeldCard.GetComponent<StickyCardManager>().selected = true;
-            this.HeldCard.GetComponent<StickyCardManager>().cursor = cursor;
-            this.HeldCard.GetComponent<StickyCardManager>().StickyCard_Below = null;
-            
+            if (HighlightedManager.Spread)
+            {
+                this.HeldCard = HighlightedCard;
+            }
+            else
+            {
+                this.HeldCard = HighlightedManager.GetTopCard();
+
+            }
+            GetStickyCardManager(HeldCard).SinglePickUp(cursor);
+
+
         }
         
     }
@@ -234,17 +237,33 @@ public class PlayerManager : MonoBehaviour
     {
         if (HeldCard)
         {
+            StickyCardManager HeldManager = GetStickyCardManager(HeldCard);
+            // drop
             if (HighlightedCard)
             {
-
+                HeldManager.DropOnTopOf(HighlightedCard);
             }
             else
             {
-
+                HeldManager.DropOntoTable();
             }
+            this.HeldCard = null;
         }
         else if (HighlightedCard)
         {
+            StickyCardManager HighlightedManager = GetStickyCardManager(HighlightedCard);
+            // pickup
+            if (HighlightedManager.Spread)
+            {
+                this.HeldCard = HighlightedCard;
+            }
+            else
+            {
+                this.HeldCard = HighlightedManager.GetBottomCard();
+
+            }
+            GetStickyCardManager(HeldCard).DeckPickUp(cursor);
+
 
         }
     }
@@ -334,39 +353,39 @@ public class PlayerManager : MonoBehaviour
     }
     public void SpreadDeck()
     {
-        if (HeldCard)
-        {
-            if (HighlightedCard)
-            {
-
-            }
-            else
-            {
-
-            }
-        }
-        else if (HighlightedCard)
-        {
-
-        }
+       if (HighlightedCard)
+       {
+            StickyCardManager HighlightedManager = GetStickyCardManager(HighlightedCard);
+            StickyCardManager BottomCardManager = GetStickyCardManager(HighlightedManager.GetBottomCard());
+            BottomCardManager.Spread = !BottomCardManager.Spread;
+       }
+       
     }
     public void MagneticPickup()
     {
         if (HeldCard)
         {
+
             if (HighlightedCard)
             {
+                GameObject OldHeldCard = HeldCard;
 
-            }
-            else
-            {
-
+                StickyCardManager HeldManager = GetStickyCardManager(HeldCard);
+                StickyCardManager HighlightedManager = GetStickyCardManager(HighlightedCard);
+                // pickup
+                if (HighlightedManager.Spread)
+                {
+                    HeldManager.MagnetSingle(HighlightedCard);
+                    this.HeldCard = HighlightedCard;
+                }
+                else
+                {
+                    HeldManager.MagnetDeck(HighlightedCard);
+                    this.HeldCard = HighlightedCard;
+                }
             }
         }
-        else if (HighlightedCard)
-        {
 
-        }
     }
     // Update is called once per frame
     void Update()

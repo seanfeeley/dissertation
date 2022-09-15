@@ -30,7 +30,11 @@ public class StickyCardManager : MonoBehaviour
             {
                 return GetStickyCardManager(_below).Spread;
             }
-            return _spread;
+            else if(_above){
+                return _spread;
+
+            }
+            return false;
         }   // get method
         set { _spread = value; }  // set method
     }
@@ -40,31 +44,45 @@ public class StickyCardManager : MonoBehaviour
     public GameObject playingCard;
     public GameObject highlight;
 
- 
+    public GameObject _above; // field
+
 
     public GameObject _below; // field
     public GameObject StickyCard_Below   // property
     {
         get { return _below; }   // get method
         set {
+            GameObject _old_below = _below;
+            GameObject _new_below = value;
+            if (_old_below)
+            {
+                GetStickyCardManager(_old_below)._above = null;
+
+            }
+            if (_new_below)
+            {
+                GameObject previously_above_new_below = GetStickyCardManager(_new_below)._above;
+                if (previously_above_new_below)
+                {
+
+                    // we are inserting into the middle of a deck of cards
+                    // so change the card above
+
+                    GetStickyCardManager(previously_above_new_below)._below = GetTopCard();
+                    _above = previously_above_new_below;
+                }
+
+            }
+            // and change the card below
+            _below = _new_below;
             if (_below)
             {
-                _below.GetComponent<StickyCardManager>().StickyCard_Above = null;
+                GetStickyCardManager(_below)._above = gameObject;
             }
-            if (value != null)
-            {
-                value.GetComponent<StickyCardManager>().StickyCard_Above = gameObject;
-            }
-            _below = value;
         }  // set method
     }
 
-    public GameObject _above; // field
-    public GameObject StickyCard_Above   // property
-    {
-        get { return _above; }   // get method
-        set { _above = value; }  // set method
-    }
+
 
 
     private StickyCardManager GetStickyCardManager(GameObject card)
@@ -77,7 +95,7 @@ public class StickyCardManager : MonoBehaviour
     {
         if (_below != null)
         {
-            GetStickyCardManager(_below).StickyCard_Above = gameObject;
+            GetStickyCardManager(_below)._above = gameObject;
         }
 
     }
@@ -191,6 +209,19 @@ public class StickyCardManager : MonoBehaviour
         this.stickyHighlighted = this.IsStickyHightlighted();
     }
 
+    internal void DropOnTopOf(GameObject anotherCard)
+    {
+        StickyCard_Below = anotherCard;
+        selected = false;
+        cursor = null;
+    }
+
+    internal void DropOntoTable()
+    {
+        selected = false;
+        cursor = null;
+    }
+
     private bool IsStickyHightlighted()
     {
         bool highlightedBelow = ((StickyCard_Below) && GetStickyCardManager(StickyCard_Below).IsStickyHightlighted());
@@ -233,6 +264,23 @@ public class StickyCardManager : MonoBehaviour
         }
     }
 
+    internal void SinglePickUp(GameObject playerCursor)
+    {
+        cursor = playerCursor;
+        selected = true;
+        if (_below)
+        {
+            GetStickyCardManager(_below)._above = null;
+        }
+        if (_above)
+        {
+            GetStickyCardManager(_above).Spread = Spread; 
+            GetStickyCardManager(_above)._below = null;
+        }
+        _below = null;
+        _above = null;
+    }
+
     public void UpdateTransform()
     {
         
@@ -261,6 +309,18 @@ public class StickyCardManager : MonoBehaviour
 
         }
 
+    }
+
+    internal void DeckPickUp(GameObject playerCursor)
+    {
+        cursor = playerCursor;
+        selected = true;
+        if (_below)
+        {
+            GetStickyCardManager(_below)._above = null;
+        }
+        _below = null;
+        _spread = false;
     }
 
     private void UpdateSelectedCardPosition()
@@ -295,6 +355,14 @@ public class StickyCardManager : MonoBehaviour
 
 
     }
+
+    internal void MagnetSingle(GameObject tableCard)
+    {
+        GetStickyCardManager(tableCard).SinglePickUp(cursor);
+        selected = false;
+        StickyCard_Below = tableCard;
+    }
+
     private void UpdateSpreadPosition()
     {
         
@@ -310,6 +378,14 @@ public class StickyCardManager : MonoBehaviour
 
 
     }
+
+    internal void MagnetDeck(GameObject tableCard)
+    {
+        GetStickyCardManager(tableCard).DeckPickUp(cursor);
+        selected = false;
+        StickyCard_Below = GetStickyCardManager(tableCard).GetTopCard();
+    }
+
     private void UpdateCardFace() {
         Vector3 CardScale = Vector3.one;
         if (!FaceUp)
