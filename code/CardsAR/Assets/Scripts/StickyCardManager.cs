@@ -30,11 +30,7 @@ public class StickyCardManager : MonoBehaviour
             {
                 return GetStickyCardManager(_below).Spread;
             }
-            else if(_above){
-                return _spread;
-
-            }
-            return false;
+            return _spread;
         }   // get method
         set { _spread = value; }  // set method
     }
@@ -56,7 +52,13 @@ public class StickyCardManager : MonoBehaviour
             GameObject _new_below = value;
             if (_old_below)
             {
-                GetStickyCardManager(_old_below)._above = null;
+                StickyCardManager _old_below_manager = GetStickyCardManager(_old_below);
+                _old_below_manager._above = null;
+                if (_old_below_manager.CountAbove() == 1){
+                    _old_below_manager._spread = false;
+                }
+
+
 
             }
             if (_new_below)
@@ -211,9 +213,33 @@ public class StickyCardManager : MonoBehaviour
 
     internal void DropOnTopOf(GameObject anotherCard)
     {
-        StickyCard_Below = anotherCard;
         selected = false;
         cursor = null;
+        GameObject _old_below = _below;
+        GameObject _new_below = anotherCard;
+        if (_old_below)
+        {
+            StickyCardManager _old_below_manager = GetStickyCardManager(_old_below);
+            _old_below_manager._above = null;
+        }
+        if (_new_below)
+        {
+            GameObject previously_above_new_below = GetStickyCardManager(_new_below)._above;
+            if (previously_above_new_below)
+            {
+                // we are inserting into the middle of a deck of cards
+                // so change the card above
+                GetStickyCardManager(previously_above_new_below)._below = GetTopCard();
+                _above = previously_above_new_below;
+            }
+        }
+        // and change the card below
+        _below = _new_below;
+        if (_below)
+        {
+            GetStickyCardManager(_below)._above = gameObject;
+        }
+
     }
 
     internal void DropOntoTable()
@@ -224,7 +250,7 @@ public class StickyCardManager : MonoBehaviour
 
     private bool IsStickyHightlighted()
     {
-        bool highlightedBelow = ((StickyCard_Below) && GetStickyCardManager(StickyCard_Below).IsStickyHightlighted());
+        bool highlightedBelow = ((_below) && GetStickyCardManager(_below).IsStickyHightlighted());
         if (highlightedBelow)
         {
             this.highlighted = false;
@@ -244,15 +270,11 @@ public class StickyCardManager : MonoBehaviour
     private void UpdateSelection()
     {
         this.stickySelected = this.IsStickySelected();
-        if (this.selected)
-        {
-            this.StickyCard_Below = null;
-        }
     }
 
     public bool IsStickySelected()
     {
-        bool selectedBelow = ((StickyCard_Below) && GetStickyCardManager(StickyCard_Below).IsStickySelected());
+        bool selectedBelow = ((_below) && GetStickyCardManager(_below).IsStickySelected());
         if (selectedBelow)
         {
             this.selected = false;
@@ -268,14 +290,27 @@ public class StickyCardManager : MonoBehaviour
     {
         cursor = playerCursor;
         selected = true;
+        bool currentlySpread = this.Spread;
         if (_below)
         {
             GetStickyCardManager(_below)._above = null;
+            if(GetStickyCardManager(_below).CountAbove() == 1)
+            {
+                GetStickyCardManager(_below)._spread = false;
+            }
         }
         if (_above)
         {
-            GetStickyCardManager(_above).Spread = Spread; 
+            
             GetStickyCardManager(_above)._below = null;
+            if (GetStickyCardManager(_above).CountAbove() == 1)
+            {
+                GetStickyCardManager(_above)._spread = false;
+            }
+            else
+            {
+                GetStickyCardManager(_above).Spread = currentlySpread;
+            }
         }
         _below = null;
         _above = null;
@@ -284,9 +319,9 @@ public class StickyCardManager : MonoBehaviour
     public void UpdateTransform()
     {
         
-        if (StickyCard_Below)
+        if (_below)
         {
-            GetStickyCardManager(StickyCard_Below).UpdateTransform();
+            GetStickyCardManager(_below).UpdateTransform();
             if (this.Spread)
             {
                 this.UpdateSpreadPosition();
@@ -311,6 +346,53 @@ public class StickyCardManager : MonoBehaviour
 
     }
 
+    internal void FlipDeck()
+    {
+        List<StickyCardManager> cardManagerList = new List<StickyCardManager>();
+        StickyCardManager cardManager = this;
+
+        // put the card managers into a list 
+        while (cardManager != null)
+        {
+            cardManagerList.Add(cardManager);
+            if (cardManager._above)
+            {
+                cardManager = GetStickyCardManager(cardManager._above);
+            }
+            else
+            {
+                cardManager = null;
+            }
+        }
+        bool deckFaceUp = !cardManagerList[cardManagerList.Count - 1].FaceUp;
+        bool deckSpread = cardManagerList[0]._spread;
+
+        // re-order the card managers
+        for (int c = 0; c < cardManagerList.Count; c++)
+        {
+            StickyCardManager currentCardManager = cardManagerList[c];
+            currentCardManager.FaceUp = deckFaceUp;
+            if (c == 0)
+            {
+                currentCardManager._above = null;
+                currentCardManager._below = cardManagerList[c + 1].gameObject;
+            }
+            else if (c == cardManagerList.Count - 1)
+            {
+                currentCardManager._above = cardManagerList[c - 1].gameObject;
+                currentCardManager._spread = deckSpread;
+                currentCardManager._below = null;
+                currentCardManager.gameObject.transform.position = cardManagerList[0].gameObject.transform.position;
+            }
+            else
+            {
+                currentCardManager._above = cardManagerList[c - 1].gameObject;
+                currentCardManager._below = cardManagerList[c + 1].gameObject;
+
+            }
+        }
+    }
+
     internal void DeckPickUp(GameObject playerCursor)
     {
         cursor = playerCursor;
@@ -318,6 +400,11 @@ public class StickyCardManager : MonoBehaviour
         if (_below)
         {
             GetStickyCardManager(_below)._above = null;
+
+            if (GetStickyCardManager(_below).CountAbove() == 1)
+            {
+                GetStickyCardManager(_below)._spread = false;
+            }
         }
         _below = null;
         _spread = false;
@@ -344,13 +431,13 @@ public class StickyCardManager : MonoBehaviour
     private void UpdateStickyPosition()
     {
         Vector3 before = gameObject.transform.position;
-        gameObject.transform.position = new Vector3(StickyCard_Below.transform.position.x,
-                                                    StickyCard_Below.transform.position.y + thickness,
-                                                    StickyCard_Below.transform.position.z);
+        gameObject.transform.position = new Vector3(_below.transform.position.x,
+                                                    _below.transform.position.y + thickness,
+                                                    _below.transform.position.z);
 
 
-        gameObject.transform.eulerAngles = new Vector3(StickyCard_Below.transform.eulerAngles.x,
-                                                       StickyCard_Below.transform.eulerAngles.y,
+        gameObject.transform.eulerAngles = new Vector3(_below.transform.eulerAngles.x,
+                                                       _below.transform.eulerAngles.y,
                                                        0.0f);
 
 
@@ -360,7 +447,9 @@ public class StickyCardManager : MonoBehaviour
     {
         GetStickyCardManager(tableCard).SinglePickUp(cursor);
         selected = false;
-        StickyCard_Below = tableCard;
+        _below = tableCard;
+        GetStickyCardManager(_below)._above = gameObject;
+        GetStickyCardManager(GetBottomCard()).Spread = false;
     }
 
     private void UpdateSpreadPosition()
@@ -369,12 +458,12 @@ public class StickyCardManager : MonoBehaviour
         Vector3 before = gameObject.transform.position;
         float x_shift = Mathf.Cos(Mathf.Deg2Rad *gameObject.transform.eulerAngles.y) * spreadWidth;
         float z_shift = Mathf.Sin(Mathf.Deg2Rad * gameObject.transform.eulerAngles.y) * spreadWidth;
-        gameObject.transform.position = new Vector3(StickyCard_Below.transform.position.x + x_shift,
-                                                    StickyCard_Below.transform.position.y,
-                                                    StickyCard_Below.transform.position.z - z_shift);
-        gameObject.transform.eulerAngles = new Vector3(StickyCard_Below.transform.eulerAngles.x,
-                                                       StickyCard_Below.transform.eulerAngles.y,
-                                                       -2.0f);
+        gameObject.transform.position = new Vector3(_below.transform.position.x + x_shift,
+                                                    _below.transform.position.y,
+                                                    _below.transform.position.z - z_shift);
+        gameObject.transform.eulerAngles = new Vector3(_below.transform.eulerAngles.x,
+                                                       _below.transform.eulerAngles.y,
+                                                       -5.0f);
 
 
     }
@@ -383,7 +472,9 @@ public class StickyCardManager : MonoBehaviour
     {
         GetStickyCardManager(tableCard).DeckPickUp(cursor);
         selected = false;
-        StickyCard_Below = GetStickyCardManager(tableCard).GetTopCard();
+        _below = GetStickyCardManager(tableCard).GetTopCard();
+        GetStickyCardManager(_below)._above = gameObject;
+        GetStickyCardManager(GetBottomCard()).Spread = false;
     }
 
     private void UpdateCardFace() {
