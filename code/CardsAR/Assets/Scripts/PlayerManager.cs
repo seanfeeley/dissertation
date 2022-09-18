@@ -208,17 +208,31 @@ public class PlayerManager : MonoBehaviour
     {
         if (HeldCard)
         {
+            StickyCardManager HeldManager = GetStickyCardManager(HeldCard);
+            // drop
             if (HighlightedCard)
             {
 
-            }
-            else
-            {
-
+                StickyCardManager HighlightedManager = GetStickyCardManager(HighlightedCard);
+                if (!HighlightedManager.Spread)
+                {
+                    HeldManager.DropUnderneath(HighlightedManager.GetRandomDeck());
+                    this.HeldCard = null;
+                }
             }
         }
         else if (HighlightedCard)
         {
+            StickyCardManager HighlightedManager = GetStickyCardManager(HighlightedCard);
+            // pickup
+            if (!HighlightedManager.Spread)
+            {
+               this.HeldCard = HighlightedManager.GetRandomDeck();
+               GetStickyCardManager(HeldCard).SinglePickUp(cursor);
+
+            }
+            
+
 
         }
 
@@ -227,17 +241,41 @@ public class PlayerManager : MonoBehaviour
     {
         if (HeldCard)
         {
+            StickyCardManager HeldManager = GetStickyCardManager(HeldCard);
+            // drop
             if (HighlightedCard)
             {
-
+                StickyCardManager HighlightedManager = GetStickyCardManager(HighlightedCard);
+                if (HighlightedManager.Spread)
+                {
+                    HeldManager.DropUnderneath(HighlightedCard);
+                }
+                else
+                {
+                    HeldManager.DropUnderneath(HighlightedManager.GetBottomCard());
+                }
             }
             else
             {
-
+                HeldManager.DropOntoTable();
             }
+            this.HeldCard = null;
         }
         else if (HighlightedCard)
         {
+            StickyCardManager HighlightedManager = GetStickyCardManager(HighlightedCard);
+            // pickup
+            if (HighlightedManager.Spread)
+            {
+                this.HeldCard = HighlightedCard;
+            }
+            else
+            {
+                this.HeldCard = HighlightedManager.GetBottomCard();
+
+            }
+            GetStickyCardManager(HeldCard).SinglePickUp(cursor);
+
 
         }
     }
@@ -279,7 +317,16 @@ public class PlayerManager : MonoBehaviour
     {
         if (HeldCard)
         {
-            this.HeldCard.GetComponent<StickyCardManager>().Flip();
+            StickyCardManager HeldManager = GetStickyCardManager(HeldCard);
+            if(HeldManager.CountAbove() == 1)
+            {
+                HeldManager.Flip();
+            }
+            else
+            {
+                GetStickyCardManager(HeldManager.GetTopCard()).Flip();
+            }
+
         }
         else if (HighlightedCard)
         {
@@ -351,20 +398,20 @@ public class PlayerManager : MonoBehaviour
     }
     public void ShuffleDeck()
     {
-        if (HeldCard)
+        StickyCardManager DeckManager = null;
+        // pick wether the deck is highlighted or in hand
+        if (HighlightedCard && GetStickyCardManager(HighlightedCard).CountAbove() >= 2)
         {
-            if (HighlightedCard)
-            {
-
-            }
-            else
-            {
-
-            }
+            DeckManager = GetStickyCardManager(GetStickyCardManager(HighlightedCard).GetBottomCard());
+            DeckManager.ShuffleDeck();
         }
-        else if (HighlightedCard)
+        else if (HeldCard && GetStickyCardManager(HeldCard).CountAbove() >= 2)
         {
-
+            DeckManager = GetStickyCardManager(HeldCard);
+            DeckManager.ShuffleDeck();
+            DeckManager.DropOntoTable();
+            HeldCard = DeckManager.GetBottomCard();
+            GetStickyCardManager(HeldCard).DeckPickUp(cursor);
         }
     }
     public void SpreadDeck()
@@ -407,18 +454,9 @@ public class PlayerManager : MonoBehaviour
     void Update()
     {
         this.UpdateGameState();
-        this.MoveHeldCard();
         this.updateHighlight();
 
     }
 
-    private void MoveHeldCard()
-    {
-        if (HeldCard)
-        {
-            HeldCard.GetComponent<StickyCardManager>().transform.position = new Vector3(cursor.transform.position.x,
-                                                                                        HeldCard.GetComponent<StickyCardManager>().transform.position.y,
-                                                                                        cursor.transform.position.z);
-        }
-    }
+
 }
