@@ -6,6 +6,7 @@ public class Cursor : MonoBehaviour
 {
 
     public GameObject cursor;
+    public GameObject camera;
     public LayerMask mask;
 
     private Ray RayOrigin;
@@ -26,7 +27,7 @@ public class Cursor : MonoBehaviour
     void FixedUpdate()
     {
 
-        Transform cameraTransform = GetComponent<Camera>().transform;
+        Transform cameraTransform = camera.transform;
 
         if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out HitInfo, 100.0f, mask))
         {
@@ -34,7 +35,7 @@ public class Cursor : MonoBehaviour
             cursor.transform.eulerAngles = new Vector3(cursor.transform.eulerAngles.x,
                                                         cameraTransform.eulerAngles.y,
                                                         cursor.transform.eulerAngles.z);
-            Debug.DrawRay(cameraTransform.position, cameraTransform.forward * 100.0f, Color.red);
+           //Debug.DrawRay(cameraTransform.position, cameraTransform.forward * 100.0f, Color.red);
         }
            
 

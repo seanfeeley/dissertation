@@ -68,6 +68,16 @@ public class PlayerManager : MonoBehaviour
 
     }
 
+    internal float GetTableRotation()
+    {
+        return (360/MultiplayerNetworkingManager.Instance.GetCurrentPlayerCount())* MultiplayerNetworkingManager.Instance.GetMyPlayerIndex();
+    }
+
+    internal float GetDistanceToTable()
+    {
+        return 1.5f;
+    }
+
     private bool IsSpreadHighlighted()
     {
         if (HighlightedCard)
@@ -160,7 +170,45 @@ public class PlayerManager : MonoBehaviour
 
 
 
-    public void PickupDropCard()
+    public void PickupCard()
+    {
+        if (HighlightedCard)
+        {
+
+            StickyCardManager HighlightedManager = GetStickyCardManager(HighlightedCard);
+            if (HeldCard)
+            {
+                StickyCardManager HeldManager = GetStickyCardManager(HeldCard);
+                if (HighlightedManager.Spread)
+                {
+                    HeldManager.MagnetSingle(HighlightedCard);
+                    this.HeldCard = HighlightedCard;
+                }
+                else
+                {
+                    GameObject TopDeckCard = HighlightedManager.GetTopCard();
+                    HeldManager.MagnetDeck(TopDeckCard);
+                    this.HeldCard = TopDeckCard;
+                }
+            }
+            else
+            {
+                if (HighlightedManager.Spread)
+                {
+                    this.HeldCard = HighlightedCard;
+                }
+                else
+                {
+                    this.HeldCard = HighlightedManager.GetTopCard();
+                }
+                StickyCardManager HeldManager = GetStickyCardManager(HeldCard);
+                HeldManager.SinglePickUp(cursor);
+            }
+        }
+    
+    
+    }
+    public void DropCard()
     {
 
         if (HeldCard)
@@ -185,34 +233,38 @@ public class PlayerManager : MonoBehaviour
             }
             this.HeldCard = null;
         }
-        else if (HighlightedCard)
+           
+    }
+    public void PickupMiddleCard()
+    {
+
+        if (HighlightedCard)
         {
             StickyCardManager HighlightedManager = GetStickyCardManager(HighlightedCard);
-            // pickup
-            if (HighlightedManager.Spread)
+            if (HeldCard)
             {
-                this.HeldCard = HighlightedCard;
+                StickyCardManager HeldManager = GetStickyCardManager(HeldCard);
+                GameObject MiddleCard = HighlightedManager.GetRandomDeck();
+                HeldManager.MagnetSingle(MiddleCard);
+                this.HeldCard = MiddleCard;
             }
             else
             {
-                this.HeldCard = HighlightedManager.GetTopCard();
-
+                this.HeldCard = HighlightedManager.GetRandomDeck();
+                StickyCardManager HeldManager = GetStickyCardManager(HeldCard);
+                HeldManager.SinglePickUp(cursor);
             }
-            GetStickyCardManager(HeldCard).SinglePickUp(cursor);
-
-
         }
-        
+
     }
-    public void PickupDropMiddleCard()
+    public void DropMiddleCard()
     {
         if (HeldCard)
         {
-            StickyCardManager HeldManager = GetStickyCardManager(HeldCard);
             // drop
             if (HighlightedCard)
             {
-
+                StickyCardManager HeldManager = GetStickyCardManager(HeldCard);
                 StickyCardManager HighlightedManager = GetStickyCardManager(HighlightedCard);
                 if (!HighlightedManager.Spread)
                 {
@@ -221,30 +273,38 @@ public class PlayerManager : MonoBehaviour
                 }
             }
         }
-        else if (HighlightedCard)
-        {
-            StickyCardManager HighlightedManager = GetStickyCardManager(HighlightedCard);
-            // pickup
-            if (!HighlightedManager.Spread)
-            {
-               this.HeldCard = HighlightedManager.GetRandomDeck();
-               GetStickyCardManager(HeldCard).SinglePickUp(cursor);
-
-            }
-            
-
-
-        }
+        
 
     }
-    public void PickupDropBottomCard()
+    public void PickupBottomCard()
+    {
+
+        if (HighlightedCard)
+        {
+            StickyCardManager HighlightedManager = GetStickyCardManager(HighlightedCard);
+            if (HeldCard)
+            {
+                StickyCardManager HeldManager = GetStickyCardManager(HeldCard);
+                GameObject BottomCard = HighlightedManager.GetBottomCard();
+                HeldManager.MagnetSingle(BottomCard);
+                this.HeldCard = BottomCard;
+            }
+            else
+            {
+                this.HeldCard = HighlightedManager.GetBottomCard();
+                StickyCardManager HeldManager = GetStickyCardManager(HeldCard);
+                HeldManager.SinglePickUp(cursor);
+            }
+        }
+    }
+    public void DropBottomCard()
     {
         if (HeldCard)
         {
-            StickyCardManager HeldManager = GetStickyCardManager(HeldCard);
             // drop
             if (HighlightedCard)
             {
+                StickyCardManager HeldManager = GetStickyCardManager(HeldCard);
                 StickyCardManager HighlightedManager = GetStickyCardManager(HighlightedCard);
                 if (HighlightedManager.Spread)
                 {
@@ -254,32 +314,32 @@ public class PlayerManager : MonoBehaviour
                 {
                     HeldManager.DropUnderneath(HighlightedManager.GetBottomCard());
                 }
+                this.HeldCard = null;
+                
             }
-            else
-            {
-                HeldManager.DropOntoTable();
-            }
-            this.HeldCard = null;
         }
-        else if (HighlightedCard)
+    }
+    public void PickupDeck()
+    {
+        if (HighlightedCard)
         {
             StickyCardManager HighlightedManager = GetStickyCardManager(HighlightedCard);
-            // pickup
-            if (HighlightedManager.Spread)
+            if (HeldCard)
             {
-                this.HeldCard = HighlightedCard;
+                StickyCardManager HeldManager = GetStickyCardManager(HeldCard);
+                GameObject BottomCard = HighlightedManager.GetBottomCard();
+                HeldManager.MagnetDeck(BottomCard);
+                this.HeldCard = BottomCard;
             }
             else
             {
                 this.HeldCard = HighlightedManager.GetBottomCard();
-
+                StickyCardManager HeldManager = GetStickyCardManager(HeldCard);
+                HeldManager.DeckPickUp(cursor);
             }
-            GetStickyCardManager(HeldCard).SinglePickUp(cursor);
-
-
         }
     }
-    public void PickupDropDeck()
+    public void DropDeck()
     {
         if (HeldCard)
         {
@@ -287,30 +347,13 @@ public class PlayerManager : MonoBehaviour
             // drop
             if (HighlightedCard)
             {
-                HeldManager.DropOnTopOf(HighlightedCard);
+                StickyCardManager HighlightedManager = GetStickyCardManager(HighlightedCard);
             }
             else
             {
                 HeldManager.DropOntoTable();
             }
             this.HeldCard = null;
-        }
-        else if (HighlightedCard)
-        {
-            StickyCardManager HighlightedManager = GetStickyCardManager(HighlightedCard);
-            // pickup
-            if (HighlightedManager.Spread)
-            {
-                this.HeldCard = HighlightedCard;
-            }
-            else
-            {
-                this.HeldCard = HighlightedManager.GetBottomCard();
-
-            }
-            GetStickyCardManager(HeldCard).DeckPickUp(cursor);
-
-
         }
     }
     public void FlipCard()
@@ -346,7 +389,7 @@ public class PlayerManager : MonoBehaviour
     {
         StickyCardManager DeckManager = null;
         // pick wether teh deck is highlighted or in hand
-        if (HighlightedCard && GetStickyCardManager(HighlightedCard).CountAbove() >= 2)
+        if (HighlightedCard && GetStickyCardManager(GetStickyCardManager(HighlightedCard).GetBottomCard()).CountAbove() >= 2)
         {
             DeckManager = GetStickyCardManager(GetStickyCardManager(HighlightedCard).GetBottomCard());
             DeckManager.FlipDeck();

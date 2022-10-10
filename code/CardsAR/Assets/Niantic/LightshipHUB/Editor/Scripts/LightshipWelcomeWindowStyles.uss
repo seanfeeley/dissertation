@@ -127,6 +127,9 @@
 }
 #content Box {
 }
+#content Label.description {
+    white-space: normal;
+}
 #tutorials, #aboutus,#help {
     width:730px;
     height:674px;

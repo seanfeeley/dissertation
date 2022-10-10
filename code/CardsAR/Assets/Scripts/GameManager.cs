@@ -1,15 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
-    public GameState State;
+    public GameState CurrentState;
 
     public static event Action<GameState> OnGameStatesChanged;
 
+    public static GameManager Instance;
     private void Awake()
     {
         Instance = this;
@@ -18,7 +19,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        UpdateGameState(this.State);    
+        OnGameStatesChanged?.Invoke(this.CurrentState);
     }
     public void UpdateGameStateTo_NoneHighlighted_NoneHeld() { this.UpdateGameState(GameState.NoneHighlighted_NoneHeld); }
     public void UpdateGameStateTo_NoneHighlighted_OneHeld() { this.UpdateGameState(GameState.NoneHighlighted_OneHeld); }
@@ -34,43 +35,80 @@ public class GameManager : MonoBehaviour
     public void UpdateGameStateTo_SpreadHighlighted_ManyHeld() { this.UpdateGameState(GameState.SpreadHighlighted_ManyHeld); }
     public void UpdateGameStateTo_DetectingFloor() { this.UpdateGameState(GameState.DetectingFloor); }
     public void UpdateGameStateTo_TableMoving() { this.UpdateGameState(GameState.TableMoving); }
+    public void UpdateGameStateTo_TableConfirmed() { this.UpdateGameState(GameState.TableConfirmed); }
     public void UpdateGameStateTo_SelectingNumber_Split() { this.UpdateGameState(GameState.SelectingNumber_Split); }
     public void UpdateGameStateTo_SelectingNumber_Deal() { this.UpdateGameState(GameState.SelectingNumber_Deal); }
 
 
 
     public void UpdateGameState(GameState newState){
-        State = newState;
+        GameState OldState = CurrentState;
+
+        GameState[] CardPlayingStates = new GameState[]
+        {
+            GameState.NoneHighlighted_NoneHeld,
+            GameState.NoneHighlighted_OneHeld,
+            GameState.NoneHighlighted_ManyHeld,
+
+            GameState.OneHighlighted_NoneHeld,
+            GameState.OneHighlighted_OneHeld,
+            GameState.OneHighlighted_ManyHeld,
+
+            GameState.ManyHighlighted_NoneHeld,
+            GameState.ManyHighlighted_OneHeld,
+            GameState.ManyHighlighted_ManyHeld,
+
+            GameState.SpreadHighlighted_NoneHeld,
+            GameState.SpreadHighlighted_OneHeld,
+            GameState.SpreadHighlighted_ManyHeld
+        };
 
         switch (newState)
         {
             case GameState.SpreadHighlighted_NoneHeld:
+                if(CardPlayingStates.Contains(CurrentState)) { CurrentState = newState; }
                 break;
             case GameState.SpreadHighlighted_OneHeld:
+                if (CardPlayingStates.Contains(CurrentState)) { CurrentState = newState; }
                 break;
             case GameState.SpreadHighlighted_ManyHeld:
+                if (CardPlayingStates.Contains(CurrentState)) { CurrentState = newState; }
                 break;
             case GameState.NoneHighlighted_NoneHeld:
+                if (CardPlayingStates.Contains(CurrentState)) { CurrentState = newState; }
                 break;
             case GameState.NoneHighlighted_OneHeld:
+                if (CardPlayingStates.Contains(CurrentState)) { CurrentState = newState; }
                 break;
             case GameState.NoneHighlighted_ManyHeld:
+                if (CardPlayingStates.Contains(CurrentState)) { CurrentState = newState; }
                 break;
             case GameState.OneHighlighted_NoneHeld:
+                if (CardPlayingStates.Contains(CurrentState)) { CurrentState = newState; }
                 break;
             case GameState.OneHighlighted_OneHeld:
+                if (CardPlayingStates.Contains(CurrentState)) { CurrentState = newState; }
                 break;
             case GameState.OneHighlighted_ManyHeld:
+                if (CardPlayingStates.Contains(CurrentState)) { CurrentState = newState; }
                 break;
             case GameState.ManyHighlighted_NoneHeld:
+                if (CardPlayingStates.Contains(CurrentState)) { CurrentState = newState; }
                 break;
             case GameState.ManyHighlighted_OneHeld:
+                if (CardPlayingStates.Contains(CurrentState)) { CurrentState = newState; }
                 break;
             case GameState.ManyHighlighted_ManyHeld:
+                if (CardPlayingStates.Contains(CurrentState)) { CurrentState = newState; }
                 break;
             case GameState.DetectingFloor:
+                CurrentState = newState;
+                break;
+            case GameState.TableConfirmed:
+                CurrentState = GameState.NoneHighlighted_NoneHeld;
                 break;
             case GameState.TableMoving:
+                if (GameState.DetectingFloor == CurrentState) { CurrentState = newState; }
                 break;
             case GameState.SelectingNumber_Split:
                 break;
@@ -80,8 +118,10 @@ public class GameManager : MonoBehaviour
                 break;
 
         }
-
-        OnGameStatesChanged?.Invoke(newState);
+        if (OldState != CurrentState)
+        {
+            OnGameStatesChanged?.Invoke(this.CurrentState);
+        }
     }
 }
 
@@ -108,8 +148,8 @@ public enum GameState
 
     DetectingFloor,
     TableMoving,
+    TableConfirmed,
     SelectingNumber_Split,
     SelectingNumber_Deal,
-
 
 }

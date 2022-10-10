@@ -57,16 +57,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/Niantic/ARDK/Editor/Extensions/Semantics/ARSemanticSegmentationManagerInspector.cs" />
+    <Compile Include="Assets/Niantic/ARDK/Editor/VirtualStudio/_PlaybackConfigurationEditor.cs" />
     <Compile Include="Assets/Niantic/ARDK/Editor/PostBuildProcess.cs" />
     <Compile Include="Assets/Niantic/ARDK/Editor/Extensions/Rendering/ARRenderingManagerInspector.cs" />
-    <Compile Include="Assets/Niantic/ARDK/Editor/VirtualStudio/_IVirtualStudioModeLauncher.cs" />
     <Compile Include="Assets/Niantic/ARDK/Editor/VirtualStudio/_RemoteConfigurationEditor.cs" />
-    <Compile Include="Assets/Niantic/ARDK/Editor/VirtualStudio/_RemoteModeLauncher.cs" />
     <Compile Include="Assets/Niantic/ARDK/Editor/VirtualStudio/VirtualStudioConfigurationEditor.cs" />
+    <Compile Include="Assets/Niantic/ARDK/Editor/PrettyHeirarchy/_HierarchyColors.cs" />
+    <Compile Include="Assets/Niantic/ARDK/Editor/PrettyHeirarchy/_PrettyHierarchy.cs" />
+    <Compile Include="Assets/Niantic/ARDK/Editor/Extensions/Meshing/ARMeshManagerInspector.cs" />
     <Compile Include="Assets/Niantic/ARDK/Editor/VirtualStudio/_MockPlayConfigurationEditor.cs" />
     <Compile Include="Assets/Niantic/ARDK/Editor/Extensions/Depth/ARDepthManagerInspector.cs" />
-    <Compile Include="Assets/Niantic/ARDK/Editor/VirtualStudio/_VirtualStudioLauncher.cs" />
-    <Compile Include="Assets/Niantic/ARDK/Editor/VirtualStudio/_MockModeLauncher.cs" />
+    <Compile Include="Assets/Niantic/ARDK/Editor/CommonStyles.cs" />
+    <Compile Include="Assets/Niantic/ARDK/Editor/VirtualStudio/ConditionalHidePropertyDrawer.cs" />
     <Compile Include="Assets/Niantic/ARDK/Editor/ARDKPreBuildProcessor.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -352,11 +354,11 @@
     <Reference Include="Unity.VisualScripting.YamlDotNet">
       <HintPath>Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll</HintPath>
     </Reference>
-    <Reference Include="unityplastic">
-      <HintPath>Library/PackageCache/com.unity.collab-proxy@1.15.18/Lib/Editor/PlasticSCM/unityplastic.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.VisualScripting.TextureAssets">
       <HintPath>Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/EditorAssetResources/Unity.VisualScripting.TextureAssets.dll</HintPath>
+    </Reference>
+    <Reference Include="unityplastic">
+      <HintPath>Library/PackageCache/com.unity.collab-proxy@1.15.18/Lib/Editor/PlasticSCM/unityplastic.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library/PackageCache/com.unity.visualscripting@1.7.8/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>

@@ -1,25 +1,45 @@
 ﻿<Properties StartupConfiguration="{00BE2B06-77C0-05A0-1DB0-2EA5BDC676F1}|">
-  <MonoDevelop.Ide.ItemProperties.ARDK PreferredExecutionTarget="4269465d-bf8e-4204-a461-be9231130e0a" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/StickyCardManager.cs">
+  <MonoDevelop.Ide.ItemProperties.ARDK PreferredExecutionTarget="4a92c5f4-50ee-466b-96c8-a138d4fdebaf" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/PlayerManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/GameManager.cs" Line="34" Column="127" />
-      <File FileName="Assets/Scripts/UIController.cs" />
-      <File FileName="Assets/Scripts/PrintOnOff.cs" />
-      <File FileName="Assets/Scripts/MenuManager.cs" />
-      <File FileName="Assets/Scripts/StickyCardManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/MenuManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/P2PGameLogic.cs" />
+      <File FileName="Assets/Niantic/ARDK/Utilities/Logging/LogHandler/UnityARLogHandler.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PlayerManager.cs" Line="208" Column="31" />
+      <File FileName="Assets/Niantic/ARDK/Networking/HLAPI/Object/Unity/NetworkedUnityObject.cs" />
+      <File FileName="Assets/Scripts/StickyCardManager.cs" Line="343" Column="19" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="CardsAR" expanded="True">
             <Node name="Assets" expanded="True">
-              <Node name="Images" expanded="True" />
+              <Node name="Niantic" expanded="True">
+                <Node name="ARDK" expanded="True">
+                  <Node name="Networking" expanded="True">
+                    <Node name="HLAPI" expanded="True">
+                      <Node name="Object" expanded="True">
+                        <Node name="Unity" expanded="True" />
+                      </Node>
+                    </Node>
+                  </Node>
+                  <Node name="Utilities" expanded="True">
+                    <Node name="Logging" expanded="True">
+                      <Node name="LogHandler" expanded="True" />
+                    </Node>
+                  </Node>
+                </Node>
+              </Node>
               <Node name="Scripts" expanded="True">
-                <Node name="StickyCardManager.cs" selected="True" />
+                <Node name="PlayerManager.cs" selected="True" />
               </Node>
             </Node>
           </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="Unity" expanded="True" selected="True" />
         </State>
       </Pad>
     </Pads>
@@ -28,8 +48,8 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/seanfeeley/Masters/Dissertation/code/CardsAR/Assets/Scripts/PlayerManager.cs" relfile="Assets/Scripts/PlayerManager.cs" line="113" column="1" />
-      <Breakpoint file="/Users/seanfeeley/Masters/Dissertation/code/CardsAR/Assets/Scripts/PlayerManager.cs" relfile="Assets/Scripts/PlayerManager.cs" line="54" column="1" />
+      <Breakpoint file="/Users/seanfeeley/Masters/Dissertation/code/CardsAR/Assets/Scripts/GameManager.cs" relfile="Assets/Scripts/GameManager.cs" line="24" column="1" />
+      <Breakpoint file="/Users/seanfeeley/Masters/Dissertation/code/CardsAR/Assets/Scripts/EnvironmentManager.cs" relfile="Assets/Scripts/EnvironmentManager.cs" line="108" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />

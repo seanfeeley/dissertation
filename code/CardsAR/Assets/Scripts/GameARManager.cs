@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameARManager : MonoBehaviour
 {
 
-    public GameObject Environment;
+    public static GameARManager Instance;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +22,7 @@ public class GameARManager : MonoBehaviour
 
     private void Awake()
     {
+        Instance = this;
         GameManager.OnGameStatesChanged += GameStateChanged;
     }
 
@@ -83,17 +84,17 @@ public class GameARManager : MonoBehaviour
 
     private void StopMovingTable()
     {
-        Environment.GetComponent<EnvironmentManager>().LockTable();
+        EnvironmentManager.Instance.LockTable();
     }
 
     private void StartMovingTable()
     {
-        Environment.GetComponent<EnvironmentManager>().LockFloor();
+        EnvironmentManager.Instance.LockFloor();
     }
 
     private void StartDetectingFloor()
     {
-        Environment.GetComponent<EnvironmentManager>().UnlockFloor();
+        EnvironmentManager.Instance.UnlockFloor();
 
 
     }

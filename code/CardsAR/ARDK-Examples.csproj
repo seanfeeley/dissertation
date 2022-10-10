@@ -59,16 +59,17 @@
     <Compile Include="Assets/Niantic/ARDKExamples/ContextAwareness/Meshing/MeshingSemanticsExampleManager.cs" />
     <Compile Include="Assets/Niantic/ARDKExamples/Common/Helpers/Networking/PlayerColor.cs" />
     <Compile Include="Assets/Niantic/ARDKExamples/ImageDetection/ImageDetectionExampleManager.cs" />
+    <Compile Include="Assets/Niantic/ARDKExamples/ContextAwareness/HumanAR/HandTracking/HandTrackingExampleManager.cs" />
     <Compile Include="Assets/Niantic/ARDKExamples/Preloading/PreloaderTestManager.cs" />
     <Compile Include="Assets/Niantic/ARDKExamples/Common/Helpers/Networking/SyncStateTrackingList.cs" />
     <Compile Include="Assets/Niantic/ARDKExamples/MarkerSync/MarkerSyncSessionManager.cs" />
     <Compile Include="Assets/Niantic/ARDKExamples/PongHLAPI/PlayerAvatarBehaviour.cs" />
     <Compile Include="Assets/Niantic/ARDKExamples/LowLevelNetworking/LowLevelNetworkingExampleManager.cs" />
     <Compile Include="Assets/Niantic/ARDKExamples/Common/Helpers/Networking/SyncStateTrackedPeer.cs" />
+    <Compile Include="Assets/Niantic/ARDKExamples/VirtualStudio/Playback/DatasetRecorder.cs" />
     <Compile Include="Assets/Niantic/ARDKExamples/WayspotAnchors/WayspotAnchorDataUtility.cs" />
     <Compile Include="Assets/Niantic/ARDKExamples/MarkerSync/MarkerScanningManager.cs" />
     <Compile Include="Assets/Niantic/ARDKExamples/SceneSelector/SceneSelector.cs" />
-    <Compile Include="Assets/Niantic/ARDKExamples/ContextAwareness/Segmentation/SemanticSegmentationExampleManager.cs" />
     <Compile Include="Assets/Niantic/ARDKExamples/Common/Helpers/Networking/SendDebugMessageHelper.cs" />
     <Compile Include="Assets/Niantic/ARDKExamples/ContextAwareness/Meshing/MeshingExampleManager.cs" />
     <Compile Include="Assets/Niantic/ARDKExamples/Common/Helpers/AR/ARHitTester.cs" />
@@ -79,9 +80,11 @@
     <Compile Include="Assets/Niantic/ARDKExamples/Common/Helpers/Networking/NetworkStatus.cs" />
     <Compile Include="Assets/Niantic/ARDKExamples/PongHLAPI/BallBehaviour.cs" />
     <Compile Include="Assets/Niantic/ARDKExamples/Common/Helpers/Networking/SessionIDField.cs" />
+    <Compile Include="Assets/Niantic/ARDKExamples/ContextAwareness/Meshing/OcclusionStabilizationExample.cs" />
     <Compile Include="Assets/Niantic/ARDKExamples/Rendering/RenderingDemo.cs" />
     <Compile Include="Assets/Niantic/ARDKExamples/ContextAwareness/Gameboard/GameboardExampleManager.cs" />
     <Compile Include="Assets/Niantic/ARDKExamples/ContextAwareness/Depth/DepthExampleManager.cs" />
+    <Compile Include="Assets/Niantic/ARDKExamples/WayspotAnchors/ColorChangingTracker.cs" />
     <Compile Include="Assets/Niantic/ARDKExamples/Common/Helpers/Networking/SyncStateHelpText.cs" />
     <Compile Include="Assets/Niantic/ARDKExamples/Common/Helpers/Networking/SyncStatusDisplay.cs" />
     <Compile Include="Assets/Niantic/ARDKExamples/AnchorsWithoutPlanes/AnchorsWithoutPlanesExampleManager.cs" />
@@ -90,9 +93,9 @@
     <Compile Include="Assets/Niantic/ARDKExamples/Pong/MessagingManager.cs" />
     <Compile Include="Assets/Niantic/ARDKExamples/Common/Helpers/Configuration/ConfigHelper.cs" />
     <Compile Include="Assets/Niantic/ARDKExamples/LocationService/LocationServiceExampleManager.cs" />
-    <Compile Include="Assets/Niantic/ARDKExamples/VirtualStudio/ExampleMessageHandler.cs" />
+    <Compile Include="Assets/Niantic/ARDKExamples/VirtualStudio/Mock/ExampleMessageHandler.cs" />
     <Compile Include="Assets/Niantic/ARDKExamples/Common/Helpers/Networking/PeerPoseVisualizer.cs" />
-    <Compile Include="Assets/Niantic/ARDKExamples/VirtualStudio/ExamplePlayController.cs" />
+    <Compile Include="Assets/Niantic/ARDKExamples/VirtualStudio/Mock/ExamplePlayController.cs" />
     <Compile Include="Assets/Niantic/ARDKExamples/MarkerSync/MarkerMappingManager.cs" />
     <Compile Include="Assets/Niantic/ARDKExamples/Rendering/ARRenderer.cs" />
     <Compile Include="Assets/Niantic/ARDKExamples/Common/Helpers/Networking/SessionIDGenerator.cs" />
@@ -103,7 +106,7 @@
     <Compile Include="Assets/Niantic/ARDKExamples/PersistentKeyValue/PersistentKeyValueExampleManager.cs" />
     <Compile Include="Assets/Niantic/ARDKExamples/VpsCoverage/VpsCoverageListExampleManager.cs" />
     <Compile Include="Assets/Niantic/ARDKExamples/Common/Helpers/Networking/SessionStartGatekeeper.cs" />
-    <Compile Include="Assets/Niantic/ARDKExamples/ContextAwareness/Occlusion/DepthMeshOcclusionExampleManager.cs" />
+    <Compile Include="Assets/Niantic/ARDKExamples/ContextAwareness/Segmentation/SemanticSegmentationExampleManager.cs" />
     <Compile Include="Assets/Niantic/ARDKExamples/Rendering/ARDepthRenderer.cs" />
     <Compile Include="Assets/Niantic/ARDKExamples/ARNetworking/ARNetworkingExampleManager.cs" />
     <Compile Include="Assets/Niantic/ARDKExamples/PongHLAPI/PlayingFieldBehaviour.cs" />
@@ -111,6 +114,7 @@
   <ItemGroup>
     <None Include="Assets/Niantic/ARDKExamples/Common/Prefabs/Yeti/Source/Shadow/ShadowBlit.shader" />
     <None Include="Assets/Niantic/ARDKExamples/ARDK-Examples.asmdef" />
+    <None Include="Assets/Niantic/ARDKExamples/ContextAwareness/Segmentation/SemanticOverlay.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -380,11 +384,11 @@
     <Reference Include="Unity.VisualScripting.YamlDotNet">
       <HintPath>Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll</HintPath>
     </Reference>
-    <Reference Include="unityplastic">
-      <HintPath>Library/PackageCache/com.unity.collab-proxy@1.15.18/Lib/Editor/PlasticSCM/unityplastic.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.VisualScripting.TextureAssets">
       <HintPath>Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/EditorAssetResources/Unity.VisualScripting.TextureAssets.dll</HintPath>
+    </Reference>
+    <Reference Include="unityplastic">
+      <HintPath>Library/PackageCache/com.unity.collab-proxy@1.15.18/Lib/Editor/PlasticSCM/unityplastic.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library/PackageCache/com.unity.visualscripting@1.7.8/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>

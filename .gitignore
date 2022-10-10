@@ -7,4 +7,5 @@ words/.DS_Store
 *.log
 *.log
 *.txt
-
+code/CardsAR/Build*
+code/CardsAR/PongBuild

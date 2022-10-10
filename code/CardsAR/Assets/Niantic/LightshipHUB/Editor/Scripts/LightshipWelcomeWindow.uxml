@@ -13,7 +13,7 @@
                 <engine:Label name="menuTemplates" class="menuItem active" text="Templates" />
                 <engine:Label name="menuAbout" class="menuItem" text="About Lightship" />
                 <engine:Label name="menuHelp" class="menuItem" text="Help" />
-                <engine:Label name="version" class="" text="v0.1.0" />
+                <engine:Label name="version" class="" text="v2.20.6" />
             </engine:Box>
         </engine:Box>
         <engine:Box name="content">
@@ -33,12 +33,11 @@
                         <engine:Label class="alt" text="Object interacting with an AR plane."/>
                         <engine:Label class="level" text="Intermediate"/>
                         <engine:Label class="name" text="Plane Tracker"/>
-                        <engine:Label class="new" text="New"/>
+                        <!-- <engine:Label class="new" text="New"/> -->
                     </engine:Box>
                 </engine:Box>
                 <engine:Label name="basic" class="subtitle" text="Contextual Awareness" />
-                <engine:Label class="description" text="Learn how to map an environment to enable more realistic depth, occlusions," />
-                <engine:Label class="description" text="object placement and movement." />
+                <engine:Label class="description" text="Learn how to map an environment to enable more realistic depth, occlusions, object placement and movement." />
                 <engine:Box class="grid">
                     <engine:Box name="tuto2_1" class="tutorial">
                         <engine:Image class="image" />
@@ -57,14 +56,14 @@
                         <engine:Label class="alt" text="Place objects using the Real World Mesh."/>
                         <engine:Label class="level" text="Intermediate"/>
                         <engine:Label class="name" text="Realtime Meshing"/>
-                        <engine:Label class="new" text="New"/>
+                        <!-- <engine:Label class="new" text="New"/> -->
                     </engine:Box>
                     <engine:Box name="tuto2_4" class="tutorial">
                         <engine:Image class="image" />
                         <engine:Label class="alt" text="Interact with physics and the Real World Mesh."/>
                         <engine:Label class="level" text="Expert"/>
                         <engine:Label class="name" text="Mesh Collider"/>
-                        <engine:Label class="new" text="New"/>
+                        <!-- <engine:Label class="new" text="New"/> -->
                     </engine:Box>
                 </engine:Box>
                 <engine:Label name="basic" class="description" text="Segment and apply masks to different elements in the environment." />
@@ -80,7 +79,7 @@
                         <engine:Label class="alt" text="Mask AR objects with segmentation layers."/>
                         <engine:Label class="level" text="Expert"/>
                         <engine:Label class="name" text="Semantic Masking"/>
-                        <engine:Label class="new" text="New"/>
+                        <!-- <engine:Label class="new" text="New"/> -->
                     </engine:Box>
                 </engine:Box> 
                 <engine:Label name="basic" class="subtitle" text="Shared AR" />
@@ -91,7 +90,7 @@
                         <engine:Label class="alt" text="Interact with a shared object placed in the AR world."/>
                         <engine:Label class="level" text="Intermediate"/>
                         <engine:Label class="name" text="Shared Object Interaction"/>
-                        <engine:Label class="new" text="New"/>
+                        <!-- <engine:Label class="new" text="New"/> -->
                     </engine:Box>
                 </engine:Box>
                 <engine:Label name="basic" class="subtitle" text="Visual Positioning System" />
@@ -102,7 +101,7 @@
                         <engine:Label class="alt" text="Load the main Wayspot target."/>
                         <engine:Label class="level" text="Intermediate"/>
                         <engine:Label class="name" text="VPS Coverage Image"/>
-                        <engine:Label class="new" text="New"/>
+                        <!-- <engine:Label class="new" text="New"/> -->
                     </engine:Box>
                     <engine:Box name="tuto5_2" class="tutorial">
                         <engine:Image class="image" />
@@ -116,7 +115,7 @@
                         <engine:Label class="alt" text="Create and Restore Wayspot Anchors."/>
                         <engine:Label class="level" text="Intermediate"/>
                         <engine:Label class="name" text="Wayspot Anchors"/>
-                        <engine:Label class="new" text="New"/>
+                        <!-- <engine:Label class="new" text="New"/> -->
                     </engine:Box>
                 </engine:Box>
             </engine:ScrollView>

@@ -1,25 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class IDSessionGenerator : MonoBehaviour
 {
-    void Awake()
+  void Awake()
+  {
+    this.GetComponent<InputField>().text = GenerateRandomText();
+  }
+
+  private string GenerateRandomText()
+  {
+    string builder = "";
+
+    for (int i = 0; i < 6; ++i)
     {
-        this.GetComponent<InputField>().text = GenerateRandomText();
+      int r = Random.Range(0, 26);
+      builder += (char)('A' + r);
     }
 
-    private string GenerateRandomText()
-    {
-      string builder = "";
-
-      for (int i = 0; i < 6; ++i)
-      {
-        int r = Random.Range(0, 26); // [0, 26)
-        builder += (char)('A' + r);
-      }
-
-      return builder;
-    }
+    return builder;
+  }
 }

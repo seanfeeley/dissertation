@@ -5,9 +5,18 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Main.unity
     guid: c850ee8c3b14cc8459e7e186857cf567
+  - enabled: 0
+    path: Assets/Niantic/ARDKExamples/Pong/Pong.unity
+    guid: eeec3b1762a214e6ebe4c5c6e22fb332
+  - enabled: 0
+    path: Assets/Scenes/CarsAR.unity
+    guid: c9cc76f0a7c404efcb102751ec88e64e
+  - enabled: 1
+    path: Assets/Scenes/CarsAR2.unity
+    guid: 817191e6da0ad43928c8650e018c83be
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 8fa682c9d5b8842a3ac7d3d96d638eda,
       type: 2}

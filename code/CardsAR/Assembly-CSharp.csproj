@@ -61,14 +61,17 @@
     <Compile Include="Assets/Niantic/LightshipHUB/Runtime/Scripts/MushroomAnimation.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/SkewTextExample.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/SimpleScript.cs" />
-    <Compile Include="Assets/Niantic/LightshipHUB/Runtime/Scripts/WayspotAnchorDataUtility.cs" />
+    <Compile Include="Assets/Scripts/MultiplayerNetworkingManager.cs" />
+    <Compile Include="Assets/Niantic/LightshipHUB/Runtime/Scripts/WayspotAnchorTemplateDataUtility.cs" />
     <Compile Include="Assets/Scripts/EnvironmentManager.cs" />
+    <Compile Include="Assets/Scripts/P2PGameLogic.cs" />
     <Compile Include="Assets/Unity Store/GUIPack-Clean&amp;Minimalist/Demo/Scripts/SceneTransition.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark01_UGUI.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextSelector_A.cs" />
     <Compile Include="Assets/Niantic/LightshipHUB/Runtime/Scripts/IDSessionGenerator.cs" />
     <Compile Include="Assets/Niantic/LightshipHUB/Runtime/Scripts/BalloonAnimation.cs" />
     <Compile Include="Assets/Unity Store/Ultimate 10 Plus Shaders/Shaders/Plexus/Plexus.cs" />
+    <Compile Include="Assets/Niantic/LightshipHUB/Runtime/Scripts/WayspotAnchorTemplateController.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexShakeA.cs" />
     <Compile Include="Assets/Niantic/LightshipHUB/Runtime/Scripts/ObjectHolderController.cs" />
     <Compile Include="Assets/Niantic/LightshipHUBMockEnviroments/Scripts/MeshMaterial.cs" />
@@ -77,6 +80,7 @@
     <Compile Include="Assets/Unity Store/GUIPack-Clean&amp;Minimalist/Demo/Scripts/URLOpener.cs" />
     <Compile Include="Assets/Niantic/LightshipHUB/Runtime/Scripts/SharedObjectInteraction.cs" />
     <Compile Include="Assets/Scripts/PrintOnOff.cs" />
+    <Compile Include="Assets/Scripts/AvatarManager.cs" />
     <Compile Include="Assets/Unity Store/GUIPack-Clean&amp;Minimalist/Demo/Scripts/CleanButton.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/ChatController.cs" />
     <Compile Include="Assets/Scripts/GameARManager.cs" />
@@ -106,7 +110,6 @@
     <Compile Include="Assets/Niantic/LightshipHUB/Runtime/Scripts/ObjectMasking.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextEventCheck.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/ShaderPropAnimator.cs" />
-    <Compile Include="Assets/Niantic/LightshipHUB/Runtime/Scripts/WayspotAnchorController.cs" />
     <Compile Include="Assets/Niantic/LightshipHUB/Runtime/Scripts/ObjectAnimation.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/WarpTextExample.cs" />
     <Compile Include="Assets/Unity Store/Ultimate 10 Plus Shaders/Scripts/U10PS_MouseRotation.cs" />
@@ -125,10 +128,12 @@
     <Compile Include="Assets/Niantic/LightshipHUB/Runtime/Scripts/SharedSession.cs" />
     <Compile Include="Assets/Niantic/LightshipHUB/Runtime/Scripts/SegmentationController.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark03.cs" />
+    <Compile Include="Assets/Scripts/CarDriver.cs" />
     <Compile Include="Assets/Niantic/LightshipHUB/Runtime/Scripts/PlacementController.cs" />
     <Compile Include="Assets/Unity Store/GUIPack-Clean&amp;Minimalist/Demo/Scripts/Popup.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_FrameRateCounter.cs" />
     <Compile Include="Assets/Scripts/CursorCollider.cs" />
+    <Compile Include="Assets/Scripts/ARGameLogic.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexJitter.cs" />
     <Compile Include="Assets/Niantic/LightshipHUB/Runtime/Scripts/DepthTextureController.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextEventHandler.cs" />
@@ -148,6 +153,7 @@
     <Compile Include="Assets/Unity Store/OutlineToolkit/Script/MeshProcessor.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TeleType.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexZoom.cs" />
+    <Compile Include="Assets/Niantic/LightshipHUB/Runtime/Scripts/PreloadController.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark01.cs" />
     <Compile Include="Assets/Scripts/UIController.cs" />
     <Compile Include="Assets/Niantic/LightshipHUB/Runtime/Scripts/MeshColliderController.cs" />
