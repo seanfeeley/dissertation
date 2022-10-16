@@ -8,6 +8,8 @@ TagManager:
   - RedGoal
   - TablePlacer
   - SelectableCard
+  - TableTop
+  - TablePlacerPlane
   layers:
   - Default
   - TransparentFX

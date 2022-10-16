@@ -6,8 +6,8 @@ using UnityEngine;
 public class MenuManager : MonoBehaviour
 {
 
-    public GameObject Button_ConfirmFloor;
-    public GameObject Button_ConfirmTable;
+    public GameObject Button_ARResetInfo;
+    public GameObject Button_ARResetConfirm;
     public GameObject Button_ResetAR;
     public GameObject Button_CardBottomUp;
     public GameObject Button_CardBottomDown;
@@ -82,11 +82,11 @@ public class MenuManager : MonoBehaviour
             case GameState.ManyHighlighted_ManyHeld:
                 this.refreshButtonsFor_ManyHighlighted_ManyHeld();
                 break;
-            case GameState.DetectingFloor:
-                this.refreshButtonsFor_DetectingFloor();
+            case GameState.ARResetInfo:
+                this.refreshButtonsFor_ARResetInfo();
                 break;
-            case GameState.TableMoving:
-                this.refreshButtonsFor_TableMoving();
+            case GameState.ARReseting:
+                this.refreshButtonsFor_ARReseting();
                 break;
             case GameState.SelectingNumber_Split:
                 this.refreshButtonsFor_SelectingNumber_Split();
@@ -135,8 +135,8 @@ public class MenuManager : MonoBehaviour
     }
     private void hideAllButtons()
     {
-        this.setButtonVisible(Button_ConfirmFloor, false);
-        this.setButtonVisible(Button_ConfirmTable, false);
+        this.setButtonVisible(Button_ARResetInfo, false);
+        this.setButtonVisible(Button_ARResetConfirm, false);
         this.setButtonVisible(Button_ResetAR, false);
         this.setButtonVisible(Button_CardBottomUp, false);
         this.setButtonVisible(Button_CardBottomDown, false);
@@ -562,15 +562,20 @@ public class MenuManager : MonoBehaviour
 
 
 
-    private void refreshButtonsFor_DetectingFloor()
+    private void refreshButtonsFor_ARResetInfo()
     {
         this.hideAllButtons();
-        this.setButtonVisible(Button_ConfirmFloor, true);
+        this.setButtonVisible(Button_ARResetInfo, true);
+    }
+    private void refreshButtonsFor_ARReseting()
+    {
+        this.hideAllButtons();
+        this.setButtonVisible(Button_ARResetConfirm, true);
     }
     private void refreshButtonsFor_TableMoving()
     {
         this.hideAllButtons();
-        this.setButtonVisible(Button_ConfirmTable, true);
+        this.setButtonVisible(Button_ARResetConfirm, true);
 
     }
     private void refreshButtonsFor_SelectingNumber_Split()

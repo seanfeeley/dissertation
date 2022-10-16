@@ -38,43 +38,40 @@ public class GameARManager : MonoBehaviour
         switch (state)
         {
             case GameState.NoneHighlighted_NoneHeld:
-                this.StopMovingTable();
+                this.ARResetFinished();
                 break;
             case GameState.NoneHighlighted_OneHeld:
-                this.StopMovingTable();
+                this.ARResetFinished();
                 break;
             case GameState.NoneHighlighted_ManyHeld:
-                this.StopMovingTable();
+                this.ARResetFinished();
                 break;
             case GameState.OneHighlighted_NoneHeld:
-                this.StopMovingTable();
+                this.ARResetFinished();
                 break;
             case GameState.OneHighlighted_OneHeld:
-                this.StopMovingTable();
+                this.ARResetFinished();
                 break;
             case GameState.OneHighlighted_ManyHeld:
-                this.StopMovingTable();
+                this.ARResetFinished();
                 break;
             case GameState.ManyHighlighted_NoneHeld:
-                this.StopMovingTable();
+                this.ARResetFinished();
                 break;
             case GameState.ManyHighlighted_OneHeld:
-                this.StopMovingTable();
+                this.ARResetFinished();
                 break;
             case GameState.ManyHighlighted_ManyHeld:
-                this.StopMovingTable();
+                this.ARResetFinished();
                 break;
-            case GameState.DetectingFloor:
-                this.StartDetectingFloor();
-                break;
-            case GameState.TableMoving:
-                this.StartMovingTable();
+            case GameState.ARReseting:
+                this.ARReseting();
                 break;
             case GameState.SelectingNumber_Split:
-                this.StopMovingTable();
+                this.ARResetFinished();
                 break;
             case GameState.SelectingNumber_Deal:
-                this.StopMovingTable();
+                this.ARResetFinished();
                 break;
             default:
                 break;
@@ -82,19 +79,15 @@ public class GameARManager : MonoBehaviour
         }
     }
 
-    private void StopMovingTable()
+    private void ARResetFinished()
     {
-        EnvironmentManager.Instance.LockTable();
+        EnvironmentManager.Instance.FinishARReset();
     }
 
-    private void StartMovingTable()
-    {
-        EnvironmentManager.Instance.LockFloor();
-    }
 
-    private void StartDetectingFloor()
+    private void ARReseting()
     {
-        EnvironmentManager.Instance.UnlockFloor();
+        EnvironmentManager.Instance.ARReseting();
 
 
     }

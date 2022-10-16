@@ -68,14 +68,21 @@ public class PlayerManager : MonoBehaviour
 
     }
 
+    internal Quaternion GetDealingRotation()
+    {
+        return new Quaternion();
+    }
+
+ 
     internal float GetTableRotation()
     {
+        
         return (360/MultiplayerNetworkingManager.Instance.GetCurrentPlayerCount())* MultiplayerNetworkingManager.Instance.GetMyPlayerIndex();
     }
 
     internal float GetDistanceToTable()
     {
-        return 1.5f;
+        return 1.0f;
     }
 
     private bool IsSpreadHighlighted()

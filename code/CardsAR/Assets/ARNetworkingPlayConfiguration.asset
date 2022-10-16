@@ -23,5 +23,5 @@ MonoBehaviour:
     _usingAR: 1
     _usingNetwork: 1
     _usingARNetworking: 1
-  _mockPlayerPrefab: {fileID: 1594406056780708, guid: f031e2b1b8e1b4f3699cecf8c3d87559,
+  _mockPlayerPrefab: {fileID: 3323179959433865484, guid: 1a351732d8dee472583b34d9c7b634a6,
     type: 3}

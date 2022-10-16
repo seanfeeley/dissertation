@@ -122,8 +122,8 @@
     <Compile Include="Assets/Niantic/ARDK/AR/Mesh/_FileARMeshData.cs" />
     <Compile Include="Assets/Niantic/ARDK/AR/Networking/MarkerScanCoordinator.cs" />
     <Compile Include="Assets/Niantic/ARDK/VpsCoverage/GeoserviceMessages/_CoverageAreasResponse.cs" />
-    <Compile Include="Assets/Niantic/ARDK/VirtualStudio/VpsCoverage/VpsCoverageResponses.cs" />
     <Compile Include="Assets/Niantic/ARDK/Networking/ARSim/Spawning/IAddressablePrefabManifest.cs" />
+    <Compile Include="Assets/Niantic/ARDK/VirtualStudio/VpsCoverage/VpsCoverageResponses.cs" />
     <Compile Include="Assets/Niantic/ARDK/Networking/DataInfo.cs" />
     <Compile Include="Assets/Niantic/ARDK/AR/ARSessionEventArgs/AnyARSessionInitializedArgs.cs" />
     <Compile Include="Assets/Niantic/ARDK/Utilities/BinarySerialization/ItemSerializers/Vector2Serializer.cs" />
@@ -234,8 +234,8 @@
     <Compile Include="Assets/Niantic/ARDK/Utilities/BinarySerialization/ItemSerializers/UInt16Serializer.cs" />
     <Compile Include="Assets/Niantic/ARDK/AR/WayspotAnchors/_NativeWayspotAnchorsConfiguration.cs" />
     <Compile Include="Assets/Niantic/ARDK/Networking/HLAPI/Object/IMessageStreamReplicator.cs" />
-    <Compile Include="Assets/Niantic/ARDK/VpsCoverage/CoverageClient/_MockCoverageClient.cs" />
     <Compile Include="Assets/Niantic/ARDK/AR/Awareness/Depth/Generators/DepthPointCloudGenerator.cs" />
+    <Compile Include="Assets/Niantic/ARDK/VpsCoverage/CoverageClient/_MockCoverageClient.cs" />
     <Compile Include="Assets/Niantic/ARDK/AR/WayspotAnchors/WayspotAnchorResolvedArgs.cs" />
     <Compile Include="Assets/Niantic/ARDK/LocationService/LocationServiceStatus.cs" />
     <Compile Include="Assets/Niantic/ARDK/AR/VideoFormat/_NativeARVideoFormat.cs" />
@@ -342,13 +342,13 @@
     <Compile Include="Assets/Niantic/ARDK/AR/LightEstimate/_SerializableARLightEstimate.cs" />
     <Compile Include="Assets/Niantic/ARDK/Extensions/CapabilityChecker.cs" />
     <Compile Include="Assets/Niantic/ARDK/SharedAR/Room/IRoom.cs" />
-    <Compile Include="Assets/Niantic/ARDK/Configuration/_PlaceholderARDKConfig.cs" />
     <Compile Include="Assets/Niantic/ARDK/VirtualStudio/_PlaybackLocationService.cs" />
     <Compile Include="Assets/Niantic/ARDK/SharedAR/Net/IPeerID.cs" />
     <Compile Include="Assets/Niantic/ARDK/AR/ReferenceImage/_SerializableARReferenceImage.cs" />
     <Compile Include="Assets/Niantic/ARDK/AR/ARSessionEventArgs/ARSessionPausedArgs.cs" />
     <Compile Include="Assets/Niantic/ARDK/Rendering/FrameRenderer/ARFrameRenderer.cs" />
     <Compile Include="Assets/Niantic/ARDK/Utilities/Marker/Scanner/ARFrameMarkerScannerReadyArgs.cs" />
+    <Compile Include="Assets/Niantic/ARDK/Configuration/_PlaceholderARDKConfig.cs" />
     <Compile Include="Assets/Niantic/ARDK/AR/LightEstimate/_ARLightEstimateFactory.cs" />
     <Compile Include="Assets/Niantic/ARDK/VirtualStudio/AR/SceneComponents/MockMeshSequence.cs" />
     <Compile Include="Assets/Niantic/ARDK/AR/Configuration/_ARWorldTrackingConfigurationSerializer.cs" />
@@ -489,9 +489,9 @@
     <Compile Include="Assets/Niantic/ARDK/AR/PointCloud/_SerializableARPointCloud.cs" />
     <Compile Include="Assets/Niantic/ARDK/VirtualStudio/Remote/_RemoteConnectionStatus.cs" />
     <Compile Include="Assets/Niantic/ARDK/Utilities/_ByteArrayComparer.cs" />
-    <Compile Include="Assets/Niantic/ARDK/VirtualStudio/Networking/_MockNetworkingSessionsMediator.cs" />
     <Compile Include="Assets/Niantic/ARDK/Utilities/BinarySerialization/ItemSerializers/IntPtrSerializer.cs" />
     <Compile Include="Assets/Niantic/ARDK/VirtualStudio/MockArdkPlayerProfile.cs" />
+    <Compile Include="Assets/Niantic/ARDK/VirtualStudio/Networking/_MockNetworkingSessionsMediator.cs" />
     <Compile Include="Assets/Niantic/ARDK/Networking/HLAPI/HlapiSession.cs" />
     <Compile Include="Assets/Niantic/ARDK/AR/WayspotAnchors/_NativeWayspotAnchorControllerImplementationBase.cs" />
     <Compile Include="Assets/Niantic/ARDK/AR/Awareness/Depth/Effects/DepthMeshOccluder.cs" />
@@ -534,8 +534,8 @@
     <Compile Include="Assets/Niantic/ARDK/LocationService/LatLng.cs" />
     <Compile Include="Assets/Niantic/ARDK/AR/IARFrame.cs" />
     <Compile Include="Assets/Niantic/ARDK/AR/Configuration/ARSessionChangesCollector.cs" />
-    <Compile Include="Assets/Niantic/ARDK/AR/WayspotAnchors/_MockWayspotAnchorControllerImplementationBase.cs" />
     <Compile Include="Assets/Niantic/ARDK/Networking/MultipeerNetworkingEventArgs/PeerDataReceivedArgs.cs" />
+    <Compile Include="Assets/Niantic/ARDK/AR/WayspotAnchors/_MockWayspotAnchorControllerImplementationBase.cs" />
     <Compile Include="Assets/Niantic/ARDK/AR/Awareness/Semantics/IAwarenessBufferProcessor.cs" />
     <Compile Include="Assets/Niantic/ARDK/AR/Awareness/Depth/Generators/IDepthPointCloud.cs" />
     <Compile Include="Assets/Niantic/ARDK/Telemetry/_TelemetryService.cs" />

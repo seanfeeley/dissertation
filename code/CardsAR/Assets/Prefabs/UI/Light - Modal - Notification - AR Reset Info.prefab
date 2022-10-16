@@ -45,7 +45,7 @@ PrefabInstance:
     - target: {fileID: 343068309801261318, guid: db283ccdf80e24345b841701a39dfc84,
         type: 3}
       propertyPath: m_text
-      value: Set the floor position
+      value: Reset the gameplay area
       objectReference: {fileID: 0}
     - target: {fileID: 343068309801261318, guid: db283ccdf80e24345b841701a39dfc84,
         type: 3}
@@ -76,7 +76,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: bfc96b198e99f4685acf50856c177834,
+      objectReference: {fileID: 21300000, guid: a5a1837ff9c8f4e60b287990b68fed13,
         type: 3}
     - target: {fileID: 2586297712868468745, guid: db283ccdf80e24345b841701a39dfc84,
         type: 3}
@@ -126,7 +126,7 @@ PrefabInstance:
     - target: {fileID: 4152332365898015687, guid: db283ccdf80e24345b841701a39dfc84,
         type: 3}
       propertyPath: m_Name
-      value: Light - Modal - Notification - AR Confirm Floor
+      value: Light - Modal - Notification - AR Reset Info
       objectReference: {fileID: 0}
     - target: {fileID: 4152332365898015687, guid: db283ccdf80e24345b841701a39dfc84,
         type: 3}
@@ -293,6 +293,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5332451258376669863, guid: db283ccdf80e24345b841701a39dfc84,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.008
+      objectReference: {fileID: 0}
+    - target: {fileID: 5332451258376669863, guid: db283ccdf80e24345b841701a39dfc84,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 4.936981
+      objectReference: {fileID: 0}
+    - target: {fileID: 5332451258376669863, guid: db283ccdf80e24345b841701a39dfc84,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -2.4684753
+      objectReference: {fileID: 0}
     - target: {fileID: 5851108288875928306, guid: db283ccdf80e24345b841701a39dfc84,
         type: 3}
       propertyPath: m_Enabled
@@ -306,7 +321,9 @@ PrefabInstance:
     - target: {fileID: 6171355794924329046, guid: db283ccdf80e24345b841701a39dfc84,
         type: 3}
       propertyPath: m_text
-      value: Done!
+      value: 'Okay
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 6171355794924329046, guid: db283ccdf80e24345b841701a39dfc84,
         type: 3}
@@ -336,7 +353,10 @@ PrefabInstance:
     - target: {fileID: 7062277111964106754, guid: db283ccdf80e24345b841701a39dfc84,
         type: 3}
       propertyPath: m_text
-      value: Look around until the marker is on the floor
+      value: "This game is best played sitting down with a flat surface infront of
+        you. \n\nPlease place the sample card deck infront of you on a flat surface.
+        \n\nThis location will be where cards wil be dealt to you as a player so
+        keep that in mind.  "
       objectReference: {fileID: 0}
     - target: {fileID: 7062277111964106754, guid: db283ccdf80e24345b841701a39dfc84,
         type: 3}

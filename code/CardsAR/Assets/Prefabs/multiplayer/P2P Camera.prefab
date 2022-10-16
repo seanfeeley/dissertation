@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 7826254246066804833}
   - component: {fileID: 7826254246066804832}
   - component: {fileID: 7826254246066804835}
-  - component: {fileID: 7826254246066804834}
   m_Layer: 0
   m_Name: P2P Camera
   m_TagString: MainCamera
@@ -132,18 +131,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _permissions: 0000000002000000
---- !u!114 &7826254246066804834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7826254246066804838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e238a53795a724065aa4e4e7cdf14d78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _camera: {fileID: 7826254246066804836}
-  _carPrefab: {fileID: 1987544377720787681, guid: b8ddef577cac34ca9b236564fb416de9,
-    type: 3}

@@ -1,12 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Niantic.ARDK.AR;
-using Niantic.ARDK.AR.ARSessionEventArgs;
-using Niantic.ARDK.AR.Networking;
-using Niantic.ARDK.AR.Networking.ARNetworkingEventArgs;
-using Niantic.ARDK.Networking;
-using Niantic.ARDK.Networking.MultipeerNetworkingEventArgs;
 using UnityEngine;
 
 public class MultiplayerNetworkingManager : MonoBehaviour
@@ -14,103 +8,112 @@ public class MultiplayerNetworkingManager : MonoBehaviour
     public static MultiplayerNetworkingManager Instance;
     public int playerCount = 6;
     public int playerIndex = 1;
-    private IARNetworking _arNetworking;
-    private IARSession _session;
-    private IMultipeerNetworking _networking;
     public GameObject AvatarPrefab;
-    private Dictionary<IPeer, GameObject> _avatarDict = new Dictionary<IPeer, GameObject>();
-    private IPeer self;
+    public GameObject AvatarPrefabParent;
+    private Dictionary<System.Guid, GameObject> _players = new Dictionary<System.Guid, GameObject>();
+    private Guid myGuid;
+
+    private Guid[] peerGuids = { new System.Guid("00000000-0000-0000-0000-000000000002"),
+                                 new System.Guid("00000000-0000-0000-0000-000000000003"),
+                                 new System.Guid("00000000-0000-0000-0000-000000000004"),
+                                 new System.Guid("00000000-0000-0000-0000-000000000005"),
+                                 new System.Guid("00000000-0000-0000-0000-000000000006"),
+    };
+
+
+
 
     private void Awake()
     {
         Instance = this;
-        ARNetworkingFactory.ARNetworkingInitialized += OnInitialized;
 
 
     }
     private void OnDestroy()
     {
-        ARNetworkingFactory.ARNetworkingInitialized -= OnInitialized;
     }
 
-    private void OnInitialized(AnyARNetworkingInitializedArgs args)
-    {
-        _arNetworking = args.ARNetworking;
-        _session = _arNetworking.ARSession;
-        _networking = _arNetworking.Networking;
-
-        _session.Ran += OnSessionRan;
-        _networking.Connected += OnNetworkConnected;
-        _arNetworking.PeerStateReceived += OnPeerStateReceived;
-        _arNetworking.PeerPoseReceived += OnPeerPoseReceived;
-
-
-
-
-
-    }
-
-    private void OnPeerStateReceived(PeerStateReceivedArgs args)
-    {
-        Debug.LogFormat("CARDSAR: Peer {0} joined us with state: {1}", args.Peer.Identifier, args.State);
-    }
-
-    private void OnPeerPoseReceived(PeerPoseReceivedArgs args)
-    {
-        Debug.LogFormat("CARDSAR: Peer {0} at position: {1}", args.Peer.Identifier, args.Pose.GetPosition());
-        if (!_avatarDict.ContainsKey(args.Peer))
-        {
-            _avatarDict.Add(args.Peer, Instantiate(AvatarPrefab));
-        }
-        GameObject playerAvatar;
-        if(_avatarDict.TryGetValue(args.Peer, out playerAvatar))
-        {
-            GameObject screen = playerAvatar.transform.GetChild(0).gameObject;
-            screen.transform.localPosition = args.Pose.GetPosition() + new Vector3(0, 0, 0);
-            screen.transform.localEulerAngles = args.Pose.rotation.eulerAngles;
-        }
-    }
-
-    private void OnNetworkConnected(ConnectedArgs args)
-    {
-        Debug.Log("CARDSAR: Network Connected");
-        this.self = args.Self;
-    }
-
-    private void OnSessionRan(ARSessionRanArgs args)
-    {
-        Debug.Log("CARDSAR: AR Session Ran");
-    }
+   
 
     // Start is called before the first frame update
     void Start()
     {
+        myGuid = new System.Guid("00000000-0000-0000-0000-000000000001");
+        this.OnPeerPoseReceived(myGuid, new Vector3(0f,0f,0f), new Quaternion());
+        foreach(Guid peerID in this.peerGuids)
+        {
+            this.OnPeerPoseReceived(peerID, new Vector3(0f, 0f, 0f), new Quaternion());
+
+        }
+
         
+    }
+
+    private void ResetAvatarPositionsAroundTable()
+    {
+      
+        foreach (var _player in _players)
+        {
+            _player.Value.transform.SetPositionAndRotation(EnvironmentManager.Instance.GetDealingSpotPositionForPlayer(this.GetPeerPlayerIndex(_player.Key)),
+                                                            EnvironmentManager.Instance.GetDealingSpotRotationForPlayer(this.GetPeerPlayerIndex(_player.Key),
+                                                                                                                        _player.Value.transform.forward));
+        }
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        this.ResetAvatarPositionsAroundTable();
     }
+
+    private void OnPeerPoseReceived(System.Guid playerIdentifier, Vector3 position, Quaternion rotation)
+    {
+        Debug.LogFormat("CARDSAR: Peer {0} at position: {1} with rotation {2}", playerIdentifier, position, rotation);
+
+
+        // ...and if the dictionary already contains the player...
+        if (_players.ContainsKey(playerIdentifier) == false)
+        {
+            // ...then create an avatar for the remote player...
+            GameObject remoteAvatar = CreateAvatar();
+            // ...and add it to the dictionary.
+            _players.Add(playerIdentifier, remoteAvatar);
+        }
+        
+        
+        // ...then set the player's avatar postition and rotation.
+        //_players[playerIdentifier].transform.SetPositionAndRotation(position, rotation);
+
+    }
+
+
 
     public int GetMyPlayerIndex()
     {
-        return GetPeerPlayerIndex(self);
+        return GetPeerPlayerIndex(myGuid);
     }
-    public int GetPeerPlayerIndex(IPeer peer)
+    public int GetPeerPlayerIndex(System.Guid peer)
     {
         List<Guid> peer_list = new List<Guid>();
-        foreach (IPeer ip in this._avatarDict.Keys)
+        foreach (System.Guid ip in this._players.Keys)
         {
-            peer_list.Add(ip.Identifier);
+            peer_list.Add(ip);
         }
         peer_list.Sort();
-        return peer_list.IndexOf(peer.Identifier);
+        return peer_list.IndexOf(peer);
     }
 
     public int GetCurrentPlayerCount()
     {
-        return this._avatarDict.Count;
+        return this._players.Count;
+    }
+
+    // Creates a car at a given position.
+    private GameObject CreateAvatar()
+    {
+        GameObject createdAvatar = Instantiate(AvatarPrefab, AvatarPrefabParent.transform);
+        
+        return createdAvatar;
     }
 }

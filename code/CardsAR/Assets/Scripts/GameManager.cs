@@ -33,9 +33,9 @@ public class GameManager : MonoBehaviour
     public void UpdateGameStateTo_SpreadHighlighted_NoneHeld() { this.UpdateGameState(GameState.SpreadHighlighted_NoneHeld); }
     public void UpdateGameStateTo_SpreadHighlighted_OneHeld() { this.UpdateGameState(GameState.SpreadHighlighted_OneHeld); }
     public void UpdateGameStateTo_SpreadHighlighted_ManyHeld() { this.UpdateGameState(GameState.SpreadHighlighted_ManyHeld); }
-    public void UpdateGameStateTo_DetectingFloor() { this.UpdateGameState(GameState.DetectingFloor); }
-    public void UpdateGameStateTo_TableMoving() { this.UpdateGameState(GameState.TableMoving); }
-    public void UpdateGameStateTo_TableConfirmed() { this.UpdateGameState(GameState.TableConfirmed); }
+    public void UpdateGameStateTo_ResetARInfo() { this.UpdateGameState(GameState.ARResetInfo); }
+    public void UpdateGameStateTo_ResetAR() { this.UpdateGameState(GameState.ARReseting); }
+    public void UpdateGameStateTo_LockAR() { this.UpdateGameState(GameState.ARLocked); }
     public void UpdateGameStateTo_SelectingNumber_Split() { this.UpdateGameState(GameState.SelectingNumber_Split); }
     public void UpdateGameStateTo_SelectingNumber_Deal() { this.UpdateGameState(GameState.SelectingNumber_Deal); }
 
@@ -101,14 +101,14 @@ public class GameManager : MonoBehaviour
             case GameState.ManyHighlighted_ManyHeld:
                 if (CardPlayingStates.Contains(CurrentState)) { CurrentState = newState; }
                 break;
-            case GameState.DetectingFloor:
+            case GameState.ARResetInfo:
                 CurrentState = newState;
                 break;
-            case GameState.TableConfirmed:
-                CurrentState = GameState.NoneHighlighted_NoneHeld;
+            case GameState.ARReseting:
+                CurrentState = newState;
                 break;
-            case GameState.TableMoving:
-                if (GameState.DetectingFloor == CurrentState) { CurrentState = newState; }
+            case GameState.ARLocked:
+                CurrentState = GameState.NoneHighlighted_NoneHeld;
                 break;
             case GameState.SelectingNumber_Split:
                 break;
@@ -146,9 +146,9 @@ public enum GameState
     SpreadHighlighted_ManyHeld,
 
 
-    DetectingFloor,
-    TableMoving,
-    TableConfirmed,
+    ARResetInfo,
+    ARReseting,
+    ARLocked,
     SelectingNumber_Split,
     SelectingNumber_Deal,
 

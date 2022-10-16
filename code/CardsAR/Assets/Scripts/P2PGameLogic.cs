@@ -16,21 +16,23 @@ using Niantic.ARDK.Utilities.Input.Legacy;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Text;
+using System;
 
 public class P2PGameLogic : MonoBehaviour
 {
-
     // A reference to the Camera component, set in the Editor.
     public Camera _camera;
 
     // A reference to the car prefab, set in the Editor.
-    public GameObject _carPrefab;
+    public GameObject _avatarPrefab;
 
     // A reference to the local car, created on the first tap after connecting to the session.
-    private GameObject _localCar;
+    private GameObject _localAvatar;
 
     // A constant representing a position event tag.
-    private const uint POSITION_EVENT = 1;
+    private const uint AVATAR_POS_UPDATE_EVENT = 1;
+    private const uint AVATAR_ROT_UPDATE_EVENT= 2;
+    private const uint CARD_EVENT = 3;
 
     // The world tracking configuration, created during OnEnable().
     private IARWorldTrackingConfiguration _arWorldTrackingConfiguration;
@@ -50,6 +52,10 @@ public class P2PGameLogic : MonoBehaviour
     // A dictionary list of the players and their car GameObjects.
     private Dictionary<System.Guid, GameObject> _players = new Dictionary<System.Guid, GameObject>();
 
+    
+    private System.Guid self;
+
+
     private void OnEnable()
     {
         // First, create and configure the world tracking configuration...
@@ -59,7 +65,7 @@ public class P2PGameLogic : MonoBehaviour
         _arWorldTrackingConfiguration.PlaneDetection = PlaneDetection.Horizontal;
         _arWorldTrackingConfiguration.IsAutoFocusEnabled = true;
         _arWorldTrackingConfiguration.IsDepthEnabled = false;
-        _arWorldTrackingConfiguration.IsSharedExperienceEnabled = true;
+        _arWorldTrackingConfiguration.IsSharedExperienceEnabled = false;
 
         // ...next, create the multipeer networking...
         _multipeerNetworking = MultipeerNetworkingFactory.Create();
@@ -114,69 +120,51 @@ public class P2PGameLogic : MonoBehaviour
 
     void Update()
     {
-        // If there are no touches detected, then return...
-        if (PlatformAgnosticInput.touchCount <= 0) return;
-
-        // ...otherwise, get the first touch...
-        Touch touch = PlatformAgnosticInput.GetTouch(0);
-
-        // ...and as long is it began on this frame...
-        if (touch.phase == TouchPhase.Began)
-        {
-            // ...store the current frame and return if it's null for some reason...
-            IARFrame currentFrame = _arNetworkingSession.ARSession.CurrentFrame;
-            if (currentFrame == null) return;
-
-            // ...then, perform a hit test and return if there's no result for some reason...
-            ReadOnlyCollection<IARHitTestResult> hitTestResults = currentFrame.HitTest(_camera.pixelWidth,
-                                                                                       _camera.pixelHeight,
-                                                                                       touch.position,
-                                                                                       ARHitTestResultType.EstimatedHorizontalPlane);
-            if (hitTestResults.Count <= 0) return;
-
-            // ...next, store the tapped position...
-            Vector3 tappedPosition = hitTestResults[0].WorldTransform.ToPosition();
-
-            // ...then, if there has not yet been a local car created...
-            if (_localCar == null)
-            {
-                // ..create a local car at the touched position.
-                _localCar = CreateCar(tappedPosition);
-            }
-            // ...but if a local car has already been created...
-            else
-            {
-                // ...then set the local car's position.
-                _localCar.GetComponent<CarDriver>().SetDestination(tappedPosition);
-            }
-
-            // ...and finally, broadcast this car's position to all other peers...
-            BroadcastCarPosition(tappedPosition);
-        }
+        BroadcastCameraPos();
+        //BroadcastCameraRot();
     }
 
     // Creates a car at a given position.
-    private GameObject CreateCar(Vector3 position)
+    private GameObject CreateAvatar(Vector3 position)
     {
-        GameObject createdCar = Instantiate(_carPrefab, _carPrefab.transform);
-        createdCar.transform.position = position;
-        return createdCar;
+        GameObject createdAvatar = Instantiate(_avatarPrefab, _avatarPrefab.transform);
+        createdAvatar.transform.position = position;
+        return createdAvatar;
     }
 
     // Broadcasts this car's position at a given position.
-    private void BroadcastCarPosition(Vector3 position)
+    private void BroadcastCameraPos()
     {
         // First, create a new memory stream object...
         MemoryStream memoryStream = new MemoryStream();
 
         // ...then, serialize the position into the memory stream...
-        GlobalSerializer.Serialize(memoryStream, position);
+        GlobalSerializer.Serialize(memoryStream, _camera.transform.position);
 
         // ...next, store the memory stream as a byte array...
         byte[] data = memoryStream.ToArray();
 
         // ...and finally, send the byte array to all peers on the network.
-        _arNetworkingSession.Networking.SendDataToPeers(tag: POSITION_EVENT,
+        _arNetworkingSession.Networking.SendDataToPeers(tag: AVATAR_POS_UPDATE_EVENT,
+                                                        data: data,
+                                                        peers: _arNetworkingSession.Networking.OtherPeers,
+                                                        TransportType.ReliableOrdered);
+    }
+
+    // Broadcasts this car's position at a given position.
+    private void BroadcastCameraRot()
+    {
+        // First, create a new memory stream object...
+        MemoryStream memoryStream = new MemoryStream();
+
+        // ...then, serialize the position into the memory stream...
+        GlobalSerializer.Serialize(memoryStream, _camera.transform.rotation);
+
+        // ...next, store the memory stream as a byte array...
+        byte[] data = memoryStream.ToArray();
+
+        // ...and finally, send the byte array to all peers on the network.
+        _arNetworkingSession.Networking.SendDataToPeers(tag: AVATAR_ROT_UPDATE_EVENT,
                                                         data: data,
                                                         peers: _arNetworkingSession.Networking.OtherPeers,
                                                         TransportType.ReliableOrdered);
@@ -215,9 +203,9 @@ public class P2PGameLogic : MonoBehaviour
         Debug.Log("Lightship: args.Peer = " + args.Peer);
 
         // Broadcast this car's position when a peer joins the session.
-        if (_localCar != null)
+        if (_localAvatar != null)
         {
-            BroadcastCarPosition(_localCar.transform.position);
+            BroadcastCameraPos();
         }
     }
 
@@ -231,11 +219,11 @@ public class P2PGameLogic : MonoBehaviour
         if (_players.ContainsKey(args.Peer.Identifier))
         {
             // ...get a reference to that player's car...
-            GameObject peerCar;
-            if (_players.TryGetValue(args.Peer.Identifier, out peerCar))
+            GameObject peerAvatar;
+            if (_players.TryGetValue(args.Peer.Identifier, out peerAvatar))
             {
                 // ...destroy the car...
-                Destroy(peerCar);
+                Destroy(peerAvatar);
             }
             // ...and remove that player from the dictionary.
             _players.Remove(args.Peer.Identifier);
@@ -253,34 +241,75 @@ public class P2PGameLogic : MonoBehaviour
 
         // First, copy the argument data into a memory stream...
         MemoryStream memoryStream = new MemoryStream(args.CopyData());
-
         // ...then, take note of the player identifier...
         System.Guid playerIdentifier = args.Peer.Identifier;
 
         switch (args.Tag)
         {
             // In the case of a position event...
-            case POSITION_EVENT:
-
-                // ...deserialize the position from the memory stream...
-                Vector3 position = (Vector3)GlobalSerializer.Deserialize(memoryStream);
-
-                // ...and if the dictionary already contains the player...
-                if (_players.ContainsKey(playerIdentifier))
-                {
-                    // ...then set the player's car's destination.
-                    _players[playerIdentifier].GetComponent<CarDriver>().SetDestination(position);
-                }
-                // ...but if the dictionary does not contain the player...
-                else
-                {
-                    // ...then create a car for the remote player...
-                    GameObject remoteCar = CreateCar(position);
-
-                    // ...and add it to the dictionary.
-                    _players.Add(playerIdentifier, remoteCar);
-                }
+            case AVATAR_POS_UPDATE_EVENT:
+                ProcessPositionData(playerIdentifier, memoryStream);
+                break;
+            // In the case of a position event...
+            case AVATAR_ROT_UPDATE_EVENT:
+                ProcessRotationData(playerIdentifier, memoryStream);
                 break;
         }
+    }
+
+    private void ProcessRotationData(Guid playerIdentifier, MemoryStream memoryStream)
+    {
+        // ...deserialize the position from the memory stream...
+        Quaternion rotation = (Quaternion)GlobalSerializer.Deserialize(memoryStream);
+
+        // ...and if the dictionary already contains the player...
+        if (_players.ContainsKey(playerIdentifier))
+        {
+            // ...then set the player's avatar postition and rotation.
+            _players[playerIdentifier].transform.rotation = rotation;
+        }
+    }
+
+    private void ProcessPositionData(Guid playerIdentifier, MemoryStream memoryStream)
+    {
+
+        // ...deserialize the position from the memory stream...
+        Vector3 position = (Vector3)GlobalSerializer.Deserialize(memoryStream);
+
+        // ...and if the dictionary already contains the player...
+        if (_players.ContainsKey(playerIdentifier))
+        {
+            // ...then set the player's avatar postition and rotation.
+            _players[playerIdentifier].transform.position = position;
+        }
+        // ...but if the dictionary does not contain the player...
+        else
+        {
+            // ...then create an avatar for the remote player...
+            GameObject remoteAvatar = CreateAvatar(position);
+
+            // ...and add it to the dictionary.
+            _players.Add(playerIdentifier, remoteAvatar);
+        }
+    }
+
+    public int GetMyPlayerIndex()
+    {
+        return GetPeerPlayerIndex(self);
+    }
+    public int GetPeerPlayerIndex(System.Guid peer)
+    {
+        List<Guid> peer_list = new List<Guid>();
+        foreach (System.Guid ip in this._players.Keys)
+        {
+            peer_list.Add(ip);
+        }
+        peer_list.Sort();
+        return peer_list.IndexOf(peer);
+    }
+
+    public int GetCurrentPlayerCount()
+    {
+        return this._players.Count;
     }
 }
