@@ -22,7 +22,9 @@ public class EnvironmentManager : MonoBehaviour
     private Vector3 lockedCameraRot;
     private Vector3 lockedCameraFwd;
 
-    
+    public float envRotation = 180f;
+
+
     // Start is called before the first frame update
 
 
@@ -39,11 +41,7 @@ public class EnvironmentManager : MonoBehaviour
     }
 
 
-    // Update is called once per frame
-    void Update()
-    {
-        this.setTablePlacerVisibility(this.arReseting); 
-    }
+
 
     void setTablePlacerVisibility(bool visibility)
     {
@@ -70,8 +68,13 @@ public class EnvironmentManager : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        this.setTablePlacerVisibility(this.arReseting);
+
         if (this.arReseting)
         {
+            Environment.transform.eulerAngles = new Vector3(Environment.transform.eulerAngles.x,
+                                                this.envRotation,
+                                                Environment.transform.eulerAngles.z);
             // turn on ambient light
             RenderSettings.ambientIntensity = 1.0f;
             // hide env
@@ -81,12 +84,50 @@ public class EnvironmentManager : MonoBehaviour
             GameObject[] tablePlacers = GameObject.FindGameObjectsWithTag("TablePlacer");
             if (tablePlacers.Length != 0)
             {
+
                 Transform placerTransform = tablePlacers[0].transform;
-                Vector3 playerDealSpot = this.GetDealingSpotPositionForPlayer(MultiplayerNetworkingManager.Instance.GetMyPlayerIndex());
-                Quaternion playerDealRotation = PlayerManager.Instance.GetDealingRotation();
+                //rotate_placer
+                for (int c = 0; c < tablePlacers[0].transform.childCount; c++)
+
+                {
+                    GameObject tablePlacerChild = tablePlacers[0].transform.GetChild(c).gameObject;
+                    tablePlacerChild.transform.eulerAngles = new Vector3(tablePlacerChild.transform.eulerAngles.x,
+                                                                         camera.transform.eulerAngles.y,
+                                                                         tablePlacerChild.transform.eulerAngles.z);
+
+                }
+
+
+
+                //current table env space
+                Vector3 envCenter_absolute = Environment.transform.position;
+                Vector3 tableTopPos_absolute = this.GetTableCenter();
+                Vector3 tableTopPos_relativeTo_envCenter = tableTopPos_absolute - envCenter_absolute;
+                Vector3 dealPos_absolute = this.GetDealingSpotPositionForPlayer(MultiplayerNetworkingManager.Instance.GetMyPlayerIndex());
+                Vector3 dealPos_relativeTo_envCenter = dealPos_absolute - envCenter_absolute;
+                Vector3 dealPos_relativeTo_tableTopPos = dealPos_absolute - tableTopPos_absolute;
+
+                //camera space
+                Vector3 placerPos = placerTransform.position;
+                Vector3 placerPos_relativeTo_camera = placerPos - camera.transform.position;
+
+                Environment.transform.position = (placerPos) - dealPos_relativeTo_envCenter;
+
                 
-                Environment.transform.SetPositionAndRotation(placerTransform.position+(Environment.transform.position-playerDealSpot),
-                                                             playerDealRotation);
+                //new table env space
+                Vector3 new_envCenter_absolute = Environment.transform.position;
+                Vector3 new_tableTopPos_absolute = this.GetTableCenter();
+                Vector3 new_tableTopPos_relativeTo_envCenter = new_tableTopPos_absolute - new_envCenter_absolute;
+                Vector3 new_dealPos_absolute = this.GetDealingSpotPositionForPlayer(MultiplayerNetworkingManager.Instance.GetMyPlayerIndex());
+                Vector3 new_dealPos_relativeTo_envCenter = new_dealPos_absolute - new_envCenter_absolute;
+                Vector3 new_dealPos_relativeTo_tableTopPos = new_dealPos_absolute - new_tableTopPos_absolute;
+
+                float a = (float)this.AngleBetween(camera.transform.forward, -new_dealPos_relativeTo_tableTopPos);
+                Debug.Log(a);
+                //Environment.transform.position = this.RotatePointAround(placerPos, this.envRotation, Environment.transform.position);
+                Environment.transform.RotateAround(placerPos, Vector3.up, a);
+
+
             }
         }
         else
@@ -97,64 +138,15 @@ public class EnvironmentManager : MonoBehaviour
             Environment.transform.Find("Room").gameObject.SetActive(true);
             Environment.transform.Find("TableAndChairs").gameObject.SetActive(true);
         }
-        //if (this.floorLocked == false)
-        //{
-        //    GameObject[] tablePlacers = GameObject.FindGameObjectsWithTag("TablePlacer");
-        //    if (tablePlacers.Length == 1)
-        //    {
-        //        Vector3 placerPos = tablePlacers[0].transform.position;
-        //        Vector3 envPos = Environment.transform.position;
-        //        envPos.y = placerPos.y;
-        //        Environment.transform.position = envPos;
-        //    }
-            
-        //}
-        //if (this.tableLocked == false)
-        //{
-        //    lockedCameraPos = camera.transform.position;
-        //    lockedCameraRot = camera.transform.eulerAngles;
-        //    lockedCameraFwd = camera.transform.forward;
-
-        //    if (Physics.Raycast(lockedCameraPos, lockedCameraFwd, out HitInfo, 100.0f, mask))
-        //    {
-
-        //        Vector3 centerGround = new Vector3(lockedCameraPos.x,
-        //                                           HitInfo.point.y,
-        //                                            lockedCameraPos.z);
-        //        Vector3 hit_to_center = HitInfo.point - centerGround;
-
-
-        //        Environment.transform.position = centerGround + (Vector3.Normalize(hit_to_center)*PlayerManager.Instance.GetDistanceToTable());
-        //        //Environment.transform.eulerAngles = new Vector3(Environment.transform.eulerAngles.x,
-        //        //                                                lockedCameraRot.y+PlayerManager.Instance.GetTableRotation(),
-        //        //                                                Environment.transform.eulerAngles.z);
-
-        //        //Debug.DrawRay(lockedCameraPos, lockedCameraFwd * 100.0f, Color.red);
-
-        //    }
-
-        //}
-        //else
-        //{
-        //    Environment.transform.eulerAngles = new Vector3(Environment.transform.eulerAngles.x,
-        //                                                    lockedCameraRot.y + PlayerManager.Instance.GetTableRotation(),
-        //                                                    Environment.transform.eulerAngles.z);
-
-
-        //}
-        //Debug.DrawRay(lockedCameraPos, Environment.transform.position, Color.yellow);
-
-        //Quaternion rot = new Quaternion();
-        //rot.eulerAngles = new Vector3(0, 90, 0);
-        //Vector3 b = (rot * (camera.transform.position - Environment.transform.position)) + Environment.transform.position;
-        //Debug.DrawLine(Environment.transform.position, camera.transform.position, Color.yellow);
-        //Debug.DrawLine(Environment.transform.position, b, Color.yellow);
-        //Debug.DrawLine(camera.transform.position, b, Color.yellow);
-        ////Debug.DrawRay(Environment.transform.position, b, Color.red);
-        //Debug.LogFormat("lockedCameraPos={0}  Environment={1} b={2}", lockedCameraPos.ToString(), Environment.transform.position.ToString(), b.ToString());
 
     }
+    public double AngleBetween(Vector3 vector1, Vector3 vector2)
+    {
+        double sin = vector1.x * vector2.z - vector2.x * vector1.z;
+        double cos = vector1.x * vector2.x + vector1.z * vector2.z;
 
+        return Math.Atan2(sin, cos) * (180 / Math.PI);
+    }
     public Vector3 GetDealingSpotPositionForPlayer(int playerNumber)
     {
         Vector3 tableCenter = this.GetTableCenter();
@@ -163,11 +155,11 @@ public class EnvironmentManager : MonoBehaviour
         int playerCount = MultiplayerNetworkingManager.Instance.GetCurrentPlayerCount();
         float angleRotation = 360.0f * ((float)(playerNumber + 1) / (float)(playerCount));
         Vector3 dealingSpot = tableCenter + dealingSpotOffest0;
-        dealingSpot = this.RotatePointAround(tableCenter, angleRotation, dealingSpot);
+        dealingSpot = this.RotatePointAround(tableCenter, -(this.envRotation + angleRotation), dealingSpot);
 
         return dealingSpot;
     }
-    public Quaternion GetDealingSpotRotationForPlayer(int playerNumber, Vector3 forward)
+    public Quaternion GetDealingSpotRotationForPlayer(int playerNumber)
     {
         Vector3 dealingSpot = this.GetDealingSpotPositionForPlayer(playerNumber);
         

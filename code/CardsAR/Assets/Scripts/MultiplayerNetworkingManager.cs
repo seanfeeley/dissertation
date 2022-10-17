@@ -13,11 +13,12 @@ public class MultiplayerNetworkingManager : MonoBehaviour
     private Dictionary<System.Guid, GameObject> _players = new Dictionary<System.Guid, GameObject>();
     private Guid myGuid;
 
-    private Guid[] peerGuids = { new System.Guid("00000000-0000-0000-0000-000000000002"),
-                                 new System.Guid("00000000-0000-0000-0000-000000000003"),
-                                 new System.Guid("00000000-0000-0000-0000-000000000004"),
-                                 new System.Guid("00000000-0000-0000-0000-000000000005"),
-                                 new System.Guid("00000000-0000-0000-0000-000000000006"),
+    private Guid[] peerGuids = {
+                                 new System.Guid("00000000-0000-0000-0000-000000000020"),
+                                 new System.Guid("00000000-0000-0000-0000-000000000030"),
+                                 new System.Guid("00000000-0000-0000-0000-000000000040"),
+                                 new System.Guid("00000000-0000-0000-0000-000000000050"),
+                                 new System.Guid("00000000-0000-0000-0000-000000000060"),
     };
 
 
@@ -38,15 +39,15 @@ public class MultiplayerNetworkingManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        myGuid = new System.Guid("00000000-0000-0000-0000-000000000001");
+        myGuid = new System.Guid("00000000-0000-0000-0000-000000000011");
         this.OnPeerPoseReceived(myGuid, new Vector3(0f,0f,0f), new Quaternion());
-        foreach(Guid peerID in this.peerGuids)
+        foreach (Guid peerID in this.peerGuids)
         {
             this.OnPeerPoseReceived(peerID, new Vector3(0f, 0f, 0f), new Quaternion());
 
         }
+        this.ResetAvatarPositionsAroundTable();
 
-        
     }
 
     private void ResetAvatarPositionsAroundTable()
@@ -55,8 +56,7 @@ public class MultiplayerNetworkingManager : MonoBehaviour
         foreach (var _player in _players)
         {
             _player.Value.transform.SetPositionAndRotation(EnvironmentManager.Instance.GetDealingSpotPositionForPlayer(this.GetPeerPlayerIndex(_player.Key)),
-                                                            EnvironmentManager.Instance.GetDealingSpotRotationForPlayer(this.GetPeerPlayerIndex(_player.Key),
-                                                                                                                        _player.Value.transform.forward));
+                                                            EnvironmentManager.Instance.GetDealingSpotRotationForPlayer(this.GetPeerPlayerIndex(_player.Key)));
         }
 
     }
@@ -64,7 +64,7 @@ public class MultiplayerNetworkingManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.ResetAvatarPositionsAroundTable();
+        
     }
 
     private void OnPeerPoseReceived(System.Guid playerIdentifier, Vector3 position, Quaternion rotation)

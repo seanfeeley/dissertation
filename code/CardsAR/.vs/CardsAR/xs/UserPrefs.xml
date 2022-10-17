@@ -1,11 +1,12 @@
 ﻿<Properties StartupConfiguration="{00BE2B06-77C0-05A0-1DB0-2EA5BDC676F1}|">
   <MonoDevelop.Ide.ItemProperties.ARDK PreferredExecutionTarget="4a92c5f4-50ee-466b-96c8-a138d4fdebaf" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CursorCollider.cs">
     <Files>
-      <File FileName="Assets/Scripts/EnvironmentManager.cs" Line="82" Column="1" />
-      <File FileName="Assets/Scripts/MultiplayerNetworkingManager.cs" Line="57" Column="140" />
-      <File FileName="Assets/Scripts/PlayerManager.cs" Line="58" Column="1" />
+      <File FileName="Assets/Scripts/EnvironmentManager.cs" Line="77" Column="86" />
+      <File FileName="Assets/Scripts/MultiplayerNetworkingManager.cs" Line="48" Column="10" />
+      <File FileName="Assets/Scripts/PlayerManager.cs" Line="76" Column="2" />
       <File FileName="Library/PackageCache/com.unity.test-framework@1.1.31/UnityEditor.TestRunner/TestRunner/Utils/EditorCompilationInterfaceProxy.cs" Line="9" Column="1" />
+      <File FileName="Assets/Scripts/CursorCollider.cs" Line="14" Column="74" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -30,10 +31,22 @@
                 </Node>
               </Node>
               <Node name="Scripts" expanded="True">
-                <Node name="PlayerManager.cs" selected="True" />
+                <Node name="CursorCollider.cs" selected="True" />
               </Node>
             </Node>
           </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State>
+          <Value>this.CurrentState</Value>
+          <Value>state</Value>
+          <Value>OldState</Value>
+          <Value>newState</Value>
+          <Value>this</Value>
+          <Value>this</Value>
+          <Value>angleRotation</Value>
+          <Value>a</Value>
         </State>
       </Pad>
       <Pad Id="MonoDevelop.UnitTesting.TestPad">
@@ -48,7 +61,6 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/seanfeeley/Masters/Dissertation/code/CardsAR/Assets/UneditedP2PGameLogic.cs" relfile="Assets/UneditedP2PGameLogic.cs" line="248" column="1" />
-      <Breakpoint file="/Users/seanfeeley/Masters/Dissertation/code/CardsAR/Assets/Scripts/EnvironmentManager.cs" relfile="Assets/Scripts/EnvironmentManager.cs" line="82" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
