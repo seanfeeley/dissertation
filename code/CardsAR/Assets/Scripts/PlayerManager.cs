@@ -331,16 +331,32 @@ public class PlayerManager : MonoBehaviour
         if (HighlightedCard)
         {
             StickyCardManager HighlightedManager = GetStickyCardManager(HighlightedCard);
+            GameObject BottomCard = HighlightedManager.GetBottomCard();
             if (HeldCard)
             {
+
                 StickyCardManager HeldManager = GetStickyCardManager(HeldCard);
-                GameObject BottomCard = HighlightedManager.GetBottomCard();
-                HeldManager.MagnetDeck(BottomCard);
-                this.HeldCard = BottomCard;
+                if (HighlightedManager.Spread)
+                {
+                    this.HeldCard = HighlightedCard;
+                }
+                else
+                {
+                    this.HeldCard = BottomCard;
+                }
+                HeldManager.MagnetDeck(HighlightedCard);
+
             }
             else
             {
-                this.HeldCard = HighlightedManager.GetBottomCard();
+                if (HighlightedManager.Spread)
+                {
+                    this.HeldCard = HighlightedCard;
+                }
+                else
+                {
+                    this.HeldCard = BottomCard;
+                }
                 StickyCardManager HeldManager = GetStickyCardManager(HeldCard);
                 HeldManager.DeckPickUp(cursor);
             }
@@ -355,6 +371,15 @@ public class PlayerManager : MonoBehaviour
             if (HighlightedCard)
             {
                 StickyCardManager HighlightedManager = GetStickyCardManager(HighlightedCard);
+
+                if (HighlightedManager.Spread)
+                {
+                    HeldManager.DropOnTopOf(HighlightedCard);
+                }
+                else
+                {
+                    HeldManager.DropOnTopOf(HighlightedManager.GetTopCard());
+                }
             }
             else
             {

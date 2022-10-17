@@ -488,7 +488,7 @@ public class MenuManager : MonoBehaviour
         //this.setCardButtonEnabled(Button_CardMiddleDown, "Disabled", false);
         //this.setCardButtonEnabled(Button_CardBottomUp, "Disabled", false);
         //this.setCardButtonEnabled(Button_CardBottomDown, "Disabled", false);
-        //this.setCardButtonEnabled(Button_DeckUp, "Disabled", false);
+        this.setCardButtonEnabled(Button_DeckUp, "Disabled", false);
         this.setCardButtonEnabled(Button_DeckDown, "Disabled", false);
         this.setCardButtonEnabled(Button_DeckSplit, "Disabled", false);
         this.setCardButtonEnabled(Button_DeckDeal, "Disabled", false);
@@ -515,7 +515,7 @@ public class MenuManager : MonoBehaviour
         //this.setCardButtonEnabled(Button_CardMiddleDown, "Disabled", false);
         //this.setCardButtonEnabled(Button_CardBottomUp, "Disabled", false);
         this.setCardButtonEnabled(Button_CardBottomDown, "Disabled", false);
-        //this.setCardButtonEnabled(Button_DeckUp, "Disabled", false);
+        this.setCardButtonEnabled(Button_DeckUp, "Disabled", false);
         //this.setCardButtonEnabled(Button_DeckDown, "Disabled", false);
         this.setCardButtonEnabled(Button_DeckSplit, "Disabled", false);
         this.setCardButtonEnabled(Button_DeckDeal, "Disabled", false);
@@ -542,7 +542,7 @@ public class MenuManager : MonoBehaviour
         //this.setCardButtonEnabled(Button_CardMiddleDown, "Disabled", false);
         //this.setCardButtonEnabled(Button_CardBottomUp, "Disabled", false);
         //this.setCardButtonEnabled(Button_CardBottomDown, "Disabled", false);
-        //this.setCardButtonEnabled(Button_DeckUp, "Disabled", false);
+        this.setCardButtonEnabled(Button_DeckUp, "Disabled", false);
         //this.setCardButtonEnabled(Button_DeckDown, "Disabled", false);
         this.setCardButtonEnabled(Button_DeckSplit, "Disabled", false);
         this.setCardButtonEnabled(Button_DeckDeal, "Disabled", false);
