@@ -1,14 +1,10 @@
 ﻿<Properties StartupConfiguration="{00BE2B06-77C0-05A0-1DB0-2EA5BDC676F1}|">
-  <MonoDevelop.Ide.ItemProperties.ARDK PreferredExecutionTarget="4a92c5f4-50ee-466b-96c8-a138d4fdebaf" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameManager.cs">
+  <MonoDevelop.Ide.ItemProperties.ARDK PreferredExecutionTarget="cffa8ea4-6b71-47d1-88a4-17ca8c249d20" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/MultiplayerNetworkingManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/EnvironmentManager.cs" Line="77" Column="86" />
-      <File FileName="Assets/Scripts/MultiplayerNetworkingManager.cs" Line="48" Column="10" />
-      <File FileName="Assets/Scripts/PlayerManager.cs" Line="76" Column="2" />
-      <File FileName="Library/PackageCache/com.unity.test-framework@1.1.31/UnityEditor.TestRunner/TestRunner/Utils/EditorCompilationInterfaceProxy.cs" Line="9" Column="1" />
-      <File FileName="Assets/Scripts/CursorCollider.cs" Line="14" Column="74" />
-      <File FileName="Assets/Scripts/MenuManager.cs" Line="491" Column="9" />
-      <File FileName="Assets/Scripts/GameManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/EnvironmentManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/MultiplayerNetworkingManager.cs" Line="69" Column="1" />
+      <File FileName="Assets/Scripts/Cursor.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -16,27 +12,10 @@
           <Node name="CardsAR" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="MenuManager.cs" selected="True" />
+                <Node name="EnvironmentManager.cs" selected="True" />
               </Node>
             </Node>
           </Node>
-        </State>
-      </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State>
-          <Value>this.CurrentState</Value>
-          <Value>state</Value>
-          <Value>OldState</Value>
-          <Value>newState</Value>
-          <Value>this</Value>
-          <Value>this</Value>
-          <Value>angleRotation</Value>
-          <Value>a</Value>
-        </State>
-      </Pad>
-      <Pad Id="MonoDevelop.UnitTesting.TestPad">
-        <State name="__root__">
-          <Node name="Unity" expanded="True" selected="True" />
         </State>
       </Pad>
     </Pads>

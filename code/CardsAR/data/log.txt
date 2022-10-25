@@ -5505,3 +5505,4 @@ thread 2214986] Actor already shutdown.
 [15:43:47.168170 +01:00] [---I---] [actor.cpp] [thread 1315607] Actor already shutdown.
 [15:46:42.625245 +01:00] [---I---] [actor.cpp] [thread 1315607] Actor already shutdown.
 [15:46:42.625296 +01:00] [---I---] [actor.cpp] [thread 1315607] Actor already shutdown.
+[17:42:48.777686 +01:00] [---E---] [telemetry_actor.cpp] [thread 4155811] Telemetry request failed: [Couldn't resolve host name], but ignore it now

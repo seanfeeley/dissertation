@@ -29,14 +29,15 @@ public class Cursor : MonoBehaviour
 
         Transform cameraTransform = camera.transform;
 
-        if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out HitInfo, 100.0f, mask))
-        {
-            cursor.transform.position = HitInfo.point;
-            cursor.transform.eulerAngles = new Vector3(cursor.transform.eulerAngles.x,
-                                                        cameraTransform.eulerAngles.y,
-                                                        cursor.transform.eulerAngles.z);
-           //Debug.DrawRay(cameraTransform.position, cameraTransform.forward * 100.0f, Color.red);
-        }
+        //if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out HitInfo, 100.0f, mask))
+        //{
+        //    cursor.transform.position = HitInfo.point;
+        //    cursor.transform.eulerAngles = new Vector3(cursor.transform.eulerAngles.x,
+        //                                                cameraTransform.eulerAngles.y,
+        //                                                cursor.transform.eulerAngles.z);
+        //   //Debug.DrawRay(cameraTransform.position, cameraTransform.forward * 100.0f, Color.red);
+        //   //Debug.DrawRay(cameraTransform.position, cameraTransform.forward * 100.0f, Color.red);
+        //}
            
 
     }

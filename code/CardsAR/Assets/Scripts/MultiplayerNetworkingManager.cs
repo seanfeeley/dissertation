@@ -8,17 +8,18 @@ public class MultiplayerNetworkingManager : MonoBehaviour
     public static MultiplayerNetworkingManager Instance;
     public int playerCount = 6;
     public int playerIndex = 1;
+    public Camera camera;
     public GameObject AvatarPrefab;
     public GameObject AvatarPrefabParent;
-    private Dictionary<System.Guid, GameObject> _players = new Dictionary<System.Guid, GameObject>();
+    public Dictionary<System.Guid, GameObject> players = new Dictionary<System.Guid, GameObject>();
     private Guid myGuid;
 
     private Guid[] peerGuids = {
                                  new System.Guid("00000000-0000-0000-0000-000000000020"),
                                  new System.Guid("00000000-0000-0000-0000-000000000030"),
-                                 new System.Guid("00000000-0000-0000-0000-000000000040"),
-                                 new System.Guid("00000000-0000-0000-0000-000000000050"),
-                                 new System.Guid("00000000-0000-0000-0000-000000000060"),
+                                 //new System.Guid("00000000-0000-0000-0000-000000000040"),
+                                 //new System.Guid("00000000-0000-0000-0000-000000000050"),
+                                 //new System.Guid("00000000-0000-0000-0000-000000000060"),
     };
 
 
@@ -46,25 +47,42 @@ public class MultiplayerNetworkingManager : MonoBehaviour
             this.OnPeerPoseReceived(peerID, new Vector3(0f, 0f, 0f), new Quaternion());
 
         }
-        this.ResetAvatarPositionsAroundTable();
 
     }
 
-    private void ResetAvatarPositionsAroundTable()
-    {
-      
-        foreach (var _player in _players)
-        {
-            _player.Value.transform.SetPositionAndRotation(EnvironmentManager.Instance.GetDealingSpotPositionForPlayer(this.GetPeerPlayerIndex(_player.Key)),
-                                                            EnvironmentManager.Instance.GetDealingSpotRotationForPlayer(this.GetPeerPlayerIndex(_player.Key)));
-        }
-
-    }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        this.DebugMoveAllAvatars();
+    }
+
+    private void DebugMoveAllAvatars()
+    {
+        Vector3 myDealPos = EnvironmentManager.Instance.lockedTablePlacerPos;
+        Vector3 tableCenter = EnvironmentManager.Instance.GetTableCenter();
+        Vector3 cameraReativeToDealPos = camera.transform.position - myDealPos;
+        Vector3 dealPosReativeTableCenter = myDealPos - tableCenter;
+        float a = (float)EnvironmentManager.Instance.AngleBetween(new Vector3(0,0,-1), dealPosReativeTableCenter);
+        Debug.DrawLine(myDealPos, camera.transform.position, Color.
+                            red);
+        Vector3 peerPosChange = EnvironmentManager.Instance.RotatePointAround(Vector3.zero,
+                                                                              -a,
+                                                                              cameraReativeToDealPos);
+        Vector3 cameraLook = camera.transform.eulerAngles;
+        cameraLook.y += a;
+        foreach (var playerAvatar in players)
+        {
+            Quaternion playerRot = EnvironmentManager.Instance.GetDealingSpotRotationForPlayer(this.GetPeerPlayerIndex(playerAvatar.Key));
+            GameObject playerAvatarScreen = playerAvatar.Value.transform.GetChild(0).gameObject;
+            playerAvatarScreen.transform.localPosition = peerPosChange;
+            
+            playerAvatarScreen.transform.localEulerAngles = cameraLook;
+            Debug.DrawLine(playerAvatar.Value.transform.GetChild(0).transform.position,
+                           playerAvatar.Value.transform.GetChild(1).transform.position, Color.green);
+
+
+        }
     }
 
     private void OnPeerPoseReceived(System.Guid playerIdentifier, Vector3 position, Quaternion rotation)
@@ -73,17 +91,17 @@ public class MultiplayerNetworkingManager : MonoBehaviour
 
 
         // ...and if the dictionary already contains the player...
-        if (_players.ContainsKey(playerIdentifier) == false)
+        if (players.ContainsKey(playerIdentifier) == false)
         {
             // ...then create an avatar for the remote player...
             GameObject remoteAvatar = CreateAvatar();
+            // ...then set the player's avatar postition and rotation.
+            remoteAvatar.transform.SetPositionAndRotation(position, rotation);
             // ...and add it to the dictionary.
-            _players.Add(playerIdentifier, remoteAvatar);
+            players.Add(playerIdentifier, remoteAvatar);
         }
         
         
-        // ...then set the player's avatar postition and rotation.
-        //_players[playerIdentifier].transform.SetPositionAndRotation(position, rotation);
 
     }
 
@@ -96,7 +114,7 @@ public class MultiplayerNetworkingManager : MonoBehaviour
     public int GetPeerPlayerIndex(System.Guid peer)
     {
         List<Guid> peer_list = new List<Guid>();
-        foreach (System.Guid ip in this._players.Keys)
+        foreach (System.Guid ip in this.players.Keys)
         {
             peer_list.Add(ip);
         }
@@ -106,7 +124,7 @@ public class MultiplayerNetworkingManager : MonoBehaviour
 
     public int GetCurrentPlayerCount()
     {
-        return this._players.Count;
+        return this.players.Count;
     }
 
     // Creates a car at a given position.
