@@ -15,8 +15,8 @@ public class MultiplayerNetworkingManager : MonoBehaviour
     private Guid myGuid;
 
     private Guid[] peerGuids = {
-                                 new System.Guid("00000000-0000-0000-0000-000000000020"),
-                                 new System.Guid("00000000-0000-0000-0000-000000000030"),
+                                 //new System.Guid("00000000-0000-0000-0000-000000000020"),
+                                 //new System.Guid("00000000-0000-0000-0000-000000000030"),
                                  //new System.Guid("00000000-0000-0000-0000-000000000040"),
                                  //new System.Guid("00000000-0000-0000-0000-000000000050"),
                                  //new System.Guid("00000000-0000-0000-0000-000000000060"),
@@ -83,6 +83,17 @@ public class MultiplayerNetworkingManager : MonoBehaviour
 
 
         }
+    }
+
+    public void AddRandomPeer()
+    {
+        //System.Guid("00000000-0000-0000-0000-000000000020")
+        System.Random r = new System.Random();
+        int rInt = r.Next(0, 10000);
+        string guid_string = "00000000-0000-0000-0000-" + rInt.ToString("D12");
+        Guid peerID = new System.Guid(guid_string);
+        this.OnPeerPoseReceived(peerID, new Vector3(0f, 0f, 0f), new Quaternion());
+
     }
 
     private void OnPeerPoseReceived(System.Guid playerIdentifier, Vector3 position, Quaternion rotation)

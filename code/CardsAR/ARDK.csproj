@@ -22,7 +22,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\Bin\Debug\</OutputPath>
-    <DefineConstants>UNITY_2021_3_6;UNITY_2021_3;UNITY_2021;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_INCLUDE_TESTS;USE_SEARCH_ENGINE_API;USE_SEARCH_TABLE;USE_SEARCH_MODULE;USE_PROPERTY_DATABASE;USE_SEARCH_EXTENSION_API;SCENE_TEMPLATE_MODULE;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_ENGINE_CODE_STRIPPING;ENABLE_ONSCREEN_KEYBOARD;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;PLATFORM_IOS;TEXTCORE_1_0_OR_NEWER;ENABLE_RUNTIME_GI;ENABLE_GAMECENTER;ENABLE_NETWORK;ENABLE_IOS_ON_DEMAND_RESOURCES;ENABLE_IOS_APP_SLICING;PLAYERCONNECTION_LISTENS_FIXED_PORT;DEBUGGER_LISTENS_FIXED_PORT;PLATFORM_SUPPORTS_ADS_ID;SUPPORT_ENVIRONMENT_VARIABLES;PLATFORM_SUPPORTS_PROFILER;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_ETC_COMPRESSION;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;UNITY_IOS;PLATFORM_IPHONE;UNITY_IPHONE;UNITY_IPHONE_API;UNITY_HAS_GOOGLEVR;ENABLE_SPATIALTRACKING;ENABLE_MONO;NET_STANDARD_2_0;NET_STANDARD;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <DefineConstants>UNITY_2021_3_6;UNITY_2021_3;UNITY_2021;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_INCLUDE_TESTS;USE_SEARCH_ENGINE_API;USE_SEARCH_TABLE;USE_SEARCH_MODULE;USE_PROPERTY_DATABASE;USE_SEARCH_EXTENSION_API;SCENE_TEMPLATE_MODULE;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_ENGINE_CODE_STRIPPING;ENABLE_ONSCREEN_KEYBOARD;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;PLATFORM_IOS;TEXTCORE_1_0_OR_NEWER;ENABLE_RUNTIME_GI;ENABLE_GAMECENTER;ENABLE_NETWORK;ENABLE_IOS_ON_DEMAND_RESOURCES;ENABLE_IOS_APP_SLICING;PLAYERCONNECTION_LISTENS_FIXED_PORT;DEBUGGER_LISTENS_FIXED_PORT;PLATFORM_SUPPORTS_ADS_ID;SUPPORT_ENVIRONMENT_VARIABLES;PLATFORM_SUPPORTS_PROFILER;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_ETC_COMPRESSION;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;UNITY_IOS;PLATFORM_IPHONE;UNITY_IPHONE;UNITY_IPHONE_API;UNITY_HAS_GOOGLEVR;ENABLE_SPATIALTRACKING;ENABLE_MONO;NET_STANDARD_2_0;NET_STANDARD;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;MIRROR;MIRROR_17_0_OR_NEWER;MIRROR_18_0_OR_NEWER;MIRROR_24_0_OR_NEWER;MIRROR_26_0_OR_NEWER;MIRROR_27_0_OR_NEWER;MIRROR_28_0_OR_NEWER;MIRROR_29_0_OR_NEWER;MIRROR_30_0_OR_NEWER;MIRROR_30_5_2_OR_NEWER;MIRROR_32_1_2_OR_NEWER;MIRROR_32_1_4_OR_NEWER;MIRROR_35_0_OR_NEWER;MIRROR_35_1_OR_NEWER;MIRROR_37_0_OR_NEWER;MIRROR_38_0_OR_NEWER;MIRROR_39_0_OR_NEWER;MIRROR_40_0_OR_NEWER;MIRROR_41_0_OR_NEWER;MIRROR_42_0_OR_NEWER;MIRROR_43_0_OR_NEWER;MIRROR_44_0_OR_NEWER;MIRROR_46_0_OR_NEWER;MIRROR_47_0_OR_NEWER;MIRROR_53_0_OR_NEWER;MIRROR_55_0_OR_NEWER;MIRROR_57_0_OR_NEWER;MIRROR_58_0_OR_NEWER;MIRROR_65_0_OR_NEWER;MIRROR_66_0_OR_NEWER;MIRROR_2022_9_OR_NEWER;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
@@ -82,10 +82,10 @@
     <Compile Include="Assets/Niantic/ARDK/AR/ReferenceImage/ByteOrderInfo.cs" />
     <Compile Include="Assets/Niantic/ARDK/Utilities/Preloading/_MockFeaturePreloader.cs" />
     <Compile Include="Assets/Niantic/ARDK/VirtualStudio/Remote/_EasyConnection.cs" />
-    <Compile Include="Assets/Niantic/ARDK/Networking/Clock/_NativeCoordinatedClock.cs" />
     <Compile Include="Assets/Niantic/ARDK/Utilities/Platform/IncorrectlyUsedNativeClassException.cs" />
     <Compile Include="Assets/Niantic/ARDK/VirtualStudio/Remote/_RemoteDeviceRole.cs" />
     <Compile Include="Assets/Niantic/ARDK/Utilities/BinarySerialization/ItemSerializers/ByteSerializer.cs" />
+    <Compile Include="Assets/Niantic/ARDK/Networking/Clock/_NativeCoordinatedClock.cs" />
     <Compile Include="Assets/Niantic/ARDK/Networking/ARSim/Spawning/AddressablePrefabManifest.cs" />
     <Compile Include="Assets/Niantic/ARDK/VpsCoverage/GeoserviceMessages/_CoverageAreasRequest.cs" />
     <Compile Include="Assets/Niantic/ARDK/Utilities/Marker/ZXingMarkerGenerator.cs" />
@@ -132,8 +132,8 @@
     <Compile Include="Assets/Niantic/ARDK/Utilities/BinarySerialization/ItemSerializers/Int16Serializer.cs" />
     <Compile Include="Assets/Niantic/ARDK/Utilities/Marker/Scanner/MarkerScannerStatus.cs" />
     <Compile Include="Assets/Niantic/ARDK/Extensions/NetworkSessionManager.cs" />
-    <Compile Include="Assets/Niantic/ARDK/AR/Awareness/Depth/IDepthBuffer.cs" />
     <Compile Include="Assets/Niantic/ARDK/AR/ARSessionEventArgs/QueryingShouldSessionAttemptRelocalizationArgs.cs" />
+    <Compile Include="Assets/Niantic/ARDK/AR/Awareness/Depth/IDepthBuffer.cs" />
     <Compile Include="Assets/Niantic/ARDK/Utilities/BinarySerialization/ItemSerializers/GuidSerializer.cs" />
     <Compile Include="Assets/Niantic/ARDK/Networking/HLAPI/Object/Unity/PrefabManifest.cs" />
     <Compile Include="Assets/Niantic/ARDK/AR/Configuration/IARWorldTrackingConfiguration.cs" />
@@ -314,11 +314,11 @@
     <Compile Include="Assets/Niantic/ARDK/AR/WayspotAnchors/_IWayspotAnchorControllerImplementation.cs" />
     <Compile Include="Assets/Niantic/ARDK/Telemetry/_AnalyticsTelemetryPublisher.cs" />
     <Compile Include="Assets/Niantic/ARDK/Utilities/VersionUtilities/_NativeARDKVersion.cs" />
-    <Compile Include="Assets/Niantic/ARDK/Utilities/Extensions/_DictionaryExtensions.cs" />
     <Compile Include="Assets/Niantic/ARDK/Utilities/SafeGCHandle.cs" />
     <Compile Include="Assets/Niantic/ARDK/Utilities/BinarySerialization/ItemSerializers/ColorSerializer.cs" />
     <Compile Include="Assets/Niantic/ARDK/Networking/ARSim/Spawning/GameObjectSpawning/UnityGameObjectInstantiator.cs" />
     <Compile Include="Assets/Niantic/ARDK/AR/IARLightEstimate.cs" />
+    <Compile Include="Assets/Niantic/ARDK/Utilities/Extensions/_DictionaryExtensions.cs" />
     <Compile Include="Assets/Niantic/ARDK/AR/_Convert.cs" />
     <Compile Include="Assets/Niantic/ARDK/AR/Configuration/WorldAlignment.cs" />
     <Compile Include="Assets/Niantic/ARDK/AR/Awareness/Semantics/Generators/_DepthPointCloud.cs" />
@@ -378,8 +378,8 @@
     <Compile Include="Assets/Niantic/ARDK/Utilities/MatrixUtils.cs" />
     <Compile Include="Assets/Niantic/ARDK/AR/ARFrameDisposalPolicy.cs" />
     <Compile Include="Assets/Niantic/ARDK/AR/ReferenceImage/IARReferenceImage.cs" />
-    <Compile Include="Assets/Niantic/ARDK/AR/Frame/_IARFrame.cs" />
     <Compile Include="Assets/Niantic/ARDK/AR/Image/_NativeImagePlane.cs" />
+    <Compile Include="Assets/Niantic/ARDK/AR/Frame/_IARFrame.cs" />
     <Compile Include="Assets/Niantic/ARDK/SharedAR/Experience/Experience.cs" />
     <Compile Include="Assets/Niantic/ARDK/AR/Awareness/Human/HandTracking/HandTracker.cs" />
     <Compile Include="Assets/Niantic/ARDK/VirtualStudio/AR/Camera/_MockCameraConfiguration.cs" />
@@ -469,8 +469,8 @@
     <Compile Include="Assets/Niantic/ARDK/VirtualStudio/Remote/_LocalDeviceInfo.cs" />
     <Compile Include="Assets/Niantic/ARDK/LocationService/SpoofLocationService.cs" />
     <Compile Include="Assets/Niantic/ARDK/VirtualStudio/Remote/_RemoteConnection.cs" />
-    <Compile Include="Assets/Niantic/ARDK/AR/CompressedImage.cs" />
     <Compile Include="Assets/Niantic/ARDK/AR/Configuration/PlaneDetection.cs" />
+    <Compile Include="Assets/Niantic/ARDK/AR/CompressedImage.cs" />
     <Compile Include="Assets/Niantic/ARDK/SharedAR/Room/RoomParams.cs" />
     <Compile Include="Assets/Niantic/ARDK/VirtualStudio/Remote/_InternetRemoteConnectionCompat.cs" />
     <Compile Include="Assets/Niantic/ARDK/Utilities/BinarySerialization/ISerializationContext.cs" />
@@ -559,8 +559,8 @@
     <Compile Include="Assets/Niantic/ARDK/Networking/NetworkMessageSizeLimits.cs" />
     <Compile Include="Assets/Niantic/ARDK/AR/Awareness/_AwarenessBufferBase.cs" />
     <Compile Include="Assets/Niantic/ARDK/VirtualStudio/Networking/_MockMultipeerNetworking.cs" />
-    <Compile Include="Assets/Niantic/ARDK/AR/SLAM/ARMap/IARMap.cs" />
     <Compile Include="Assets/Niantic/ARDK/AR/Image/_SerializableImageBufferSerializer.cs" />
+    <Compile Include="Assets/Niantic/ARDK/AR/SLAM/ARMap/IARMap.cs" />
     <Compile Include="Assets/Niantic/ARDK/Extensions/ARSessionListener.cs" />
     <Compile Include="Assets/Niantic/ARDK/Utilities/Extensions/_TextureExtensions.cs" />
     <Compile Include="Assets/Niantic/ARDK/AR/ReferenceImage/Orientation.cs" />
@@ -572,9 +572,9 @@
     <Compile Include="Assets/Niantic/ARDK/AR/Frame/_SerializableARFrameBase.cs" />
     <Compile Include="Assets/Niantic/ARDK/AR/Image/_NativeImagePlanes.cs" />
     <Compile Include="Assets/Niantic/ARDK/Networking/HLAPI/Data/NetworkedDataDescriptor.cs" />
-    <Compile Include="Assets/Niantic/ARDK/VirtualStudio/Remote/Data/EditorToDevice.cs" />
     <Compile Include="Assets/Niantic/ARDK/Utilities/BinarySerialization/ItemSerializers/NativeArraySerializer.cs" />
     <Compile Include="Assets/Niantic/ARDK/SharedAR/Net/_NativeNetworking.cs" />
+    <Compile Include="Assets/Niantic/ARDK/VirtualStudio/Remote/Data/EditorToDevice.cs" />
     <Compile Include="Assets/Niantic/ARDK/LocationService/LocationUpdatedArgs.cs" />
     <Compile Include="Assets/Niantic/ARDK/Networking/HLAPI/INetworkGroup.cs" />
     <Compile Include="Assets/Niantic/ARDK/VirtualStudio/_PlaybackARWorldTrackingConfiguration.cs" />
@@ -582,13 +582,13 @@
     <Compile Include="Assets/Niantic/ARDK/Extensions/ARCameraPositionHelper.cs" />
     <Compile Include="Assets/Niantic/ARDK/Configuration/Authentication/ArdkAuthConfig.cs" />
     <Compile Include="Assets/Niantic/ARDK/Utilities/Marker/Metadata/StationaryMarkerMetadata.cs" />
-    <Compile Include="Assets/Niantic/ARDK/Utilities/Collections/_ArrayFromElement.cs" />
     <Compile Include="Assets/Niantic/ARDK/Utilities/MathUtils.cs" />
     <Compile Include="Assets/Niantic/ARDK/AR/Configuration/ARCoreInstaller.cs" />
     <Compile Include="Assets/Niantic/ARDK/AR/Frame/_SerializableARFrame.cs" />
     <Compile Include="Assets/Niantic/ARDK/Networking/_Peer.cs" />
     <Compile Include="Assets/Niantic/ARDK/Extensions/ARImageDetectionManager.cs" />
     <Compile Include="Assets/Niantic/ARDK/Utilities/Marker/Metadata/EmbeddedStationaryMetadataSerializer.cs" />
+    <Compile Include="Assets/Niantic/ARDK/Utilities/Collections/_ArrayFromElement.cs" />
     <Compile Include="Assets/Niantic/ARDK/LocationService/LocationInfo.cs" />
     <Compile Include="Assets/Niantic/ARDK/AR/WayspotAnchors/LocalizationFailureReason.cs" />
     <Compile Include="Assets/Niantic/ARDK/AR/Anchors/_NativeARBasicAnchor.cs" />
@@ -613,8 +613,8 @@
     <Compile Include="Assets/Niantic/ARDK/Networking/HLAPI/Object/Unity/AuthBehaviour.cs" />
     <Compile Include="Assets/Niantic/ARDK/Rendering/SRP/_RenderPipelineInternals.cs" />
     <Compile Include="Assets/Niantic/ARDK/Rendering/SRP/_CommandBufferPass.cs" />
-    <Compile Include="Assets/Niantic/ARDK/VirtualStudio/AR/_IEditorARSessionMediator.cs" />
     <Compile Include="Assets/Niantic/ARDK/AR/PlaneGeometry/_SerializableARPlaneGeometry.cs" />
+    <Compile Include="Assets/Niantic/ARDK/VirtualStudio/AR/_IEditorARSessionMediator.cs" />
     <Compile Include="Assets/Niantic/ARDK/AR/WayspotAnchors/WayspotAnchorStatusCode.cs" />
     <Compile Include="Assets/Niantic/ARDK/Utilities/Marker/Metadata/MarkerMetadata.cs" />
     <Compile Include="Assets/Niantic/ARDK/AR/WayspotAnchors/IWayspotAnchor.cs" />
@@ -657,9 +657,9 @@
     <Compile Include="Assets/Niantic/ARDK/VirtualStudio/AR/_IMockARSession.cs" />
     <Compile Include="Assets/Niantic/ARDK/Networking/HLAPI/Object/Unity/NetTransform.cs" />
     <Compile Include="Assets/Niantic/ARDK/SharedAR/Room/RoomID.cs" />
-    <Compile Include="Assets/Niantic/ARDK/AR/Image/_SerializableImagePlaneSerializer.cs" />
     <Compile Include="Assets/Niantic/ARDK/AR/Awareness/_AwarenessBufferFactory.cs" />
     <Compile Include="Assets/Niantic/ARDK/Utilities/BinarySerialization/ItemSerializers/Vector4Serializer.cs" />
+    <Compile Include="Assets/Niantic/ARDK/AR/Image/_SerializableImagePlaneSerializer.cs" />
     <Compile Include="Assets/Niantic/ARDK/Utilities/Preloading/FeaturePreloaderFactory.cs" />
     <Compile Include="Assets/Niantic/ARDK/Utilities/_ReferenceComparer.cs" />
     <Compile Include="Assets/Niantic/ARDK/AR/Networking/NativeARNetworkingMode_Experimental.cs" />

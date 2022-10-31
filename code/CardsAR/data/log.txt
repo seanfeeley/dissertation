@@ -5506,3 +5506,8 @@ thread 2214986] Actor already shutdown.
 [15:46:42.625245 +01:00] [---I---] [actor.cpp] [thread 1315607] Actor already shutdown.
 [15:46:42.625296 +01:00] [---I---] [actor.cpp] [thread 1315607] Actor already shutdown.
 [17:42:48.777686 +01:00] [---E---] [telemetry_actor.cpp] [thread 4155811] Telemetry request failed: [Couldn't resolve host name], but ignore it now
+[23:04:50.894177 +01:00] [---E---] [telemetry_actor.cpp] [thread 9418] Telemetry request failed: [Couldn't resolve host name], but ignore it now
+[23:07:39.113677 +01:00] [---E---] [telemetry_actor.cpp] [thread 9418] Telemetry request failed: [Couldn't resolve host name], but ignore it now
+[23:11:09.641172 +01:00] [---E---] [telemetry_actor.cpp] [thread 9418] Telemetry request failed: [Couldn't resolve host name], but ignore it now
+[23:11:47.478345 +01:00] [---E---] [telemetry_actor.cpp] [thread 9418] Telemetry request failed: [Couldn't resolve host name], but ignore it now
+[23:12:37.175076 +01:00] [---E---] [telemetry_actor.cpp] [thread 9418] Telemetry request failed: [Couldn't resolve host name], but ignore it now

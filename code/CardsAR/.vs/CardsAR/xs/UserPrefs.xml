@@ -1,19 +1,38 @@
 ﻿<Properties StartupConfiguration="{00BE2B06-77C0-05A0-1DB0-2EA5BDC676F1}|">
   <MonoDevelop.Ide.ItemProperties.ARDK PreferredExecutionTarget="cffa8ea4-6b71-47d1-88a4-17ca8c249d20" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/MultiplayerNetworkingManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Niantic/ARDK/Extensions/Permissions/AndroidPermissionRequester.cs">
     <Files>
-      <File FileName="Assets/Scripts/EnvironmentManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/MultiplayerNetworkingManager.cs" Line="69" Column="1" />
-      <File FileName="Assets/Scripts/Cursor.cs" />
+      <File FileName="Assets/AgoraManager.cs" Line="61" Column="40" />
+      <File FileName="Assets/Unity Store/Agora-RTC-Plugin/API-Example/Examples/Basic/JoinChannelVideo/JoinChannelVideo.cs" Line="69" Column="19" />
+      <File FileName="Assets/Plugins/Android/AndroidManifest.xml" Line="21" Column="1" />
+      <File FileName="Assets/Niantic/ARDK/Extensions/Permissions/AndroidPermissionRequester.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="CardsAR" expanded="True">
             <Node name="Assets" expanded="True">
-              <Node name="Scripts" expanded="True">
-                <Node name="EnvironmentManager.cs" selected="True" />
+              <Node name="Agora-RTC-Plugin" expanded="True">
+                <Node name="API-Example" expanded="True">
+                  <Node name="Examples" expanded="True">
+                    <Node name="Basic" expanded="True">
+                      <Node name="JoinChannelVideo" expanded="True" />
+                    </Node>
+                  </Node>
+                </Node>
               </Node>
+              <Node name="Niantic" expanded="True">
+                <Node name="ARDK" expanded="True">
+                  <Node name="Extensions" expanded="True">
+                    <Node name="Permissions" expanded="True">
+                      <Node name="AndroidPermissionRequester.cs" selected="True" />
+                    </Node>
+                  </Node>
+                </Node>
+              </Node>
+              <Node name="Plugins" expanded="True" />
+              <Node name="Scripts" expanded="True" />
+              <Node name="Unity Store" expanded="True" />
             </Node>
           </Node>
         </State>

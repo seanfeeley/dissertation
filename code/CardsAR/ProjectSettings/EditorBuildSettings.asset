@@ -17,6 +17,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/CarsAR2.unity
     guid: 817191e6da0ad43928c8650e018c83be
+  - enabled: 0
+    path: Assets/Unity Store/Mirror/Examples/Basic/Scenes/Example.unity
+    guid: b30904751905d3f4dacde62ac85ec7c2
+  - enabled: 0
+    path: Assets/Agora-RTC-Plugin/API-Example/Examples/Basic/JoinChannelVideo/BasicVideoCallScene.unity
+    guid: 3f201b178f99f4b41a325391c1b284b8
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: a8dcd0a4ed5a94c6baaa18b5a2e3706e,
       type: 2}
