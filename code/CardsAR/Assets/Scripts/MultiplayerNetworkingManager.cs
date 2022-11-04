@@ -11,16 +11,8 @@ public class MultiplayerNetworkingManager : MonoBehaviour
     public Camera camera;
     public GameObject AvatarPrefab;
     public GameObject AvatarPrefabParent;
-    public Dictionary<System.Guid, GameObject> players = new Dictionary<System.Guid, GameObject>();
-    private Guid myGuid;
+    public Dictionary<String, GameObject> players = new Dictionary<String, GameObject>();
 
-    private Guid[] peerGuids = {
-                                 //new System.Guid("00000000-0000-0000-0000-000000000020"),
-                                 //new System.Guid("00000000-0000-0000-0000-000000000030"),
-                                 //new System.Guid("00000000-0000-0000-0000-000000000040"),
-                                 //new System.Guid("00000000-0000-0000-0000-000000000050"),
-                                 //new System.Guid("00000000-0000-0000-0000-000000000060"),
-    };
 
 
 
@@ -40,13 +32,6 @@ public class MultiplayerNetworkingManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        myGuid = new System.Guid("00000000-0000-0000-0000-000000000011");
-        this.OnPeerPoseReceived(myGuid, new Vector3(0f,0f,0f), new Quaternion());
-        foreach (Guid peerID in this.peerGuids)
-        {
-            this.OnPeerPoseReceived(peerID, new Vector3(0f, 0f, 0f), new Quaternion());
-
-        }
 
     }
 
@@ -54,51 +39,56 @@ public class MultiplayerNetworkingManager : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        this.DebugMoveAllAvatars();
+        //this.DebugMoveAllAvatars();
     }
 
-    private void DebugMoveAllAvatars()
+    internal bool PeerDataExists()
     {
-        Vector3 myDealPos = EnvironmentManager.Instance.lockedTablePlacerPos;
-        Vector3 tableCenter = EnvironmentManager.Instance.GetTableCenter();
-        Vector3 cameraReativeToDealPos = camera.transform.position - myDealPos;
-        Vector3 dealPosReativeTableCenter = myDealPos - tableCenter;
-        float a = (float)EnvironmentManager.Instance.AngleBetween(new Vector3(0,0,-1), dealPosReativeTableCenter);
-        Debug.DrawLine(myDealPos, camera.transform.position, Color.
-                            red);
-        Vector3 peerPosChange = EnvironmentManager.Instance.RotatePointAround(Vector3.zero,
-                                                                              -a,
-                                                                              cameraReativeToDealPos);
-        Vector3 cameraLook = camera.transform.eulerAngles;
-        cameraLook.y += a;
-        foreach (var playerAvatar in players)
-        {
-            Quaternion playerRot = EnvironmentManager.Instance.GetDealingSpotRotationForPlayer(this.GetPeerPlayerIndex(playerAvatar.Key));
-            GameObject playerAvatarScreen = playerAvatar.Value.transform.GetChild(0).gameObject;
-            playerAvatarScreen.transform.localPosition = peerPosChange;
-            
-            playerAvatarScreen.transform.localEulerAngles = cameraLook;
-            Debug.DrawLine(playerAvatar.Value.transform.GetChild(0).transform.position,
-                           playerAvatar.Value.transform.GetChild(1).transform.position, Color.green);
-
-
-        }
+        return this.GetCurrentPlayerCount() != 0;
     }
 
-    public void AddRandomPeer()
-    {
-        //System.Guid("00000000-0000-0000-0000-000000000020")
-        System.Random r = new System.Random();
-        int rInt = r.Next(0, 10000);
-        string guid_string = "00000000-0000-0000-0000-" + rInt.ToString("D12");
-        Guid peerID = new System.Guid(guid_string);
-        this.OnPeerPoseReceived(peerID, new Vector3(0f, 0f, 0f), new Quaternion());
+    //private void DebugMoveAllAvatars()
+    //{
+    //    Vector3 myDealPos = EnvironmentManager.Instance.lockedTablePlacerPos;
+    //    Vector3 tableCenter = EnvironmentManager.Instance.GetTableCenter();
+    //    Vector3 cameraReativeToDealPos = camera.transform.position - myDealPos;
+    //    Vector3 dealPosReativeTableCenter = myDealPos - tableCenter;
+    //    float a = (float)EnvironmentManager.Instance.AngleBetween(new Vector3(0,0,-1), dealPosReativeTableCenter);
+    //    Debug.DrawLine(myDealPos, camera.transform.position, Color.
+    //                        red);
+    //    Vector3 peerPosChange = EnvironmentManager.Instance.RotatePointAround(Vector3.zero,
+    //                                                                          -a,
+    //                                                                          cameraReativeToDealPos);
+    //    Vector3 cameraLook = camera.transform.eulerAngles;
+    //    cameraLook.y += a;
+    //    foreach (var playerAvatar in players)
+    //    {
+    //        Quaternion playerRot = EnvironmentManager.Instance.GetDealingSpotRotationForPlayer(this.GetPeerPlayerIndex(playerAvatar.Key));
+    //        GameObject playerAvatarScreen = playerAvatar.Value.transform.GetChild(0).gameObject;
+    //        playerAvatarScreen.transform.localPosition = peerPosChange;
 
-    }
+    //        playerAvatarScreen.transform.localEulerAngles = cameraLook;
+    //        Debug.DrawLine(playerAvatar.Value.transform.GetChild(0).transform.position,
+    //                       playerAvatar.Value.transform.GetChild(1).transform.position, Color.green);
 
-    private void OnPeerPoseReceived(System.Guid playerIdentifier, Vector3 position, Quaternion rotation)
+
+    //    }
+    //}
+
+    //public void AddRandomPeer()
+    //{
+    //    //System.Guid("00000000-0000-0000-0000-000000000020")
+    //    System.Random r = new System.Random();
+    //    int rInt = r.Next(0, 10000);
+    //    string guid_string = "00000000-0000-0000-0000-" + rInt.ToString("D12");
+    //    Guid peerID = new System.Guid(guid_string);
+    //    this.OnPeerPoseReceived(peerID, new Vector3(0f, 0f, 0f), new Quaternion());
+
+    //}
+
+    public void OnPeerPoseReceived(String playerIdentifier, Vector3 pos, Vector3 rot)
     {
-        Debug.LogFormat("CARDSAR: Peer {0} at position: {1} with rotation {2}", playerIdentifier, position, rotation);
+        Debug.LogFormat("CARDSAR: Peer {0} at position: {1} with rotation {2}", playerIdentifier, pos, rot);
 
 
         // ...and if the dictionary already contains the player...
@@ -107,9 +97,21 @@ public class MultiplayerNetworkingManager : MonoBehaviour
             // ...then create an avatar for the remote player...
             GameObject remoteAvatar = CreateAvatar();
             // ...then set the player's avatar postition and rotation.
-            remoteAvatar.transform.SetPositionAndRotation(position, rotation);
+            GameObject playerAvatarScreen = remoteAvatar.transform.GetChild(0).gameObject;
+            playerAvatarScreen.transform.localPosition = pos;
+            playerAvatarScreen.transform.localEulerAngles = rot;
             // ...and add it to the dictionary.
             players.Add(playerIdentifier, remoteAvatar);
+        }
+        else
+        {
+            // ...then create an avatar for the remote player...
+            GameObject remoteAvatar = players[playerIdentifier];
+            // ...then set the player's avatar postition and rotation.
+            GameObject playerAvatarScreen = remoteAvatar.transform.GetChild(0).gameObject;
+            playerAvatarScreen.transform.localPosition = pos;
+            playerAvatarScreen.transform.localEulerAngles = rot;
+
         }
         
         
@@ -120,12 +122,13 @@ public class MultiplayerNetworkingManager : MonoBehaviour
 
     public int GetMyPlayerIndex()
     {
-        return GetPeerPlayerIndex(myGuid);
+        return GetPeerPlayerIndex(PlayerManager.Instance.uid);
     }
-    public int GetPeerPlayerIndex(System.Guid peer)
+
+    public int GetPeerPlayerIndex(String peer)
     {
-        List<Guid> peer_list = new List<Guid>();
-        foreach (System.Guid ip in this.players.Keys)
+        List<String> peer_list = new List<String>();
+        foreach (String ip in this.players.Keys)
         {
             peer_list.Add(ip);
         }

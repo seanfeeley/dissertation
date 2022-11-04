@@ -56,15 +56,44 @@
     <Analyzer Include="/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/AddIns/MonoDevelop.Unity/Analyzers/Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets/PubNub/Editor/FetchMessagesResponseTests.cs" />
     <Compile Include="Assets/Niantic/LightshipHUB/Editor/Scripts/LightshipTemplateFactory.cs" />
+    <Compile Include="Assets/PubNub/Editor/TokenManagerTests.cs" />
+    <Compile Include="Assets/PubNub/Editor/EncryptionTests.cs" />
     <Compile Include="Assets/Agora-RTC-Plugin/API-Example/Tools/Unity-Logs-Viewer/Reporter/Editor/ReporterEditor.cs" />
+    <Compile Include="Assets/PubNub/Editor/HereNowBuildRequestsTests.cs" />
     <Compile Include="Assets/Niantic/LightshipHUB/Editor/Scripts/LightshipTemplatesMenu.cs" />
+    <Compile Include="Assets/PubNub/Editor/StateBuildRequestsTests.cs" />
     <Compile Include="Assets/Niantic/LightshipHUB/Editor/Scripts/LightshipCommon.cs" />
+    <Compile Include="Assets/PubNub/Editor/PushBuildRequestsTests.cs" />
+    <Compile Include="Assets/PubNub/Editor/CreatePushPayloadHelperTests.cs" />
+    <Compile Include="Assets/PubNub/Editor/SubscribeBuildRequestsTests.cs" />
+    <Compile Include="Assets/PubNub/Editor/SubscriptionTests.cs" />
+    <Compile Include="Assets/PubNub/Editor/DeleteMessagesBuildRequestsTests.cs" />
     <Compile Include="Assets/Agora-RTC-Plugin/API-Example/Editor/CommandBuild.cs" />
     <Compile Include="Assets/TutorialInfo/Scripts/Editor/ReadmeEditor.cs" />
     <Compile Include="Assets/Niantic/LightshipHUB/Editor/Scripts/LightshipWelcomeWindow.cs" />
+    <Compile Include="Assets/PubNub/Editor/PNConfigurationTests.cs" />
+    <Compile Include="Assets/PubNub/Editor/TimeBuildRequestsTests.cs" />
+    <Compile Include="Assets/PubNub/Editor/AutoBuilder.cs" />
+    <Compile Include="Assets/PubNub/Editor/FilesTest.cs" />
+    <Compile Include="Assets/PubNub/Editor/PublishBuildRequestsTests.cs" />
+    <Compile Include="Assets/PubNub/Editor/MessageActionsTests.cs" />
+    <Compile Include="Assets/PubNub/Editor/HistoryBuildRequestsTests.cs" />
+    <Compile Include="Assets/PubNub/Editor/LeaveBuildRequestsTests.cs" />
+    <Compile Include="Assets/PubNub/Editor/WhereNowBuildRequestsTests.cs" />
+    <Compile Include="Assets/PubNub/Editor/PresenceHeartbeatBuildRequestsTests.cs" />
+    <Compile Include="Assets/PubNub/Editor/UtilityTests.cs" />
+    <Compile Include="Assets/PubNub/Editor/SignalTest.cs" />
+    <Compile Include="Assets/PubNub/Editor/MessageCountsBuildRequestsTests.cs" />
+    <Compile Include="Assets/PubNub/Editor/ChannelGroupBuildRequestsTests.cs" />
+    <Compile Include="Assets/PubNub/Editor/ObjectsTest.cs" />
     <Compile Include="Assets/Niantic/LightshipHUB/Editor/Scripts/LightshipHelperWindow.cs" />
+    <Compile Include="Assets/PubNub/Editor/FetchMessagesBuildRequestsTests.cs" />
     <Compile Include="Assets/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Editor/BL_BuildPostProcess.cs" />
+    <Compile Include="Assets/PubNub/Editor/SerializationTests.cs" />
+    <Compile Include="Assets/PubNub/Editor/HelpersTests.cs" />
+    <Compile Include="Assets/PubNub/Editor/EditorCommon.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/Niantic/LightshipHUB/Editor/Scripts/LightshipWelcomeWindowStyles.uss" />

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
@@ -18,11 +19,17 @@ public class PlayerManager : MonoBehaviour
     public GameObject HeldCard;
 
 
+    public string uid { get; private set; }
+
     private void Awake()
     {
         Instance = this;
-
+        //take the system string identifier, extract the numbers to get a unique int ID
+        string deviceUniqueIdentifier = SystemInfo.deviceUniqueIdentifier;
+        string deviceUniqueIdentifier_int = new String(deviceUniqueIdentifier.Where(Char.IsDigit).ToArray());
+        this.uid = deviceUniqueIdentifier_int.Substring(0, 8);
     }
+
 
     internal void StartHighlightingCard(GameObject card)
     {
@@ -80,6 +87,23 @@ public class PlayerManager : MonoBehaviour
         return (360/MultiplayerNetworkingManager.Instance.GetCurrentPlayerCount())* MultiplayerNetworkingManager.Instance.GetMyPlayerIndex();
     }
 
+    internal Vector3 GetPlayerRot()
+    {
+        Vector3 myDealPos = EnvironmentManager.Instance.lockedTablePlacerPos;
+        Vector3 tableCenter = EnvironmentManager.Instance.GetTableCenter();
+        Vector3 cameraReativeToDealPos = EnvironmentManager.Instance.camera.transform.position - myDealPos;
+        Vector3 dealPosReativeTableCenter = myDealPos - tableCenter;
+        float a = (float)EnvironmentManager.Instance.AngleBetween(new Vector3(0, 0, -1), dealPosReativeTableCenter);
+        Debug.DrawLine(myDealPos, EnvironmentManager.Instance.camera.transform.position, Color.
+                            red);
+        Vector3 peerPosChange = EnvironmentManager.Instance.RotatePointAround(Vector3.zero,
+                                                                              -a,
+                                                                              cameraReativeToDealPos);
+        Vector3 cameraLook = EnvironmentManager.Instance.camera.transform.eulerAngles;
+        cameraLook.y += a;
+        return cameraLook;
+    }
+
     internal float GetDistanceToTable()
     {
         return 1.0f;
@@ -92,6 +116,21 @@ public class PlayerManager : MonoBehaviour
             return GetStickyCardManager(HighlightedCard).Spread;
         }
         return false;
+    }
+
+    internal Vector3 GetPlayerPos()
+    {
+        Vector3 myDealPos = EnvironmentManager.Instance.lockedTablePlacerPos;
+        Vector3 tableCenter = EnvironmentManager.Instance.GetTableCenter();
+        Vector3 cameraReativeToDealPos = EnvironmentManager.Instance.camera.transform.position - myDealPos;
+        Vector3 dealPosReativeTableCenter = myDealPos - tableCenter;
+        float a = (float)EnvironmentManager.Instance.AngleBetween(new Vector3(0, 0, -1), dealPosReativeTableCenter);
+        Debug.DrawLine(myDealPos, EnvironmentManager.Instance.camera.transform.position, Color.
+                            red);
+        Vector3 peerPosChange = EnvironmentManager.Instance.RotatePointAround(Vector3.zero,
+                                                                              -a,
+                                                                              cameraReativeToDealPos);
+        return peerPosChange;
     }
 
     private int GetHeldCardCount()

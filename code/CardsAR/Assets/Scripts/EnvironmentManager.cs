@@ -22,7 +22,7 @@ public class EnvironmentManager : MonoBehaviour
     private Vector3 lockedCameraPos;
     private Vector3 lockedCameraRot;
     private Vector3 lockedCameraFwd;
-    public Vector3 lockedTablePlacerPos;
+    public Vector3 lockedTablePlacerPos = new Vector3(0.0f, 0.0f, 0.0f);
 
 
     public float envRotation = 0f;
@@ -77,10 +77,14 @@ public class EnvironmentManager : MonoBehaviour
         {
             this.lockTablePlacingVars();
         }
+        else if (MultiplayerNetworkingManager.Instance.PeerDataExists())
+        {
+            
+            this.OrientateTableAndMoveAvatarsPositions();
 
-        this.OrientateTableAndMoveAvatarsPositions();
-        
-        
+        }
+
+
 
     }
 
@@ -153,7 +157,7 @@ public class EnvironmentManager : MonoBehaviour
         MultiplayerNetworkingManager peerManager = MultiplayerNetworkingManager.Instance;
         foreach (var _player in peerManager.players)
         {
-            Guid player_id = _player.Key;
+            string player_id = _player.Key;
             GameObject player_obj = _player.Value;
             Vector3 pos = GetDealingSpotPositionForPlayer(peerManager.GetPeerPlayerIndex(player_id));
             Quaternion rot = GetDealingSpotRotationForPlayer(peerManager.GetPeerPlayerIndex(player_id));
