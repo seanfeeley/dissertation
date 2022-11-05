@@ -28,13 +28,18 @@ public class PubNubManager : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating("BroadcastPosition", 1f, .1f);  //1s delay, repeat every 1s
-        
+        InvokeRepeating("BroadcastPosition", 1f, 0.1f);  //1s delay, repeat every 1s
+        //if (MultiplayerNetworkingManager.Instance.AmIHost())
+        //{
+        InvokeRepeating("BroadcastDeck", 1f, 1.0f);  //1s delay, repeat every 1s
+        //}
+
 
     }
 
     const string PLAYER_POS = "playerPos";
     const string PLAYER_CARD_PICKUP = "cardPickup";
+    const string HOST_DECK = "deck";
 
     public void ConnectToPubNub()
     {
@@ -101,8 +106,9 @@ public class PubNubManager : MonoBehaviour
                 this.ProcessPlayerPos(message_payload);
                
                 break;
-            case PLAYER_CARD_PICKUP:
+            case HOST_DECK:
                 // code block
+                this.processDeckData(message_payload);
                 break;
             default:
                 // code block
@@ -112,6 +118,15 @@ public class PubNubManager : MonoBehaviour
 
     }
 
+    private void processDeckData(Dictionary<string, object> message_payload)
+    {
+        foreach (string cardId in CardDeckManager.Instance.networkedCards.Keys)
+        {
+            CardDeckManager.Instance.networkedCards[cardId].fromNetworkString((string)message_payload[cardId]);
+            Debug.Log((string)message_payload[cardId] + CardDeckManager.Instance.networkedCards[cardId].position.ToString());
+        }
+    }
+
     private void ProcessPlayerPos(Dictionary<string, object> message_payload)
     {
         string player_uid = (string)message_payload["uid"];
@@ -119,6 +134,22 @@ public class PubNubManager : MonoBehaviour
         Vector3 rot = StringToVector3((string)message_payload["rot"]);
         MultiplayerNetworkingManager.Instance.OnPeerPoseReceived(player_uid, pos, rot);
     }
+
+
+    public void BroadcastDeck()
+    {
+        Dictionary<string, object> message = new Dictionary<string, object>();
+        message.Add("type", HOST_DECK);
+        //Dictionary<string, NetworkedCardData>() networkedCards = ;
+        foreach (string cardId in CardDeckManager.Instance.networkedCards.Keys)
+        {
+            NetworkedCardData cardData = CardDeckManager.Instance.networkedCards[cardId];
+            message.Add(cardId, cardData.ToNetworkString());
+        }
+        this._PostMessage(message);
+    }
+    
+
 
     public void BroadcastPosition()
     {

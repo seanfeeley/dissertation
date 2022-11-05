@@ -460,6 +460,7 @@
     <Compile Include="Assets/PubNub/EndPoints/ChannelGroup/RemoveChannelsFromGroupBuilder.cs" />
     <Compile Include="Assets/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Code/Tools/litjson-0.17.0/src/LitJson/JsonException.cs" />
     <Compile Include="Assets/Scripts/CursorCollider.cs" />
+    <Compile Include="Assets/Scripts/CardDeckManager.cs" />
     <Compile Include="Assets/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Code/Tools/AgoraCallbackObject.cs" />
     <Compile Include="Assets/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Code/IAudioSpectrumObserver.cs" />
     <Compile Include="Assets/PubNub/Workers/HeartbeatWorker.cs" />

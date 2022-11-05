@@ -1,21 +1,29 @@
 ﻿<Properties StartupConfiguration="{00BE2B06-77C0-05A0-1DB0-2EA5BDC676F1}|">
   <MonoDevelop.Ide.ItemProperties.ARDK PreferredExecutionTarget="b0994d72-2977-4a5d-8aff-e75ffd521461" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/AgoraSignalManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PubNubManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/PubNubManager.cs" Line="155" Column="10" />
-      <File FileName="Assets/Scripts/AgoraVoiceManager.cs" Line="81" Column="1" />
-      <File FileName="Assets/Scripts/PlayerManager.cs" Line="129" Column="34" />
-      <File FileName="Assets/Scripts/MultiplayerNetworkingManager.cs" Line="42" Column="11" />
-      <File FileName="Assets/Scripts/EnvironmentManager.cs" Line="81" Column="51" />
-      <File FileName="Assets/Scripts/AgoraSignalManager.cs" Line="17" Column="28" />
+      <File FileName="Assets/Scripts/MultiplayerNetworkingManager.cs" Line="40" Column="6" IsPinned="True" />
+      <File FileName="Assets/Scripts/StickyCardManager.cs" Line="570" Column="32" IsPinned="True" />
+      <File FileName="Assets/Scripts/CardDeckManager.cs" Line="24" Column="34" />
+      <File FileName="Assets/Scripts/PubNubManager.cs" Line="32" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="CardsAR" expanded="True">
             <Node name="Assets" expanded="True">
+              <Node name="Niantic" expanded="True">
+                <Node name="ARDK" expanded="True">
+                  <Node name="AR" expanded="True">
+                    <Node name="Frame" expanded="True" />
+                  </Node>
+                </Node>
+                <Node name="ARDKExamples" expanded="True">
+                  <Node name="PlaneAnchors" expanded="True" />
+                </Node>
+              </Node>
               <Node name="Scripts" expanded="True">
-                <Node name="AgoraSignalManager.cs" selected="True" />
+                <Node name="PubNubManager.cs" selected="True" />
               </Node>
             </Node>
           </Node>
@@ -31,7 +39,7 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/seanfeeley/Masters/Dissertation/code/CardsAR/Assets/Scripts/UneditedP2PGameLogic.cs" relfile="Assets/Scripts/UneditedP2PGameLogic.cs" line="248" column="1" />
-      <Breakpoint file="/Users/seanfeeley/Masters/Dissertation/code/CardsAR/Assets/Scripts/EnvironmentManager.cs" relfile="Assets/Scripts/EnvironmentManager.cs" line="184" column="1" />
+      <Breakpoint file="/Users/seanfeeley/Masters/Dissertation/code/CardsAR/Assets/Scripts/EnvironmentManager.cs" relfile="Assets/Scripts/EnvironmentManager.cs" line="188" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />

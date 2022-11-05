@@ -9,6 +9,7 @@ public class PlayerManager : MonoBehaviour
     public Color playerColor = Color.magenta;
 
     public GameObject cursor;
+    public LayerMask cursorMask;
 
     public static PlayerManager Instance;
 

@@ -3,18 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class MultiplayerNetworkingManager : MonoBehaviour
 {
     public static MultiplayerNetworkingManager Instance;
     public int playerCount = 6;
     public int playerIndex = 1;
-    public Camera camera;
     public GameObject AvatarPrefab;
     public GameObject AvatarPrefabParent;
     public Dictionary<String, GameObject> players = new Dictionary<String, GameObject>();
-
-
-
 
 
     private void Awake()
@@ -23,16 +21,20 @@ public class MultiplayerNetworkingManager : MonoBehaviour
 
 
     }
-    private void OnDestroy()
-    {
-    }
-
    
 
     // Start is called before the first frame update
     void Start()
     {
+        //networkedCards.Add("", new NetworkedCardData(id:"", faceup: false, spread: false, pos: new Vector3(0.0f, 0.0f, 0.0f), rot: new Vector3(0.0f, 0.0f, 0.0f), below: null, above: null));
 
+
+
+    }
+
+    internal bool AmIHost()
+    {
+        return this.GetMyPlayerIndex() == 0;
     }
 
 
