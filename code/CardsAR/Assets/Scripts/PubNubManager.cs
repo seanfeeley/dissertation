@@ -29,16 +29,15 @@ public class PubNubManager : MonoBehaviour
     private void Start()
     {
         InvokeRepeating("BroadcastPosition", 1f, 0.1f);  //1s delay, repeat every 1s
-        //if (MultiplayerNetworkingManager.Instance.AmIHost())
-        //{
-        InvokeRepeating("BroadcastDeck", 1f, 1.0f);  //1s delay, repeat every 1s
-        //}
+        InvokeRepeating("BroadcastDeck", 1f, .1f);  //1s delay, repeat every 1s
+        InvokeRepeating("BroadcastChanges", 1f, .1f);  //1s delay, repeat every 1s
+
 
 
     }
 
     const string PLAYER_POS = "playerPos";
-    const string PLAYER_CARD_PICKUP = "cardPickup";
+    const string PLAYER_DECK_CHANGE = "deckChange";
     const string HOST_DECK = "deck";
 
     public void ConnectToPubNub()
@@ -99,31 +98,45 @@ public class PubNubManager : MonoBehaviour
     private void ProcessMessage(Dictionary<string, object> message_payload)
     {
         string type_str = (string)message_payload["type"];
-        switch (type_str)
-        {
-            case PLAYER_POS:
-                // code block
-                this.ProcessPlayerPos(message_payload);
-               
-                break;
-            case HOST_DECK:
-                // code block
-                this.processDeckData(message_payload);
-                break;
-            default:
-                // code block
-                break;
-        }
+        //switch (type_str)
+        //{
+        //    case PLAYER_POS:
+        //        // code block
+        //        this.ProcessPlayerPos(message_payload);
+        //        break;
+        //    case PLAYER_DECK_CHANGE:
+        //        // code block
+        //        if (CardDeckManager.Instance.networkedCardChanges.Peek() != null)
+        //        {
+        //            this.ProcessPlayerDeckChange(message_payload);
+        //        }
+        //        break;
+        //    case HOST_DECK:
+        //        // code block
+        //        this.ProcessDeckData(message_payload);
+        //        break;
+        //    default:
+        //        // code block
+        //        break;
+        //}
 
 
     }
 
-    private void processDeckData(Dictionary<string, object> message_payload)
+    private void ProcessPlayerDeckChange(Dictionary<string, object> message_payload)
     {
         foreach (string cardId in CardDeckManager.Instance.networkedCards.Keys)
         {
             CardDeckManager.Instance.networkedCards[cardId].fromNetworkString((string)message_payload[cardId]);
-            Debug.Log((string)message_payload[cardId] + CardDeckManager.Instance.networkedCards[cardId].position.ToString());
+        }
+    }
+
+    private void ProcessDeckData(Dictionary<string, object> message_payload)
+    {
+        foreach (string cardId in CardDeckManager.Instance.networkedCards.Keys)
+        {
+            CardDeckManager.Instance.networkedCards[cardId].fromNetworkString((string)message_payload[cardId]);
+            //Debug.Log((string)message_payload[cardId] + CardDeckManager.Instance.networkedCards[cardId].position.ToString());
         }
     }
 
@@ -135,18 +148,43 @@ public class PubNubManager : MonoBehaviour
         MultiplayerNetworkingManager.Instance.OnPeerPoseReceived(player_uid, pos, rot);
     }
 
+    public void BroadcastChanges()
+    {
+        if (CardDeckManager.Instance.networkedCardChanges.Count != 0)
+        {
+            Dictionary<string, NetworkedCardData> changeData = CardDeckManager.Instance.networkedCardChanges.Dequeue();
+            Dictionary<string, object> message = new Dictionary<string, object>();
+            message.Add("type", PLAYER_DECK_CHANGE);
+            //Dictionary<string, NetworkedCardData>() networkedCards = ;
+            foreach (string cardId in changeData.Keys)
+            {
+                NetworkedCardData cardData = CardDeckManager.Instance.networkedCards[cardId];
+                message.Add(cardId, cardData.ToNetworkString());
+            }
+            this._PostMessage(message);
+
+        }
+        ////Debug.Log("BroadcastDeck");
+        //Dictionary<string, object> message = new Dictionary<string, object>();
+
+
+    }
 
     public void BroadcastDeck()
     {
-        Dictionary<string, object> message = new Dictionary<string, object>();
-        message.Add("type", HOST_DECK);
-        //Dictionary<string, NetworkedCardData>() networkedCards = ;
-        foreach (string cardId in CardDeckManager.Instance.networkedCards.Keys)
+        if (MultiplayerNetworkingManager.Instance.AmIHost())
         {
-            NetworkedCardData cardData = CardDeckManager.Instance.networkedCards[cardId];
-            message.Add(cardId, cardData.ToNetworkString());
+            //Debug.Log("BroadcastDeck");
+            Dictionary<string, object> message = new Dictionary<string, object>();
+            message.Add("type", HOST_DECK);
+            //Dictionary<string, NetworkedCardData>() networkedCards = ;
+            foreach (string cardId in CardDeckManager.Instance.networkedCards.Keys)
+            {
+                NetworkedCardData cardData = CardDeckManager.Instance.networkedCards[cardId];
+                message.Add(cardId, cardData.ToNetworkString());
+            }
+            this._PostMessage(message);
         }
-        this._PostMessage(message);
     }
     
 

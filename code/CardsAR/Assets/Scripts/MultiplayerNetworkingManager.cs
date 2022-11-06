@@ -23,18 +23,12 @@ public class MultiplayerNetworkingManager : MonoBehaviour
     }
    
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        //networkedCards.Add("", new NetworkedCardData(id:"", faceup: false, spread: false, pos: new Vector3(0.0f, 0.0f, 0.0f), rot: new Vector3(0.0f, 0.0f, 0.0f), below: null, above: null));
-
-
-
-    }
 
     internal bool AmIHost()
     {
-        return this.GetMyPlayerIndex() == 0;
+        bool ret = this.GetMyPlayerIndex() == 0;
+       
+        return ret;
     }
 
 
@@ -90,7 +84,7 @@ public class MultiplayerNetworkingManager : MonoBehaviour
 
     public void OnPeerPoseReceived(String playerIdentifier, Vector3 pos, Vector3 rot)
     {
-        Debug.LogFormat("CARDSAR: Peer {0} at position: {1} with rotation {2}", playerIdentifier, pos, rot);
+        //Debug.LogFormat("CARDSAR: Peer {0} at position: {1} with rotation {2}", playerIdentifier, pos, rot);
 
 
         // ...and if the dictionary already contains the player...
@@ -135,7 +129,9 @@ public class MultiplayerNetworkingManager : MonoBehaviour
             peer_list.Add(ip);
         }
         peer_list.Sort();
-        return peer_list.IndexOf(peer);
+        int ret = peer_list.IndexOf(peer);
+       
+        return ret;
     }
 
     public int GetCurrentPlayerCount()

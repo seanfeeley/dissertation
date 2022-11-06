@@ -23,9 +23,9 @@ public class NetworkedCardData
         this.rotation = rot;
         this.cardBelowID = below;
         this.cardAboveID = above;
-        this.heldBy = "";
-        this.highlightedBy = "";
-        this.hiddenBy = "";
+        this.heldBy = null;
+        this.highlightedBy = null;
+        this.hiddenBy = null;
     }
 
     public void fromNetworkString(string networkString)
@@ -77,19 +77,15 @@ public class CardDeckManager : MonoBehaviour
 
     public Dictionary<String, GameObject> cardGameObjects;
 
+    public Queue<Dictionary<String, NetworkedCardData>> networkedCardChanges = new Queue<Dictionary<String, NetworkedCardData>>();
+
 
     public GameObject j1;
-
-
-
     public GameObject j2;
     public GameObject d1;
     public GameObject d2;
     public GameObject d3;
     public GameObject d4;
-
-
-
     public GameObject d5;
     public GameObject d6;
     public GameObject d7;
@@ -103,8 +99,6 @@ public class CardDeckManager : MonoBehaviour
     public GameObject s2;
     public GameObject s3;
     public GameObject s4;
-
-
     public GameObject s5;
     public GameObject s6;
     public GameObject s7;
@@ -267,5 +261,53 @@ public class CardDeckManager : MonoBehaviour
     {
         return this.networkedCards[cardID].rotation;
     }
+
+    internal bool IsHeld(string cardID)
+    {
+        return this.networkedCards[cardID].heldBy == PlayerManager.Instance.uid;
+    }
+
+    internal bool IsHighlighted(string cardID)
+    {
+        return this.networkedCards[cardID].highlightedBy == PlayerManager.Instance.uid;
+    }
+
+    internal bool IsHidden(string cardID)
+    {
+        return this.networkedCards[cardID].hiddenBy == PlayerManager.Instance.uid;
+    }
+
+    internal void SetHighlighted(string cardID, bool value)
+    {
+        NetworkedCardData data = this.networkedCards[cardID];
+        if (value == true)
+        {
+            data.highlightedBy = PlayerManager.Instance.uid;
+        }
+        else
+        {
+            data.highlightedBy = null;
+        }
+        Dictionary<string, NetworkedCardData> changeData = new Dictionary<string, NetworkedCardData>();
+        changeData.Add(cardID, data);
+        networkedCardChanges.Enqueue(changeData);
+    }
+
+    internal bool IsAvailableToHighlight(string cardID)
+    {
+        return this.IsHighlighted(cardID) == true ||
+                this.networkedCards[cardID].highlightedBy == null ||
+                this.networkedCards[cardID].highlightedBy == "";
+    }
+
+    internal void SetFaceUp(string cardID, bool value)
+    {
+        NetworkedCardData data = this.networkedCards[cardID];
+        data.faceUp = value;
+        Dictionary<string, NetworkedCardData> changeData = new Dictionary<string, NetworkedCardData>();
+        changeData.Add(cardID, data);
+        networkedCardChanges.Enqueue(changeData);
+    }
+
 
 }

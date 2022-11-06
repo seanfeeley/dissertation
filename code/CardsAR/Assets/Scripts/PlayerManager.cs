@@ -40,7 +40,7 @@ public class PlayerManager : MonoBehaviour
         }
         if (this.HighlightedCard != card){
             this.HighlightedCard = card;
-            this.HighlightedCard.GetComponent<StickyCardManager>().highlighted = true;
+            this.HighlightedCard.GetComponent<StickyCardManager>().Highlighted = true;
         }
 
     }
@@ -49,7 +49,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (this.HighlightedCard == card)
         {
-            this.HighlightedCard.GetComponent<StickyCardManager>().highlighted = false;
+            this.HighlightedCard.GetComponent<StickyCardManager>().Highlighted = false;
             this.HighlightedCard = null;
         }
     }
@@ -176,7 +176,10 @@ public class PlayerManager : MonoBehaviour
         }
         if (closestCard)
         {
-            this.StartHighlightingCard(closestCard);
+            if (this.IsCardAvailable(closestCard))
+            {
+                this.StartHighlightingCard(closestCard);
+            }
         }
         else if(this.HighlightedCard)
         {
@@ -185,6 +188,11 @@ public class PlayerManager : MonoBehaviour
 
 
 
+    }
+
+    private bool IsCardAvailable(GameObject closestCard)
+    {
+        return GetStickyCardManager(closestCard).Available;
     }
 
     private int GetHighlightedCardCount()
@@ -435,11 +443,12 @@ public class PlayerManager : MonoBehaviour
             StickyCardManager HeldManager = GetStickyCardManager(HeldCard);
             if(HeldManager.CountAbove() == 1)
             {
-                HeldManager.Flip();
+                HeldManager.FaceUp = !HeldManager.FaceUp;
             }
             else
             {
-                GetStickyCardManager(HeldManager.GetTopCard()).Flip();
+                StickyCardManager TopCardManager = GetStickyCardManager(HeldManager.GetTopCard());
+                TopCardManager.FaceUp = !TopCardManager.FaceUp;
             }
 
         }
@@ -448,12 +457,12 @@ public class PlayerManager : MonoBehaviour
             StickyCardManager HighlightedManager = GetStickyCardManager(HighlightedCard);
             if (HighlightedManager.Spread)
             {
-                HighlightedManager.Flip();
+                HighlightedManager.FaceUp = !HighlightedManager.FaceUp;
             }
             else
             {
                 StickyCardManager topCardManager = GetStickyCardManager(HighlightedManager.GetTopCard());
-                topCardManager.Flip();
+                topCardManager.FaceUp = !topCardManager.FaceUp;
             }
         }
     }
