@@ -32,7 +32,7 @@ public class StickyCardManager : MonoBehaviour
     {
         get
         {
-            return CardDeckManager.Instance.IsHeld(cardID);
+            return NetworkCardManager.Instance.IsHeld(cardID);
         }   // get method
         set
         {
@@ -43,45 +43,57 @@ public class StickyCardManager : MonoBehaviour
     {
         get
         {
-            return CardDeckManager.Instance.IsHighlighted(cardID);
+            bool ret = NetworkCardManager.Instance.IsHighlighted(cardID);
+            //Debug.Log(cardID +" "+ ret.ToString());
+            return ret;
         }   // get method
         set
         {
-            CardDeckManager.Instance.SetHighlighted(cardID, value);
+
+            bool current_value = Highlighted;
+            if (current_value != value)
+            {
+                NetworkCardManager.Instance.SetHighlighted(cardID, value);
+            }
         }  // set method
     }
     public bool Available
     {
         get
         {
+
             if (Below)
             {
                 return GetStickyCardManager(Below).Available;
             }
-            return CardDeckManager.Instance.IsAvailableToHighlight(cardID);
+            return  NetworkCardManager.Instance.IsAvailableToHighlight(cardID);
         }   // get method 
     }
     public bool Hidden
     {
         get
         {
-            return CardDeckManager.Instance.IsHidden(cardID);
+            return NetworkCardManager.Instance.IsHidden(cardID);
         }   // get method
         set
         {
 
         }  // set method
     }
-
+    
     //public bool _faceUp; // field
     public bool FaceUp
     {
         get
         {
-            return CardDeckManager.Instance.GetFaceUp(cardID);
+            return NetworkCardManager.Instance.GetFaceUp(cardID);
         }   // get method
         set {
-            CardDeckManager.Instance.SetFaceUp(cardID, value);
+            bool current_value = FaceUp;
+            if (current_value != value)
+            {
+                NetworkCardManager.Instance.SetFaceUp(cardID, value);
+            }
         }  // set method
     }
 
@@ -90,10 +102,25 @@ public class StickyCardManager : MonoBehaviour
     {
         get
         {
-            return CardDeckManager.Instance.GetSpread(cardID);
+            bool ret;
+            if (Below)
+            {
+                ret = GetStickyCardManager(Below).Spread;
+            }
+            else
+            {
+                ret = NetworkCardManager.Instance.GetSpread(cardID);
+            }
+            
+            //Debug.Log(ret);
+            return ret;
         }   // get method
         set {
-            
+            bool current_value = Spread;
+            if (current_value != value)
+            {
+                NetworkCardManager.Instance.SetSpread(cardID, value);
+            }
         }  // set method
     }
 
@@ -105,7 +132,7 @@ public class StickyCardManager : MonoBehaviour
         get
         {
 
-            return CardDeckManager.Instance.GetAbove(cardID); ;
+            return NetworkCardManager.Instance.GetAbove(cardID); ;
 
         }
     }
@@ -116,7 +143,7 @@ public class StickyCardManager : MonoBehaviour
         get
         {
 
-            return CardDeckManager.Instance.GetBelow(cardID); ;
+            return NetworkCardManager.Instance.GetBelow(cardID); ;
 
         }   // get method
         //set {
@@ -272,6 +299,15 @@ public class StickyCardManager : MonoBehaviour
             playingCard.layer = LayerMask.NameToLayer("HighlightedCards");
             hiddenCard.layer = LayerMask.NameToLayer("HighlightedCards");
         }
+        else if (this.Available == false)
+        {
+            highlightMaterial.SetColor("_Color", Color.red);
+            highlightMaterial.SetColor("_EmissionColor", Color.red);
+            highlight.transform.localScale = new Vector3(1.1f, 1.0f, 1.1f);
+            gameObject.layer = LayerMask.NameToLayer("HighlightedCards");
+            playingCard.layer = LayerMask.NameToLayer("HighlightedCards");
+            hiddenCard.layer = LayerMask.NameToLayer("HighlightedCards");
+        }
         else if (this.Highlighted)
         {
             highlight.transform.localScale = new Vector3(1.1f, 1.0f, 1.1f);
@@ -281,15 +317,6 @@ public class StickyCardManager : MonoBehaviour
         }
         else if (this.stickyHighlighted || this.IsStickySelected())
         {
-            highlight.transform.localScale = new Vector3(1.02f, 1.0f, 1.02f);
-            gameObject.layer = LayerMask.NameToLayer("HighlightedCards");
-            playingCard.layer = LayerMask.NameToLayer("HighlightedCards");
-            hiddenCard.layer = LayerMask.NameToLayer("HighlightedCards");
-        }
-        else if (this.Available == false)
-        {
-            highlightMaterial.SetColor("_Color", Color.red);
-            highlightMaterial.SetColor("_EmissionColor", Color.red);
             highlight.transform.localScale = new Vector3(1.02f, 1.0f, 1.02f);
             gameObject.layer = LayerMask.NameToLayer("HighlightedCards");
             playingCard.layer = LayerMask.NameToLayer("HighlightedCards");
@@ -611,8 +638,8 @@ public class StickyCardManager : MonoBehaviour
 
     private void UpdateSingleCardPosition()
     {
-        Vector3 networkPos = CardDeckManager.Instance.GetPostion(cardID);
-        Vector3 networkRot = CardDeckManager.Instance.GetRotation(cardID);
+        Vector3 networkPos = NetworkCardManager.Instance.GetPostion(cardID);
+        Vector3 networkRot = NetworkCardManager.Instance.GetRotation(cardID);
         gameObject.transform.localPosition = new Vector3(networkPos.x,
                                                     networkPos.y + nonSelectedHeight,
                                                     networkPos.z);
@@ -647,16 +674,16 @@ public class StickyCardManager : MonoBehaviour
 
     private void UpdateSpreadPosition()
     {
-        
-        //Vector3 before = gameObject.transform.position;
-        //float x_shift = Mathf.Cos(Mathf.Deg2Rad *gameObject.transform.eulerAngles.y) * spreadWidth;
-        //float z_shift = Mathf.Sin(Mathf.Deg2Rad * gameObject.transform.eulerAngles.y) * spreadWidth;
-        //gameObject.transform.position = new Vector3(_below.transform.position.x + x_shift,
-        //                                            _below.transform.position.y,
-        //                                            _below.transform.position.z - z_shift);
-        //gameObject.transform.eulerAngles = new Vector3(_below.transform.eulerAngles.x,
-        //                                               _below.transform.eulerAngles.y,
-        //                                               -5.0f);
+
+        Vector3 before = gameObject.transform.position;
+        float x_shift = Mathf.Cos(Mathf.Deg2Rad * gameObject.transform.eulerAngles.y) * spreadWidth;
+        float z_shift = Mathf.Sin(Mathf.Deg2Rad * gameObject.transform.eulerAngles.y) * spreadWidth;
+        gameObject.transform.position = new Vector3(Below.transform.position.x + x_shift,
+                                                    Below.transform.position.y,
+                                                    Below.transform.position.z - z_shift);
+        gameObject.transform.eulerAngles = new Vector3(Below.transform.eulerAngles.x,
+                                                       Below.transform.eulerAngles.y,
+                                                       -5.0f);
 
 
     }

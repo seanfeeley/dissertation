@@ -296,6 +296,7 @@
     <Compile Include="Assets/Niantic/LightshipHUB/Runtime/Scripts/VPSCoverageController.cs" />
     <Compile Include="Assets/PubNub/Models/Consumer/PubSub/PNLeaveRequestResult.cs" />
     <Compile Include="Assets/Unity Store/GUIPack-Clean&amp;Minimalist/Demo/Scripts/SpriteSwapper.cs" />
+    <Compile Include="Assets/Scripts/NetworkCardManager.cs" />
     <Compile Include="Assets/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Code/Event/MediaPlayerSourceObserver.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextInfoDebugTool.cs" />
     <Compile Include="Assets/Niantic/LightshipHUB/Runtime/Scripts/SharedObjectHolder.cs" />
@@ -460,7 +461,6 @@
     <Compile Include="Assets/PubNub/EndPoints/ChannelGroup/RemoveChannelsFromGroupBuilder.cs" />
     <Compile Include="Assets/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Code/Tools/litjson-0.17.0/src/LitJson/JsonException.cs" />
     <Compile Include="Assets/Scripts/CursorCollider.cs" />
-    <Compile Include="Assets/Scripts/CardDeckManager.cs" />
     <Compile Include="Assets/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Code/Tools/AgoraCallbackObject.cs" />
     <Compile Include="Assets/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Code/IAudioSpectrumObserver.cs" />
     <Compile Include="Assets/PubNub/Workers/HeartbeatWorker.cs" />
