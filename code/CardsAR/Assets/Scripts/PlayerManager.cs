@@ -46,11 +46,28 @@ public class PlayerManager : MonoBehaviour
         string deviceUniqueIdentifier_int = new String(deviceUniqueIdentifier.Where(Char.IsDigit).ToArray());
         this.uid = deviceUniqueIdentifier_int.Substring(0, 8);
     }
+    // Start is called before the first frame update
+    void Start()
+    {
+        this.SetCursorColor();
+    }
 
+    private void SetCursorColor()
+    {
+        Transform highlightTransform = cursor.transform.Find("Sphere");
+        Material highlightMaterial = highlightTransform.GetComponent<Renderer>().material;
+        highlightMaterial.SetColor("_Color", playerColor);
+    }
+    // Update is called once per frame
+    void Update()
+    {
+        this.UpdateGameState();
+        this.updateHighlight();
 
+    }
     //internal void StartHighlightingCard(GameObject card)
     //{
-       
+
     //    if (CardDeckManager.Instance.HighlightedCard)
     //    {
     //        this.StopHighlightingCard(CardDeckManager.Instance.HighlightedCard);
@@ -155,7 +172,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (NetworkCardManager.Instance.HeldCard)
         {
-            return NetworkCardManager.Instance.HeldCard.GetComponent<StickyCardManager>().CountAbove();
+            return GetStickyCardManager(HeldCard).CountAbove();
         }
         return 0;
     }
@@ -195,18 +212,24 @@ public class PlayerManager : MonoBehaviour
         {
             if (this.IsCardAvailable(closestCard))
             {
-                GetStickyCardManager(closestCard).Highlighted = true;
+                if (GetStickyCardManager(closestCard).Spread)
+                {
+                    GetStickyCardManager(closestCard).Highlighted = true;
+                }
+                else
+                {
+                    GetStickyCardManager(GetStickyCardManager(closestCard).GetBottomCard()).Highlighted = true;
+                }
+                
             }
         }
         else if(HighlightedCard)
         {
             GetStickyCardManager(HighlightedCard).Highlighted = false;
         }
-
-
-
-
     }
+
+
 
     private bool IsCardAvailable(GameObject closestCard)
     {
@@ -223,18 +246,7 @@ public class PlayerManager : MonoBehaviour
         return 0;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        this.SetCursorColor();
-    }
 
-    private void SetCursorColor()
-    {
-        Transform highlightTransform = cursor.transform.Find("Sphere");
-        Material highlightMaterial = highlightTransform.GetComponent<Renderer>().material;
-        highlightMaterial.SetColor("_Color", playerColor);
-    }
 
     private StickyCardManager GetStickyCardManager(GameObject card)
     {
@@ -279,29 +291,30 @@ public class PlayerManager : MonoBehaviour
     public void DropCard()
     {
 
-        //if (HeldCard)
-        //{
-        //    StickyCardManager HeldManager = GetStickyCardManager(HeldCard);
-        //    // drop
-        //    if (HighlightedCard)
-        //    {
-        //        StickyCardManager HighlightedManager = GetStickyCardManager(HighlightedCard);
-        //        if (HighlightedManager.Spread)
-        //        {
-        //            HeldManager.DropOnTopOf(HighlightedCard);
-        //        }
-        //        else
-        //        {
-        //            HeldManager.DropOnTopOf(HighlightedManager.GetTopCard());
-        //        }
-        //    }
-        //    else
-        //    {
-        //        HeldManager.DropOntoTable();
-        //    }
-        //    this.HeldCard = null;
-        //}
-           
+        if (HeldCard)
+        {
+            StickyCardManager HeldManager = GetStickyCardManager(HeldCard);
+            // drop
+            if (HighlightedCard)
+            {
+                StickyCardManager HighlightedManager = GetStickyCardManager(HighlightedCard);
+                if (HighlightedManager.Spread)
+                {
+                    NetworkCardManager.Instance.DropOnTopOf(HeldManager.cardID,
+                                                            HighlightedManager.cardID);
+                }
+                else
+                {
+                    NetworkCardManager.Instance.DropOnTopOf(HeldManager.cardID,
+                                                            GetStickyCardManager(HighlightedManager.GetTopCard()).cardID);
+                }
+            }
+            else
+            {
+                NetworkCardManager.Instance.DropOntoTable(HeldManager.cardID);
+            }
+        }
+
     }
     public void PickupMiddleCard()
     {
@@ -587,13 +600,9 @@ public class PlayerManager : MonoBehaviour
         //}
 
     }
-    // Update is called once per frame
-    void Update()
-    {
-        this.UpdateGameState();
-        this.updateHighlight();
 
-    }
+
+
 
 
 }

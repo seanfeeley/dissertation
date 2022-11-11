@@ -41,6 +41,7 @@ public class PubNubManager : MonoBehaviour
     public const string PLAYER_REQUESTING_HOST_UPDATE = "90";
 
     Dictionary<string, string> HighlightChangeData;
+    Dictionary<string, string> HeldChangeData;
 
 
     private void Awake()
@@ -51,12 +52,12 @@ public class PubNubManager : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating("BroadcastPosition", 1f, 0.1f);  //1s delay, repeat every 1s
-        InvokeRepeating("BroadcastHighlight", 1f, 0.1f);  //1s delay, repeat every 1s
-        //InvokeRepeating("BroadcastDeck", 1f, 5.0f);  //1s delay, repeat every 1s
+        InvokeRepeating("BroadcastPosition", 1f, 0.2f);  //1s delay, repeat every 1s
+        InvokeRepeating("BroadcastHighlight", 1f, 0.2f);  //1s delay, repeat every 1s
+        //InvokeRepeating("BroadcastHeld", 1f, 0.1f);  //1s delay, repeat every 1s
         //InvokeRepeating("BroadcastChanges", 1f, 1.0f);  //1s delay, repeat every 1s
         
-
+        
     }
 
     private void RequestUpdateFromHost()
@@ -146,15 +147,28 @@ public class PubNubManager : MonoBehaviour
                 this.ProcessPlayerPos(message_payload);
                 break;
 
+
             //highlight changes
             case PLAYER_HIGHLIGHT_START:
-                Debug.Log("PLAYER_HAS_CHANGED_HIGHLIGHT_DATA");
+                Debug.Log("PLAYER_HIGHLIGHT_START");
                 this.ProcessHostHighlightStart(message_payload);
                 break;
             case PLAYER_HIGHLIGHT_STOP:
-                Debug.Log("PLAYER_HAS_CHANGED_HIGHLIGHT_DATA");
+                Debug.Log("PLAYER_HIGHLIGHT_STOP");
                 this.ProcessHostHighlightStop(message_payload);
                 break;
+
+
+            //held changes
+            case PLAYER_HELD_START:
+                Debug.Log("PLAYER_HELD_START");
+                this.ProcessHostHeldStart(message_payload);
+                break;
+            case PLAYER_HELD_STOP:
+                Debug.Log("PLAYER_HELD_STOP");
+                this.ProcessHostHeldStop(message_payload);
+                break;
+
 
             case PLAYER_HAS_CHANGED_DECK_DATA:
                 Debug.Log("PLAYER_HAS_CHANGED_DECK_DATA");
@@ -193,6 +207,19 @@ public class PubNubManager : MonoBehaviour
 
     }
 
+    private void ProcessHostHeldStop(Dictionary<string, object> message_payload)
+    {
+        string userID = (string)message_payload["user"];
+        NetworkCardManager.Instance.NetworkedCardHeldBy[userID] = "";
+    }
+
+    private void ProcessHostHeldStart(Dictionary<string, object> message_payload)
+    {
+        string userID = (string)message_payload["user"];
+        string cardID = (string)message_payload["card"];
+        NetworkCardManager.Instance.NetworkedCardHeldBy[userID] = cardID;
+    }
+
     private void ProcessHostHighlightStop(Dictionary<string, object> message_payload)
     {
         string userID = (string)message_payload["user"];
@@ -214,7 +241,17 @@ public class PubNubManager : MonoBehaviour
             if (cardId != "type")
             {
                 NetworkedCardData cardData = NetworkCardManager.Instance.networkedCards[cardId];
+
+                Debug.Log("============================");
+
+                Debug.Log("CARD DATA CHANGING: "+ cardId);
+                Debug.Log("change string: " + (string)message_payload[cardId]);
+                Debug.Log("before: " + cardData.ToNetworkString());
                 cardData.fromNetworkString((string)message_payload[cardId]);
+                Debug.Log("after: " + cardData.ToNetworkString());
+                NetworkCardManager.Instance.printy();
+
+
             }
         }
     }
@@ -301,7 +338,20 @@ public class PubNubManager : MonoBehaviour
             this._PostMessage(message);
         }
         this.HighlightChangeData = null;
+    }
 
+    public void BroadcastHeld()
+    {
+        if (this.HeldChangeData != null)
+        {
+            Dictionary<string, object> message = new Dictionary<string, object>();
+            foreach (string key in this.HeldChangeData.Keys)
+            {
+                message.Add(key, HeldChangeData[key]);
+            }
+            this._PostMessage(message);
+        }
+        this.HeldChangeData = null;
     }
 
 
@@ -376,5 +426,9 @@ public class PubNubManager : MonoBehaviour
     internal void StoreHighlightMessage(Dictionary<string, string> changeData)
     {
         this.HighlightChangeData = changeData;
+    }
+    internal void StoreHeldMessage(Dictionary<string, string> changeData)
+    {
+        this.HeldChangeData = changeData;
     }
 }

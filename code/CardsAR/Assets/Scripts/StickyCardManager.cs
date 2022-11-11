@@ -39,6 +39,13 @@ public class StickyCardManager : MonoBehaviour
 
         }  // set method
     }
+    public string HeldBy
+    {
+        get
+        {
+            return NetworkCardManager.Instance.HeldBy(cardID);
+        }   // get method
+    }
     public bool Highlighted
     {
         get
@@ -103,14 +110,14 @@ public class StickyCardManager : MonoBehaviour
         get
         {
             bool ret;
-            if (Below)
-            {
-                ret = GetStickyCardManager(Below).Spread;
-            }
-            else
-            {
-                ret = NetworkCardManager.Instance.GetSpread(cardID);
-            }
+            //if (Below)
+            //{
+            //    ret = GetStickyCardManager(Below).Spread;
+            //}
+            //else
+            //{
+            ret = NetworkCardManager.Instance.GetSpread(cardID);
+            //}
             
             //Debug.Log(ret);
             return ret;
@@ -485,7 +492,7 @@ public class StickyCardManager : MonoBehaviour
             }
 
         }
-        else if (Held)
+        else if (HeldBy != "")
         {
             this.UpdateSelectedCardPosition();
 
@@ -626,13 +633,15 @@ public class StickyCardManager : MonoBehaviour
 
     private void UpdateSelectedCardPosition()
     {
+        Vector3 networkPos = NetworkCardManager.Instance.GetPostion(cardID);
+        Vector3 networkRot = NetworkCardManager.Instance.GetRotation(cardID);
+        gameObject.transform.localPosition = new Vector3(networkPos.x,
+                                                         networkPos.y + selectedHeight,
+                                                         networkPos.z);
+        gameObject.transform.localEulerAngles = new Vector3(networkRot.x,
+                                                       networkRot.y,
+                                                       0.0f);
 
-        //gameObject.transform.position = new Vector3(cursor.transform.position.x,
-        //                                            gameObject.transform.parent.gameObject.transform.position.y + selectedHeight,
-        //                                            cursor.transform.position.z);
-        //gameObject.transform.eulerAngles = new Vector3(gameObject.transform.eulerAngles.x,
-        //                                               cursor.transform.eulerAngles.y,
-        //                                               0.0f);
 
     }
 
@@ -651,13 +660,13 @@ public class StickyCardManager : MonoBehaviour
     private void UpdateStickyPosition()
     {
         Vector3 before = gameObject.transform.position;
-        gameObject.transform.position = new Vector3(Below.transform.position.x,
-                                                    Below.transform.position.y + thickness,
-                                                    Below.transform.position.z);
+        gameObject.transform.localPosition = new Vector3(Below.transform.localPosition.x,
+                                                    Below.transform.localPosition.y + thickness,
+                                                    Below.transform.localPosition.z);
 
 
-        gameObject.transform.eulerAngles = new Vector3(Below.transform.eulerAngles.x,
-                                                       Below.transform.eulerAngles.y,
+        gameObject.transform.localEulerAngles = new Vector3(Below.transform.localEulerAngles.x,
+                                                       Below.transform.localEulerAngles.y,
                                                        0.0f);
 
 

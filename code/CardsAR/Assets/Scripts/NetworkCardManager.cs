@@ -21,19 +21,19 @@ public class NetworkedCardData
         this.rotation = rot;
         this.cardBelowID = below;
         this.cardAboveID = above;
-        this.hiddenBy = null;
+        this.hiddenBy = "";
     }
 
     public void fromNetworkString(string networkString)
     {
-        Debug.Log("CARD DATA CHANGING");
-        Debug.Log(ToNetworkString());
-        Debug.Log(networkString);
 
-        Debug.Log("============================");
 
         string[] parts = networkString.Split("/");
-        faceUp = bool.Parse(parts[0]);
+        if (parts[0] != "")
+        {
+           faceUp = bool.Parse(parts[0]);
+        }
+
         spread = bool.Parse(parts[1]);
         position = new Vector3(float.Parse(parts[2]),
                                     float.Parse(parts[3]),
@@ -41,9 +41,34 @@ public class NetworkedCardData
         rotation = new Vector3(float.Parse(parts[5]),
                                float.Parse(parts[6]),
                                float.Parse(parts[7]));
-        cardBelowID = parts[8]!=""? parts[8]: null;
-        cardAboveID = parts[9] != "" ? parts[9] : null;
-        hiddenBy = parts[10] != "" ? parts[10] : null;
+        cardBelowID = parts[8];
+        cardAboveID = parts[9];
+        hiddenBy = parts[10];
+
+        if (cardBelowID == "" && cardAboveID == "")
+        {
+            // 1 card cannpt be spread
+            spread = false;
+        }
+        else if (cardAboveID != "")
+        {
+            //
+
+            NetworkCardManager.Instance.networkedCards[cardAboveID].UpdateSpreadUpwards(this.spread);
+        }
+        if (cardBelowID != "")
+        {
+            spread = NetworkCardManager.Instance.networkedCards[cardBelowID].spread;
+        }
+    }
+
+    private void UpdateSpreadUpwards(bool below_spread)
+    {
+        this.spread = below_spread;
+        if (cardAboveID != "")
+        {
+            NetworkCardManager.Instance.networkedCards[cardAboveID].UpdateSpreadUpwards(below_spread);
+        }
     }
 
     public string ToNetworkString()
@@ -65,66 +90,46 @@ public class NetworkedCardData
     }
     public string FaceUpChangeString(bool value)
     {
-        return string.Format("{0}/{1}/{2}/{3}/{4}/{5}/{6}/{7}/{8}/{9}/{10}",
-                              value,
-                              this.spread,
-                              this.position.x,
-                              this.position.y,
-                              this.position.z,
-                              this.rotation.x,
-                              this.rotation.y,
-                              this.rotation.z,
-                              this.cardBelowID,
-                              this.cardAboveID,
-                              this.hiddenBy
-                              );
+        return ChangeString(value,
+                            this.spread,
+                            this.position,
+                            this.rotation,
+                            this.cardBelowID,
+                            this.cardAboveID,
+                            this.hiddenBy
+                            );
 
     }
     public string SpreadChangeString(bool value)
     {
-        return string.Format("{0}/{1}/{2}/{3}/{4}/{5}/{6}/{7}/{8}/{9}/{10}",
-                              this.faceUp,
-                              value,
-                              this.position.x,
-                              this.position.y,
-                              this.position.z,
-                              this.rotation.x,
-                              this.rotation.y,
-                              this.rotation.z,
-                              this.cardBelowID,
-                              this.cardAboveID,
-                              this.hiddenBy
-                              );
+        return ChangeString(this.faceUp,
+                            value,
+                            this.position,
+                            this.rotation,
+                            this.cardBelowID,
+                            this.cardAboveID,
+                            this.hiddenBy
+                            );
 
     }
     public string PositionChangeString(Vector3 value)
     {
-        return string.Format("{0}/{1}/{2}/{3}/{4}/{5}/{6}/{7}/{8}/{9}/{10}",
-                              this.faceUp,
-                              this.spread,
-                              value.x,
-                              value.y,
-                              value.z,
-                              this.rotation.x,
-                              this.rotation.y,
-                              this.rotation.z,
-                              this.cardBelowID,
-                              this.cardAboveID,
-                              this.hiddenBy
-                              );
+        return ChangeString(this.faceUp,
+                            this.spread,
+                            value,
+                            this.rotation,
+                            this.cardBelowID,
+                            this.cardAboveID,
+                            this.hiddenBy
+                            );
 
     }
     public string RotationChangeString(Vector3 value)
     {
-        return string.Format("{0}/{1}/{2}/{3}/{4}/{5}/{6}/{7}/{8}/{9}/{10}",
-                              this.faceUp,
+        return ChangeString(this.faceUp,
                               this.spread,
-                              this.position.x,
-                              this.position.y,
-                              this.position.z,
-                              value.x,
-                              value.y,
-                              value.z,
+                              this.position,
+                              value,
                               this.cardBelowID,
                               this.cardAboveID,
                               this.hiddenBy
@@ -133,15 +138,10 @@ public class NetworkedCardData
     }
     public string BelowChangeString(string value)
     {
-        return string.Format("{0}/{1}/{2}/{3}/{4}/{5}/{6}/{7}/{8}/{9}/{10}/{11}/{12}",
-                              this.faceUp,
+        return ChangeString(this.faceUp,
                               this.spread,
-                              this.position.x,
-                              this.position.y,
-                              this.position.z,
-                              this.rotation.x,
-                              this.rotation.y,
-                              this.rotation.z,
+                              this.position,
+                              this.rotation,
                               value,
                               this.cardAboveID,
                               this.hiddenBy
@@ -150,39 +150,77 @@ public class NetworkedCardData
     }
     public string AboveChangeString(string value)
     {
-        return string.Format("{0}/{1}/{2}/{3}/{4}/{5}/{6}/{7}/{8}/{9}/{10}",
-                              this.faceUp,
+        return ChangeString(  this.faceUp,
                               this.spread,
-                              this.position.x,
-                              this.position.y,
-                              this.position.z,
-                              this.rotation.x,
-                              this.rotation.y,
-                              this.rotation.z,
+                              this.position,
+                              this.rotation,
                               this.cardBelowID,
                               value,
                               this.hiddenBy
                               );
 
     }
- 
     public string HiddenChangeString(string value)
     {
+        return ChangeString(this.faceUp,
+                            this.spread,
+                            this.position,
+                            this.rotation,
+                            this.cardBelowID,
+                            this.cardAboveID,
+                            value);
+
+    }
+    internal string PositionRotationChangeString(Vector3 position, Vector3 rotation)
+    {
         return string.Format("{0}/{1}/{2}/{3}/{4}/{5}/{6}/{7}/{8}/{9}/{10}",
-                              this.faceUp,
-                              this.spread,
-                              this.position.x,
-                              this.position.y,
-                              this.position.z,
-                              this.rotation.x,
-                              this.rotation.y,
-                              this.rotation.z,
-                              this.cardBelowID,
-                              this.cardAboveID,
-                              value
+                              "",
+                              spread,
+                              position.x,
+                              position.y,
+                              position.z,
+                              rotation.x,
+                              rotation.y,
+                              rotation.z,
+                              cardBelowID,
+                              cardAboveID,
+                              hiddenBy
+                              );
+    }
+    internal string AboveBelowChangeString(string above, string below)
+    {
+        return ChangeString(this.faceUp,
+                    this.spread,
+                    this.position,
+                    this.rotation,
+                    below,
+                    above,
+                    this.hiddenBy);
+    }
+    public string ChangeString(bool newFaceUp,
+                               bool newSpread,
+                               Vector3 newPos,
+                               Vector3 newRot,
+                               string newBelow,
+                               string newAbove,
+                               string newHidden)
+    {
+        return string.Format("{0}/{1}/{2}/{3}/{4}/{5}/{6}/{7}/{8}/{9}/{10}",
+                              newFaceUp,
+                              newSpread,
+                              newPos.x,
+                              newPos.y,
+                              newPos.z,
+                              newRot.x,
+                              newRot.y,
+                              newRot.z,
+                              newBelow,
+                              newAbove,
+                              newHidden
                               );
 
     }
+
 
 }
 
@@ -225,21 +263,21 @@ public class NetworkCardManager : MonoBehaviour
         {
 
             GameObject ret = null;
-            //if (NetworkedCardHeldBy.ContainsKey(PlayerManager.Instance.uid))
-            //{
-            //    string cardID = NetworkedCardHeldBy[PlayerManager.Instance.uid];
-            //    ret = cardGameObjects[cardID];
+            if (NetworkedCardHeldBy.ContainsKey(PlayerManager.Instance.uid))
+            {
+                string cardID = NetworkedCardHeldBy[PlayerManager.Instance.uid];
+                if (cardGameObjects.ContainsKey(cardID))
+                {
+                    ret = cardGameObjects[cardID];
+                }
 
-            //}
+            }
             return ret;
 
         }
     }
 
     public GameObject j1;
-
-
-
     public GameObject j2;
     public GameObject d1;
     public GameObject d2;
@@ -302,18 +340,20 @@ public class NetworkCardManager : MonoBehaviour
 
 
     public static NetworkCardManager Instance;
+    private string _CurrentHeldID;
 
     private void Awake()
     {
         Instance = this;
     }
 
-    void Update()
+    public void printy()
     {
-        //foreach (string key in this.NetworkedCardHighlightedBy.Keys)
-        //{
-        //    Debug.Log(key + ":" + this.NetworkedCardHighlightedBy[key]);
-        //}
+        foreach (string key in this.networkedCards.Keys)
+        {
+            Debug.Log(key+": a="+this.networkedCards[key].cardAboveID+" b="+this.networkedCards[key].cardBelowID );
+        }
+        Debug.Log("**************************************************");
     }
 
         // Start is called before the first frame update
@@ -326,12 +366,12 @@ public class NetworkCardManager : MonoBehaviour
 
         networkedCards = new Dictionary<String, NetworkedCardData>();
 
-        networkedCards.Add("j1", new NetworkedCardData(faceup: false, spread: false, pos: new Vector3(0.0f, 0.0f, 0.0f), rot: new Vector3(0.0f, 0.0f, 0.0f), below: "j2", above: null));
-        networkedCards.Add("j2", new NetworkedCardData(faceup: false, spread: false, pos: new Vector3(0.0f, 0.0f, 0.0f), rot: new Vector3(0.0f, 0.0f, 0.0f), below: "d1", above: "j1"));
-        networkedCards.Add("d1", new NetworkedCardData(faceup: false, spread: false, pos: new Vector3(0.0f, 0.0f, 0.0f), rot: new Vector3(0.0f, 0.0f, 0.0f), below: "h1", above: "j2"));
-        networkedCards.Add("h1", new NetworkedCardData(faceup: false, spread: false, pos: new Vector3(0.0f, 0.0f, 0.0f), rot: new Vector3(0.0f, 0.0f, 0.0f), below: "c1", above: "d1"));
-        networkedCards.Add("c1", new NetworkedCardData(faceup: false, spread: false, pos: new Vector3(0.0f, 0.0f, 0.0f), rot: new Vector3(0.0f, 0.0f, 0.0f), below: "s1", above: "h1"));
-        networkedCards.Add("s1", new NetworkedCardData(faceup: false, spread: false, pos: new Vector3(0.0f, 0.0f, 0.0f), rot: new Vector3(0.0f, 0.0f, 0.0f), below: null, above: "c1"));
+        networkedCards.Add("j1", new NetworkedCardData(faceup: true, spread: true, pos: new Vector3(0.0f, 0.0f, 0.0f), rot: new Vector3(0.0f, 0.0f, 0.0f), below: "j2", above: ""));
+        networkedCards.Add("j2", new NetworkedCardData(faceup: true, spread: true, pos: new Vector3(0.0f, 0.0f, 0.0f), rot: new Vector3(0.0f, 0.0f, 0.0f), below: "d1", above: "j1"));
+        networkedCards.Add("d1", new NetworkedCardData(faceup: true, spread: true, pos: new Vector3(0.0f, 0.0f, 0.0f), rot: new Vector3(0.0f, 0.0f, 0.0f), below: "h1", above: "j2"));
+        networkedCards.Add("h1", new NetworkedCardData(faceup: true, spread: true, pos: new Vector3(0.0f, 0.0f, 0.0f), rot: new Vector3(0.0f, 0.0f, 0.0f), below: "c1", above: "d1"));
+        networkedCards.Add("c1", new NetworkedCardData(faceup: true, spread: true, pos: new Vector3(0.0f, 0.0f, 0.0f), rot: new Vector3(0.0f, 0.0f, 0.0f), below: "s1", above: "h1"));
+        networkedCards.Add("s1", new NetworkedCardData(faceup: true, spread: true, pos: new Vector3(0.0f, 0.0f, 0.0f), rot: new Vector3(0.0f, 0.0f, 0.0f), below: "", above: "c1"));
 
         cardGameObjects = new Dictionary<String, GameObject>();
         cardGameObjects.Add("j1", j1);
@@ -390,7 +430,10 @@ public class NetworkCardManager : MonoBehaviour
         cardGameObjects.Add("h13", h13);
 
 
+        InvokeRepeating("printy", 1f, 2.0f);
     }
+
+
 
     internal StickyCardManager GetCardManager(string cardID)
     {
@@ -401,7 +444,7 @@ public class NetworkCardManager : MonoBehaviour
     internal GameObject GetBelow(string cardID)
     {
         string cardBelowID = this.networkedCards[cardID].cardBelowID;
-        if (cardBelowID!=null)
+        if (cardBelowID!= "")
         {
             return this.cardGameObjects[cardBelowID];
         }
@@ -414,7 +457,7 @@ public class NetworkCardManager : MonoBehaviour
     internal GameObject GetAbove(string cardID)
     {
         string cardAboveID = this.networkedCards[cardID].cardAboveID;
-        if (cardAboveID != null)
+        if (cardAboveID != "")
         {
             return this.cardGameObjects[cardAboveID];
         }
@@ -452,6 +495,18 @@ public class NetworkCardManager : MonoBehaviour
                 && this.NetworkedCardHeldBy[PlayerManager.Instance.uid] == cardID);
     }
 
+    internal string HeldBy(string cardID)
+    {
+        foreach (string player in this.NetworkedCardHeldBy.Keys)
+        {
+            if (this.NetworkedCardHeldBy[player] == cardID)
+            {
+                return player;
+            }
+        }
+        return "";
+    }
+
     internal bool IsHidden(string cardID)
     {
         return this.networkedCards[cardID].hiddenBy == PlayerManager.Instance.uid;
@@ -477,6 +532,8 @@ public class NetworkCardManager : MonoBehaviour
 
 
 
+
+
     internal void SetHeld(string cardID, bool value)
     {
         Debug.Log("SetHeld TO " + value.ToString());
@@ -487,13 +544,37 @@ public class NetworkCardManager : MonoBehaviour
         if (value == true)
         {
             changeData.Add("type", PubNubManager.PLAYER_HELD_START);
+            this._CurrentHeldID = cardID;
+            InvokeRepeating("UpdateHeldPosition", 1f, 0.2f);
         }
         else
         {
             changeData.Add("type", PubNubManager.PLAYER_HELD_STOP);
+            this._CurrentHeldID = "";
+            CancelInvoke();
+            InvokeRepeating("printy", 1f, 2.0f);
         }
         PubNubManager.Instance.BroadcastMessage(changeData);
+
+
     }
+    internal void UpdateHeldPosition()
+    {
+        Debug.Log("UpdateHeldPosition");
+        Vector3 position = PlayerManager.Instance.cursor.transform.localPosition;
+        Vector3 rotation = new Vector3(0.0f,
+                                       PlayerManager.Instance.cursor.transform.localEulerAngles.y,
+                                                          0.0f);
+
+
+       
+        NetworkedCardData data = this.networkedCards[this._CurrentHeldID];
+        Dictionary<string, string> changeData = new Dictionary<string, string>();
+        changeData.Add("type", PubNubManager.PLAYER_HAS_CHANGED_DECK_DATA);
+        changeData.Add(this._CurrentHeldID, data.PositionRotationChangeString(position, rotation));
+        PubNubManager.Instance.BroadcastMessage(changeData);
+    }
+
 
     internal bool IsAvailableToHighlight(string cardID)
     {
@@ -536,45 +617,80 @@ public class NetworkCardManager : MonoBehaviour
     internal void SinglePickUp(string cardID)
     {
         //this.SetHeld(cardID, true);
+        StickyCardManager card = cardGameObjects[cardID].GetComponent<StickyCardManager>();
+        NetworkedCardData cardData = networkedCards[cardID];
+        Dictionary<string, string> changeData = new Dictionary<string, string>();
+        changeData.Add("type", PubNubManager.PLAYER_HAS_CHANGED_DECK_DATA);
+        if (cardData.cardBelowID != "" && cardData.cardAboveID!= "")
+        {
+            //card is in the middle of a deck
+            NetworkedCardData cardBelowData = networkedCards[cardData.cardBelowID];
+            NetworkedCardData cardAboveData = networkedCards[cardData.cardAboveID];
 
-        //if this card is in the middle of a deck
-        
-        //if 
+            changeData.Add(cardData.cardBelowID, cardBelowData.AboveChangeString(cardData.cardAboveID));
+            changeData.Add(cardID, cardData.AboveBelowChangeString("",""));
+            changeData.Add(cardData.cardAboveID, cardAboveData.BelowChangeString(cardData.cardBelowID));
+        }
+        else if (cardData.cardBelowID != "")
+        {
+            //card is bottom of deck
+            NetworkedCardData cardBelowData = networkedCards[cardData.cardBelowID];
 
-        //bool currentlySpread = this.Spread;
-        //this._spread = false;
-        //if (Above && Below){
-        //    GetStickyCardManager(_below)._above = _above;
-        //    GetStickyCardManager(_above)._below = _below;
-        //    _below = null;
-        //    _above = null;
-        //}
-        //else if (_below)
-        //{
-        //    GetStickyCardManager(_below)._above = null;
-        //    if(GetStickyCardManager(_below).CountAbove() == 1)
-        //    {
-        //        GetStickyCardManager(_below)._spread = false;
-        //    }
-        //    _below = null;
-        //    _above = null;
-        //}
-        //else if (_above)
-        //{
+            changeData.Add(cardData.cardBelowID, cardBelowData.AboveChangeString(""));
+            changeData.Add(cardID, cardData.AboveBelowChangeString("", ""));
+        }
+        else if (cardData.cardAboveID != "")
+        {
+            //card is top of deck
+            NetworkedCardData cardAboveData = networkedCards[cardData.cardAboveID];
 
-        //    GetStickyCardManager(_above)._below = null;
-        //    if (GetStickyCardManager(_above).CountAbove() == 1)
-        //    {
-        //        GetStickyCardManager(_above)._spread = false;
-        //    }
-        //    else
-        //    {
-        //        GetStickyCardManager(_above).Spread = currentlySpread;
-        //    }
-        //    _below = null;
-        //    _above = null;
-        //}
+            changeData.Add(cardID, cardData.AboveBelowChangeString("", ""));
+            changeData.Add(cardData.cardAboveID, cardAboveData.BelowChangeString(""));
 
+        }
+        else
+        {
+            //card is loose
+            changeData.Add(cardID, cardData.AboveBelowChangeString("", ""));
+        }
+        PubNubManager.Instance.BroadcastMessage(changeData);
+
+        this.SetHeld(cardID, true);
+
+    }
+
+    internal void DropOnTopOf(string thisCardID, string thatCardID)
+    {
+        //this.SetHeld(cardID, true);
+        //StickyCardManager thisCard = cardGameObjects[thisCardID].GetComponent<StickyCardManager>();
+        NetworkedCardData thisCardData = networkedCards[thisCardID];
+        //StickyCardManager thatCard = cardGameObjects[thatCardID].GetComponent<StickyCardManager>();
+        NetworkedCardData thatCardData = networkedCards[thatCardID];
+        Dictionary<string, string> changeData = new Dictionary<string, string>();
+        changeData.Add("type", PubNubManager.PLAYER_HAS_CHANGED_DECK_DATA);
+
+        this.SetHeld(thisCardID, false);
+        if (thatCardData.cardAboveID != "" )
+        {
+            //card is in the middle of a deck
+            string aboveThatCardID = thatCardData.cardAboveID;
+            NetworkedCardData aboveThatCardData = networkedCards[aboveThatCardID];
+            changeData.Add(thatCardID, thatCardData.AboveChangeString(thisCardID));
+            changeData.Add(thisCardID, thisCardData.AboveBelowChangeString(aboveThatCardID, thatCardID));
+            changeData.Add(aboveThatCardID, aboveThatCardData.BelowChangeString(thisCardID));
+        }
+        else
+        {
+            //drop onto the top of a deck
+            changeData.Add(thatCardID, thatCardData.AboveChangeString(thisCardID));
+            changeData.Add(thisCardID, thisCardData.BelowChangeString(thatCardID));
+        }
+        PubNubManager.Instance.BroadcastMessage(changeData);
+    }
+
+    internal void DropOntoTable(string cardID)
+    {
+        this.SetHeld(cardID, false);
     }
 
 
