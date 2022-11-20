@@ -5,15 +5,14 @@ using UnityEngine;
 using PubNubAPI;
 using System;
 using Newtonsoft.Json;
-
-
-
+using TMPro;
 
 public class PubNubManager : MonoBehaviour
 {
 
     public static PubNubManager Instance;
     public bool WaitingOnUpdate = false;
+    public string lastDeckChangeMessage = "";
 
     private PubNub pubnub;
 
@@ -23,6 +22,7 @@ public class PubNubManager : MonoBehaviour
     private string _channel = "CardsAR";
 
     private bool _waiting_on_deck_init;
+    public GameObject displayNameInput = null;
 
 
     public const string PLAYER_HAS_CHANGED_POSITION = "0";
@@ -52,8 +52,8 @@ public class PubNubManager : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating("BroadcastPosition", 1f, 0.2f);  //1s delay, repeat every 1s
-        InvokeRepeating("BroadcastHighlight", 1f, 0.2f);  //1s delay, repeat every 1s
+        InvokeRepeating("BroadcastPosition", 1f, 0.5f);  //1s delay, repeat every 1s
+        InvokeRepeating("BroadcastHighlight", 1f, 0.5f);  //1s delay, repeat every 1s
         //InvokeRepeating("BroadcastHeld", 1f, 0.1f);  //1s delay, repeat every 1s
         //InvokeRepeating("BroadcastChanges", 1f, 1.0f);  //1s delay, repeat every 1s
         
@@ -89,7 +89,16 @@ public class PubNubManager : MonoBehaviour
                 //Debug.Log("In Example, SubscribeCallback in message" + mea.MessageResult.Channel);
                 Dictionary<string, object> message_payload = mea.MessageResult.Payload as Dictionary<string, object>;
                 //Debug.Log("msg: " + msg["msg"]);
-                this.ProcessMessage(message_payload);
+                try
+                {
+                    this.ProcessMessage(message_payload); 
+                }
+                catch (Exception ex)
+                {
+                    Debug.Log(ex.Message);
+                    Debug.Log(ex.StackTrace);
+                }
+                
             }
             if (mea.PresenceEventResult != null)
             {
@@ -236,20 +245,24 @@ public class PubNubManager : MonoBehaviour
 
     private void ProcessPlayerDeckChange(Dictionary<string, object> message_payload)
     {
+        Debug.Log("============================");
+        Debug.Log("CARD DATA CHANGING");
+
         foreach (string cardId in message_payload.Keys)
         {
             if (cardId != "type")
             {
                 NetworkedCardData cardData = NetworkCardManager.Instance.networkedCards[cardId];
 
-                Debug.Log("============================");
+                //Debug.Log("============================");
 
-                Debug.Log("CARD DATA CHANGING: "+ cardId);
-                Debug.Log("change string: " + (string)message_payload[cardId]);
-                Debug.Log("before: " + cardData.ToNetworkString());
+                //Debug.Log("CARD DATA CHANGING: "+ cardId);
+                //Debug.Log("change string: " + (string)message_payload[cardId]);
+                //Debug.Log("before: " + cardData.ToNetworkString());
                 cardData.fromNetworkString((string)message_payload[cardId]);
-                Debug.Log("after: " + cardData.ToNetworkString());
-                NetworkCardManager.Instance.printy();
+                Debug.Log(cardId +" : " + cardData.ToNetworkString());
+                //Debug.Log("CARD DATA CHANGING: "+ cardId);
+                //NetworkCardManager.Instance.printy();
 
 
             }
@@ -270,7 +283,8 @@ public class PubNubManager : MonoBehaviour
         string player_uid = (string)message_payload["uid"];
         Vector3 pos = StringToVector3((string)message_payload["pos"]);
         Vector3 rot = StringToVector3((string)message_payload["rot"]);
-        MultiplayerNetworkingManager.Instance.OnPeerPoseReceived(player_uid, pos, rot);
+        string name = (string)message_payload["name"];
+        MultiplayerNetworkingManager.Instance.OnPeerPoseReceived(player_uid, pos, rot, name);
     }
 
     //public void BroadcastChanges()
@@ -377,6 +391,7 @@ public class PubNubManager : MonoBehaviour
         Vector3 rot = PlayerManager.Instance.GetPlayerRot();
         message.Add("pos", pos.ToString());
         message.Add("rot", rot.ToString());
+        message.Add("name", displayNameInput==null? "???" : displayNameInput.GetComponent<TextMeshProUGUI>().text);
         message.Add("uid", PlayerManager.Instance.uid);
         this._PostMessage(message);
 
@@ -385,10 +400,14 @@ public class PubNubManager : MonoBehaviour
 
     internal void BroadcastMessage(Dictionary<string, string> changeData)
     {
+        Debug.Log("___________________");
+        Debug.Log("Broadcast Message:");
         Dictionary<string, object> message = new Dictionary<string, object>();
         foreach (string key in changeData.Keys)
         {
             message.Add(key, changeData[key]);
+            Debug.Log(key +": "+ changeData[key]);
+
         }
         this._PostMessage(message);
     }

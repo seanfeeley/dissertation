@@ -10,6 +10,25 @@ public class GameManager : MonoBehaviour
 
     public static event Action<GameState> OnGameStatesChanged;
 
+    GameState[] CardPlayingStates = new GameState[]
+    {
+        GameState.NoneHighlighted_NoneHeld,
+        GameState.NoneHighlighted_OneHeld,
+        GameState.NoneHighlighted_ManyHeld,
+
+        GameState.OneHighlighted_NoneHeld,
+        GameState.OneHighlighted_OneHeld,
+        GameState.OneHighlighted_ManyHeld,
+
+        GameState.ManyHighlighted_NoneHeld,
+        GameState.ManyHighlighted_OneHeld,
+        GameState.ManyHighlighted_ManyHeld,
+
+        GameState.SpreadHighlighted_NoneHeld,
+        GameState.SpreadHighlighted_OneHeld,
+        GameState.SpreadHighlighted_ManyHeld
+    };
+
     public static GameManager Instance;
     private void Awake()
     {
@@ -38,90 +57,25 @@ public class GameManager : MonoBehaviour
     public void UpdateGameStateTo_LockAR() { this.UpdateGameState(GameState.ARLocked); }
     public void UpdateGameStateTo_SelectingNumber_Split() { this.UpdateGameState(GameState.SelectingNumber_Split); }
     public void UpdateGameStateTo_SelectingNumber_Deal() { this.UpdateGameState(GameState.SelectingNumber_Deal); }
+    public void UpdateGameStateTo_SettingDisplayName() { this.UpdateGameState(GameState.SettingDisplayName); }
 
+    public bool InCardGameplayMode()
+    {
 
+        return CardPlayingStates.Contains(CurrentState);
+    }
 
-    public void UpdateGameState(GameState newState){
+    private void UpdateGameState(GameState newState){
         GameState OldState = CurrentState;
 
-        GameState[] CardPlayingStates = new GameState[]
-        {
-            GameState.NoneHighlighted_NoneHeld,
-            GameState.NoneHighlighted_OneHeld,
-            GameState.NoneHighlighted_ManyHeld,
-
-            GameState.OneHighlighted_NoneHeld,
-            GameState.OneHighlighted_OneHeld,
-            GameState.OneHighlighted_ManyHeld,
-
-            GameState.ManyHighlighted_NoneHeld,
-            GameState.ManyHighlighted_OneHeld,
-            GameState.ManyHighlighted_ManyHeld,
-
-            GameState.SpreadHighlighted_NoneHeld,
-            GameState.SpreadHighlighted_OneHeld,
-            GameState.SpreadHighlighted_ManyHeld
-        };
-
-        switch (newState)
-        {
-            case GameState.SpreadHighlighted_NoneHeld:
-                if(CardPlayingStates.Contains(CurrentState)) { CurrentState = newState; }
-                break;
-            case GameState.SpreadHighlighted_OneHeld:
-                if (CardPlayingStates.Contains(CurrentState)) { CurrentState = newState; }
-                break;
-            case GameState.SpreadHighlighted_ManyHeld:
-                if (CardPlayingStates.Contains(CurrentState)) { CurrentState = newState; }
-                break;
-            case GameState.NoneHighlighted_NoneHeld:
-                if (CardPlayingStates.Contains(CurrentState)) { CurrentState = newState; }
-                break;
-            case GameState.NoneHighlighted_OneHeld:
-                if (CardPlayingStates.Contains(CurrentState)) { CurrentState = newState; }
-                break;
-            case GameState.NoneHighlighted_ManyHeld:
-                if (CardPlayingStates.Contains(CurrentState)) { CurrentState = newState; }
-                break;
-            case GameState.OneHighlighted_NoneHeld:
-                if (CardPlayingStates.Contains(CurrentState)) { CurrentState = newState; }
-                break;
-            case GameState.OneHighlighted_OneHeld:
-                if (CardPlayingStates.Contains(CurrentState)) { CurrentState = newState; }
-                break;
-            case GameState.OneHighlighted_ManyHeld:
-                if (CardPlayingStates.Contains(CurrentState)) { CurrentState = newState; }
-                break;
-            case GameState.ManyHighlighted_NoneHeld:
-                if (CardPlayingStates.Contains(CurrentState)) { CurrentState = newState; }
-                break;
-            case GameState.ManyHighlighted_OneHeld:
-                if (CardPlayingStates.Contains(CurrentState)) { CurrentState = newState; }
-                break;
-            case GameState.ManyHighlighted_ManyHeld:
-                if (CardPlayingStates.Contains(CurrentState)) { CurrentState = newState; }
-                break;
-            case GameState.ARResetInfo:
-                CurrentState = newState;
-                break;
-            case GameState.ARReseting:
-                CurrentState = newState;
-                break;
-            case GameState.ARLocked:
-                CurrentState = GameState.NoneHighlighted_NoneHeld;
-                break;
-            case GameState.SelectingNumber_Split:
-                break;
-            case GameState.SelectingNumber_Deal:
-                break;
-            default:
-                break;
-
-        }
+        CurrentState = newState;
+    
         if (OldState != CurrentState)
         {
             OnGameStatesChanged?.Invoke(this.CurrentState);
         }
+
+
     }
 }
 
@@ -146,6 +100,7 @@ public enum GameState
     SpreadHighlighted_ManyHeld,
 
 
+    SettingDisplayName,
     ARResetInfo,
     ARReseting,
     ARLocked,

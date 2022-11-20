@@ -1,33 +1,31 @@
 ﻿<Properties StartupConfiguration="{00BE2B06-77C0-05A0-1DB0-2EA5BDC676F1}|">
   <MonoDevelop.Ide.ItemProperties.ARDK PreferredExecutionTarget="04438628-5f5a-4a51-a888-534f0406afb6" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/NetworkCardManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/StickyCardManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/MultiplayerNetworkingManager.cs" Line="25" Column="1" IsPinned="True" />
-      <File FileName="Assets/Scripts/PlayerManager.cs" Line="65" Column="32" IsPinned="True" />
-      <File FileName="Assets/Scripts/StickyCardManager.cs" Line="57" Column="12" IsPinned="True" />
-      <File FileName="Assets/Scripts/PubNubManager.cs" Line="56" Column="57" IsPinned="True" />
-      <File FileName="Assets/Scripts/NetworkCardManager.cs" Line="568" Column="22" IsPinned="True" />
-      <File FileName="Assets/Scripts/EnvironmentManager.cs" Line="247" Column="6" />
-      <File FileName="Assets/Scripts/Cursor.cs" Line="26" Column="94" />
-      <File FileName="Assets/Niantic/ARDKExamples/PlaneAnchors/ARCursorRenderer.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/NetworkCardManager.cs" Line="1163" Column="49" IsPinned="True" />
+      <File FileName="Assets/Scripts/MenuManager.cs" Line="316" Column="29" />
+      <File FileName="Assets/Scripts/StickyCardManager.cs" Line="712" Column="77" />
+      <File FileName="Assets/Scripts/DeckSplitManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Unity Store/GUIPack-Clean&amp;Minimalist/Demo/Scripts/CleanButtonConfig.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="60" Column="53" />
+      <File FileName="Assets/Scripts/PubNubManager.cs" Line="57" Column="11" />
+      <File FileName="Assets/Scripts/MultiplayerNetworkingManager.cs" Line="86" Column="17" />
+      <File FileName="Assets/Scripts/PlayerManager.cs" Line="487" Column="160" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="CardsAR" expanded="True">
             <Node name="Assets" expanded="True">
-              <Node name="Niantic" expanded="True">
-                <Node name="ARDK" expanded="True">
-                  <Node name="AR" expanded="True">
-                    <Node name="Frame" expanded="True" />
+              <Node name="Scripts" expanded="True">
+                <Node name="StickyCardManager.cs" selected="True" />
+              </Node>
+              <Node name="Unity Store" expanded="True">
+                <Node name="GUIPack-Clean&amp;Minimalist" expanded="True">
+                  <Node name="Demo" expanded="True">
+                    <Node name="Scripts" expanded="True" />
                   </Node>
                 </Node>
-                <Node name="ARDKExamples" expanded="True">
-                  <Node name="PlaneAnchors" expanded="True" />
-                </Node>
-              </Node>
-              <Node name="Scripts" expanded="True">
-                <Node name="NetworkCardManager.cs" selected="True" />
               </Node>
             </Node>
           </Node>

@@ -479,6 +479,7 @@
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextEventHandler.cs" />
     <Compile Include="Assets/PubNub/ThirdParty/CBOR/PeterO/Cbor/Base64.cs" />
     <Compile Include="Assets/PubNub/Models/Consumer/Files/PNDownloadFileResult.cs" />
+    <Compile Include="Assets/Scripts/DeckSplitManager.cs" />
     <Compile Include="Assets/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Code/Impl/Private/Observer/VideoEncodedImageReceiverNative.cs" />
     <Compile Include="Assets/PubNub/EndPoints/HIstory/FetchBuilder.cs" />
     <Compile Include="Assets/PubNub/PubNubUnity/PubNubUnityBase.cs" />

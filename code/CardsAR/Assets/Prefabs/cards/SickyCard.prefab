@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &487866350782253923
 Transform:
   m_ObjectHideFlags: 0
@@ -45,8 +45,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.8252933, y: 0.15197355, z: 17.744179}
-  m_Center: {x: -3.8102567, y: 0.0053718234, z: 0.015027304}
+  m_Size: {x: 0.9819362, y: 0.15197355, z: 8.916677}
+  m_Center: {x: -2.3885474, y: 0.0053718234, z: -0.019336367}
 --- !u!54 &3234497804165336433
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -177,7 +177,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6411948444156279266
 Transform:
   m_ObjectHideFlags: 0
@@ -204,8 +204,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.773748, y: 0.15197355, z: 17.772898}
-  m_Center: {x: 3.8132455, y: 0.0053718234, z: 0.016385755}
+  m_Size: {x: 0.82737213, y: 0.15197355, z: 8.729589}
+  m_Center: {x: 2.3400462, y: 0.0053718234, z: -0.019739024}
 --- !u!54 &6614099640049557670
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -263,7 +263,7 @@ Transform:
   m_GameObject: {fileID: 5548284289151664743}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8114972609855561156}
@@ -280,8 +280,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.7882628, y: 0.15197355, z: 17.781248}
-  m_Center: {x: -0.020621944, y: 0.0053718234, z: -0.0029226767}
+  m_Size: {x: 5.6652484, y: 0.15197355, z: 8.797817}
+  m_Center: {x: -0.054482277, y: 0.0053718234, z: 0.028449312}
 --- !u!54 &5303187483886984434
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -392,15 +392,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7507e242c87c4d45ab9ea783c72b2f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selected: 0
-  stickySelected: 0
-  highlighted: 0
+  cardID: 
+  cursor: {fileID: 0}
   stickyHighlighted: 0
-  hiddenToMe: 0
   inHiddenZone: 0
-  FaceUp: 1
   outlineColor: {r: 0, g: 1, b: 1, a: 1}
-  _spread: 0
   cardColliders:
   - {fileID: 768168690062880506}
   - {fileID: 5548284289151664743}
@@ -408,8 +404,7 @@ MonoBehaviour:
   hiddenCard: {fileID: 4512705069228922219}
   playingCard: {fileID: 0}
   highlight: {fileID: 3711748500023712221}
-  _below: {fileID: 0}
-  _above: {fileID: 0}
+  CursorCollisionPoint: {x: 0, y: 0, z: 0}
 --- !u!1001 &7080270993126530959
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -424,28 +419,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6693041384023231204, guid: 9ccfddd538e854b1b85e5ad2573dc664,
         type: 3}
-      propertyPath: m_Layer
-      value: 8
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7690226722388015351, guid: 9ccfddd538e854b1b85e5ad2573dc664,
         type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7690226722388015351, guid: 9ccfddd538e854b1b85e5ad2573dc664,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7690226722388015351, guid: 9ccfddd538e854b1b85e5ad2573dc664,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7690226722388015351, guid: 9ccfddd538e854b1b85e5ad2573dc664,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7690226722388015351, guid: 9ccfddd538e854b1b85e5ad2573dc664,
         type: 3}
@@ -455,7 +435,7 @@ PrefabInstance:
     - target: {fileID: 7690226722388015351, guid: 9ccfddd538e854b1b85e5ad2573dc664,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.010000891
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 7690226722388015351, guid: 9ccfddd538e854b1b85e5ad2573dc664,
         type: 3}

@@ -14,18 +14,19 @@ public class StickyCardManager : MonoBehaviour
     //public bool stickySelected = false;
     //public bool highlighted = false;
     public bool stickyHighlighted = false;
-    public bool hiddenToMe = false;
+    
     public bool inHiddenZone = false;
     
-    private float thickness = 0.002f;
-    private float spreadWidth = 0.03f;
+    private float thickness = 0.001f;
+    private float spreadWidth = 0.018f;
     private float nonSelectedHeight = 0.001f;
-    private float selectedHeight = 0.03f;
+    private float selectedHeight = 0.1f;
     public Color outlineColor = Color.cyan;
     public GameObject[] cardColliders;
     public GameObject hiddenCard;
     public GameObject playingCard;
     public GameObject highlight;
+    public Vector3 CursorCollisionPoint;
     private static System.Random rng = new System.Random();
 
     public bool Held
@@ -76,16 +77,12 @@ public class StickyCardManager : MonoBehaviour
             return  NetworkCardManager.Instance.IsAvailableToHighlight(cardID);
         }   // get method 
     }
-    public bool Hidden
+    public string HiddenBy
     {
         get
         {
             return NetworkCardManager.Instance.IsHidden(cardID);
         }   // get method
-        set
-        {
-
-        }  // set method
     }
     
     //public bool _faceUp; // field
@@ -205,18 +202,17 @@ public class StickyCardManager : MonoBehaviour
         //{
         //    GetStickyCardManager(_below)._above = gameObject;
         //}
-
+        InvokeRepeating("UpdateCardInfo", 1.0f, .50f);
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void UpdateCardInfo()
     {
         this.UpdateTransform();
         this.UpdateStickyHighlighted();
         this.UpdateHighlightColliders();
         this.UpdateOutline();
         this.UpdateHidden();
-        //this.UpdateRenderQueue();
         this.UpdateCardFace();
 
     }
@@ -224,9 +220,15 @@ public class StickyCardManager : MonoBehaviour
     private void UpdateHighlightColliders()
     {
         bool underCursor = false;
+
         foreach (GameObject cardCollider in cardColliders)
         {
             underCursor = underCursor || cardCollider.transform.GetComponent<CursorTracker>().UnderCursor;
+            if (cardCollider.transform.GetComponent<CursorTracker>().UnderCursor)
+            {
+                this.CursorCollisionPoint = cardCollider.transform.GetComponent<CursorTracker>().CollisionPoint;
+            }
+
         }
         if (underCursor)
         {
@@ -290,7 +292,22 @@ public class StickyCardManager : MonoBehaviour
 
     private void UpdateHidden()
     {
-        hiddenCard.SetActive(this.hiddenToMe); 
+        bool hiddenToMe = this.HiddenBy != "" && this.HiddenBy != PlayerManager.Instance.uid;
+        bool hiddenByMe = this.HiddenBy == PlayerManager.Instance.uid;
+
+        hiddenCard.SetActive(hiddenToMe);
+        Material cardMaterial = playingCard.GetComponent<Renderer>().material;
+
+        if (hiddenByMe)
+        {
+            cardMaterial.SetColor("_Color", new Color(0.5f, 1.0f, 1.0f));
+            cardMaterial.SetColor("_EmissionColor", new Color(0.5f, 1.0f, 1.0f));
+        }
+        else
+        {
+            cardMaterial.SetColor("_Color", Color.white);
+            cardMaterial.SetColor("_EmissionColor", Color.white);
+        }
     }
 
 
@@ -301,7 +318,21 @@ public class StickyCardManager : MonoBehaviour
         highlightMaterial.SetColor("_EmissionColor", outlineColor);
         if (this.Held)
         {
-            highlight.transform.localScale = new Vector3(1.25f, 1.0f, 1.25f);
+            highlight.transform.localScale = new Vector3(1.3f, 1.0f, 1.3f);
+            gameObject.layer = LayerMask.NameToLayer("HighlightedCards");
+            playingCard.layer = LayerMask.NameToLayer("HighlightedCards");
+            hiddenCard.layer = LayerMask.NameToLayer("HighlightedCards");
+        }
+        else if (this.Highlighted)
+        {
+            highlight.transform.localScale = new Vector3(1.2f, 1.0f, 1.2f);
+            gameObject.layer = LayerMask.NameToLayer("HighlightedCards");
+            playingCard.layer = LayerMask.NameToLayer("HighlightedCards");
+            hiddenCard.layer = LayerMask.NameToLayer("HighlightedCards");
+        }
+        else if (this.stickyHighlighted || this.IsStickySelected())
+        {
+            highlight.transform.localScale = new Vector3(1.01f, 1.0f, 1.01f);
             gameObject.layer = LayerMask.NameToLayer("HighlightedCards");
             playingCard.layer = LayerMask.NameToLayer("HighlightedCards");
             hiddenCard.layer = LayerMask.NameToLayer("HighlightedCards");
@@ -311,20 +342,6 @@ public class StickyCardManager : MonoBehaviour
             highlightMaterial.SetColor("_Color", Color.red);
             highlightMaterial.SetColor("_EmissionColor", Color.red);
             highlight.transform.localScale = new Vector3(1.1f, 1.0f, 1.1f);
-            gameObject.layer = LayerMask.NameToLayer("HighlightedCards");
-            playingCard.layer = LayerMask.NameToLayer("HighlightedCards");
-            hiddenCard.layer = LayerMask.NameToLayer("HighlightedCards");
-        }
-        else if (this.Highlighted)
-        {
-            highlight.transform.localScale = new Vector3(1.1f, 1.0f, 1.1f);
-            gameObject.layer = LayerMask.NameToLayer("HighlightedCards");
-            playingCard.layer = LayerMask.NameToLayer("HighlightedCards");
-            hiddenCard.layer = LayerMask.NameToLayer("HighlightedCards");
-        }
-        else if (this.stickyHighlighted || this.IsStickySelected())
-        {
-            highlight.transform.localScale = new Vector3(1.02f, 1.0f, 1.02f);
             gameObject.layer = LayerMask.NameToLayer("HighlightedCards");
             playingCard.layer = LayerMask.NameToLayer("HighlightedCards");
             hiddenCard.layer = LayerMask.NameToLayer("HighlightedCards");
@@ -640,7 +657,7 @@ public class StickyCardManager : MonoBehaviour
                                                          networkPos.z);
         gameObject.transform.localEulerAngles = new Vector3(networkRot.x,
                                                        networkRot.y,
-                                                       0.0f);
+                                                       Spread? -5.0f : 0.0f);
 
 
     }
@@ -654,7 +671,7 @@ public class StickyCardManager : MonoBehaviour
                                                     networkPos.z);
         gameObject.transform.localEulerAngles = new Vector3(networkRot.x,
                                                        networkRot.y,
-                                                       0.0f);
+                                                      Spread ? -5.0f : 0.0f);
     }
 
     private void UpdateStickyPosition()
@@ -667,7 +684,7 @@ public class StickyCardManager : MonoBehaviour
 
         gameObject.transform.localEulerAngles = new Vector3(Below.transform.localEulerAngles.x,
                                                        Below.transform.localEulerAngles.y,
-                                                       0.0f);
+                                                       Spread ? -5.0f : 0.0f);
 
 
     }
@@ -692,7 +709,7 @@ public class StickyCardManager : MonoBehaviour
                                                     Below.transform.position.z - z_shift);
         gameObject.transform.eulerAngles = new Vector3(Below.transform.eulerAngles.x,
                                                        Below.transform.eulerAngles.y,
-                                                       -5.0f);
+                                                       Spread ? -5.0f : 0.0f);
 
 
     }

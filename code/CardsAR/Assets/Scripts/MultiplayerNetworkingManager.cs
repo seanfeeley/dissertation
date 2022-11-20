@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 
@@ -82,10 +83,9 @@ public class MultiplayerNetworkingManager : MonoBehaviour
 
     //}
 
-    public void OnPeerPoseReceived(String playerIdentifier, Vector3 pos, Vector3 rot)
+    public void OnPeerPoseReceived(String playerIdentifier, Vector3 pos, Vector3 rot, string name)
     {
         //Debug.LogFormat("CARDSAR: Peer {0} at position: {1} with rotation {2}", playerIdentifier, pos, rot);
-
 
         // ...and if the dictionary already contains the player...
         if (players.ContainsKey(playerIdentifier) == false)
@@ -98,6 +98,9 @@ public class MultiplayerNetworkingManager : MonoBehaviour
             playerAvatarScreen.transform.localEulerAngles = rot;
             // ...and add it to the dictionary.
             players.Add(playerIdentifier, remoteAvatar);
+
+            TextMeshPro namePlate = playerAvatarScreen.transform.GetChild(2).gameObject.GetComponent<TextMeshPro>();
+            namePlate.text = name;
         }
         else
         {
@@ -108,9 +111,32 @@ public class MultiplayerNetworkingManager : MonoBehaviour
             playerAvatarScreen.transform.localPosition = pos;
             playerAvatarScreen.transform.localEulerAngles = rot;
 
+            Debug.DrawLine(remoteAvatar.transform.GetChild(1).position,
+                          remoteAvatar.transform.GetChild(1).position+pos, Color.yellow);
+            TextMeshPro namePlate = playerAvatarScreen.transform.GetChild(2).gameObject.GetComponent<TextMeshPro>();
+
+            namePlate.text = name;
+
         }
-        
-        
+
+        if (playerIdentifier == PlayerManager.Instance.uid)
+        {
+            GameObject remoteAvatar = players[playerIdentifier];
+            // ...then set the player's avatar postition and rotation.
+            GameObject playerAvatarScreen = remoteAvatar.transform.GetChild(0).gameObject;
+            playerAvatarScreen.SetActive(false);
+        }
+        else
+        {
+            GameObject remoteAvatar = players[playerIdentifier];
+            // ...then set the player's avatar postition and rotation.
+            GameObject playerAvatarScreen = remoteAvatar.transform.GetChild(0).gameObject;
+            playerAvatarScreen.SetActive(true);
+        }
+
+
+
+
 
     }
 

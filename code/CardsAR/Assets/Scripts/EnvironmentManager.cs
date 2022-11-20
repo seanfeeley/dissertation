@@ -198,7 +198,8 @@ public class EnvironmentManager : MonoBehaviour
     public Vector3 GetDealingSpotPositionForPlayer(int playerNumber)
     {
         Vector3 tableCenter = this.GetTableCenter();
-        float tableWidth = 0.5f;
+         
+        float tableWidth = 0.25f;
         Vector3 dealingSpotOffest0 = new Vector3(tableWidth, 0, 0);
         
         int playerCount = MultiplayerNetworkingManager.Instance.GetCurrentPlayerCount();
