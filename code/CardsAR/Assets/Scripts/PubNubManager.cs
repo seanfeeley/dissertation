@@ -64,6 +64,7 @@ public class PubNubManager : MonoBehaviour
     {
         Dictionary<string, object> message = new Dictionary<string, object>();
         message.Add("type", PLAYER_REQUESTING_HOST_UPDATE);
+        Debug.Log("RequestUpdateFromHost");
         this._PostMessage(message);
     }
 
@@ -399,7 +400,7 @@ public class PubNubManager : MonoBehaviour
     }
     public string GetMyName()
     {
-        return displayNameInput == null ? "???" : displayNameInput.GetComponent<TextMeshProUGUI>().text;
+        return displayNameInput == null ? "???" : displayNameInput.GetComponent<TextMeshProUGUI>().text.Trim();
     }
 
     internal void BroadcastMessage(Dictionary<string, string> changeData)

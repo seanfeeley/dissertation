@@ -132,38 +132,32 @@ public class NetworkedCardData
                                          string new_hiddenBy = null)
     {
 
-        try
-        {
-            if (new_faceUp == null) { new_faceUp = faceUp.ToString(); }
-            if (new_spread == null) { new_spread = spread.ToString(); }
-            if (new_posX == null) { new_posX = position.x.ToString(); }
-            if (new_posY == null) { new_posY = position.y.ToString(); }
-            if (new_posZ == null) { new_posZ = position.z.ToString(); }
-            if (new_rotX == null) { new_rotX = rotation.x.ToString(); }
-            if (new_rotY == null) { new_rotY = rotation.y.ToString(); }
-            if (new_rotZ == null) { new_rotZ = rotation.z.ToString(); }
-            if (new_cardBelowID == null) { new_cardBelowID = cardBelowID.ToString(); }
-            if (new_cardAboveID == null) { new_cardAboveID = cardAboveID.ToString(); }
-            if (new_hiddenBy == null) { new_hiddenBy = hiddenBy.ToString(); }
-            return string.Format("{0}/{1}/{2}/{3}/{4}/{5}/{6}/{7}/{8}/{9}/{10}",
-                                  new_faceUp,
-                                  new_spread,
-                                  new_posX,
-                                  new_posY,
-                                  new_posZ,
-                                  new_rotX,
-                                  new_rotY,
-                                  new_rotZ,
-                                  new_cardBelowID,
-                                  new_cardAboveID,
-                                  new_hiddenBy
-                                  );
-        }
-        catch (Exception ex)
-        {
-            Debug.Log(ex.ToString());
-            
-        }
+  
+        if (new_faceUp == null) { new_faceUp = faceUp.ToString(); }
+        if (new_spread == null) { new_spread = spread.ToString(); }
+        if (new_posX == null) { new_posX = position.x.ToString(); }
+        if (new_posY == null) { new_posY = position.y.ToString(); }
+        if (new_posZ == null) { new_posZ = position.z.ToString(); }
+        if (new_rotX == null) { new_rotX = rotation.x.ToString(); }
+        if (new_rotY == null) { new_rotY = rotation.y.ToString(); }
+        if (new_rotZ == null) { new_rotZ = rotation.z.ToString(); }
+        if (new_cardBelowID == null) { new_cardBelowID = cardBelowID.ToString(); }
+        if (new_cardAboveID == null) { new_cardAboveID = cardAboveID.ToString(); }
+        if (new_hiddenBy == null) { new_hiddenBy = hiddenBy.ToString(); }
+        return string.Format("{0}/{1}/{2}/{3}/{4}/{5}/{6}/{7}/{8}/{9}/{10}",
+                                new_faceUp,
+                                new_spread,
+                                new_posX,
+                                new_posY,
+                                new_posZ,
+                                new_rotX,
+                                new_rotY,
+                                new_rotZ,
+                                new_cardBelowID,
+                                new_cardAboveID,
+                                new_hiddenBy
+                                );
+
         return "";
 
     }

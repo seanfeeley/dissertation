@@ -27,11 +27,13 @@ public class MultiplayerNetworkingManager : MonoBehaviour
 
     internal bool AmIHost()
     {
-        bool ret = PubNubManager.Instance.GetMyName().ToLower() == "sean";
-       
-        return ret;
-    }
+        string my_name = PubNubManager.Instance.GetMyName().ToLower().Trim().Substring(0,4);
+        string host = "sean";
+        
+        bool ret = my_name.Equals(host);
 
+        return ret ;
+    }
 
     // Update is called once per frame
     void FixedUpdate()
