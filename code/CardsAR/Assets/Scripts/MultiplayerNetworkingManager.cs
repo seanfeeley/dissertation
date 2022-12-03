@@ -27,7 +27,7 @@ public class MultiplayerNetworkingManager : MonoBehaviour
 
     internal bool AmIHost()
     {
-        bool ret = this.GetMyPlayerIndex() == 0;
+        bool ret = PubNubManager.Instance.GetMyName().ToLower() == "sean";
        
         return ret;
     }

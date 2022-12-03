@@ -221,12 +221,23 @@ public class StickyCardManager : MonoBehaviour
     {
         bool underCursor = false;
 
+        
+
         foreach (GameObject cardCollider in cardColliders)
         {
             underCursor = underCursor || cardCollider.transform.GetComponent<CursorTracker>().UnderCursor;
             if (cardCollider.transform.GetComponent<CursorTracker>().UnderCursor)
             {
                 this.CursorCollisionPoint = cardCollider.transform.GetComponent<CursorTracker>().CollisionPoint;
+            }
+
+            if (Spread)
+            {
+                cardCollider.transform.localScale = new Vector3(1.0f, 1.0f, 2.0f);
+            }
+            else
+            {
+                cardCollider.transform.localScale = new Vector3(2.0f, 1.0f, 2.0f);
             }
 
         }

@@ -199,7 +199,7 @@ public class EnvironmentManager : MonoBehaviour
     {
         Vector3 tableCenter = this.GetTableCenter();
          
-        float tableWidth = 0.25f;
+        float tableWidth = 0.30f;
         Vector3 dealingSpotOffest0 = new Vector3(tableWidth, 0, 0);
         
         int playerCount = MultiplayerNetworkingManager.Instance.GetCurrentPlayerCount();

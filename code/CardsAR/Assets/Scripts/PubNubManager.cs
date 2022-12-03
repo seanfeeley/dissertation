@@ -159,34 +159,34 @@ public class PubNubManager : MonoBehaviour
 
             //highlight changes
             case PLAYER_HIGHLIGHT_START:
-                Debug.Log("PLAYER_HIGHLIGHT_START");
+                //Debug.Log("PLAYER_HIGHLIGHT_START");
                 this.ProcessHostHighlightStart(message_payload);
                 break;
             case PLAYER_HIGHLIGHT_STOP:
-                Debug.Log("PLAYER_HIGHLIGHT_STOP");
+                //Debug.Log("PLAYER_HIGHLIGHT_STOP");
                 this.ProcessHostHighlightStop(message_payload);
                 break;
 
 
             //held changes
             case PLAYER_HELD_START:
-                Debug.Log("PLAYER_HELD_START");
+                //Debug.Log("PLAYER_HELD_START");
                 this.ProcessHostHeldStart(message_payload);
                 break;
             case PLAYER_HELD_STOP:
-                Debug.Log("PLAYER_HELD_STOP");
+                //Debug.Log("PLAYER_HELD_STOP");
                 this.ProcessHostHeldStop(message_payload);
                 break;
 
 
             case PLAYER_HAS_CHANGED_DECK_DATA:
-                Debug.Log("PLAYER_HAS_CHANGED_DECK_DATA");
+                //Debug.Log("PLAYER_HAS_CHANGED_DECK_DATA");
                 // only react to other player changes if I am the host
                 this.ProcessPlayerDeckChange(message_payload);
                 break;
 
             case PLAYER_REQUESTING_HOST_UPDATE:
-                Debug.Log("PLAYER_REQUESTING_HOST_UPDATE");
+                //Debug.Log("PLAYER_REQUESTING_HOST_UPDATE");
                 if (MultiplayerNetworkingManager.Instance.AmIHost())
                 {
                     BroadcastDeck();
@@ -215,6 +215,7 @@ public class PubNubManager : MonoBehaviour
 
 
     }
+
 
     private void ProcessHostHeldStop(Dictionary<string, object> message_payload)
     {
@@ -245,8 +246,8 @@ public class PubNubManager : MonoBehaviour
 
     private void ProcessPlayerDeckChange(Dictionary<string, object> message_payload)
     {
-        Debug.Log("============================");
-        Debug.Log("CARD DATA CHANGING");
+        //Debug.Log("============================");
+        //Debug.Log("CARD DATA CHANGING");
 
         foreach (string cardId in message_payload.Keys)
         {
@@ -260,7 +261,7 @@ public class PubNubManager : MonoBehaviour
                 //Debug.Log("change string: " + (string)message_payload[cardId]);
                 //Debug.Log("before: " + cardData.ToNetworkString());
                 cardData.fromNetworkString((string)message_payload[cardId]);
-                Debug.Log(cardId +" : " + cardData.ToNetworkString());
+                //Debug.Log(cardId +" : " + cardData.ToNetworkString());
                 //Debug.Log("CARD DATA CHANGING: "+ cardId);
                 //NetworkCardManager.Instance.printy();
 
@@ -391,22 +392,25 @@ public class PubNubManager : MonoBehaviour
         Vector3 rot = PlayerManager.Instance.GetPlayerRot();
         message.Add("pos", pos.ToString());
         message.Add("rot", rot.ToString());
-        message.Add("name", displayNameInput==null? "???" : displayNameInput.GetComponent<TextMeshProUGUI>().text);
+        message.Add("name", this.GetMyName());
         message.Add("uid", PlayerManager.Instance.uid);
         this._PostMessage(message);
 
     }
-
+    public string GetMyName()
+    {
+        return displayNameInput == null ? "???" : displayNameInput.GetComponent<TextMeshProUGUI>().text;
+    }
 
     internal void BroadcastMessage(Dictionary<string, string> changeData)
     {
-        Debug.Log("___________________");
-        Debug.Log("Broadcast Message:");
+        //Debug.Log("___________________");
+        //Debug.Log("Broadcast Message:");
         Dictionary<string, object> message = new Dictionary<string, object>();
         foreach (string key in changeData.Keys)
         {
             message.Add(key, changeData[key]);
-            Debug.Log(key +": "+ changeData[key]);
+            //Debug.Log(key +": "+ changeData[key]);
 
         }
         this._PostMessage(message);
@@ -427,8 +431,8 @@ public class PubNubManager : MonoBehaviour
                  }
                  else
                  {
-                     Debug.Log(status.Error);
-                     Debug.Log(status.ErrorData.Info);
+                     //Debug.Log(status.Error);
+                     //Debug.Log(status.ErrorData.Info);
                  }
              });
 

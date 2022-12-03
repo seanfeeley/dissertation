@@ -151,6 +151,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SickyCard Clubs 2
       objectReference: {fileID: 0}
+    - target: {fileID: 9094155760177031367, guid: 82968cc2420664001a8eeaa2605b3d94,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82968cc2420664001a8eeaa2605b3d94, type: 3}
 --- !u!4 &2482727302799625527 stripped

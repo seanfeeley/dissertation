@@ -30,6 +30,7 @@ public class AgoraVoiceManager : MonoBehaviour
     // Fill in the temporary token you obtained from Agora Console.
     public string _token = "";
     internal IRtcEngine RtcEngine;
+    public GameObject joinCallButton;
 
 #if (UNITY_2018_3_OR_NEWER && UNITY_ANDROID)
 private ArrayList permissionList = new ArrayList() { Permission.Microphone };
@@ -42,7 +43,7 @@ private ArrayList permissionList = new ArrayList() { Permission.Microphone };
     // Fetches the <Vg k="VSDK" /> token
     IEnumerator FetchToken(string url, string channel, string userId, int TimeToLive, Action<string> callback = null)
     {
-        string request_string = string.Format("https://agora-token-service-production-aa7d.up.railway.app/rtc/CardsAR01/1/uid/{0}/?expiry=86400", userId);
+        string request_string = string.Format("https://agora-token-service-production-ebe0.up.railway.app/rtc/CardsAR01/1/uid/{0}/?expiry=86400", userId);
         UnityWebRequest request = UnityWebRequest.Get(request_string);
 
         Debug.Log("request_string");
@@ -80,7 +81,35 @@ private ArrayList permissionList = new ArrayList() { Permission.Microphone };
 
     void Update()
     {
-        CheckPermissions();
+        CheckCallConnection();
+    }
+
+    private void CheckCallConnection()
+    {
+        CONNECTION_STATE_TYPE conn = RtcEngine.GetConnectionState();
+        if (conn == CONNECTION_STATE_TYPE.CONNECTION_STATE_CONNECTED)
+        {
+            joinCallButton.transform.Find("On").GetComponent<Image>().enabled = false;
+            joinCallButton.transform.Find("Off").GetComponent<Image>().enabled = true;
+        }
+        else
+        {
+            joinCallButton.transform.Find("On").GetComponent<Image>().enabled = true;
+            joinCallButton.transform.Find("Off").GetComponent<Image>().enabled = false;
+        }
+      
+    }
+    public void JoinOrLeaveCall()
+    {
+        CONNECTION_STATE_TYPE conn = RtcEngine.GetConnectionState();
+        if (conn == CONNECTION_STATE_TYPE.CONNECTION_STATE_CONNECTED)
+        {
+            this.Leave();
+        }
+        else
+        {
+            this.Join();
+        }
     }
 
     void OnApplicationQuit()

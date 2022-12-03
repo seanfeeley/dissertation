@@ -301,7 +301,7 @@ public class PlayerManager : MonoBehaviour
     IEnumerator DelayMenuEnableButtons()
     {
         //MenuManager.Instance.TempDisableButtons();
-        yield return new WaitForSecondsRealtime(2f);
+        yield return new WaitForSecondsRealtime(1f);
         MenuManager.Instance.StopTempDisableButtons();
         MenuManager.Instance.ForceRefresh();
     }
@@ -360,22 +360,22 @@ public class PlayerManager : MonoBehaviour
     }
     public void DropMiddleCard(GameObject button)
     {
-        MenuManager.Instance.TempDisableButtons();
-        if (HeldCard)
-        {
-            // drop
-            if (HighlightedCard)
-            {
-                StickyCardManager HeldManager = GetStickyCardManager(HeldCard);
-                StickyCardManager HighlightedManager = GetStickyCardManager(HighlightedCard);
-                if (!HighlightedManager.Spread)
-                {
-                    GameObject MiddleCard = HighlightedManager.GetRandomDeck();
-                    NetworkCardManager.Instance.DropOneCardUnderneath(HeldManager.cardID, GetStickyCardManager(MiddleCard).cardID);
-                }
-            }
-        }
-        StartCoroutine(DelayMenuEnableButtons());
+        //MenuManager.Instance.TempDisableButtons();
+        //if (HeldCard)
+        //{
+        //    // drop
+        //    if (HighlightedCard)
+        //    {
+        //        StickyCardManager HeldManager = GetStickyCardManager(HeldCard);
+        //        StickyCardManager HighlightedManager = GetStickyCardManager(HighlightedCard);
+        //        if (!HighlightedManager.Spread)
+        //        {
+        //            GameObject MiddleCard = HighlightedManager.GetRandomDeck();
+        //            NetworkCardManager.Instance.DropOneCardUnderneath(HeldManager.cardID, GetStickyCardManager(MiddleCard).cardID);
+        //        }
+        //    }
+        //}
+        //StartCoroutine(DelayMenuEnableButtons());
 
 
     }
@@ -402,29 +402,29 @@ public class PlayerManager : MonoBehaviour
     }
     public void DropBottomCard(GameObject button)
     {
-        MenuManager.Instance.TempDisableButtons();
-        if (HeldCard)
-        {
-            // drop
-            if (HighlightedCard)
-            {
-                StickyCardManager HeldManager = GetStickyCardManager(HeldCard);
-                StickyCardManager HighlightedManager = GetStickyCardManager(HighlightedCard);
-                GameObject BottomCard = HighlightedManager.GetBottomCard();
-                StickyCardManager BottomCardManager = GetStickyCardManager(BottomCard);
-                if (HighlightedManager.Spread)
-                {
-                    NetworkCardManager.Instance.DropOneCardUnderneath(HeldManager.cardID, HighlightedManager.cardID);
-                }
-                else
-                {
+        //MenuManager.Instance.TempDisableButtons();
+        //if (HeldCard)
+        //{
+        //    // drop
+        //    if (HighlightedCard)
+        //    {
+        //        StickyCardManager HeldManager = GetStickyCardManager(HeldCard);
+        //        StickyCardManager HighlightedManager = GetStickyCardManager(HighlightedCard);
+        //        GameObject BottomCard = HighlightedManager.GetBottomCard();
+        //        StickyCardManager BottomCardManager = GetStickyCardManager(BottomCard);
+        //        if (HighlightedManager.Spread)
+        //        {
+        //            NetworkCardManager.Instance.DropOneCardUnderneath(HeldManager.cardID, HighlightedManager.cardID);
+        //        }
+        //        else
+        //        {
                     
-                    NetworkCardManager.Instance.DropOneCardUnderneath(HeldManager.cardID, BottomCardManager.cardID);
-                }
+        //            NetworkCardManager.Instance.DropOneCardUnderneath(HeldManager.cardID, BottomCardManager.cardID);
+        //        }
 
-            }
-        }
-        StartCoroutine(DelayMenuEnableButtons());
+        //    }
+        //}
+        //StartCoroutine(DelayMenuEnableButtons());
     }
     public void PickupDeck(GameObject button)
     {
@@ -440,20 +440,20 @@ public class PlayerManager : MonoBehaviour
             {
 
                 StickyCardManager HeldManager = GetStickyCardManager(HeldCard);
-                if (HighlightedManager.Spread)
-                {
+                //if (HighlightedManager.Spread)
+                //{
 
-                    NetworkCardManager.Instance.MagnetDeck(HeldManager.cardID,
-                                                           HighlightedManager.cardID,
-                                                           TopCardManager.cardID);
-                }
-                else
-                {
-                    HeldManager.MagnetDeck(HighlightedCard);
-                    NetworkCardManager.Instance.MagnetDeck(HeldManager.cardID,
-                                                           BottomCardManager.cardID,
-                                                           TopCardManager.cardID);
-                }
+                //    NetworkCardManager.Instance.MagnetDeck(HeldManager.cardID,
+                //                                           HighlightedManager.cardID,
+                //                                           TopCardManager.cardID);
+                //}
+                //else
+                //{
+                HeldManager.MagnetDeck(HighlightedCard);
+                NetworkCardManager.Instance.MagnetDeck(HeldManager.cardID,
+                                                        BottomCardManager.cardID,
+                                                        TopCardManager.cardID);
+                //}
 
 
             }
@@ -532,7 +532,24 @@ public class PlayerManager : MonoBehaviour
 
         MenuManager.Instance.TempDisableButtons();
         GameObject bottomCard;
-        if (HighlightedCard && GetStickyCardManager(GetStickyCardManager(HighlightedCard).GetBottomCard()).CountAbove() >= 2)
+        if (HeldCard && GetStickyCardManager(HeldCard).CountAbove() >= 2)
+        {
+            bottomCard = HeldCard;
+            StickyCardManager bottomCardManager = GetStickyCardManager(bottomCard);
+
+            bool faceUp = !bottomCardManager.FaceUp;
+            bool spread = bottomCardManager.Spread;
+
+            if (spread)
+            {
+                NetworkCardManager.Instance.FlipDeckOneByOne(bottomCardManager.cardID);
+            }
+            else
+            {
+                NetworkCardManager.Instance.FlipWholeDeck(bottomCardManager.cardID, pickup: true);
+            }
+        }
+        else if (HighlightedCard && GetStickyCardManager(GetStickyCardManager(HighlightedCard).GetBottomCard()).CountAbove() >= 2)
         {
             StickyCardManager bottomCardManager = GetStickyCardManager(GetStickyCardManager(HighlightedCard).GetBottomCard());
             
@@ -547,23 +564,7 @@ public class PlayerManager : MonoBehaviour
                 NetworkCardManager.Instance.FlipWholeDeck(bottomCardManager.cardID);
             }
         }
-        else if (HeldCard && GetStickyCardManager(HeldCard).CountAbove() >= 2)
-        {
-            bottomCard = HeldCard;
-            StickyCardManager bottomCardManager = GetStickyCardManager(bottomCard);
-
-            bool faceUp = !bottomCardManager.FaceUp;
-            bool spread = bottomCardManager.Spread;
-
-            if (spread)
-            {
-                NetworkCardManager.Instance.FlipDeckOneByOne(bottomCardManager.cardID);
-            }
-            else
-            {
-                NetworkCardManager.Instance.FlipWholeDeck(bottomCardManager.cardID, pickup:true);
-            }
-        }
+        
 
 
         StartCoroutine(DelayMenuEnableButtons());
@@ -624,12 +625,13 @@ public class PlayerManager : MonoBehaviour
     {
 
         MenuManager.Instance.TempDisableButtons();
-        if (HeldCard && GetStickyCardManager(HeldCard).CountAbove() > 1)
-        {
-            StickyCardManager Manager = GetStickyCardManager(HeldCard);
-            Manager.Spread = !Manager.Spread;
-        }
-        else if (HighlightedCard)
+        //if (HeldCard && GetStickyCardManager(HeldCard).CountAbove() > 1)
+        //{
+        //    StickyCardManager Manager = GetStickyCardManager(HeldCard);
+        //    Manager.Spread = !Manager.Spread;
+        //}
+        //else
+        if (HighlightedCard)
         {
             StickyCardManager HighlightedManager = GetStickyCardManager(HighlightedCard);
             StickyCardManager BottomCardManager = GetStickyCardManager(HighlightedManager.GetBottomCard());
