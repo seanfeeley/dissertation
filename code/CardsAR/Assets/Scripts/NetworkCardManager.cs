@@ -55,14 +55,7 @@ public class NetworkedCardData
                 // 1 card cannpt be spread
                 spread = false;
             }
-            else if (cardAboveID != "")
-            {
-                spread = NetworkCardManager.Instance.networkedCards[cardAboveID].spread;
-            }
-            else if (cardBelowID != "")
-            {
-                spread = NetworkCardManager.Instance.networkedCards[cardBelowID].spread;
-            }
+
 
         }
 

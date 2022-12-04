@@ -27,7 +27,10 @@ public class MultiplayerNetworkingManager : MonoBehaviour
 
     internal bool AmIHost()
     {
-        string my_name = PubNubManager.Instance.GetMyName().ToLower().Trim().Substring(0,4);
+        string my_name = PubNubManager.Instance.GetMyName().ToLower().Trim();
+        if (my_name.Length > 1) {
+            my_name = my_name.Substring(0, my_name.Length-1);
+        }
         string host = "sean";
         
         bool ret = my_name.Equals(host);

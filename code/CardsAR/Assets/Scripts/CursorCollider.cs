@@ -31,8 +31,8 @@ public class CursorCollider : MonoBehaviour
 
             other.GetComponent<CursorTracker>().UnderCursor = true;
             Vector3 p = other.ClosestPoint(gameObject.transform.position);
-            //Debug.DrawLine(other.bounds.center,
-            //               gameObject.transform.position, Color.green);
+            Debug.DrawLine(other.bounds.center,
+                           gameObject.transform.position, Color.green);
             Debug.DrawLine(gameObject.transform.position,
                            p, Color.cyan);
 

@@ -405,13 +405,13 @@ public class PubNubManager : MonoBehaviour
 
     internal void BroadcastMessage(Dictionary<string, string> changeData)
     {
-        //Debug.Log("___________________");
-        //Debug.Log("Broadcast Message:");
+        Debug.Log("___________________");
+        Debug.Log("Broadcast Message:");
         Dictionary<string, object> message = new Dictionary<string, object>();
         foreach (string key in changeData.Keys)
         {
             message.Add(key, changeData[key]);
-            //Debug.Log(key +": "+ changeData[key]);
+            Debug.Log(key +": "+ changeData[key]);
 
         }
         this._PostMessage(message);
