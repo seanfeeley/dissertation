@@ -86,14 +86,7 @@ public class NetworkedCardData
 
     }
 
-    //private void UpdateSpreadUpwards(bool below_spread)
-    //{
-    //    this.spread = below_spread;
-    //    if (cardAboveID != "")
-    //    {
-    //        NetworkCardManager.Instance.networkedCards[cardAboveID].UpdateSpreadUpwards(below_spread);
-    //    }
-    //}
+ 
 
     public string ToNetworkString()
     {
@@ -154,189 +147,7 @@ public class NetworkedCardData
         return "";
 
     }
-    //public string FaceUpChangeString(bool value)
-    //{
-    //    return ChangeString(value,
-    //                        this.spread,
-    //                        this.position,
-    //                        this.rotation,
-    //                        this.cardBelowID,
-    //                        this.cardAboveID,
-    //                        this.hiddenBy
-    //                        );
-
-    //}
-    //public string SpreadChangeString(bool value)
-    //{
-    //    return ChangeString(this.faceUp,
-    //                        value,
-    //                        this.position,
-    //                        this.rotation,
-    //                        this.cardBelowID,
-    //                        this.cardAboveID,
-    //                        this.hiddenBy
-    //                        );
-
-    //}
-    //public string PositionChangeString(Vector3 value)
-    //{
-    //    return ChangeString(this.faceUp,
-    //                        this.spread,
-    //                        value,
-    //                        this.rotation,
-    //                        this.cardBelowID,
-    //                        this.cardAboveID,
-    //                        this.hiddenBy
-    //                        );
-
-    //}
-    //public string RotationChangeString(Vector3 value)
-    //{
-    //    return ChangeString(this.faceUp,
-    //                          this.spread,
-    //                          this.position,
-    //                          value,
-    //                          this.cardBelowID,
-    //                          this.cardAboveID,
-    //                          this.hiddenBy
-    //                          );
-
-    //}
-    //public string BelowChangeString(string value, Vector3 pos, Vector3 rot,string new_spread = "")
-    //{
-    //    return ChangeString(this.faceUp,
-    //                          new_spread != ""? bool.Parse(new_spread): this.spread,
-    //                          pos,
-    //                          rot,
-    //                          value,
-    //                          this.cardAboveID,
-    //                          this.hiddenBy
-    //                          );
-
-    //}
-    //public string AboveChangeString(string value, string new_spread = "")
-    //{
-    //    return ChangeString(  this.faceUp,
-    //                          new_spread != "" ? bool.Parse(new_spread) : this.spread,
-    //                          this.position,
-    //                          this.rotation,
-    //                          this.cardBelowID,
-    //                          value,
-    //                          this.hiddenBy
-    //                          );
-
-    //}
-    //public string HiddenChangeString(string value)
-    //{
-        
-
-    //    return ChangeString(this.faceUp,
-    //                        this.spread,
-    //                        this.position,
-    //                        this.rotation,
-    //                        this.cardBelowID,
-    //                        this.cardAboveID,
-    //                        value);
-
-    //}
-    //internal string PositionRotationChangeOnlyString(Vector3 pos, Vector3 rot, string new_spread = "null")
-    //{
-    //    return string.Format("{0}/{1}/{2}/{3}/{4}/{5}/{6}/{7}/{8}/{9}/{10}",
-    //                          "null",
-    //                          new_spread,
-    //                          pos.x,
-    //                          pos.y,
-    //                          pos.z,
-    //                          rot.x,
-    //                          rot.y,
-    //                          rot.z,
-    //                          "null",
-    //                          "null",
-    //                          "null"
-    //                          );
-    //}
-    //internal string HeldCardPositionRotationChangeString(Vector3 position, Vector3 rotation)
-    //{
-    //    return string.Format("{0}/{1}/{2}/{3}/{4}/{5}/{6}/{7}/{8}/{9}/{10}",
-    //                          "null",
-    //                          "null",
-    //                          position.x,
-    //                          position.y,
-    //                          position.z,
-    //                          rotation.x,
-    //                          rotation.y,
-    //                          rotation.z,
-    //                          "null",
-    //                          "null",
-    //                          "null"
-    //                          );
-    //}
-    //internal string AboveBelowChangeString(string above, string below, Vector3 position, Vector3 rotation, string new_spread = "")
-    //{
-    //    return ChangeString(this.faceUp,
-    //                new_spread != "" ? bool.Parse(new_spread) : this.spread,
-    //                this.position,
-    //                this.rotation,
-    //                below,
-    //                above,
-    //                this.hiddenBy);
-    //}
-    //internal string AboveBelowFaceUpChangeString(string above, string below, bool deckFaceUp, Vector3 pos, Vector3 rot)
-    //{
-    //    return ChangeString(deckFaceUp,
-    //        this.spread,
-    //        pos,
-    //        rot,
-    //        below,
-    //        above,
-    //        this.hiddenBy);
-    //}
-
-    //public string ChangeString(bool newFaceUp,
-    //                           bool newSpread,
-    //                           Vector3 newPos,
-    //                           Vector3 newRot,
-    //                           string newBelow,
-    //                           string newAbove,
-    //                           string newHidden)
-    //{
-    //    return string.Format("{0}/{1}/{2}/{3}/{4}/{5}/{6}/{7}/{8}/{9}/{10}",
-    //                          newFaceUp,
-    //                          newSpread,
-    //                          newPos.x,
-    //                          newPos.y,
-    //                          newPos.z,
-    //                          newRot.x,
-    //                          newRot.y,
-    //                          newRot.z,
-    //                          newBelow,
-    //                          newAbove,
-    //                          newHidden
-    //                          );
-
-    //}
-
-    //internal string AboveBelowPosRotChangeString(string above, string below, Vector3 card0Pos, Vector3 card0Rot)
-    //{
-    //    return ChangeString(this.faceUp,
-    //                        this.spread,
-    //                        card0Pos,
-    //                        card0Rot,
-    //                        below,
-    //                        above,
-    //                        this.hiddenBy);
-    //}
-
-    //internal string AboveBelowFaceUpPosRotChangeString(string above, string below, bool deckFaceUp, Vector3 card0Pos, Vector3 card0Rot)
-    //{
-    //    return ChangeString(deckFaceUp,
-    //                        this.spread,
-    //                        card0Pos,
-    //                        card0Rot,
-    //                        below,
-    //                        above,
-    //                        this.hiddenBy);
-    //}
+  
 }
 
 public class NetworkCardManager : MonoBehaviour
@@ -612,8 +423,7 @@ public class NetworkCardManager : MonoBehaviour
             nextCardID = cardData.cardAboveID;
         }
         bool deckFaceUp = NetworkCardManager.Instance.networkedCards[cardNameList[cardNameList.Count - 1]].faceUp;
-        //bool deckSpread = cardManagerList[0]._spread;
-        //Vector3 deckPos = cardManagerList[0].gameObject.transform.position;
+ 
         ////sort
         cardNameList.Sort();
   
@@ -1171,9 +981,7 @@ public class NetworkCardManager : MonoBehaviour
                                                                         new_rotY: heldCardData.rotation.y.ToString(),
                                                                         new_rotZ: heldCardData.rotation.z.ToString()));
 
-        //PubNubManager.Instance.BroadcastMessage(changeData);
-
-
+ 
         this.SetHeld(bottomCardID, true);
 
         PubNubManager.Instance.BroadcastMessage(changeData);
@@ -1230,10 +1038,10 @@ public class NetworkCardManager : MonoBehaviour
         {
             return;
         }
-        //this.SetHeld(cardID, true);
-        //StickyCardManager thisCard = cardGameObjects[thisCardID].GetComponent<StickyCardManager>();
+ 
+ 
         NetworkedCardData thisCardData = networkedCards[thisCardID];
-        //StickyCardManager thatCard = cardGameObjects[thatCardID].GetComponent<StickyCardManager>();
+  
         NetworkedCardData thatCardData = networkedCards[thatCardID];
         Dictionary<string, string> changeData = new Dictionary<string, string>();
         changeData.Add("type", PubNubManager.PLAYER_HAS_CHANGED_DECK_DATA);
@@ -1290,37 +1098,7 @@ public class NetworkCardManager : MonoBehaviour
         }
     }
 
-    //internal void DropOneCardUnderneath(string thisCardID, string thatCardID)
-    //{
-    //    //NetworkedCardData thisCardData = networkedCards[thisCardID];
-    //    //NetworkedCardData thatCardData = networkedCards[thatCardID];
-    //    //Dictionary<string, string> changeData = new Dictionary<string, string>();
-    //    //changeData.Add("type", PubNubManager.PLAYER_HAS_CHANGED_DECK_DATA);
-
-    //    //string new_spread = thatCardData.spread.ToString();
-
-    //    //this.SetHeld(thisCardID, false);
-
-    //    //changeData.Add(thatCardID, thatCardData.BelowChangeString(thisCardID));
-    //    //changeData.Add(thisCardID, thisCardData.AboveBelowChangeString(thatCardID, thatCardData.cardBelowID, new_spread: new_spread));
-
-    //    //if (thisCardData.cardAboveID != "")
-    //    //{
-    //    //    NetworkedCardData aboveThisCardData = networkedCards[thisCardData.cardAboveID];
-    //    //    changeData.Add(thisCardData.cardAboveID, aboveThisCardData.BelowChangeString(""));
-    //    //    this.SetHeld(thisCardData.cardAboveID, true);
-    //    //}
-
-    //    //if (thatCardData.cardBelowID != "")
-    //    //{
-    //    //    string belowThatCardID = thatCardData.cardBelowID;
-    //    //    NetworkedCardData belowThatCardData = networkedCards[belowThatCardID];
-    //    //    changeData.Add(belowThatCardID, belowThatCardData.AboveChangeString(thisCardID));
-    //    //}
-
-
-    //    //PubNubManager.Instance.BroadcastMessage(changeData);
-    //}
+   
 
 
     internal void DropDeckOnTopOf(string deckBottomID, string deckTopID, string highlightedID)

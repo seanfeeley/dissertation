@@ -193,22 +193,7 @@ public class PubNubManager : MonoBehaviour
                     BroadcastDeck();
                 }
                 break;
-            //case HOST_DECK:
-            //    Debug.Log("HOST_DECK");
-            //    // only react to hosty broadcasts changes if I am NOT the host
-            //    //if (!MultiplayerNetworkingManager.Instance.AmIHost())
-            //    //{
-            //    this.ProcessDeckData(message_payload);
-            //    //}
-            //    break;
-            //case HOST_HIGHLIGHTS:
-            //    Debug.Log("HOST_HIGHLIGHTS");
-            //    // only react to hosty broadcasts changes if I am NOT the host
-            //    //if (!MultiplayerNetworkingManager.Instance.AmIHost())
-            //    //{
-            //    this.ProcessDeckHighlights(message_payload);
-            //    //}
-            //    break;
+ 
             default:
                 // code block
                 break;
@@ -247,8 +232,7 @@ public class PubNubManager : MonoBehaviour
 
     private void ProcessPlayerDeckChange(Dictionary<string, object> message_payload)
     {
-        //Debug.Log("============================");
-        //Debug.Log("CARD DATA CHANGING");
+ 
 
         foreach (string cardId in message_payload.Keys)
         {
@@ -256,29 +240,15 @@ public class PubNubManager : MonoBehaviour
             {
                 NetworkedCardData cardData = NetworkCardManager.Instance.networkedCards[cardId];
 
-                //Debug.Log("============================");
-
-                //Debug.Log("CARD DATA CHANGING: "+ cardId);
-                //Debug.Log("change string: " + (string)message_payload[cardId]);
-                //Debug.Log("before: " + cardData.ToNetworkString());
+ 
                 cardData.fromNetworkString((string)message_payload[cardId]);
-                //Debug.Log(cardId +" : " + cardData.ToNetworkString());
-                //Debug.Log("CARD DATA CHANGING: "+ cardId);
-                //NetworkCardManager.Instance.printy();
+ 
 
 
             }
         }
     }
-
-    //private void ProcessDeckData(Dictionary<string, object> message_payload)
-    //{
-    //    foreach (string cardId in NetworkCardManager.Instance.networkedCards.Keys)
-    //    {
-    //        NetworkCardManager.Instance.networkedCards[cardId].fromNetworkString((string)message_payload[cardId]);
-    //        //Debug.Log((string)message_payload[cardId] + CardDeckManager.Instance.networkedCards[cardId].position.ToString());
-    //    }
-    //}
+ 
 
     private void ProcessPlayerPos(Dictionary<string, object> message_payload)
     {
@@ -289,44 +259,7 @@ public class PubNubManager : MonoBehaviour
         MultiplayerNetworkingManager.Instance.OnPeerPoseReceived(player_uid, pos, rot, name);
     }
 
-    //public void BroadcastChanges()
-    //{
-
-    //    while (NetworkCardManager.Instance.networkedCardDataChanges.Count != 0)
-    //    {
-    //        Dictionary<string, string> changeData = NetworkCardManager.Instance.networkedCardDataChanges.Dequeue();
-    //        Dictionary<string, object> message = new Dictionary<string, object>();
-    //        message.Add("type", PLAYER_HAS_CHANGED_DECK_DATA);
-    //        //Dictionary<string, NetworkedCardData>() networkedCards = ;
-    //        foreach (string cardId in changeData.Keys)
-    //        {
-    //            message.Add(cardId, changeData[cardId]);
-    //        }
-    //        this._PostMessage(message);
-
-    //    }
-
-    //    ////Debug.Log("BroadcastDeck");
-    //    //Dictionary<string, object> message = new Dictionary<string, object>();
-    //}
-
-    //internal void BroadcastHighlightChanges()
-    //{
-
-    //    while (NetworkCardManager.Instance.networkedCardHightlightChanges.Count != 0)
-    //    {
-    //        Dictionary<string, string> changeData = NetworkCardManager.Instance.networkedCardHightlightChanges.Dequeue();
-    //        Dictionary<string, object> message = new Dictionary<string, object>();
-    //        message.Add("type", PLAYER_HIGHLIGHT_CHANGE);
-    //        //Dictionary<string, NetworkedCardData>() networkedCards = ;
-    //        foreach (string cardId in changeData.Keys)
-    //        {
-    //            message.Add(cardId, changeData[cardId]);
-    //        }
-    //        this._PostMessage(message);
-
-    //    }
-    //}
+ 
 
     public void BroadcastDeck()
     {
@@ -370,19 +303,7 @@ public class PubNubManager : MonoBehaviour
         this.HeldChangeData = null;
     }
 
-
-    //private void BroadcastHighlights()
-    //{
-    //    Debug.Log("BroadcastHighlights");
-    //    Dictionary<string, object> message = new Dictionary<string, object>();
-    //    message.Add("type", HOST_HIGHLIGHTS);
-    //    //Dictionary<string, NetworkedCardData>() networkedCards = ;
-    //    foreach (string userID in NetworkCardManager.Instance.networkedCardHighlights.Keys)
-    //    {
-    //        message.Add(userID, NetworkCardManager.Instance.networkedCardHighlights[userID]);
-    //    }
-    //    this._PostMessage(message);
-    //}
+ 
 
     public void BroadcastPosition()
     {

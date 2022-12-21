@@ -10,9 +10,6 @@ public class StickyCardManager : MonoBehaviour
     public string cardID = "";
 
     public GameObject cursor;
-    //public bool selected = false;
-    //public bool stickySelected = false;
-    //public bool highlighted = false;
     public bool stickyHighlighted = false;
     
     public bool inHiddenZone = false;
@@ -150,41 +147,7 @@ public class StickyCardManager : MonoBehaviour
             return NetworkCardManager.Instance.GetBelow(cardID); ;
 
         }   // get method
-        //set {
-        //    GameObject _old_below = _below;
-        //    GameObject _new_below = value;
-        //    if (_old_below)
-        //    {
-        //        StickyCardManager _old_below_manager = GetStickyCardManager(_old_below);
-        //        _old_below_manager._above = null;
-        //        if (_old_below_manager.CountAbove() == 1){
-        //            _old_below_manager._spread = false;
-        //        }
-
-
-
-        //    }
-        //    if (_new_below)
-        //    {
-        //        GameObject previously_above_new_below = GetStickyCardManager(_new_below)._above;
-        //        if (previously_above_new_below)
-        //        {
-
-        //            // we are inserting into the middle of a deck of cards
-        //            // so change the card above
-
-        //            GetStickyCardManager(previously_above_new_below)._below = GetTopCard();
-        //            _above = previously_above_new_below;
-        //        }
-
-        //    }
-        //    // and change the card below
-        //    _below = _new_below;
-        //    if (_below)
-        //    {
-        //        GetStickyCardManager(_below)._above = gameObject;
-        //    }
-        //}  // set method
+ 
     }
 
 
@@ -198,10 +161,7 @@ public class StickyCardManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //if (Below != null)
-        //{
-        //    GetStickyCardManager(_below)._above = gameObject;
-        //}
+
         InvokeRepeating("UpdateCardInfo", 1.0f, .50f);
     }
 
@@ -372,73 +332,7 @@ public class StickyCardManager : MonoBehaviour
         this.stickyHighlighted = this.IsStickyHighlighted();
     }
 
-    internal void DropOnTopOf(GameObject anotherCard)
-    {
-        //selected = false;
-        //cursor = null;
-        //GameObject _old_below = _below;
-        //GameObject _new_below = anotherCard;
-        //if (_old_below)
-        //{
-        //    StickyCardManager _old_below_manager = GetStickyCardManager(_old_below);
-        //    _old_below_manager._above = null;
-        //}
-        //if (_new_below)
-        //{
-        //    GameObject previously_above_new_below = GetStickyCardManager(_new_below)._above;
-        //    if (previously_above_new_below)
-        //    {
-        //        // we are inserting into the middle of a deck of cards
-        //        // so change the card above
-        //        GetStickyCardManager(previously_above_new_below)._below = GetTopCard();
-        //        _above = previously_above_new_below;
-        //    }
-        //}
-        //// and change the card below
-        //_below = _new_below;
-        //if (_below)
-        //{
-        //    GetStickyCardManager(_below)._above = gameObject;
-        //}
 
-    }
-
-    internal void DropUnderneath(GameObject anotherCard)
-    {
-        //selected = false;
-        //cursor = null;
-        //GameObject _old_above = _above;
-        //GameObject _new_above = anotherCard;
-        //if (_old_above)
-        //{
-        //    StickyCardManager _old_above_manager = GetStickyCardManager(_old_above);
-        //    _old_above_manager._above = null;
-        //}
-        //if (_new_above)
-        //{
-        //    GameObject previously_below_new_above = GetStickyCardManager(_new_above)._below;
-        //    if (previously_below_new_above)
-        //    {                
-        //        GetStickyCardManager(previously_below_new_above)._above = gameObject;
-        //        _below = previously_below_new_above;
-        //    }
-        //}
-        //// and change the card below
-        //_above = _new_above;
-        //Spread = GetStickyCardManager(_above).Spread;
-        //transform.eulerAngles = _above.transform.eulerAngles;
-        //transform.position = _above.transform.position;
-        //if (_above)
-        //{
-        //    GetStickyCardManager(_above)._below = gameObject;
-        //}
-    }
-
-    internal void DropOntoTable()
-    {
-        //selected = false;
-        //cursor = null;
-    }
 
     private bool IsStickyHighlighted()
     {
@@ -470,40 +364,7 @@ public class StickyCardManager : MonoBehaviour
         }
     }
 
-    internal void SinglePickUp(GameObject playerCursor)
-    {
-        //cursor = playerCursor;
-        //selected = true;
-        //bool currentlySpread = this.Spread;
-        //this._spread = false;
-        //if (Above && Below){
-        //    GetStickyCardManager(_below)._above = _above;
-        //    GetStickyCardManager(_above)._below = _below;
-        //}
-        //else if (_below)
-        //{
-        //    GetStickyCardManager(_below)._above = null;
-        //    if(GetStickyCardManager(_below).CountAbove() == 1)
-        //    {
-        //        GetStickyCardManager(_below)._spread = false;
-        //    }
-        //}
-        //else if (_above)
-        //{
-            
-        //    GetStickyCardManager(_above)._below = null;
-        //    if (GetStickyCardManager(_above).CountAbove() == 1)
-        //    {
-        //        GetStickyCardManager(_above)._spread = false;
-        //    }
-        //    else
-        //    {
-        //        GetStickyCardManager(_above).Spread = currentlySpread;
-        //    }
-        //}
-        //_below = null;
-        //_above = null;
-    }
+
 
     public void UpdateTransform()
     { 
@@ -534,130 +395,9 @@ public class StickyCardManager : MonoBehaviour
 
     }
 
-    internal void FlipDeck()
-    {
-        //List<StickyCardManager> cardManagerList = new List<StickyCardManager>();
-        //StickyCardManager cardManager = this;
-
-        //// put the card managers into a list 
-        //while (cardManager != null)
-        //{
-        //    cardManagerList.Add(cardManager);
-        //    if (cardManager._above)
-        //    {
-        //        cardManager = GetStickyCardManager(cardManager._above);
-        //    }
-        //    else
-        //    {
-        //        cardManager = null;
-        //    }
-        //}
-        //bool deckFaceUp = !cardManagerList[cardManagerList.Count - 1].FaceUp;
-        //bool deckSpread = cardManagerList[0]._spread;
-
-        //// re-order the card managers
-        //for (int c = 0; c < cardManagerList.Count; c++)
-        //{
-        //    StickyCardManager currentCardManager = cardManagerList[c];
-        //    currentCardManager.FaceUp = deckFaceUp;
-        //    if (c == 0)
-        //    {
-        //        currentCardManager._above = null;
-        //        currentCardManager._below = cardManagerList[c + 1].gameObject;
-        //    }
-        //    else if (c == cardManagerList.Count - 1)
-        //    {
-        //        currentCardManager._above = cardManagerList[c - 1].gameObject;
-        //        currentCardManager._spread = deckSpread;
-        //        currentCardManager._below = null;
-        //        currentCardManager.gameObject.transform.position = cardManagerList[0].gameObject.transform.position;
-        //    }
-        //    else
-        //    {
-        //        currentCardManager._above = cardManagerList[c - 1].gameObject;
-        //        currentCardManager._below = cardManagerList[c + 1].gameObject;
-
-        //    }
-        //}
-    }
+  
 
 
-
-    internal void ShuffleDeck()
-    {
-        //List<StickyCardManager> cardManagerList = new List<StickyCardManager>();
-        //StickyCardManager cardManager = this;
-
-        //// put the card managers into a list 
-        //while (cardManager != null)
-        //{
-        //    cardManagerList.Add(cardManager);
-        //    if (cardManager._above)
-        //    {
-        //        cardManager = GetStickyCardManager(cardManager._above);
-        //    }
-        //    else
-        //    {
-        //        cardManager = null;
-        //    }
-        //}
-        //bool deckFaceUp = cardManagerList[cardManagerList.Count - 1].FaceUp;
-        //bool deckSpread = cardManagerList[0]._spread;
-        //Vector3 deckPos = cardManagerList[0].gameObject.transform.position;
-        ////shuffle
-        //int n = cardManagerList.Count;
-        //while (n > 1)
-        //{
-        //    n--;
-        //    int k = rng.Next(n + 1);
-        //    StickyCardManager value = cardManagerList[k];
-        //    cardManagerList[k] = cardManagerList[n];
-        //    cardManagerList[n] = value;
-        //}
-
-
-        //// order the card manager stacking
-        //for (int c = 0; c < cardManagerList.Count; c++)
-        //{
-        //    StickyCardManager currentCardManager = cardManagerList[c];
-        //    currentCardManager.FaceUp = deckFaceUp;
-        //    if (c == 0)
-        //    {
-        //        currentCardManager._above = null;
-        //        currentCardManager._below = cardManagerList[c + 1].gameObject;
-        //    }
-        //    else if (c == cardManagerList.Count - 1)
-        //    {
-        //        currentCardManager._above = cardManagerList[c - 1].gameObject;
-        //        currentCardManager._spread = deckSpread;
-        //        currentCardManager._below = null;
-        //        currentCardManager.gameObject.transform.position = deckPos;
-        //    }
-        //    else
-        //    {
-        //        currentCardManager._above = cardManagerList[c - 1].gameObject;
-        //        currentCardManager._below = cardManagerList[c + 1].gameObject;
-
-        //    }
-        //}
-    }
-
-    internal void DeckPickUp(GameObject playerCursor)
-    {
-        //cursor = playerCursor;
-        //selected = true;
-        //if (_below)
-        //{
-        //    GetStickyCardManager(_below)._above = null;
-
-        //    if (GetStickyCardManager(_below).CountAbove() == 1)
-        //    {
-        //        GetStickyCardManager(_below)._spread = false;
-        //    }
-        //}
-        //_below = null;
-        //_spread = false;
-    }
 
     private void UpdateSelectedCardPosition()
     {
@@ -700,14 +440,7 @@ public class StickyCardManager : MonoBehaviour
 
     }
 
-    internal void MagnetSingle(GameObject tableCard)
-    {
-        //GetStickyCardManager(tableCard).SinglePickUp(cursor);
-        //selected = false;
-        //_below = tableCard;
-        //GetStickyCardManager(_below)._above = gameObject;
-        //GetStickyCardManager(GetBottomCard()).Spread = false;
-    }
+ 
 
     private void UpdateSpreadPosition()
     {
@@ -725,14 +458,7 @@ public class StickyCardManager : MonoBehaviour
 
     }
 
-    internal void MagnetDeck(GameObject tableCard)
-    {
-        //GetStickyCardManager(tableCard).DeckPickUp(cursor);
-        //selected = false;
-        //_below = GetStickyCardManager(tableCard).GetTopCard();
-        //GetStickyCardManager(_below)._above = gameObject;
-        //GetStickyCardManager(GetBottomCard()).Spread = false;
-    }
+  
 
     private void UpdateCardFace() {
         Vector3 CardScale = Vector3.one;

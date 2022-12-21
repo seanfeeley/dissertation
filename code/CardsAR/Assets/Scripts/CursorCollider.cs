@@ -26,9 +26,6 @@ public class CursorCollider : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("CardCollider"))
 
         {
-
-           
-
             other.GetComponent<CursorTracker>().UnderCursor = true;
             Vector3 p = other.ClosestPoint(gameObject.transform.position);
             Debug.DrawLine(other.bounds.center,
